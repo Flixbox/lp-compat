@@ -8,6 +8,9 @@ jobs:
       - run: git config --global user.email "github-actions@example.com"
       - run: git config --global user.name "GitHub Actions"
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - run: npm install
       - uses: redkubes/docusaurus-deploy-action@v1
         with:
