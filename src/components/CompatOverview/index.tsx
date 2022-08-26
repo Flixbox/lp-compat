@@ -14,6 +14,15 @@ import {
   useTheme,
 } from "@mui/material";
 
+/*
+ * TODO
+ * Add hall of fame / categories
+ * Add tags / genres
+ * Font formatting / make title bigger
+ * Margins
+ * Add more apps
+ */
+
 export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
 
