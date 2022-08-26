@@ -12,3 +12,4 @@ jobs:
       - uses: redkubes/docusaurus-deploy-action@v1
         with:
           git-user: Flixbox
+          source-folder: .
