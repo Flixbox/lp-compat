@@ -3,11 +3,12 @@ on: [push]
 jobs:
   Build_and_Deploy:
     runs-on: ubuntu-latest
-    env:
-      USE_SSH: false
+
     steps:
       - run: git config --global user.email "github-actions@example.com"
       - run: git config --global user.name "GitHub Actions"
       - uses: actions/checkout@v3
       - run: npm install
-      - run: npm run deploy
+      - uses: redkubes/docusaurus-deploy-action@v1
+        with:
+          git-user: Flixbox
