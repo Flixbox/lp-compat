@@ -4,5 +4,6 @@ jobs:
   Build_and_Deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: npm install
       - run: docusaurus deploy
