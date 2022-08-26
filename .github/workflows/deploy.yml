@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - uses: redkubes/docusaurus-deploy-action@v1
+      - uses: redkubes/docusaurus-deploy-action@v1.2
         with:
           git-user: Flixbox
           source-folder: .
