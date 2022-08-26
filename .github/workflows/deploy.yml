@@ -1,7 +1,7 @@
 name: Build & Deploy 🚀
 on: [push]
 jobs:
-  Build & Deploy 🚀:
+  Build and Deploy:
     runs-on: ubuntu-latest
     steps:
       - run: npm install
