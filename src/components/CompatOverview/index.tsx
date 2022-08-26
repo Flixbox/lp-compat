@@ -3,7 +3,14 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import apps from "../../../static/compat-data/apps.json";
 import playstore from "../../../static/compat-data/playstore.json";
-import { Card, Typography, CardContent, Grid, Avatar } from "@mui/material";
+import {
+  Card,
+  Typography,
+  CardContent,
+  Grid,
+  Avatar,
+  Box,
+} from "@mui/material";
 
 export default function CompatOverview(): JSX.Element {
   return (
@@ -17,8 +24,13 @@ export default function CompatOverview(): JSX.Element {
                 <Grid item margin={1}>
                   <Card>
                     <CardContent>
-                      <Avatar src={icon} variant="square"></Avatar>
-                      <Typography>{appId}</Typography>
+                      <Box display="flex">
+                        <Avatar src={icon} variant="square"></Avatar>
+                        <Box display="flex" flexDirection="column">
+                          <Typography variant="subtitle2">{title}</Typography>
+                          <Typography variant="subtitle2">{appId}</Typography>
+                        </Box>
+                      </Box>
                       {iap}
                     </CardContent>
                   </Card>
