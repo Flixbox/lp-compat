@@ -23,7 +23,7 @@ export default function CompatOverview(): JSX.Element {
         <div className="row">
           <Grid container>
             {Object.entries(apps).map(([appId, data]) => {
-              return <AppTile appId={appId} {...data} />;
+              return <AppTile appId={appId} key={appId} />;
             })}
           </Grid>
         </div>
@@ -32,22 +32,16 @@ export default function CompatOverview(): JSX.Element {
   );
 }
 
-const AppTile = ({ appId, iap }) => {
+const AppTile = ({ appId }) => {
   const theme = useTheme();
-  const { title, icon } = playstore[appId];
+  const { iap } = apps[appId];
+  const { title, icon, installs, scoreText } = playstore[appId];
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
   const iapText = iap ? "IAP patch works!" : "IAP incompatible";
   return (
     <Grid item margin={1}>
       <Card>
         <CardContent>
-          <Box display="flex">
-            <Avatar src={icon} variant="square"></Avatar>
-            <Box display="flex" flexDirection="column">
-              <Typography variant="subtitle2">{title}</Typography>
-              <Typography variant="subtitle2">{appId}</Typography>
-            </Box>
-          </Box>
           <Paper
             component={Box}
             elevation={0}
@@ -58,6 +52,17 @@ const AppTile = ({ appId, iap }) => {
               {iapText}
             </Typography>
           </Paper>
+          <Box display="flex">
+            <Avatar src={icon} variant="square"></Avatar>
+            <Box display="flex" flexDirection="column">
+              <Typography variant="subtitle2">{title}</Typography>
+              <Typography variant="subtitle2">{appId}</Typography>
+            </Box>
+          </Box>
+          <Box display="flex" justifyContent="space-between">
+            <Typography>⭐{scoreText}</Typography>
+            <Typography>📩 {installs}</Typography>
+          </Box>
         </CardContent>
       </Card>
     </Grid>
