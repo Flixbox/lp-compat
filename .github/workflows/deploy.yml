@@ -3,16 +3,16 @@ on: [push]
 jobs:
   Build_and_Deploy:
     runs-on: ubuntu-latest
+    env:
+      USE_SSH: false
+      GIT_USER: Flixkatz
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - run: git config --global user.email "github-actions@example.com"
       - run: git config --global user.name "GitHub Actions"
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
       - run: npm install
-      - uses: redkubes/docusaurus-deploy-action@v1.2
+      - uses: redkubes/docusaurus-deploy-action@v1
         with:
           git-user: Flixbox
-          source-folder: .

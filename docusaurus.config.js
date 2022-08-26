@@ -7,12 +7,17 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "LP Compatibility",
-  tagline: "Everything about Lucky patcher and its compatibility with various apps",
-  url: "https://your-docusaurus-test-site.com",
+  tagline:
+    "Everything about Lucky patcher and its compatibility with various apps",
+  url: "https://flixbox.github.io/lp-compat/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
+
+  projectName: "flixbox.github.io/lp-compat",
+  organizationName: "Flixbox",
+  trailingSlash: false,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
