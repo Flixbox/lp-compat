@@ -1,7 +1,7 @@
 import gplay from "google-play-scraper";
 import { writeFileSync } from "fs";
 import apps from "../static/compat-data/apps.json";
-// import playstore from "../static/compat-data/apps.json";
+// import playstore from "../static/compat-data/playstore.json";
 
 const fetchData = async () => {
   const playstore = {};
