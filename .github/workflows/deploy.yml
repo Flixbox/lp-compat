@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm install
-      - run: docusaurus deploy
+      - run: npm run deploy
