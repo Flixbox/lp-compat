@@ -10,9 +10,13 @@ import {
   Grid,
   Avatar,
   Box,
+  Paper,
+  useTheme,
 } from "@mui/material";
 
 export default function CompatOverview(): JSX.Element {
+  const theme = useTheme();
+  console.log(theme);
   return (
     <section className={styles.features}>
       <div className="container">
@@ -20,6 +24,10 @@ export default function CompatOverview(): JSX.Element {
           <Grid container>
             {Object.entries(apps).map(([appId, { iap }]) => {
               const { title, icon } = playstore[appId];
+              const iapColor = iap
+                ? theme.palette.success.main
+                : theme.palette.error.main;
+              const iapText = iap ? "IAP patch works!" : "IAP incompatible";
               return (
                 <Grid item margin={1}>
                   <Card>
@@ -31,7 +39,18 @@ export default function CompatOverview(): JSX.Element {
                           <Typography variant="subtitle2">{appId}</Typography>
                         </Box>
                       </Box>
-                      {iap}
+                      <Paper
+                        component={Box}
+                        elevation={0}
+                        padding={0.5}
+                        sx={{ backgroundColor: iapColor }}
+                      >
+                        <Typography
+                          color={theme.palette.getContrastText(iapColor)}
+                        >
+                          {iapText}
+                        </Typography>
+                      </Paper>
                     </CardContent>
                   </Card>
                 </Grid>
