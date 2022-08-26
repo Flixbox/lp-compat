@@ -1,0 +1,8 @@
+name: Build & Deploy 🚀
+on: [push]
+jobs:
+  Build & Deploy 🚀:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+      - run: docusaurus deploy
