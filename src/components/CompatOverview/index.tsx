@@ -49,7 +49,7 @@ const AppTile = ({ appId }) => {
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
   const iapText = iap ? "IAP patch works!" : "IAP incompatible";
   return (
-    <Grid item margin={1}>
+    <Grid item margin={1} xs={12} sm="auto">
       <a href={url}>
         <Card>
           <CardContent sx={{ padding: "8px" }}>
