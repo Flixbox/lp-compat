@@ -64,7 +64,7 @@ export default function CompatOverview(): JSX.Element {
 const AppTile = ({ appId }) => {
   const theme = useTheme();
   const { iap } = apps[appId];
-  const { title, icon, installs, scoreText, url, genre } = playstore[appId];
+  const { title, icon, installs, scoreText, url, genre,screenshots } = playstore[appId];
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
   const iapText = iap ? "IAP patch works!" : "IAP incompatible";
   return (
@@ -74,7 +74,7 @@ const AppTile = ({ appId }) => {
           <CardMedia
             component="img"
             height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={screenshots
             alt="green iguana"
           />
           <CardContent sx={{ padding: "8px" }}>
