@@ -2,46 +2,42 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Patching an app
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Set up Lucky Patcher
 
-## Getting Started
+Follow the tutorial on the official website. Make sure to give LP the "Draw over other apps" permission in the app's settings.
 
-Get started by **creating a new site**.
+## Create the modified APK file
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Follow these screenshots to create your modified APK file. Read any pop-ups you may come across and try to follow their advice, but don't worry too much about them.
 
-### What you'll need
+First, open Lucky Patcher and tap the app you'd like to modify.
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+On this screen, tap the "APK with multi patch" option. We'd like to apply two patch categories: The ad-free and the IAP patches.
 
-## Generate a new site
+![](/img/create_modified_apk.jpg)
 
-Generate a new Docusaurus site using the **classic template**.
+![](/img/rebuild_categories_selection.jpg)
 
-The classic template will automatically be added to your project after you run the command:
+Apply some patches.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+![](/img/ad_patches.jpg)
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+![](/img/iap_patches.jpg)
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Reinstall the app
 
-## Start your site
+If you reinstall (uninstall the original app and install the patched one) you will no longer be able to use Google features like Google Play sign-in in that app anymore. However, some patchable apps like Merge Dragons and City Island 5 feature Facebook sign-in, which will usually work.
 
-Run the development server:
+Since Android will usually prevent us from installing the patched APK as an update, we'll have to reinstall the app.
 
-```bash
-cd my-website
-npm run start
-```
+## Cleanup
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+You'll also be able to find the patched APK files in LP under the "Rebuild & Install" option in the menu. If you'd like to clean up some storage, remove these APK files manually.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+You can also clean up all of your patched APK files at once. Go to your stock file manager (it needs elevated access, the stock file manager usually has elevated access), then go to this path:
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+`/Android/data/ru.<random letters>.<random letters>/files/LuckyPatcher/Modified`
+
+You can delete everything in this `Modified` folder. It only contains your patched APKs and some metadata.
