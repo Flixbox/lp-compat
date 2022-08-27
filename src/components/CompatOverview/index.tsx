@@ -55,6 +55,12 @@ export default function CompatOverview(): JSX.Element {
               </Link>{" "}
               only.
             </Typography>
+
+            <Typography>
+              Check out the{" "}
+              <Link href="/docs/honorable-mentions">honorable mentions</Link>{" "}
+              too!
+            </Typography>
           </Box>
         </div>
         <div className="row">
@@ -109,7 +115,7 @@ const AppTile = ({ appId }) => {
       color: theme.palette.info.main,
     },
     multiplayer: {
-      label: "Multiplayer compatible with patch",
+      label: "Multiplayer compatible with default patch",
       color: theme.palette.primary.main,
     },
   };
