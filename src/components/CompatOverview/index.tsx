@@ -21,6 +21,16 @@ import Link from "@docusaurus/Link";
  * Add more apps
  */
 
+type AppInfo = {
+  string: {
+    iap: number;
+    category?: string;
+    features?: [];
+  };
+};
+
+const appInfo = apps as unknown as AppInfo;
+
 export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
 
@@ -50,7 +60,7 @@ export default function CompatOverview(): JSX.Element {
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
           <Grid container>
-            {Object.entries(apps).map(([appId, { category }]) => {
+            {Object.entries(appInfo).map(([appId, { category }]) => {
               if (category === "hof")
                 return <AppTile appId={appId} key={appId} />;
             })}
@@ -59,7 +69,7 @@ export default function CompatOverview(): JSX.Element {
         <div className="row">
           <Typography variant="h3">Other apps</Typography>
           <Grid container>
-            {Object.entries(apps).map(([appId, { category }]) => {
+            {Object.entries(appInfo).map(([appId, { category }]) => {
               if (category !== "hof")
                 return <AppTile appId={appId} key={appId} />;
             })}
@@ -72,7 +82,7 @@ export default function CompatOverview(): JSX.Element {
 
 const AppTile = ({ appId }) => {
   const theme = useTheme();
-  const { iap } = apps[appId];
+  const { iap, features } = appInfo[appId];
   const { title, icon, installs, scoreText, url, genre, screenshots } =
     playstore[appId];
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
@@ -93,6 +103,20 @@ const AppTile = ({ appId }) => {
                 {iapText}
               </Typography>
             </Paper>
+            {features && features.includes("facebook-login") && (
+              <Paper
+                component={Box}
+                elevation={0}
+                padding={0.5}
+                sx={{ backgroundColor: theme.palette.info.main }}
+              >
+                <Typography
+                  color={theme.palette.getContrastText(theme.palette.info.main)}
+                >
+                  Facebook login works!
+                </Typography>
+              </Paper>
+            )}
             <Box display="flex" mt={1}>
               <Avatar
                 src={icon}
