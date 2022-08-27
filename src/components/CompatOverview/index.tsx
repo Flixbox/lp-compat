@@ -12,9 +12,9 @@ import {
   Box,
   Paper,
   useTheme,
-  Link,
-  CardMedia
+  CardMedia,
 } from "@mui/material";
+import Link from "@docusaurus/Link";
 
 /*
  * TODO
@@ -28,15 +28,24 @@ export default function CompatOverview(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          <Typography>
-            Anything missing? Create an{" "}
-            <Link href="https://github.com/Flixbox/lp-compat/issues">
-              issue
-            </Link>{" "}
-            or post on the{" "}
-            <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
-          </Typography>
-          <Typography>All apps are patched using no root and the default IAP and Adblock patches only.</Typography>
+          <Box>
+            <Typography>
+              Anything missing? Create an{" "}
+              <Link href="https://github.com/Flixbox/lp-compat/issues">
+                issue
+              </Link>{" "}
+              or post on the{" "}
+              <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
+            </Typography>
+
+            <Typography>
+              All apps are patched using no root and{" "}
+              <Link href="/docs/intro">
+                the default IAP and Adblock patches
+              </Link>{" "}
+              only.
+            </Typography>
+          </Box>
         </div>
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
@@ -64,19 +73,15 @@ export default function CompatOverview(): JSX.Element {
 const AppTile = ({ appId }) => {
   const theme = useTheme();
   const { iap } = apps[appId];
-  const { title, icon, installs, scoreText, url, genre,screenshots } = playstore[appId];
+  const { title, icon, installs, scoreText, url, genre, screenshots } =
+    playstore[appId];
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
   const iapText = iap ? "IAP patch works!" : "IAP incompatible";
   return (
     <Grid item margin={1} xs={12} sm="auto">
       <a href={url}>
         <Card>
-          <CardMedia
-            component="img"
-            height="140"
-            image={screenshots[0]}
-           
-          />
+          <CardMedia component="img" height="140" image={screenshots[0]} />
           <CardContent sx={{ padding: "8px" }}>
             <Paper
               component={Box}
