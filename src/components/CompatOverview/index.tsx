@@ -95,7 +95,7 @@ export default function CompatOverview(): JSX.Element {
   );
 }
 
-const AppTile = ({ appId }: { appId: keyof AppInfo }) => {
+const AppTile = ({ appId }: { appId: string }) => {
   const theme = useTheme();
   const { iap, features } = appInfo[appId];
   const { title, icon, installs, scoreText, url, genre, screenshots } =
