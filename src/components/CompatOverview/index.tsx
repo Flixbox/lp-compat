@@ -25,7 +25,7 @@ type AppInfo = {
   string: {
     iap: number;
     category?: string;
-    features?: [];
+    features?: string[];
   };
 };
 
@@ -69,8 +69,17 @@ export default function CompatOverview(): JSX.Element {
         <div className="row">
           <Typography variant="h3">Other apps</Typography>
           <Grid container>
-            {Object.entries(appInfo).map(([appId, { category }]) => {
-              if (category !== "hof")
+            {Object.entries(appInfo).map(([appId, { category, features }]) => {
+              if (category !== "hof" && features.indexOf("iap") > -1)
+                return <AppTile appId={appId} key={appId} />;
+            })}
+          </Grid>
+        </div>
+        <div className="row">
+          <Typography variant="h3">Incompatible apps</Typography>
+          <Grid container>
+            {Object.entries(appInfo).map(([appId, { category, features }]) => {
+              if (features.indexOf("iap") === -1)
                 return <AppTile appId={appId} key={appId} />;
             })}
           </Grid>
@@ -85,8 +94,6 @@ const AppTile = ({ appId }) => {
   const { iap, features } = appInfo[appId];
   const { title, icon, installs, scoreText, url, genre, screenshots } =
     playstore[appId];
-  const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
-  const iapText = iap ? "IAP patch works!" : "IAP incompatible";
 
   const featureMap = {
     iap: {

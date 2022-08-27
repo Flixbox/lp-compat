@@ -8,9 +8,14 @@ const fetchData = async () => {
 
   for (const appId in apps) {
     // console.log(`${app}: ${apps[app]}`);
-    const result = await gplay.app({ appId });
-    playstore[appId] = result;
-    await new Promise((f) => setTimeout(f, 300));
+    try {
+      const result = await gplay.app({ appId });
+      playstore[appId] = result;
+      await new Promise((f) => setTimeout(f, 300));
+    } catch (e) {
+      console.error("App not found: ", appId);
+      console.error(e);
+    }
   }
 
   console.log(playstore);
