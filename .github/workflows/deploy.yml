@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       USE_SSH: false
-      GIT_USER: Flixkatz
+      GIT_USER: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
