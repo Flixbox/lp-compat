@@ -19,5 +19,11 @@
   },
   "com.pixio.google.mtd": {
     "iap": 1
+  },
+  "com.Wind.wings.Space.Shooter": {
+    "iap": 1
+  },
+  "com.Gcenter.DefenselegendX.TowerDefense.TD": {
+    "iap": 1
   }
 }
