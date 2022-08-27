@@ -45,36 +45,43 @@ export default function CompatOverview(): JSX.Element {
 const AppTile = ({ appId }) => {
   const theme = useTheme();
   const { iap } = apps[appId];
-  const { title, icon, installs, scoreText } = playstore[appId];
+  const { title, icon, installs, scoreText, url, genre } = playstore[appId];
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
   const iapText = iap ? "IAP patch works!" : "IAP incompatible";
   return (
     <Grid item margin={1}>
-      <Card>
-        <CardContent>
-          <Paper
-            component={Box}
-            elevation={0}
-            padding={0.5}
-            sx={{ backgroundColor: iapColor }}
-          >
-            <Typography color={theme.palette.getContrastText(iapColor)}>
-              {iapText}
-            </Typography>
-          </Paper>
-          <Box display="flex">
-            <Avatar src={icon} variant="square"></Avatar>
-            <Box display="flex" flexDirection="column">
-              <Typography variant="subtitle2">{title}</Typography>
-              <Typography variant="subtitle2">{appId}</Typography>
+      <a href={url}>
+        <Card>
+          <CardContent sx={{ padding: "8px" }}>
+            <Paper
+              component={Box}
+              elevation={0}
+              padding={0.5}
+              sx={{ backgroundColor: iapColor }}
+            >
+              <Typography color={theme.palette.getContrastText(iapColor)}>
+                {iapText}
+              </Typography>
+            </Paper>
+            <Box display="flex" mt={1}>
+              <Avatar
+                src={icon}
+                variant="square"
+                sx={{ marginRight: 1 }}
+              ></Avatar>
+              <Box display="flex" flexDirection="column">
+                <Typography>{title}</Typography>
+                <Typography variant="subtitle2">{appId}</Typography>
+              </Box>
             </Box>
-          </Box>
-          <Box display="flex" justifyContent="space-between">
-            <Typography>⭐{scoreText}</Typography>
-            <Typography>📩 {installs}</Typography>
-          </Box>
-        </CardContent>
-      </Card>
+            <Box display="flex" justifyContent="space-between">
+              <Typography>⭐{scoreText}</Typography>
+              <Typography>📩 {installs}</Typography>
+            </Box>
+            <Typography>{genre}</Typography>
+          </CardContent>
+        </Card>
+      </a>
     </Grid>
   );
 };
