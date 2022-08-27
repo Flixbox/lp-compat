@@ -1,65 +1,64 @@
 {
   "uk.fiveaces.nsfc": {
-    "iap": 1
+    "features": ["iap"]
   },
   "com.pixelbite.xwt": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.pixelbite.mutant": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.noxgames.hex.civ.strategy": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.noxgames.mage.hero": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.gonzossm.sttt": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.pixio.google.mtd": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.Wind.wings.Space.Shooter": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.Gcenter.DefenselegendX.TowerDefense.TD": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.alexanderwinn.landfall": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.armorgames.voidtyrant": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.gcenter.kingofdefense.battle.frontier.td": {
-    "iap": 1
+    "features": ["iap"]
   },
   "com.Gcenter.KingofDefense2.epic.towerdefense": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.lemonjamstudio.infiniteknights": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.yodo1.rodeo.safari": {
-    "iap": 1,
+    "features": ["iap"],
     "category": "hof"
   },
   "com.sparklingsociety.cityisland5": {
-    "iap": 1,
     "category": "hof",
-    "features": ["facebook-login"]
+    "features": ["iap", "facebook-login"]
   }
 }
