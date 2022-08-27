@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklp_compat=self.webpackChunklp_compat||[]).push([[5129],{757:a=>{a.exports=JSON.parse('{"label":"docusaurus","permalink":"/lp-compat/blog/tags/docusaurus","allTagsPath":"/lp-compat/blog/tags","count":4}')}}]);
