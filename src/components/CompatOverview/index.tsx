@@ -35,6 +35,7 @@ export default function CompatOverview(): JSX.Element {
             or post on the{" "}
             <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
           </Typography>
+          <Typography>All apps are patched using no root and the 
         </div>
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
