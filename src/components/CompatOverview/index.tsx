@@ -74,8 +74,8 @@ const AppTile = ({ appId }) => {
           <CardMedia
             component="img"
             height="140"
-            image={screenshots
-            alt="green iguana"
+            image={screenshots[0]}
+           
           />
           <CardContent sx={{ padding: "8px" }}>
             <Paper
