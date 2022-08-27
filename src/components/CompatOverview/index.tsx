@@ -17,8 +17,6 @@ import {
 
 /*
  * TODO
- * Font formatting / make title bigger
- * Margins
  * Add more apps
  */
 
