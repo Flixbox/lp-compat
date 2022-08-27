@@ -17,8 +17,6 @@ import {
 
 /*
  * TODO
- * Add hall of fame / categories
- * Add tags / genres
  * Font formatting / make title bigger
  * Margins
  * Add more apps
