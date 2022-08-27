@@ -3,6 +3,9 @@
     "features": ["iap", "facebook-login", "multiplayer"],
     "category": "hof"
   },
+  "grid.crawler.free.offline.rpg.games.dungeon.ward": {
+    "features": ["iap"]
+  },
   "uk.fiveaces.nsfc": {
     "features": ["iap"]
   },
@@ -96,7 +99,6 @@
   "com.spcomes.zombiehive": {
     "features": ["iap"]
   },
-
   "com.foursakenmedia.blockfortressempires": {
     "features": ["iap"]
   },
@@ -127,7 +129,65 @@
     "features": ["iap"]
   },
   "com.animocabrands.google.CrazyKings": {
+    "features": ["iap", "dont-bother"]
+  },
+  "com.armorgames.ctcsm": {
     "features": ["iap"]
+  },
+  "ru.iriysoft.cursedtreasure2": {
+    "features": ["iap"]
+  },
+  "com.Roika.Darkrise": {
+    "features": ["iap"]
+  },
+  "com.loongcheer.tcg.deckadventure": {
+    "features": ["iap"]
+  },
+  "com.funstudio.dungeonheroes": {
+    "features": ["iap"]
+  },
+  "com.gunslingerstudios.dungeoning": {
+    "features": ["iap"]
+  },
+  "com.gacogames.epiccon": {
+    "features": ["iap"]
+  },
+  "com.EvoTApps.GameOfEvolution": {
+    "features": ["iap"]
+  },
+  "com.GrumpyGames.Griblers": {
+    "features": ["iap"]
+  },
+  "com.makabaka.hellrider3": {
+    "features": ["iap"]
+  },
+  "com.weirdjohnny.idle.rpg": {
+    "features": ["iap", "dont-bother"]
+  },
+  "com.IdleMagicSchool.jlyt": {
+    "features": ["iap"]
+  },
+  "com.IronHorseGames.IdleMineRPG": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.ShinobiGames.InfiniteW": {
+    "features": ["iap"]
+  },
+  "com.vkslrzm.Zombie": {
+    "features": ["iap"]
+  },
+  "bearface.games.merchant": {
+    "features": ["iap"]
+  },
+  "com.gramgames.london.mergegems": {
+    "features": ["iap", "dont-bother"]
+  },
+  "com.mergegame.merge": {
+    "features": ["iap"]
+  },
+  "com.wjoy.witch": {
+    "features": ["iap", "facebook-login"]
   },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.boltrend.disgaea.en": { "features": ["no-iap"] },

@@ -118,6 +118,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Multiplayer compatible with default patch",
       color: theme.palette.primary.main,
     },
+    "dont-bother": {
+      label: "Don't bother. This game is either grindy or uninteresting.",
+      color: theme.palette.warning.main,
+    },
   };
 
   return (
