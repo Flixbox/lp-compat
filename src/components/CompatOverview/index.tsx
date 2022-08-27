@@ -95,7 +95,7 @@ export default function CompatOverview(): JSX.Element {
   );
 }
 
-const AppTile = ({ appId }) => {
+const AppTile = ({ appId }: { appId: keyof AppInfo }) => {
   const theme = useTheme();
   const { iap, features } = appInfo[appId];
   const { title, icon, installs, scoreText, url, genre, screenshots } =
@@ -133,6 +133,7 @@ const AppTile = ({ appId }) => {
                   elevation={0}
                   padding={0.5}
                   sx={{ backgroundColor: featureMap[feature].color }}
+                  key={feature}
                 >
                   <Typography
                     color={theme.palette.getContrastText(
