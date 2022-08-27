@@ -32,8 +32,18 @@ export default function CompatOverview(): JSX.Element {
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
           <Grid container>
-            {Object.entries(apps).map(([appId, data]) => {
-              return <AppTile appId={appId} key={appId} />;
+            {Object.entries(apps).map(([appId, { category }]) => {
+              if (category === "hof")
+                return <AppTile appId={appId} key={appId} />;
+            })}
+          </Grid>
+        </div>
+        <div className="row">
+          <Typography variant="h3">Other apps</Typography>
+          <Grid container>
+            {Object.entries(apps).map(([appId, { category }]) => {
+              if (category !== "hof")
+                return <AppTile appId={appId} key={appId} />;
             })}
           </Grid>
         </div>
