@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklp_compat=self.webpackChunklp_compat||[]).push([[7596],{6914:o=>{o.exports=JSON.parse('{"permalink":"/lp-compat/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

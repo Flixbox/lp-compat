@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklp_compat=self.webpackChunklp_compat||[]).push([[7420],{2468:l=>{l.exports=JSON.parse('{"label":"hello","permalink":"/lp-compat/blog/tags/hello","allTagsPath":"/lp-compat/blog/tags","count":2}')}}]);

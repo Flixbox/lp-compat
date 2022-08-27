@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklp_compat=self.webpackChunklp_compat||[]).push([[5507],{5062:o=>{o.exports=JSON.parse('{"permalink":"/lp-compat/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
