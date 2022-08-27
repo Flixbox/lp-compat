@@ -61,6 +61,7 @@ const config = {
           src: "img/logo.svg",
         },
         items: [
+          { to: "/", label: "Compatibility list", position: "left" },
           {
             type: "doc",
             docId: "intro",
