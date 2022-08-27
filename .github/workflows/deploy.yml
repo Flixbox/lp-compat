@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       USE_SSH: true
-      GIT_USER: ${{ secrets.GITHUB_TOKEN }}
+      GIT_USER: Flixbox
+      GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
