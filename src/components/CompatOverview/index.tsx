@@ -87,36 +87,45 @@ const AppTile = ({ appId }) => {
     playstore[appId];
   const iapColor = iap ? theme.palette.success.main : theme.palette.error.main;
   const iapText = iap ? "IAP patch works!" : "IAP incompatible";
+
+  const featureMap = {
+    iap: {
+      label: "IAP patch works!",
+      color: theme.palette.success.main,
+    },
+    "no-iap": {
+      label: "IAP incompatible",
+      color: theme.palette.error.main,
+    },
+    "facebook-login": {
+      label: "Facebook login works!",
+      color: theme.palette.info.main,
+    },
+  };
+
   return (
     <Grid item margin={1} xs={12} sm="auto">
       <a href={url}>
         <Card>
           <CardMedia component="img" height="140" image={screenshots[0]} />
           <CardContent sx={{ padding: "8px" }}>
-            <Paper
-              component={Box}
-              elevation={0}
-              padding={0.5}
-              sx={{ backgroundColor: iapColor }}
-            >
-              <Typography color={theme.palette.getContrastText(iapColor)}>
-                {iapText}
-              </Typography>
-            </Paper>
-            {features && features.includes("facebook-login") && (
-              <Paper
-                component={Box}
-                elevation={0}
-                padding={0.5}
-                sx={{ backgroundColor: theme.palette.info.main }}
-              >
-                <Typography
-                  color={theme.palette.getContrastText(theme.palette.info.main)}
+            {features &&
+              features.map((feature) => (
+                <Paper
+                  component={Box}
+                  elevation={0}
+                  padding={0.5}
+                  sx={{ backgroundColor: featureMap[feature].color }}
                 >
-                  Facebook login works!
-                </Typography>
-              </Paper>
-            )}
+                  <Typography
+                    color={theme.palette.getContrastText(
+                      featureMap[feature].color
+                    )}
+                  >
+                    {featureMap[feature].label}
+                  </Typography>
+                </Paper>
+              ))}
             <Box display="flex" mt={1}>
               <Avatar
                 src={icon}
