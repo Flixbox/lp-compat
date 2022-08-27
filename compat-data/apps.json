@@ -81,7 +81,54 @@
     "features": ["iap"],
     "category": "hof"
   },
+  "com.noodlecake.altosodyssey": {
+    "features": ["iap"]
+  },
+  "com.erow.stickmanheroes": {
+    "features": ["iap"]
+  },
+  "com.ketchapp.rider": {
+    "features": ["iap"]
+  },
+  "com.maddog.shaqfu": {
+    "features": ["iap"]
+  },
+  "com.spcomes.zombiehive": {
+    "features": ["iap"]
+  },
 
+  "com.foursakenmedia.blockfortressempires": {
+    "features": ["iap"]
+  },
+  "com.ironhidegames.android.ironmarines": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.asanteegames.magicrampage": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.lemonjamgames.neonimpact": {
+    "features": ["iap"]
+  },
+  "com.limbic.towermadness2": {
+    "features": ["iap"]
+  },
+  "com.maxgames.aow2": {
+    "features": ["iap"]
+  },
+  "com.noxgames.hitman.hero.arpg": {
+    "features": ["iap"]
+  },
+  "com.BaronnerieGames.Rift": {
+    "features": ["iap"]
+  },
+  "com.erow.catsevo.android": {
+    "features": ["iap"]
+  },
+  "com.animocabrands.google.CrazyKings": {
+    "features": ["iap"]
+  },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.boltrend.disgaea.en": { "features": ["no-iap"] },
   "com.notdoppler.earntodie2": { "features": ["no-iap"] },
