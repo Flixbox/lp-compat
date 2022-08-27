@@ -12,6 +12,7 @@ import {
   Box,
   Paper,
   useTheme,
+  Link,
 } from "@mui/material";
 
 /*
@@ -29,6 +30,16 @@ export default function CompatOverview(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className="row">
+          <Typography>
+            Anything missing? Create an{" "}
+            <Link href="https://github.com/Flixbox/lp-compat/issues">
+              issue
+            </Link>{" "}
+            or post on the{" "}
+            <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
+          </Typography>
+        </div>
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
           <Grid container>
