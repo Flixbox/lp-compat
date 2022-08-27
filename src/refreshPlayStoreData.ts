@@ -18,7 +18,7 @@ const fetchData = async () => {
     }
   }
 
-  console.log(playstore);
+  // console.log(playstore);
   writeFileSync(
     "./static/compat-data/playstore.json",
     JSON.stringify(playstore)
