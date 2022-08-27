@@ -6,14 +6,11 @@ import apps from "../static/compat-data/apps.json";
 const fetchData = async () => {
   const playstore = {};
 
-  gplay
-    .app({ appId: "com.google.android.apps.translate" })
-    .then(console.log, console.log);
-
   for (const appId in apps) {
     // console.log(`${app}: ${apps[app]}`);
     const result = await gplay.app({ appId });
     playstore[appId] = result;
+    await new Promise((f) => setTimeout(f, 300));
   }
 
   console.log(playstore);
