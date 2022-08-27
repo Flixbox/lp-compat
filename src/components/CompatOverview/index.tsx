@@ -30,6 +30,7 @@ export default function CompatOverview(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
+          <Typography variant="h3">Hall of Fame</Typography>
           <Grid container>
             {Object.entries(apps).map(([appId, data]) => {
               return <AppTile appId={appId} key={appId} />;
