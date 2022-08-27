@@ -58,5 +58,9 @@
   "com.yodo1.rodeo.safari": {
     "iap": 1,
     "category": "hof"
+  },
+  "com.sparklingsociety.cityisland5": {
+    "iap": 1,
+    "category": "hof"
   }
 }
