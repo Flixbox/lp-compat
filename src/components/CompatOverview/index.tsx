@@ -70,6 +70,12 @@ const AppTile = ({ appId }) => {
     <Grid item margin={1} xs={12} sm="auto">
       <a href={url}>
         <Card>
+ <CardMedia
+        component="img"
+        height="140"
+        image="/static/images/cards/contemplative-reptile.jpg"
+        alt="green iguana"
+      />
           <CardContent sx={{ padding: "8px" }}>
             <Paper
               component={Box}
