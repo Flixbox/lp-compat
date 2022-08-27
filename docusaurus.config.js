@@ -9,8 +9,8 @@ const config = {
   title: "LP Compatibility",
   tagline:
     "Everything about Lucky patcher and its compatibility with various apps",
-  url: "https://flixbox.github.io/lp-compat/",
-  baseUrl: "/",
+  url: "https://flixbox.github.io",
+  baseUrl: "/lp-compat/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
