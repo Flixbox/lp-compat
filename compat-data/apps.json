@@ -1,4 +1,8 @@
 {
+  "com.gramgames.mergedragons": {
+    "features": ["iap", "facebook-login", "multiplayer"],
+    "category": "hof"
+  },
   "uk.fiveaces.nsfc": {
     "features": ["iap"]
   },
@@ -61,6 +65,23 @@
     "category": "hof",
     "features": ["iap", "facebook-login"]
   },
+  "com.dvdfu.chicken2": {
+    "features": ["iap"]
+  },
+  "com.fluffyfairygames.idleminertycoon": {
+    "features": ["iap"]
+  },
+  "com.prineside.tdi2": {
+    "features": ["iap"]
+  },
+  "com.time.trigger": {
+    "features": ["iap"]
+  },
+  "com.ludia.jurassicworld": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.boltrend.disgaea.en": { "features": ["no-iap"] },
   "com.notdoppler.earntodie2": { "features": ["no-iap"] },
