@@ -108,6 +108,10 @@ const AppTile = ({ appId }) => {
       label: "Facebook login works!",
       color: theme.palette.info.main,
     },
+    multiplayer: {
+      label: "Multiplayer compatible with patch",
+      color: theme.palette.primary.main,
+    },
   };
 
   return (
