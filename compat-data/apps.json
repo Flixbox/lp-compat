@@ -1,6 +1,7 @@
 {
   "uk.fiveaces.nsfc": {
-    "iap": 1
+    "iap": 1,
+    "category": "other"
   },
   "com.pixelbite.xwt": {
     "iap": 1,
@@ -43,7 +44,8 @@
     "category": "hof"
   },
   "com.gcenter.kingofdefense.battle.frontier.td": {
-    "iap": 1
+    "iap": 1,
+    "category": "other"
   },
   "com.Gcenter.KingofDefense2.epic.towerdefense": {
     "iap": 1,
