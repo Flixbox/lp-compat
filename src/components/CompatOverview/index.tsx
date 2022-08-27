@@ -75,10 +75,10 @@ const AppTile = ({ appId }) => {
               </Box>
             </Box>
             <Box display="flex" justifyContent="space-between">
-              <Typography>⭐{scoreText}</Typography>
-              <Typography>📩 {installs}</Typography>
+              <Typography variant="subtitle2">⭐{scoreText}</Typography>
+              <Typography variant="subtitle2">📩 {installs}</Typography>
             </Box>
-            <Typography>{genre}</Typography>
+            <Typography variant="subtitle2">{genre}</Typography>
           </CardContent>
         </Card>
       </a>
