@@ -4,7 +4,8 @@
     "category": "hof"
   },
   "grid.crawler.free.offline.rpg.games.dungeon.ward": {
-    "features": ["iap"]
+    "features": ["iap"],
+    "category": "hof"
   },
   "uk.fiveaces.nsfc": {
     "features": ["iap"]
