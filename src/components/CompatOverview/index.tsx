@@ -50,6 +50,33 @@ const FeatureList: FeatureItem[] = [
   {
     icon: (
       <Box flex="1">
+        <Box className="fa-layers fa-fw">
+          <Typography
+            className="fa-layers-text fa-inverse"
+            color="#607d8b"
+            fontWeight={900}
+            fontSize={30}
+          >
+            ROOT
+          </Typography>
+          <FontAwesomeIcon
+            icon={faBan}
+            color="#e51c23"
+            size="lg"
+            opacity={0.9}
+          />
+        </Box>
+      </Box>
+    ),
+    description: (
+      <Typography>
+        No root access is required for any of these patches.
+      </Typography>
+    ),
+  },
+  {
+    icon: (
+      <Box flex="1">
         <Box className="fa-layers fa-fw" mr={4}>
           <FontAwesomeIcon icon={faRectangleAd} color="#607d8b" />
           <FontAwesomeIcon
@@ -73,7 +100,7 @@ const FeatureList: FeatureItem[] = [
     ),
     description: (
       <Typography>
-        All apps are patched using no root and{" "}
+        All apps are patched using{" "}
         <Link href="/docs/intro">the default IAP and Adblock patches</Link>{" "}
         only.
       </Typography>
