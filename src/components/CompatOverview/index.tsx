@@ -110,13 +110,25 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "IAP incompatible",
       color: theme.palette.error.main,
     },
+    "no-subscription": {
+      label: "Subscription cannot be redeemed",
+      color: theme.palette.warning.main,
+    },
+    repurchase: {
+      label: "Some IAPs need to be redeemed after every restart",
+      color: theme.palette.warning.main,
+    },
     "facebook-login": {
       label: "Facebook login works!",
       color: theme.palette.info.main,
     },
     multiplayer: {
-      label: "Multiplayer compatible with default patch",
+      label: "Multiplayer compatible",
       color: theme.palette.primary.main,
+    },
+    "no-multiplayer": {
+      label: "Singleplayer only",
+      color: theme.palette.warning.main,
     },
     "dont-bother": {
       label: "Don't bother. This game is either grindy or uninteresting.",

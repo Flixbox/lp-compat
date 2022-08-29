@@ -3,6 +3,14 @@
     "features": ["iap", "facebook-login", "multiplayer"],
     "category": "hof"
   },
+  "com.ludia.dragons": {
+    "features": ["iap", "no-subscription"],
+    "category": "hof"
+  },
+  "com.ludia.jurassicworld": {
+    "features": ["iap", "no-subscription"],
+    "category": "hof"
+  },
   "grid.crawler.free.offline.rpg.games.dungeon.ward": {
     "features": ["iap"],
     "category": "hof"
@@ -57,6 +65,10 @@
     "features": ["iap"],
     "category": "hof"
   },
+  "com.hyperdotstudios.mythiclegends": {
+    "features": ["iap", "multiplayer"],
+    "category": "hof"
+  },
   "com.lemonjamstudio.infiniteknights": {
     "features": ["iap"],
     "category": "hof"
@@ -81,13 +93,14 @@
   "com.time.trigger": {
     "features": ["iap"]
   },
-  "com.ludia.jurassicworld": {
-    "features": ["iap"],
-    "category": "hof"
-  },
   "com.noodlecake.altosodyssey": {
     "features": ["iap"]
   },
+  "com.hyperbeard.odyssey": { "features": ["iap"] },
+  "com.armorgames.ctclegacy": { "features": ["iap"] },
+  "com.turner.pocketmorties": { "features": ["iap", "no-multiplayer"] },
+  "com.playsidestudios.idlearea51": { "features": ["iap"] },
+  "bazinac.aplikacenahouby": { "features": ["iap", "repurchase"] },
   "com.erow.stickmanheroes": {
     "features": ["iap"]
   },
@@ -191,6 +204,9 @@
     "features": ["iap", "facebook-login"]
   },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
+  "com.dxx.firenow": { "features": ["no-iap"] },
+  "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
+  "com.square_enix.android_googleplay.WOTVffbeww": { "features": ["no-iap"] },
   "com.boltrend.disgaea.en": { "features": ["no-iap"] },
   "com.notdoppler.earntodie2": { "features": ["no-iap"] },
   "com.babeltimeus.legendstd": { "features": ["no-iap"] },
