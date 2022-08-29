@@ -212,7 +212,7 @@
   "com.savetheworld.game": { "features": ["iap"] },
   "com.kotobagames.namelesscat": { "features": ["iap", "repurchase"] },
   "com.chillyroom.zhmr.gp": { "features": ["iap"] },
-  "com.phantomrosegame.phantomRoseScarlett": { "features": ["iap"] },
+  "com.phantomrosegame.phantomRoseScarlett": { "features": ["iap", "region-locked"] },
   "com.d3p.mpq": { "features": ["iap"] },
   "com.IvanKovalov.quadline.android": { "features": ["iap"] },
   "com.roasterygames.smartphonetycoon2": { "features": ["iap"] },

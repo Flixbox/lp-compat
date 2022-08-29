@@ -136,6 +136,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Don't bother. This game is either grindy or uninteresting.",
       color: theme.palette.warning.main,
     },
+    "region-locked": {
+      label: "If region locked, use Google Account from another region",
+      color: theme.palette.warning.main,
+    },
   };
 
   return (
