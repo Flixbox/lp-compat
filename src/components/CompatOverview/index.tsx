@@ -19,7 +19,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
   faBan,
+  faBug,
   faRectangleAd,
+  faStore,
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -47,10 +49,27 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     icon: (
-      <span className="fa-layers fa-fw">
-        <FontAwesomeIcon icon={faRectangleAd} size="3x" color="#607d8b" />
-        <FontAwesomeIcon icon={faBan} size="3x" color="#e51c23" />
-      </span>
+      <Box flex="1">
+        <Box className="fa-layers fa-fw" mr={4}>
+          <FontAwesomeIcon icon={faRectangleAd} color="#607d8b" />
+          <FontAwesomeIcon
+            icon={faBan}
+            color="#e51c23"
+            size="lg"
+            opacity={0.9}
+          />
+        </Box>
+        <Box className="fa-layers fa-fw" ml={4}>
+          <FontAwesomeIcon icon={faStore} color="#607d8b" />
+          <FontAwesomeIcon
+            icon={faBug}
+            color="#e51c23"
+            size="xs"
+            opacity={0.9}
+            transform="down-4 right-4"
+          />
+        </Box>
+      </Box>
     ),
     description: (
       <Typography>
@@ -61,7 +80,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    icon: <FontAwesomeIcon icon={faDiscord} size="3x" color="#607d8b" />,
+    icon: <FontAwesomeIcon icon={faDiscord} color="#607d8b" />,
     description: (
       <Typography>
         Anything missing? Create an{" "}
@@ -71,7 +90,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    icon: <FontAwesomeIcon icon={faTrophy} size="3x" color="#607d8b" />,
+    icon: <FontAwesomeIcon icon={faTrophy} color="#607d8b" />,
     description: (
       <Typography>
         Check out the{" "}
@@ -84,7 +103,7 @@ const FeatureList: FeatureItem[] = [
 function Feature({ icon, description }: FeatureItem) {
   return (
     <div className={clsx("col col--4")}>
-      <Box className="text--center" height="50px">
+      <Box className="text--center" height="70px">
         {icon}
       </Box>
       <div className="text--center padding-horiz--md">{description}</div>
@@ -98,7 +117,7 @@ export default function CompatOverview(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className="row fa-3x">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
