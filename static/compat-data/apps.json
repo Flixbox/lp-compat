@@ -213,6 +213,26 @@
   "com.kotobagames.namelesscat": { "features": ["iap", "repurchase"] },
   "com.chillyroom.zhmr.gp": { "features": ["iap"] },
   "com.phantomrosegame.phantomRoseScarlett": { "features": ["iap"] },
+  "com.d3p.mpq": { "features": ["iap"] },
+  "com.IvanKovalov.quadline.android": { "features": ["iap"] },
+  "com.roasterygames.smartphonetycoon2": { "features": ["iap"] },
+  "com.armorgames.sodadungeon2": { "features": ["iap"], "category": "hof" },
+  "com.outfit7.movingeye.swampattack": { "features": ["iap"] },
+  "com.SimpleMission.SwordofOath": { "features": ["iap"] },
+  "com.metagamestudio.tapbusters": { "features": ["iap"] },
+  "sk.phx.terrarium": { "features": ["iap"] },
+  "com.loongcheer.moke.pixelknight.idlerpg.adventure": { "features": ["iap"] },
+  "com.hg.townsmen7free": { "features": ["iap"] },
+  "com.DL.war.planes.inc.torpedo.bomber.fighter.aircraft.ww2": {
+    "features": ["iap"]
+  },
+  "com.stereo7games.wwd": { "features": ["iap"] },
+  "com.mastercomlimited.zombiedrive": { "features": ["iap"] },
+  "com.sonypicturestelevision.zombieland": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
   "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
