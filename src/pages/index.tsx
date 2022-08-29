@@ -6,12 +6,15 @@ import Layout from "@theme/Layout";
 import CompatOverview from "@site/src/components/CompatOverview/index";
 
 import styles from "./index.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
+        <FontAwesomeIcon icon={faFaceSmile} size="4x" />
         <h1 className="hero__title">{siteConfig.title}</h1>
       </div>
     </header>
