@@ -3,6 +3,10 @@
     "features": ["iap", "facebook-login", "multiplayer"],
     "category": "hof"
   },
+  "com.turner.pocketmorties": {
+    "features": ["iap", "no-multiplayer"],
+    "category": "hof"
+  },
   "com.ludia.dragons": {
     "features": ["iap", "no-subscription"],
     "category": "hof"
@@ -98,7 +102,6 @@
   },
   "com.hyperbeard.odyssey": { "features": ["iap"] },
   "com.armorgames.ctclegacy": { "features": ["iap"] },
-  "com.turner.pocketmorties": { "features": ["iap", "no-multiplayer"] },
   "com.playsidestudios.idlearea51": { "features": ["iap"] },
   "bazinac.aplikacenahouby": { "features": ["iap", "repurchase"] },
   "com.erow.stickmanheroes": {
