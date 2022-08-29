@@ -3,6 +3,8 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import apps from "../../../static/compat-data/apps.json";
 import playstore from "../../../static/compat-data/playstore.json";
+import ImageScroller from "react-image-scroller";
+import RenderIfVisible from "react-render-if-visible";
 import {
   Card,
   Typography,
@@ -12,7 +14,6 @@ import {
   Box,
   Paper,
   useTheme,
-  CardMedia,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -230,48 +231,59 @@ const AppTile = ({ appId }: { appId: string }) => {
   };
 
   return (
-    <Grid item margin={1} xs={12} sm="auto">
-      <a href={url}>
-        <Card>
-          <CardMedia component="img" height="140" image={screenshots[0]} />
-          <CardContent sx={{ padding: "8px" }}>
-            {features &&
-              features.map((feature) => (
-                <Paper
-                  component={Box}
-                  elevation={0}
-                  padding={0.5}
-                  sx={{ backgroundColor: featureMap[feature].color }}
-                  key={feature}
-                >
-                  <Typography
-                    color={theme.palette.getContrastText(
-                      featureMap[feature].color
-                    )}
+    <RenderIfVisible defaultHeight={800} stayRendered>
+      <Grid item margin={1} xs={12} sm="auto">
+        <a href={url}>
+          <Card>
+            <CardContent sx={{ padding: "8px" }}>
+              <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
+                {screenshots.map((image) => (
+                  <img
+                    src={image}
+                    alt="Game screenshot"
+                    loading="lazy"
+                    key={image}
+                  />
+                ))}
+              </ImageScroller>
+              {features &&
+                features.map((feature) => (
+                  <Paper
+                    component={Box}
+                    elevation={0}
+                    padding={0.5}
+                    sx={{ backgroundColor: featureMap[feature].color }}
+                    key={feature}
                   >
-                    {featureMap[feature].label}
-                  </Typography>
-                </Paper>
-              ))}
-            <Box display="flex" mt={1}>
-              <Avatar
-                src={icon}
-                variant="square"
-                sx={{ marginRight: 1 }}
-              ></Avatar>
-              <Box display="flex" flexDirection="column">
-                <Typography>{title}</Typography>
-                <Typography variant="subtitle2">{appId}</Typography>
+                    <Typography
+                      color={theme.palette.getContrastText(
+                        featureMap[feature].color
+                      )}
+                    >
+                      {featureMap[feature].label}
+                    </Typography>
+                  </Paper>
+                ))}
+              <Box display="flex" mt={1}>
+                <Avatar
+                  src={icon}
+                  variant="square"
+                  sx={{ marginRight: 1 }}
+                ></Avatar>
+                <Box display="flex" flexDirection="column">
+                  <Typography>{title}</Typography>
+                  <Typography variant="subtitle2">{appId}</Typography>
+                </Box>
               </Box>
-            </Box>
-            <Box display="flex" justifyContent="space-between">
-              <Typography variant="subtitle2">⭐{scoreText}</Typography>
-              <Typography variant="subtitle2">📩 {installs}</Typography>
-            </Box>
-            <Typography variant="subtitle2">{genre}</Typography>
-          </CardContent>
-        </Card>
-      </a>
-    </Grid>
+              <Box display="flex" justifyContent="space-between">
+                <Typography variant="subtitle2">⭐{scoreText}</Typography>
+                <Typography variant="subtitle2">📩 {installs}</Typography>
+              </Box>
+              <Typography variant="subtitle2">{genre}</Typography>
+            </CardContent>
+          </Card>
+        </a>
+      </Grid>
+    </RenderIfVisible>
   );
 };
