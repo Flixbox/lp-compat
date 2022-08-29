@@ -103,7 +103,7 @@ const FeatureList: FeatureItem[] = [
 function Feature({ icon, description }: FeatureItem) {
   return (
     <div className={clsx("col col--4")}>
-      <Box className="text--center" height="70px">
+      <Box className="text--center" height="70px" mt={3}>
         {icon}
       </Box>
       <div className="text--center padding-horiz--md">{description}</div>
@@ -122,7 +122,7 @@ export default function CompatOverview(): JSX.Element {
             <Feature key={idx} {...props} />
           ))}
         </div>
-        <Box m={3} />
+        <Box m={8} />
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
           <Grid container>
