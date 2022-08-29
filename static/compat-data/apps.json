@@ -206,6 +206,13 @@
   "com.wjoy.witch": {
     "features": ["iap", "facebook-login"]
   },
+  "com.sanctumstudio.mochicat": { "features": ["iap"] },
+  "com.gg.moduleTd": { "features": ["iap"] },
+  "com.dungeon.rpg.freeherowars": { "features": ["iap"] },
+  "com.savetheworld.game": { "features": ["iap"] },
+  "com.kotobagames.namelesscat": { "features": ["iap", "repurchase"] },
+  "com.chillyroom.zhmr.gp": { "features": ["iap"] },
+  "com.phantomrosegame.phantomRoseScarlett": { "features": ["iap"] },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
   "com.ninjakiwi.sasza4": { "features": ["no-iap"] },

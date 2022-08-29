@@ -19,6 +19,8 @@ import Link from "@docusaurus/Link";
 /*
  * TODO
  * Add more apps
+ * Add a lil intro section with hero style images and text
+ * Add a link to skip the intro section
  */
 
 type AppInfo = {
