@@ -15,6 +15,9 @@ import {
   CardMedia,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faRectangleAd, faTrophy } from "@fortawesome/free-solid-svg-icons";
 
 /*
  * TODO
@@ -33,6 +36,52 @@ type AppInfo = {
 
 const appInfo = apps as unknown as AppInfo;
 
+type FeatureItem = {
+  icon: JSX.Element;
+  description: JSX.Element;
+};
+
+const FeatureList: FeatureItem[] = [
+  {
+    icon: <FontAwesomeIcon icon={faRectangleAd} size="3x" color="#607d8b" />,
+    description: (
+      <Typography>
+        All apps are patched using no root and{" "}
+        <Link href="/docs/intro">the default IAP and Adblock patches</Link>{" "}
+        only.
+      </Typography>
+    ),
+  },
+  {
+    icon: <FontAwesomeIcon icon={faDiscord} size="3x" color="#607d8b" />,
+    description: (
+      <Typography>
+        Anything missing? Create an{" "}
+        <Link href="https://github.com/Flixbox/lp-compat/issues">issue</Link> or
+        post on the <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
+      </Typography>
+    ),
+  },
+  {
+    icon: <FontAwesomeIcon icon={faTrophy} size="3x" color="#607d8b" />,
+    description: (
+      <Typography>
+        Check out the{" "}
+        <Link href="/docs/honorable-mentions">honorable mentions</Link> too!
+      </Typography>
+    ),
+  },
+];
+
+function Feature({ icon, description }: FeatureItem) {
+  return (
+    <div className={clsx("col col--4")}>
+      <div className="text--center">{icon}</div>
+      <div className="text--center padding-horiz--md">{description}</div>
+    </div>
+  );
+}
+
 export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
 
@@ -40,30 +89,12 @@ export default function CompatOverview(): JSX.Element {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          <Box>
-            <Typography>
-              Anything missing? Create an{" "}
-              <Link href="https://github.com/Flixbox/lp-compat/issues">
-                issue
-              </Link>{" "}
-              or post on the{" "}
-              <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
-            </Typography>
-
-            <Typography>
-              All apps are patched using no root and{" "}
-              <Link href="/docs/intro">
-                the default IAP and Adblock patches
-              </Link>{" "}
-              only.
-            </Typography>
-
-            <Typography>
-              Check out the{" "}
-              <Link href="/docs/honorable-mentions">honorable mentions</Link>{" "}
-              too!
-            </Typography>
-          </Box>
+          {FeatureList.map((props, idx) => (
+            <Feature key={idx} {...props} />
+          ))}
+        </div>
+        <div className="row">
+          <Box></Box>
         </div>
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
