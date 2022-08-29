@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Lucky Patcher Compatibility",
   tagline:
-    "Everything about Lucky patcher and its compatibility with various apps",
+    "An incomplete & frequently updated list of apps that can be patched to remove in-app purchases and ads",
   url: "https://flixbox.github.io",
   baseUrl: "/lp-compat/",
   onBrokenLinks: "throw",

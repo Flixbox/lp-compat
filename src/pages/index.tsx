@@ -16,6 +16,15 @@ function HomepageHeader() {
       <div className="container">
         <FontAwesomeIcon icon={faFaceSmile} size="4x" />
         <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro"
+          >
+            How to install & patch an app 🚀
+          </Link>
+        </div>
       </div>
     </header>
   );
