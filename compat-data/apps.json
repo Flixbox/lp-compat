@@ -229,7 +229,7 @@
   "com.stereo7games.wwd": { "features": ["iap"] },
   "com.mastercomlimited.zombiedrive": { "features": ["iap"] },
   "com.sonypicturestelevision.zombieland": {
-    "features": ["iap"],
+    "features": ["iap", "no-multiplayer"],
     "category": "hof"
   },
 
