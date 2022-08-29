@@ -17,7 +17,11 @@ import {
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { faRectangleAd, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBan,
+  faRectangleAd,
+  faTrophy,
+} from "@fortawesome/free-solid-svg-icons";
 
 /*
  * TODO
@@ -43,7 +47,12 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    icon: <FontAwesomeIcon icon={faRectangleAd} size="3x" color="#607d8b" />,
+    icon: (
+      <span className="fa-layers fa-fw">
+        <FontAwesomeIcon icon={faRectangleAd} size="3x" color="#607d8b" />
+        <FontAwesomeIcon icon={faBan} size="3x" color="#e51c23" />
+      </span>
+    ),
     description: (
       <Typography>
         All apps are patched using no root and{" "}
@@ -76,7 +85,9 @@ const FeatureList: FeatureItem[] = [
 function Feature({ icon, description }: FeatureItem) {
   return (
     <div className={clsx("col col--4")}>
-      <div className="text--center">{icon}</div>
+      <Box className="text--center" height="50px">
+        {icon}
+      </Box>
       <div className="text--center padding-horiz--md">{description}</div>
     </div>
   );
@@ -93,9 +104,7 @@ export default function CompatOverview(): JSX.Element {
             <Feature key={idx} {...props} />
           ))}
         </div>
-        <div className="row">
-          <Box></Box>
-        </div>
+        <Box m={3} />
         <div className="row">
           <Typography variant="h3">Hall of Fame</Typography>
           <Grid container>
