@@ -8,6 +8,7 @@ import CompatOverview from "@site/src/components/CompatOverview/index";
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
+import { Box } from "@mui/material";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -22,7 +23,11 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/intro"
           >
-            How to install & patch an app 🚀
+            How to install & patch an app 📖
+          </Link>
+          <Box m={2} />
+          <Link className="button button--secondary button--lg" to="#hof">
+            To the list 🚀
           </Link>
         </div>
       </div>

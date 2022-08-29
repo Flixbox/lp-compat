@@ -124,7 +124,9 @@ export default function CompatOverview(): JSX.Element {
         </div>
         <Box m={8} />
         <div className="row">
-          <Typography variant="h3">Hall of Fame</Typography>
+          <Typography variant="h3" id="hof">
+            Hall of Fame
+          </Typography>
           <Grid container>
             {Object.entries(appInfo).map(([appId, { category }]) => {
               if (category === "hof")
