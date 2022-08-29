@@ -1,13 +1,20 @@
 import gplay from "google-play-scraper";
 import { writeFileSync } from "fs";
+import { SingleBar, Presets } from "cli-progress";
 import apps from "../static/compat-data/apps.json";
 import oldPlayStoreData from "../static/compat-data/playstore.json";
 
 const fetchData = async () => {
   const playstore = {};
+  const appsLength = Object.keys(apps).length;
+
+  const bar = new SingleBar({}, Presets.shades_classic);
+  console.log(
+    `Checking ${appsLength} apps and downloading play store info if necessary...`
+  );
+  bar.start(appsLength, 0);
 
   for (const appId in apps) {
-    // console.log(`${app}: ${apps[app]}`);
     try {
       if (oldPlayStoreData[appId] && oldPlayStoreData[appId].title) {
         playstore[appId] = oldPlayStoreData[appId];
@@ -20,13 +27,16 @@ const fetchData = async () => {
       console.error("App not found: ", appId);
       console.error(e);
     }
+    bar.increment();
   }
 
-  //  console.log(playstore);
   writeFileSync(
     "./static/compat-data/playstore.json",
     JSON.stringify(playstore)
   );
+
+  bar.stop();
+  console.log(`Done!`);
 };
 
 fetchData();
