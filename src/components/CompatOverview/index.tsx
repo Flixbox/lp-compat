@@ -231,10 +231,10 @@ const AppTile = ({ appId }: { appId: string }) => {
   };
 
   return (
-    <RenderIfVisible defaultHeight={800} stayRendered>
-      <Grid item margin={1} xs={12} sm="auto">
+    <Grid item margin={1} xs={12}>
+      <RenderIfVisible defaultHeight={800} stayRendered>
         <a href={url}>
-          <Card>
+          <Card style={{ maxWidth: "100%" }}>
             <CardContent sx={{ padding: "8px" }}>
               <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
                 {screenshots.map((image) => (
@@ -283,7 +283,7 @@ const AppTile = ({ appId }: { appId: string }) => {
             </CardContent>
           </Card>
         </a>
-      </Grid>
-    </RenderIfVisible>
+      </RenderIfVisible>
+    </Grid>
   );
 };
