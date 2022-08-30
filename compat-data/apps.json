@@ -241,6 +241,7 @@
   "com.telltalegames.walkingdead200": { "features": ["iap", "account-login"] },
   "com.telltalegames.walkingdead300": { "features": ["iap", "account-login"] },
   "com.FDGEntertainment.redball4.gp": {"features": ["iap"]},
+    "air.com.FDGEntertainment.Lonewolf.gp": {"features": ["iap"]},
 
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
@@ -297,5 +298,6 @@
   "com.preus.PreusZombi": { "features": ["no-iap"] },
   "com.oxiwyle.alternativehistory20tgcentury": { "features": ["no-iap"] },
   "com.oxiwyle.kievanrusageofcolonization": { "features": ["no-iap"] },
-  "com.fdgentertainment.bananakong": { "features": ["no-iap"]}
+  "com.fdgentertainment.bananakong": { "features": ["no-iap"]},
+    "com.FDGEntertainment.BananaKong2.gp": { "features": ["no-iap"]}
 }
