@@ -295,6 +295,6 @@
   "com.biglime.cookingmadness": { "features": ["no-iap"] },
   "com.preus.PreusZombi": { "features": ["no-iap"] },
   "com.oxiwyle.alternativehistory20tgcentury": { "features": ["no-iap"] },
-  "com.oxiwyle.kievanrusageofcolonization": { "features": ["no-iap"] }.
-  "com.fdgentertainment.bananakong"
+  "com.oxiwyle.kievanrusageofcolonization": { "features": ["no-iap"] },
+  "com.fdgentertainment.bananakong": { "features": ["no-iap"]
 }
