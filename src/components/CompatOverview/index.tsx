@@ -29,7 +29,7 @@ import {
 /*
  * TODO
  * Add more apps, including the ones from the old compat lists
- * Add a lil shop block icon
+ * Add npm run scrape and git push to CI
  */
 
 type AppInfo = {
