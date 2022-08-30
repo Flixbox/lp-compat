@@ -14,4 +14,4 @@ Main page: https://flixbox.github.io/lp-compat/
 - Run `npm run scrape` to download play store data
 - Run `npm run start` to check if it's being shown
 
-If you don'
+You can skip the scraping if you want. Then the CI will do it 
