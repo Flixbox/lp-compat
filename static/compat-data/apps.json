@@ -128,7 +128,7 @@
     "category": "hof"
   },
   "com.lemonjamgames.neonimpact": {
-    "features": ["iap"]
+    "features": ["iap", "subscription"]
   },
   "com.limbic.towermadness2": {
     "features": ["iap"]
@@ -236,6 +236,10 @@
   },
   "com.pixelperfectdude.htdrive": { "features": ["iap"] },
   "com.BeardyBird.Ailment": { "features": ["iap", "multiplayer"] },
+  "com.pipkin.games.alchemy": { "features": ["iap"] },
+  "com.telltalegames.walkingdead100": { "features": ["iap", "account-login"] },
+  "com.telltalegames.walkingdead200": { "features": ["iap", "account-login"] },
+  "com.telltalegames.walkingdead300": { "features": ["iap", "account-login"] },
 
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },

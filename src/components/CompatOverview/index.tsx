@@ -200,6 +200,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "IAP incompatible",
       color: theme.palette.error.main,
     },
+    subscription: {
+      label: "Subscription redeemable!",
+      color: theme.palette.success.main,
+    },
     "no-subscription": {
       label: "Subscription cannot be redeemed",
       color: theme.palette.warning.main,
@@ -207,6 +211,10 @@ const AppTile = ({ appId }: { appId: string }) => {
     repurchase: {
       label: "Some IAPs need to be redeemed after every restart",
       color: theme.palette.warning.main,
+    },
+    "account-login": {
+      label: "Account login works!",
+      color: theme.palette.info.main,
     },
     "facebook-login": {
       label: "Facebook login works!",
@@ -231,7 +239,7 @@ const AppTile = ({ appId }: { appId: string }) => {
   };
 
   return (
-    <Grid item margin={1} xs={12}>
+    <Grid item xs={12} m={1}>
       <RenderIfVisible defaultHeight={800} stayRendered>
         <a href={url}>
           <Card style={{ maxWidth: "100%" }}>
