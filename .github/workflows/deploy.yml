@@ -24,7 +24,9 @@ jobs:
         run: npm run build
       - name: Scrape play store data for apps
         run: npm run scrape
-      
+      - uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Add scraped play store data
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
