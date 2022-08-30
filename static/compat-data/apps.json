@@ -243,7 +243,7 @@
   "com.FDGEntertainment.redball4.gp": {"features": ["iap"]},
     "air.com.FDGEntertainment.Lonewolf.gp": {"features": ["iap"]},
         "air.com.FDGEntertainment.BloodyHarry": {"features": ["iap"]},
-  "com.FDGEntertainment.Oceanhorn.gp": {"features": ["iap"], "category"},
+  "com.FDGEntertainment.Oceanhorn.gp": {"features": ["iap"], "category": "hof"},
 
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
