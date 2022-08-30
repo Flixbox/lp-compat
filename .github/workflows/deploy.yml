@@ -20,10 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install --frozen-lockfile --force
-      - name: Build website
-        run: npm run build
       - name: Scrape play store data for apps
         run: npm run scrape
+      - name: Build website
+        run: npm run build
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Add scraped play store data
