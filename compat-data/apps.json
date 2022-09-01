@@ -119,7 +119,6 @@
   "com.hyperbeard.odyssey": { "features": ["iap"] },
   "com.armorgames.ctclegacy": { "features": ["iap"] },
   "com.playsidestudios.idlearea51": { "features": ["iap"] },
-  "bazinac.aplikacenahouby": { "features": ["iap", "repurchase"] },
   "com.erow.stickmanheroes": {
     "features": ["iap"]
   },
@@ -318,6 +317,15 @@
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
+  },
+
+  "bazinac.aplikacenahouby": {
+    "category": "tools",
+    "features": ["iap", "repurchase"]
+  },
+  "com.EightStudio.PitzMaker": {
+    "category": "tools",
+    "features": ["iap"]
   },
 
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
