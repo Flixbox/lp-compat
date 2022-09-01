@@ -367,8 +367,7 @@
   },
   "com.dark.heroes": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.alicegames.idle.rpg.battler": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
+    "features": ["no-iap"]
   },
   "com.survival.last": {
     "category": "unclear-iap",
