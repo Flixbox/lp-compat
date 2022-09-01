@@ -29,7 +29,7 @@ import {
 /*
  * TODO
  * Add more apps, including the ones from the old compat lists
- * Enhance categorization - Make them more flexible, add toc
+ * Enhance categorization -  add toc
  * add filter bar
  */
 
@@ -140,6 +140,32 @@ function Feature({ icon, description }: FeatureItem) {
   );
 }
 
+const categoryList = [
+  {
+    id: "hof",
+    title: "Hall of Fame",
+    onlyRenderIf: (appInfo) => appInfo.category === "hof",
+  },
+  {
+    id: "other-games",
+    title: "Other games",
+    onlyRenderIf: (appInfo) =>
+      appInfo.category !== "hof" &&
+      appInfo.category !== "tools" &&
+      appInfo.features.indexOf("iap") > -1,
+  },
+  {
+    id: "tools",
+    title: "Tools",
+    onlyRenderIf: (appInfo) => appInfo.category === "tools",
+  },
+  {
+    id: "incompatible",
+    title: "Incompatible apps",
+    onlyRenderIf: (appInfo) => appInfo.features.indexOf("iap") === -1,
+  },
+];
+
 export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
 
@@ -152,35 +178,19 @@ export default function CompatOverview(): JSX.Element {
           ))}
         </div>
         <Box m={8} />
-        <div className="row">
-          <Typography variant="h3" id="hof">
-            Hall of Fame
-          </Typography>
-          <Grid container>
-            {Object.entries(appInfo).map(([appId, { category }]) => {
-              if (category === "hof")
-                return <AppTile appId={appId} key={appId} />;
-            })}
-          </Grid>
-        </div>
-        <div className="row">
-          <Typography variant="h3">Other apps</Typography>
-          <Grid container>
-            {Object.entries(appInfo).map(([appId, { category, features }]) => {
-              if (category !== "hof" && features.indexOf("iap") > -1)
-                return <AppTile appId={appId} key={appId} />;
-            })}
-          </Grid>
-        </div>
-        <div className="row">
-          <Typography variant="h3">Incompatible apps</Typography>
-          <Grid container>
-            {Object.entries(appInfo).map(([appId, { category, features }]) => {
-              if (features.indexOf("iap") === -1)
-                return <AppTile appId={appId} key={appId} />;
-            })}
-          </Grid>
-        </div>
+        {categoryList.map(({ id, title, onlyRenderIf }) => (
+          <div className="row" key={id}>
+            <Typography variant="h3" id={id}>
+              {title}
+            </Typography>
+            <Grid container>
+              {Object.entries(appInfo).map(([appId, app]) => {
+                if (onlyRenderIf(app))
+                  return <AppTile appId={appId} key={appId} />;
+              })}
+            </Grid>
+          </div>
+        ))}
       </div>
     </section>
   );
