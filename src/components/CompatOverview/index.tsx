@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import apps from "../../../static/compat-data/apps.json";
@@ -30,6 +30,7 @@ import {
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 import { xor } from "lodash";
+import { usePersistentState } from "react-persistent-state";
 
 /*
  * TODO
@@ -173,9 +174,8 @@ const categoryList = [
 
 export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
-  const [onlyShowTheseCategories, setOnlyShowTheseCategories] = useState(
-    categoryList.map((category) => category.id)
-  );
+  const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
+    usePersistentState(categoryList.map((category) => category.id));
 
   return (
     <section className={styles.features}>
