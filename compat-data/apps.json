@@ -314,6 +314,7 @@
   "com.frvr.slash": { "features": ["iap", "facebook-login"] },
   "com.frvr.bubbleshooter": { "features": ["iap", "facebook-login-broken"] },
   "com.frvr.puttrush": { "features": ["iap", "facebook-login-broken"] },
+  "com.Sateda": { "features": ["iap", "repurchase"] },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
