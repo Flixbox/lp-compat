@@ -320,6 +320,13 @@
   "com.frvr.puttrush": { "features": ["iap", "facebook-login-broken"] },
   "com.Sateda": { "features": ["iap", "repurchase"] },
   "com.mergedomhomedesign.game": { "features": ["iap"] },
+  "com.zuma.deluxe.marble.puzzle": {
+    "features": ["iap", "facebook-login-broken"]
+  },
+  "linkdesks.bubblegames.bubbleshooter.royal.pop": {
+    "features": ["iap", "facebook-login"]
+  },
+  "com.bigshark.dreammatch": { "features": ["iap"] },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
