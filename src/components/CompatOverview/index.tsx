@@ -224,12 +224,24 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Facebook login works!",
       color: theme.palette.info.main,
     },
+    "facebook-login-broken": {
+      label: "Facebook login broken",
+      color: theme.palette.warning.main,
+    },
+    transfer: {
+      label: "Game data can be transferred to another account",
+      color: theme.palette.info.main,
+    },
     multiplayer: {
       label: "Multiplayer compatible",
       color: theme.palette.primary.main,
     },
     "no-multiplayer": {
       label: "Singleplayer only",
+      color: theme.palette.warning.main,
+    },
+    "no-multiplayer-iap": {
+      label: "Multiplayer IAP broken",
       color: theme.palette.warning.main,
     },
     "slightly-broken": {
