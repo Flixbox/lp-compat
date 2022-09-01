@@ -15,6 +15,22 @@
     "features": ["iap", "no-subscription"],
     "category": "hof"
   },
+  "com.ironhidegames.android.kingdomrush": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.ironhidegames.android.ironmarines": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.miniclip.plagueinc": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.ndemiccreations.rebelinc": {
+    "features": ["iap"],
+    "category": "hof"
+  },
   "grid.crawler.free.offline.rpg.games.dungeon.ward": {
     "features": ["iap"],
     "category": "hof"
@@ -118,10 +134,6 @@
   },
   "com.foursakenmedia.blockfortressempires": {
     "features": ["iap"]
-  },
-  "com.ironhidegames.android.ironmarines": {
-    "features": ["iap"],
-    "category": "hof"
   },
   "com.asanteegames.magicrampage": {
     "features": ["iap"],
@@ -240,10 +252,21 @@
   "com.telltalegames.walkingdead100": { "features": ["iap", "account-login"] },
   "com.telltalegames.walkingdead200": { "features": ["iap", "account-login"] },
   "com.telltalegames.walkingdead300": { "features": ["iap", "account-login"] },
-  "com.FDGEntertainment.redball4.gp": {"features": ["iap"]},
-    "air.com.FDGEntertainment.Lonewolf.gp": {"features": ["iap"]},
-        "air.com.FDGEntertainment.BloodyHarry": {"features": ["iap"]},
-  "com.FDGEntertainment.Oceanhorn.gp": {"features": ["iap"], "category": "hof"},
+  "com.FDGEntertainment.redball4.gp": { "features": ["iap"] },
+  "air.com.FDGEntertainment.Lonewolf.gp": { "features": ["iap"] },
+  "air.com.FDGEntertainment.BloodyHarry": { "features": ["iap"] },
+  "com.FDGEntertainment.Oceanhorn.gp": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.FDGEntertainment.SuperCatBros.gp": {
+    "features": ["iap", "slightly-broken"]
+  },
+  "com.giantssoftware.fs16": { "features": ["iap", "slightly-broken"] },
+
+  "com.frvr.hex": {
+    "features": ["partial-iap", "facebook-login"]
+  },
 
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
@@ -300,6 +323,19 @@
   "com.preus.PreusZombi": { "features": ["no-iap"] },
   "com.oxiwyle.alternativehistory20tgcentury": { "features": ["no-iap"] },
   "com.oxiwyle.kievanrusageofcolonization": { "features": ["no-iap"] },
-  "com.fdgentertainment.bananakong": { "features": ["no-iap"]},
-    "com.FDGEntertainment.BananaKong2.gp": { "features": ["no-iap"]}
+  "com.fdgentertainment.bananakong": { "features": ["no-iap"] },
+  "com.FDGEntertainment.BananaKong2.gp": { "features": ["no-iap"] },
+  "com.FDGEntertainment.RedBallRunner": { "features": ["no-iap"] },
+  "sp.repcount": { "features": ["no-iap"] },
+  "com.imaginalis.HouseFlipperMobile": { "features": ["no-iap"] },
+  "com.rayark.cytus2": { "features": ["no-iap"] },
+  "com.noodlecake.leapon": { "features": ["no-iap"] },
+  "com.noodlecake.mmmfingers": { "features": ["no-iap"] },
+  "com.noodlecake.perfectgrind": { "features": ["no-iap"] },
+  "com.lootboy.app": { "features": ["no-iap"] },
+  "com.pokulan.aliveinshelter": { "features": ["no-iap"] },
+  "com.bluegnc.AOSBTEAM": { "features": ["no-iap"] },
+  "com.ExiliumGames.Anima": { "features": ["no-iap"] },
+  "air.com.luni.animearcade": { "features": ["no-iap"] },
+  "com.maxgames.stickwarlegacy": { "features": ["no-iap"] }
 }
