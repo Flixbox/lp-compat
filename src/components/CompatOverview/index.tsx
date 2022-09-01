@@ -296,7 +296,11 @@ const AppTile = ({ appId }: { appId: string }) => {
       color: theme.palette.info.main,
     },
     multiplayer: {
-      label: "Multiplayer compatible",
+      label: "Full Multiplayer; IAP compatible",
+      color: theme.palette.primary.main,
+    },
+    "partial-multiplayer": {
+      label: "Game has some multiplayer features; IAP compatible",
       color: theme.palette.primary.main,
     },
     "no-multiplayer": {
