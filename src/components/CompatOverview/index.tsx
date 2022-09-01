@@ -29,7 +29,6 @@ import {
 /*
  * TODO
  * Add more apps, including the ones from the old compat lists
- * Add npm run scrape and git push to CI
  */
 
 type AppInfo = {
@@ -195,6 +194,10 @@ const AppTile = ({ appId }: { appId: string }) => {
     iap: {
       label: "IAP patch works!",
       color: theme.palette.success.main,
+    },
+    "partial-iap": {
+      label: "IAP partially compatible",
+      color: theme.palette.warning.main,
     },
     "no-iap": {
       label: "IAP incompatible",
