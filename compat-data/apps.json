@@ -328,6 +328,7 @@
     "features": ["iap"]
   },
 
+  "com.wildlifestudios.free.online.games.suspects": { "features": ["no-iap"] },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
   "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
