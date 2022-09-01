@@ -29,6 +29,7 @@ import {
 /*
  * TODO
  * Add more apps, including the ones from the old compat lists
+ * Enhance categorization - Make them more flexible, add toc
  */
 
 type AppInfo = {
@@ -229,6 +230,10 @@ const AppTile = ({ appId }: { appId: string }) => {
     },
     "no-multiplayer": {
       label: "Singleplayer only",
+      color: theme.palette.warning.main,
+    },
+    "slightly-broken": {
+      label: "Slightly broken, but playable",
       color: theme.palette.warning.main,
     },
     "dont-bother": {

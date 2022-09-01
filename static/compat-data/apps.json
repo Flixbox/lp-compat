@@ -15,6 +15,22 @@
     "features": ["iap", "no-subscription"],
     "category": "hof"
   },
+  "com.ironhidegames.android.kingdomrush": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.ironhidegames.android.ironmarines": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.miniclip.plagueinc": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.ndemiccreations.rebelinc": {
+    "features": ["iap"],
+    "category": "hof"
+  },
   "grid.crawler.free.offline.rpg.games.dungeon.ward": {
     "features": ["iap"],
     "category": "hof"
@@ -118,10 +134,6 @@
   },
   "com.foursakenmedia.blockfortressempires": {
     "features": ["iap"]
-  },
-  "com.ironhidegames.android.ironmarines": {
-    "features": ["iap"],
-    "category": "hof"
   },
   "com.asanteegames.magicrampage": {
     "features": ["iap"],
@@ -247,6 +259,11 @@
     "features": ["iap"],
     "category": "hof"
   },
+  "com.FDGEntertainment.SuperCatBros.gp": {
+    "features": ["iap", "slightly-broken"]
+  },
+  "com.giantssoftware.fs16": { "features": ["iap", "slightly-broken"] },
+
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
   },
