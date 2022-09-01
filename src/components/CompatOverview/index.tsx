@@ -165,9 +165,15 @@ const categoryList = [
     onlyRenderIf: (appInfo) => appInfo.category === "tools",
   },
   {
+    id: "unclear-iap",
+    title: "Needs verification",
+    onlyRenderIf: (appInfo) => appInfo.category === "unclear-iap",
+  },
+  {
     id: "incompatible",
     title: "Incompatible apps",
-    onlyRenderIf: (appInfo) => appInfo.features.indexOf("iap") === -1,
+    onlyRenderIf: (appInfo) =>
+      !appInfo.category && appInfo.features.indexOf("iap") === -1,
   },
 ];
 
@@ -259,6 +265,10 @@ const AppTile = ({ appId }: { appId: string }) => {
     },
     "partial-iap": {
       label: "IAP partially compatible",
+      color: theme.palette.warning.main,
+    },
+    "unclear-iap": {
+      label: "IAP need verification - Try it out and post in Discord!",
       color: theme.palette.warning.main,
     },
     "no-iap": {
