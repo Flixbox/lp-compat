@@ -23,6 +23,21 @@
     "features": ["iap"],
     "category": "hof"
   },
+  "com.Gcenter.DefenselegendX.TowerDefense.TD": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.Gcenter.Raid.Royal.TowerDefense.TD": {
+    "features": ["iap"],
+    "category": "hof"
+  },
+  "com.gcenter.kingofdefense.battle.frontier.td": {
+    "features": ["iap"]
+  },
+  "com.Gcenter.KingofDefense2.epic.towerdefense": {
+    "features": ["iap"],
+    "category": "hof"
+  },
   "com.miniclip.plagueinc": {
     "features": ["iap"],
     "category": "hof"
@@ -66,22 +81,12 @@
     "features": ["iap"],
     "category": "hof"
   },
-  "com.Gcenter.DefenselegendX.TowerDefense.TD": {
-    "features": ["iap"],
-    "category": "hof"
-  },
+
   "com.alexanderwinn.landfall": {
     "features": ["iap"],
     "category": "hof"
   },
   "com.armorgames.voidtyrant": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.gcenter.kingofdefense.battle.frontier.td": {
-    "features": ["iap"]
-  },
-  "com.Gcenter.KingofDefense2.epic.towerdefense": {
     "features": ["iap"],
     "category": "hof"
   },
