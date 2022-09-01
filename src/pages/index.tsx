@@ -26,7 +26,7 @@ function HomepageHeader() {
             How to install & patch an app 📖
           </Link>
           <Box m={1} />
-          <Link className="button button--secondary button--lg" to="#hof">
+          <Link className="button button--secondary button--lg" to="#apps">
             To the list 🚀
           </Link>
         </Box>

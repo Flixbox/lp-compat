@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import apps from "../../../static/compat-data/apps.json";
@@ -14,6 +14,8 @@ import {
   Box,
   Paper,
   useTheme,
+  Chip,
+  ListItem,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,10 +23,13 @@ import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
   faBan,
   faBug,
+  faEye,
+  faEyeSlash,
   faRectangleAd,
   faStore,
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
+import { xor } from "lodash";
 
 /*
  * TODO
@@ -168,6 +173,9 @@ const categoryList = [
 
 export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
+  const [onlyShowTheseCategories, setOnlyShowTheseCategories] = useState(
+    categoryList.map((category) => category.id)
+  );
 
   return (
     <section className={styles.features}>
@@ -178,19 +186,48 @@ export default function CompatOverview(): JSX.Element {
           ))}
         </div>
         <Box m={8} />
-        {categoryList.map(({ id, title, onlyRenderIf }) => (
-          <div className="row" key={id}>
-            <Typography variant="h3" id={id}>
-              {title}
-            </Typography>
-            <Grid container>
-              {Object.entries(appInfo).map(([appId, app]) => {
-                if (onlyRenderIf(app))
-                  return <AppTile appId={appId} key={appId} />;
-              })}
-            </Grid>
-          </div>
-        ))}
+        <div className="row">
+          <Typography variant="h3">Filter</Typography>
+          {categoryList.map(({ id, title }) => (
+            <ListItem key={id}>
+              <Chip
+                label={title}
+                onClick={() =>
+                  setOnlyShowTheseCategories(xor(onlyShowTheseCategories, [id]))
+                }
+                icon={
+                  <FontAwesomeIcon
+                    icon={
+                      onlyShowTheseCategories.indexOf(id) !== -1
+                        ? faEye
+                        : faEyeSlash
+                    }
+                    color="#e51c23"
+                    size="lg"
+                    opacity={0.9}
+                  />
+                }
+              />
+            </ListItem>
+          ))}
+        </div>
+        <div id="apps"></div>
+        {categoryList.map(
+          ({ id, title, onlyRenderIf }) =>
+            onlyShowTheseCategories.indexOf(id) !== -1 && (
+              <div className="row" key={id}>
+                <Typography variant="h3" id={id}>
+                  {title}
+                </Typography>
+                <Grid container>
+                  {Object.entries(appInfo).map(([appId, app]) => {
+                    if (onlyRenderIf(app))
+                      return <AppTile appId={appId} key={appId} />;
+                  })}
+                </Grid>
+              </div>
+            )
+        )}
       </div>
     </section>
   );
