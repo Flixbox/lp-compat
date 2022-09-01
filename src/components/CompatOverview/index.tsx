@@ -16,6 +16,7 @@ import {
   useTheme,
   Chip,
   ListItem,
+  Input,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -176,6 +177,7 @@ export default function CompatOverview(): JSX.Element {
   const theme = useTheme();
   const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
     usePersistentState(categoryList.map((category) => category.id));
+  const [appTitleFilter, setAppTitleFilter] = usePersistentState("");
 
   return (
     <section className={styles.features}>
@@ -186,8 +188,13 @@ export default function CompatOverview(): JSX.Element {
           ))}
         </div>
         <Box m={8} />
-        <div className="row">
-          <Typography variant="h3">Filter</Typography>
+        <Box className="row" display="flex" flexDirection="column">
+          <Typography variant="h3">Filter apps</Typography>
+          <Input
+            placeholder="Filter app title"
+            value={appTitleFilter}
+            onChange={(e) => setAppTitleFilter(e.currentTarget.value)}
+          />
           {categoryList.map(({ id, title }) => (
             <ListItem key={id}>
               <Chip
@@ -210,7 +217,7 @@ export default function CompatOverview(): JSX.Element {
               />
             </ListItem>
           ))}
-        </div>
+        </Box>
         <div id="apps"></div>
         {categoryList.map(
           ({ id, title, onlyRenderIf }) =>
