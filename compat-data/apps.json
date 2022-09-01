@@ -399,5 +399,6 @@
   "com.bluegnc.AOSBTEAM": { "features": ["no-iap"] },
   "com.ExiliumGames.Anima": { "features": ["no-iap"] },
   "air.com.luni.animearcade": { "features": ["no-iap"] },
+  "com.GamerMind.Warriors_of_the_Universe_Online": { "features": ["no-iap"] },
   "com.maxgames.stickwarlegacy": { "features": ["no-iap"] }
 }
