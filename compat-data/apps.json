@@ -333,6 +333,207 @@
     "features": ["iap"]
   },
 
+  "com.sparklingsociety.battleempireromanwars": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.exaltedstudio.bighelmetheroes": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.kongregate.mobile.cardinalquest.google": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.aanz.ludo.online.multiplayer.offlineludo": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.funload.killmonster": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.OpenWorldInteractive.ClickerWarriors": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.chillgaming.combatquest": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.notdoppler.crashofcars": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.dark.heroes": { "category": "unclear-iap", "features": ["unclear-iap"] },
+  "com.alicegames.idle.rpg.battler": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.survival.last": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "space.indiecatsoft.mercenaryx": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.dejavustudio.AnotherWorld": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.YEMA.FinalDestiny": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.aegisinteractive.goo": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.BerryBaby.skullking": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.BaronnerieGames.Guildmasters": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.prty.hpz": { "category": "unclear-iap", "features": ["unclear-iap"] },
+  "com.hariotica": { "category": "unclear-iap", "features": ["unclear-iap"] },
+  "com.moondustries.idlefamily": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.gaminho.idlefivebasketball": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.aerilys.idle.grail": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.idle.hamster.energy": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.hadeul.mage": { "category": "unclear-iap", "features": ["unclear-iap"] },
+  "com.lemonjamgames.idlehero": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.lemonjamgames.worldtale": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.wb.goog.injustice": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.alohagamestudios.kingofheroes": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.nijigames.leturn": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.llgroup.linearquestbattleidlerpg": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "kemco.rideonjapan.mareniabar": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.guycorp.rpg.games.idle.merge.games": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.booda.medieval.rpg": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.dreamplay.messyrc.google": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.MythiKiwi.MoeOS": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.brightstripe.parcels": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "path.of.evil.immortal.hunter.dungeon.rpg": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.notebuddy.punchman": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.tiregamestudio.rcp.real.car.parking": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "net.hexage.reaper": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "vn.apero.warriorDefenders.td.tower.defense.rush": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.ForgeGames.ShadowOfTheEmpire": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.kiloo.smashchamps": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.oddyarts.StoneOfLifeEXNative": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.sixmonkeys.tap.hero.idle.rpg.game": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.generagames.tap.pirates.idle": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.excellcube.ultimateaxeclicker": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.vpnmasterx.pro": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.malcs.melvoridle": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "ninja.creed.sniper.real3d.action.free.android": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.studiowildcard.wardrumstudios.ark": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.squareenixmontreal.hitmansniperandroid": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+
   "com.wildlifestudios.free.online.games.suspects": { "features": ["no-iap"] },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
