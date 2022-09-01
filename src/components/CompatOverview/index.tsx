@@ -30,6 +30,7 @@ import {
  * TODO
  * Add more apps, including the ones from the old compat lists
  * Enhance categorization - Make them more flexible, add toc
+ * add filter bar
  */
 
 type AppInfo = {
