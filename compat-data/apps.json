@@ -327,6 +327,10 @@
     "features": ["iap", "facebook-login"]
   },
   "com.bigshark.dreammatch": { "features": ["iap"] },
+  "com.clarkstudio.breakem": { "features": ["iap"] },
+  "com.bricksbreakerballs.royal.king.ball.blast": {
+    "features": ["iap", "facebook-login"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
