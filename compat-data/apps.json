@@ -334,8 +334,7 @@
   },
 
   "com.sparklingsociety.battleempireromanwars": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
+    "features": ["iap", "multiplayer", "account-login"]
   },
   "com.exaltedstudio.bighelmetheroes": {
     "category": "unclear-iap",
