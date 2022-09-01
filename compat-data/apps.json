@@ -296,6 +296,25 @@
       "facebook-login-broken"
     ]
   },
+  "com.FDGEntertainment.CoverOrange1.gp": { "features": ["iap"] },
+  "com.FDGEntertainment.CoverOrange2.gp": { "features": ["iap"] },
+  "com.FDGEntertainment.BananaKongBlast.gp": { "features": ["iap"] },
+  "com.FDGEntertainment.RolyPolyMonsters.gp": { "features": ["iap"] },
+  "com.fdgentertainment.tentaclewars.gp.free": { "features": ["iap"] },
+  "com.noodlecake.ssg2": { "features": ["iap"] },
+  "com.noodlecake.altosadventure": { "features": ["iap"] },
+  "com.noodlecake.reallybadchess": { "features": ["iap"] },
+  "com.frvr.golddigger": { "features": ["iap", "facebook-login"] },
+  "com.frvr.lines": { "features": ["iap", "facebook-login"] },
+  "com.frvr.roadtrip": { "features": ["iap", "facebook-login"] },
+  "com.frvr.worlds": { "features": ["iap", "multiplayer", "facebook-login"] },
+  "com.frvr.kickup": { "features": ["iap", "facebook-login"] },
+  "com.frvr.cave": { "features": ["iap", "facebook-login"] },
+  "com.frvr.basketball": { "features": ["iap", "facebook-login"] },
+  "com.frvr.harpoon": { "features": ["iap", "facebook-login"] },
+  "com.frvr.slash": { "features": ["iap", "facebook-login"] },
+  "com.frvr.bubbleshooter": { "features": ["iap", "facebook-login-broken"] },
+  "com.frvr.puttrush": { "features": ["iap", "facebook-login-broken"] },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
