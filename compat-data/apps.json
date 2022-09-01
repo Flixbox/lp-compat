@@ -4,7 +4,7 @@
     "category": "hof"
   },
   "com.turner.pocketmorties": {
-    "features": ["iap", "no-multiplayer"],
+    "features": ["iap", "multiplayer", "no-multiplayer-iap"],
     "category": "hof"
   },
   "com.ludia.dragons": {
@@ -256,13 +256,46 @@
   "air.com.FDGEntertainment.Lonewolf.gp": { "features": ["iap"] },
   "air.com.FDGEntertainment.BloodyHarry": { "features": ["iap"] },
   "com.FDGEntertainment.Oceanhorn.gp": {
-    "features": ["iap"],
+    "features": ["iap", "repurchase"],
     "category": "hof"
   },
+  "com.GearStudio.AlmoraDarkosen": { "features": ["iap", "repurchase"] },
   "com.FDGEntertainment.SuperCatBros.gp": {
     "features": ["iap", "slightly-broken"]
   },
   "com.giantssoftware.fs16": { "features": ["iap", "slightly-broken"] },
+  "air.com.lunime.gacharesort": { "features": ["iap"] },
+  "air.com.lunimobi.animegacha": { "features": ["iap"] },
+  "air.com.lunime.animefidgetspinner": { "features": ["iap"] },
+  "air.com.lunime.nekogacha": { "features": ["iap"] },
+  "air.com.lunime.gachalife": {
+    "features": ["iap", "transfer"],
+    "category": "hof"
+  },
+  "com.superluckycasino.epicjackpot.slots.vegas.android.free": {
+    "features": [
+      "iap",
+      "multiplayer",
+      "no-multiplayer-iap",
+      "facebook-login-broken"
+    ]
+  },
+  "com.superluckycasino.billionaire.slots.vegas.android.free": {
+    "features": [
+      "iap",
+      "multiplayer",
+      "no-multiplayer-iap",
+      "facebook-login-broken"
+    ]
+  },
+  "com.superluckycasino.viponly.slots.vegas.android.free": {
+    "features": [
+      "iap",
+      "multiplayer",
+      "no-multiplayer-iap",
+      "facebook-login-broken"
+    ]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
