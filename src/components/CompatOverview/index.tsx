@@ -191,9 +191,11 @@ export default function CompatOverview(): JSX.Element {
         <Box className="row" display="flex" flexDirection="column">
           <Typography variant="h3">Filter apps</Typography>
           <Input
-            placeholder="Filter app title"
+            placeholder="Filter app title or ID"
             value={appTitleFilter}
-            onChange={(e) => setAppTitleFilter(e.currentTarget.value)}
+            onChange={(e) =>
+              setAppTitleFilter(e.currentTarget.value.toLowerCase())
+            }
           />
           {categoryList.map(({ id, title }) => (
             <ListItem key={id}>
@@ -228,7 +230,13 @@ export default function CompatOverview(): JSX.Element {
                 </Typography>
                 <Grid container>
                   {Object.entries(appInfo).map(([appId, app]) => {
-                    if (onlyRenderIf(app))
+                    if (
+                      onlyRenderIf(app) &&
+                      (playstore[appId].title
+                        .toLowerCase()
+                        .indexOf(appTitleFilter) !== -1 ||
+                        appId.toLowerCase().indexOf(appTitleFilter) !== -1)
+                    )
                       return <AppTile appId={appId} key={appId} />;
                   })}
                 </Grid>
