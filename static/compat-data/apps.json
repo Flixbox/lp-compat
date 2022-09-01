@@ -319,6 +319,7 @@
   "com.frvr.bubbleshooter": { "features": ["iap", "facebook-login-broken"] },
   "com.frvr.puttrush": { "features": ["iap", "facebook-login-broken"] },
   "com.Sateda": { "features": ["iap", "repurchase"] },
+  "com.mergedomhomedesign.game": { "features": ["iap"] },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
