@@ -157,9 +157,7 @@ const categoryList = [
     id: "other-games",
     title: "Other games",
     onlyRenderIf: (appInfo) =>
-      appInfo.category !== "hof" &&
-      appInfo.category !== "tools" &&
-      appInfo.features.indexOf("iap") > -1,
+      !appInfo.category && appInfo.features.indexOf("iap") > -1,
   },
   {
     id: "tools",
