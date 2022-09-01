@@ -1,10 +1,10 @@
 {
   "com.gramgames.mergedragons": {
-    "features": ["iap", "facebook-login", "multiplayer"],
+    "features": ["iap", "facebook-login", "partial-multiplayer"],
     "category": "hof"
   },
   "com.turner.pocketmorties": {
-    "features": ["iap", "multiplayer", "no-multiplayer-iap"],
+    "features": ["iap", "no-multiplayer-iap"],
     "category": "hof"
   },
   "com.ludia.dragons": {
@@ -86,7 +86,7 @@
     "category": "hof"
   },
   "com.hyperdotstudios.mythiclegends": {
-    "features": ["iap", "multiplayer"],
+    "features": ["iap", "partial-multiplayer"],
     "category": "hof"
   },
   "com.lemonjamstudio.infiniteknights": {
@@ -246,7 +246,7 @@
     "category": "hof"
   },
   "com.pixelperfectdude.htdrive": { "features": ["iap"] },
-  "com.BeardyBird.Ailment": { "features": ["iap", "multiplayer"] },
+  "com.BeardyBird.Ailment": { "features": ["iap", "partial-multiplayer"] },
   "com.pipkin.games.alchemy": { "features": ["iap"] },
   "com.telltalegames.walkingdead100": { "features": ["iap", "account-login"] },
   "com.telltalegames.walkingdead200": { "features": ["iap", "account-login"] },
@@ -274,7 +274,7 @@
   "com.superluckycasino.epicjackpot.slots.vegas.android.free": {
     "features": [
       "iap",
-      "multiplayer",
+      "partial-multiplayer",
       "no-multiplayer-iap",
       "facebook-login-broken"
     ]
@@ -282,7 +282,7 @@
   "com.superluckycasino.billionaire.slots.vegas.android.free": {
     "features": [
       "iap",
-      "multiplayer",
+      "partial-multiplayer",
       "no-multiplayer-iap",
       "facebook-login-broken"
     ]
@@ -290,10 +290,14 @@
   "com.superluckycasino.viponly.slots.vegas.android.free": {
     "features": [
       "iap",
-      "multiplayer",
+      "partial-multiplayer",
       "no-multiplayer-iap",
       "facebook-login-broken"
     ]
+  },
+  "manastorm.spacehorse": {
+    "features": ["iap", "multiplayer"],
+    "category": "hof"
   },
   "com.FDGEntertainment.CoverOrange1.gp": { "features": ["iap"] },
   "com.FDGEntertainment.CoverOrange2.gp": { "features": ["iap"] },
