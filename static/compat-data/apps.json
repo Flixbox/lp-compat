@@ -388,6 +388,91 @@
     "features": ["root-patch", "root-patch-iap"]
   },
 
+  "jp.pokemon.pokemonquest": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "net.apex_designs.payback2": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.hasbro.beybladesenterprise": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "air.SiftHeadsRebornAndroid": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.bulkypix.deadeffect": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.wb.goog.legoswtfa": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.wb.lego.tcs": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.aspyr.swkotor": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.ea.games.r3_na": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.olzhas.carparking.multyplayer": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.pokemon.pokemonplayhouse": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "jp.pokemon.pokemonsmile": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "jp.pokemon.koiking": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.and.games505.TerrariaPaid": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.ea.games.nfs13_na": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "org.dashnet.cookieclicker": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.rovio.BadPiggies": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.rockstargames.gtalcs": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.rockstargames.gtavc": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.rockstar.gta3": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+  "com.rockstargames.gtasa": {
+    "category": "root",
+    "features": ["no-iap", "root-patch"]
+  },
+
   "com.kongregate.mobile.cardinalquest.google": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
