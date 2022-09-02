@@ -348,6 +348,12 @@
   "com.aerilys.idle.grail": {
     "features": ["iap", "slightly-broken"]
   },
+  "vn.apero.warriorDefenders.td.tower.defense.rush": {
+    "features": ["iap"]
+  },
+  "com.sparklingsociety.battleempireromanwars": {
+    "features": ["iap", "multiplayer", "account-login"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
@@ -365,9 +371,6 @@
     "features": ["iap"]
   },
 
-  "com.sparklingsociety.battleempireromanwars": {
-    "features": ["iap", "multiplayer", "account-login"]
-  },
   "com.kongregate.mobile.cardinalquest.google": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -478,10 +481,6 @@
     "features": ["unclear-iap"]
   },
   "net.hexage.reaper": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "vn.apero.warriorDefenders.td.tower.defense.rush": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
