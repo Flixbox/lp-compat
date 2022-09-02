@@ -333,6 +333,20 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Buying too many IAP will break the game!",
       color: theme.palette.warning.main,
     },
+    "disable-data-on-lp-popup": {
+      label:
+        "Disable data connection when the LP purchase popup shows to get IAP",
+      color: theme.palette.info.main,
+    },
+    "restore-purchase": {
+      label:
+        "IAP can be redeemed by restoring purchase and restarting the game",
+      color: theme.palette.info.main,
+    },
+    "iap-before-load": {
+      label: "Purchase IAP before the game is fully loaded. Play anonymously.",
+      color: theme.palette.info.main,
+    },
     "subscription-restore-purchase": {
       label: "Subscription can be redeemed by restoring purchase",
       color: theme.palette.info.main,
