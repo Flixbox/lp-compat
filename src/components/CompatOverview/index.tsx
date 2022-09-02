@@ -323,6 +323,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Slightly broken, but playable",
       color: theme.palette.warning.main,
     },
+    "too-many-iap-break": {
+      label: "Buying too many IAP will break the game!",
+      color: theme.palette.warning.main,
+    },
     "dont-bother": {
       label: "Don't bother. This game is either grindy or uninteresting.",
       color: theme.palette.warning.main,

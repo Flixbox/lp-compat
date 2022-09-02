@@ -336,6 +336,15 @@
   "com.bricksbreakerballs.royal.king.ball.blast": {
     "features": ["iap", "facebook-login"]
   },
+  "com.india.vs.pak.mega.classic.ludo": {
+    "features": ["iap", "multiplayer"]
+  },
+  "com.dark.heroes": {
+    "features": ["iap", "multiplayer"]
+  },
+  "com.YEMA.FinalDestiny": {
+    "features": ["iap", "too-many-iap-break"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
@@ -352,10 +361,6 @@
 
   "com.sparklingsociety.battleempireromanwars": {
     "features": ["iap", "multiplayer", "account-login"]
-  },
-  "com.exaltedstudio.bighelmetheroes": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
   },
   "com.kongregate.mobile.cardinalquest.google": {
     "category": "unclear-iap",
@@ -377,11 +382,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.notdoppler.crashofcars": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dark.heroes": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.alicegames.idle.rpg.battler": {
     "features": ["no-iap"]
   },
@@ -389,19 +389,7 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "space.indiecatsoft.mercenaryx": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.dejavustudio.AnotherWorld": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.YEMA.FinalDestiny": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.aegisinteractive.goo": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -413,7 +401,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.prty.hpz": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.hariotica": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.moondustries.idlefamily": {
     "category": "unclear-iap",
@@ -549,7 +536,6 @@
     "features": ["unclear-iap"]
   },
 
-  "com.wildlifestudios.free.online.games.suspects": { "features": ["no-iap"] },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
   "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
@@ -620,5 +606,12 @@
   "com.ExiliumGames.Anima": { "features": ["no-iap"] },
   "air.com.luni.animearcade": { "features": ["no-iap"] },
   "com.GamerMind.Warriors_of_the_Universe_Online": { "features": ["no-iap"] },
-  "com.maxgames.stickwarlegacy": { "features": ["no-iap"] }
+  "com.maxgames.stickwarlegacy": { "features": ["no-iap"] },
+  "com.wildlifestudios.free.online.games.suspects": { "features": ["no-iap"] },
+  "com.notdoppler.crashofcars": { "features": ["no-iap"] },
+  "com.trueaxis.trueskate": { "features": ["no-iap"] },
+  "com.prty.hpz": { "features": ["no-iap"] },
+  "com.exaltedstudio.bighelmetheroes": { "features": ["no-iap"] },
+  "space.indiecatsoft.mercenaryx": { "features": ["no-iap"] },
+  "com.aegisinteractive.goo": { "features": ["no-iap"] }
 }
