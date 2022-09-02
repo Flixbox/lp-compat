@@ -371,6 +371,23 @@
     "features": ["iap"]
   },
 
+  "com.malcs.melvoridle": {
+    "category": "root",
+    "features": ["root-patch", "root-patch-iap"]
+  },
+  "ninja.creed.sniper.real3d.action.free.android": {
+    "category": "root",
+    "features": ["root-patch"]
+  },
+  "com.squareenixmontreal.hitmansniperandroid": {
+    "category": "root",
+    "features": ["root-patch", "root-patch-iap"]
+  },
+  "com.studiowildcard.wardrumstudios.ark": {
+    "category": "root",
+    "features": ["root-patch", "root-patch-iap"]
+  },
+
   "com.kongregate.mobile.cardinalquest.google": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -509,22 +526,6 @@
     "features": ["unclear-iap"]
   },
   "com.vpnmasterx.pro": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.malcs.melvoridle": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "ninja.creed.sniper.real3d.action.free.android": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.studiowildcard.wardrumstudios.ark": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.squareenixmontreal.hitmansniperandroid": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },

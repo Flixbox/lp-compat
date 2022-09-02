@@ -170,6 +170,11 @@ const categoryList = [
     onlyRenderIf: (appInfo) => appInfo.category === "unclear-iap",
   },
   {
+    id: "root",
+    title: "root",
+    onlyRenderIf: (appInfo) => appInfo.category === "root",
+  },
+  {
     id: "incompatible",
     title: "Incompatible apps",
     onlyRenderIf: (appInfo) =>
@@ -338,6 +343,14 @@ const AppTile = ({ appId }: { appId: string }) => {
     "region-locked": {
       label: "If region locked, use Google Account from another region",
       color: theme.palette.warning.main,
+    },
+    "root-patch": {
+      label: "Root patch available",
+      color: theme.palette.info.main,
+    },
+    "root-patch-iap": {
+      label: "Patch app with root to make IAP work!",
+      color: theme.palette.info.main,
     },
   };
 
