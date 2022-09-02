@@ -364,6 +364,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "If region locked, use Google Account from another region",
       color: theme.palette.warning.main,
     },
+    "patch-before-first-launch": {
+      label: "Patch this game before launching it for the first time!",
+      color: theme.palette.warning.main,
+    },
     "special-patch-full-offline": {
       label: "Select patch option: Make fully offline",
       color: theme.palette.info.main,
