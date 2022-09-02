@@ -178,7 +178,7 @@ const categoryList = [
     id: "incompatible",
     title: "Incompatible apps",
     onlyRenderIf: (appInfo) =>
-      !appInfo.category && appInfo.features.indexOf("iap") === -1,
+      !appInfo.category && appInfo.features.indexOf("no-iap") > -1,
   },
 ];
 
