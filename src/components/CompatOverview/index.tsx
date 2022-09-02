@@ -258,8 +258,17 @@ export default function CompatOverview(): JSX.Element {
 const AppTile = ({ appId }: { appId: string }) => {
   const theme = useTheme();
   const { iap, features } = appInfo[appId];
-  const { title, icon, installs, scoreText, url, genre, screenshots } =
-    playstore[appId];
+  const {
+    title,
+    icon,
+    installs,
+    scoreText,
+    url,
+    genre,
+    screenshots,
+    free,
+    priceText,
+  } = playstore[appId];
 
   const featureMap = {
     iap: {
@@ -436,6 +445,9 @@ const AppTile = ({ appId }: { appId: string }) => {
                 <Typography variant="subtitle2">📩 {installs}</Typography>
               </Box>
               <Typography variant="subtitle2">{genre}</Typography>
+              {!free && (
+                <Typography variant="subtitle2">{priceText}</Typography>
+              )}
             </CardContent>
           </Card>
         </a>
