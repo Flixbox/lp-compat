@@ -35,9 +35,7 @@ import { usePersistentState } from "react-persistent-state";
 
 /*
  * TODO
- * Add more apps, including the ones from the old compat lists
- * Enhance categorization -  add toc
- * add filter bar
+ * Add price if available
  */
 
 type AppInfo = {
