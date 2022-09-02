@@ -371,7 +371,7 @@
   },
   "com.carxtech.carxdr2": {
     "category": "hof",
-    "features": ["iap", "multiplayer"]
+    "features": ["iap", "multiplayer", "facebook-login"]
   },
   "coloring.color.number.happy.paint.art.drawing.puzzle": {
     "features": [
