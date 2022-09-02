@@ -412,6 +412,7 @@ const AppTile = ({ appId }: { appId: string }) => {
                     padding={0.5}
                     sx={{ backgroundColor: featureMap[feature].color }}
                     key={feature}
+                    mt={0.5}
                   >
                     <Typography
                       color={theme.palette.getContrastText(
