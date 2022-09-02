@@ -9,7 +9,7 @@ const config = {
   title: "Lucky Patcher Compatibility",
   tagline:
     "An incomplete & frequently updated list of apps that can be patched to remove in-app purchases and ads",
-  url: "https://flixbox.github.io",
+  url: "https://flixbox.github.io/lp-compat",
   baseUrl: "/lp-compat/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -36,13 +36,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/Flixbox/lp-compat",
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/Flixbox/lp-compat",
+          editUrl: "https://github.com/Flixbox/lp-compat/blob/main/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
