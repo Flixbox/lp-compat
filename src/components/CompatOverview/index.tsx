@@ -353,6 +353,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Select patch option: Signature verification killer",
       color: theme.palette.info.main,
     },
+    "root-iap": {
+      label: "IAP patch works with rooted device",
+      color: theme.palette.info.main,
+    },
     "root-patch": {
       label: "Root patch available",
       color: theme.palette.info.main,
