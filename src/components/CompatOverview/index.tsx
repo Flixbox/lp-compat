@@ -327,6 +327,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Buying too many IAP will break the game!",
       color: theme.palette.warning.main,
     },
+    "subscription-restore-purchase": {
+      label: "Subscription can be redeemed by restoring purchase",
+      color: theme.palette.info.main,
+    },
     "dont-bother": {
       label: "Don't bother. This game is either grindy or uninteresting.",
       color: theme.palette.warning.main,
