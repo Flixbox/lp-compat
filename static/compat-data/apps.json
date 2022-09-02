@@ -366,6 +366,9 @@
   "com.NamelessStudio.DungeonsAndHonor": {
     "features": ["iap", "multiplayer"]
   },
+  "com.carxtech.carxdr2": {
+    "features": ["iap", "multiplayer"]
+  },
   "coloring.color.number.happy.paint.art.drawing.puzzle": {
     "features": [
       "iap",
