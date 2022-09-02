@@ -814,7 +814,19 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
+  "com.heavyfall.constructioncity": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
   "com.heavyfall.constructioncity2": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.heavyfall.constructioncity2.winter": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
+  "com.heavyfall.diego1": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
