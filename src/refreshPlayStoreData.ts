@@ -2,7 +2,7 @@ import gplay from "google-play-scraper";
 import { writeFileSync } from "fs";
 import { SingleBar, Presets } from "cli-progress";
 import apps from "../static/compat-data/apps.json";
-import oldPlayStoreData from "../static/compat-data/playstore.json";
+const oldPlayStoreData = require("../static/compat-data/playstore.json");
 
 const fetchData = async () => {
   const playstore = {};
