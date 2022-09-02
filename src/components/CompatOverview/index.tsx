@@ -353,6 +353,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Patch app with root to make IAP work!",
       color: theme.palette.info.main,
     },
+    "no-root-patch-iap": {
+      label: "Root patch doesn't make IAP available",
+      color: theme.palette.info.main,
+    },
   };
 
   return (

@@ -390,87 +390,87 @@
 
   "jp.pokemon.pokemonquest": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "net.apex_designs.payback2": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.hasbro.beybladesenterprise": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "air.SiftHeadsRebornAndroid": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.bulkypix.deadeffect": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.wb.goog.legoswtfa": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.wb.lego.tcs": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.aspyr.swkotor": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.ea.games.r3_na": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.olzhas.carparking.multyplayer": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.pokemon.pokemonplayhouse": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "jp.pokemon.pokemonsmile": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "jp.pokemon.koiking": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.and.games505.TerrariaPaid": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.ea.games.nfs13_na": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "org.dashnet.cookieclicker": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.rovio.BadPiggies": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.rockstargames.gtalcs": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.rockstargames.gtavc": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.rockstar.gta3": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.rockstargames.gtasa": {
     "category": "root",
-    "features": ["no-iap", "root-patch"]
+    "features": ["root-patch", "no-root-patch-iap"]
   },
 
   "com.kongregate.mobile.cardinalquest.google": {
