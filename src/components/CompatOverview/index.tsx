@@ -306,7 +306,7 @@ const AppTile = ({ appId }: { appId: string }) => {
       color: theme.palette.warning.main,
     },
     transfer: {
-      label: "Game data can be transferred to another account",
+      label: "App data can be transferred to another account",
       color: theme.palette.info.main,
     },
     multiplayer: {
@@ -314,7 +314,7 @@ const AppTile = ({ appId }: { appId: string }) => {
       color: theme.palette.primary.main,
     },
     "partial-multiplayer": {
-      label: "Game has some multiplayer features; IAP compatible",
+      label: "App has some multiplayer features; IAP compatible",
       color: theme.palette.primary.main,
     },
     "no-multiplayer": {
@@ -330,7 +330,7 @@ const AppTile = ({ appId }: { appId: string }) => {
       color: theme.palette.warning.main,
     },
     "too-many-iap-break": {
-      label: "Buying too many IAP will break the game!",
+      label: "Buying too many IAP will break the app!",
       color: theme.palette.warning.main,
     },
     "disable-data-on-lp-popup": {
@@ -339,12 +339,11 @@ const AppTile = ({ appId }: { appId: string }) => {
       color: theme.palette.info.main,
     },
     "restore-purchase": {
-      label:
-        "IAP can be redeemed by restoring purchase and restarting the game",
+      label: "IAP can be redeemed by restoring purchase and restarting the app",
       color: theme.palette.info.main,
     },
     "iap-before-load": {
-      label: "Purchase IAP before the game is fully loaded. Play anonymously.",
+      label: "Purchase IAP before the app is fully loaded. Play anonymously.",
       color: theme.palette.info.main,
     },
     "subscription-restore-purchase": {
@@ -365,6 +364,10 @@ const AppTile = ({ appId }: { appId: string }) => {
     },
     "special-patch-signature": {
       label: "Select patch option: Signature verification killer",
+      color: theme.palette.info.main,
+    },
+    "may-require-root": {
+      label: "This app may require a root-level patch to work.",
       color: theme.palette.info.main,
     },
     "root-iap": {
@@ -395,7 +398,7 @@ const AppTile = ({ appId }: { appId: string }) => {
                 {screenshots.map((image) => (
                   <img
                     src={image}
-                    alt="Game screenshot"
+                    alt="App screenshot"
                     loading="lazy"
                     key={image}
                   />
