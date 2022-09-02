@@ -354,6 +354,9 @@
   "com.sparklingsociety.battleempireromanwars": {
     "features": ["iap", "multiplayer", "account-login"]
   },
+  "coloring.color.number.happy.paint.art.drawing.puzzle": {
+    "features": ["iap", "special-patch-full-offline", "special-patch-signature", "facebook-login"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
