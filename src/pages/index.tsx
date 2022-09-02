@@ -21,6 +21,13 @@ function HomepageHeader() {
         <Box className={styles.buttons} flex="1" flexDirection="column">
           <Link
             className="button button--secondary button--lg"
+            to="/docs/lp-info"
+          >
+            Important info about LP 💡
+          </Link>
+          <Box m={1} />
+          <Link
+            className="button button--secondary button--lg"
             to="/docs/intro"
           >
             How to install & patch an app 📖
