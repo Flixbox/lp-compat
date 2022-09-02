@@ -172,7 +172,7 @@ const categoryList = [
   },
   {
     id: "root",
-    title: "root",
+    title: "Requires Root",
     onlyRenderIf: (appInfo) => appInfo.category === "root",
   },
   {
