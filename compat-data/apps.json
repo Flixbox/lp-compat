@@ -394,6 +394,12 @@
       "facebook-login"
     ]
   },
+  "com.TechTreeGames.TheTower": {
+    "features": ["iap", "no-multiplayer"]
+  },
+  "com.wellgame.mergemyth": {
+    "features": ["iap"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
@@ -416,6 +422,10 @@
   },
 
   "com.hadeul.mage": { "category": "root", "features": ["root-iap"] },
+  "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
+    "category": "root",
+    "features": ["root-iap", "restore-purchase"]
+  },
   "com.malcs.melvoridle": {
     "category": "root",
     "features": ["root-patch", "root-patch-iap"]
