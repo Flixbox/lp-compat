@@ -79,7 +79,8 @@ const FeatureList: FeatureItem[] = [
     ),
     description: (
       <Typography>
-        No root access is required for these patches, unless stated otherwise.
+        No root access is required for these patches, except for apps in the
+        "Root" category.
       </Typography>
     ),
   },
