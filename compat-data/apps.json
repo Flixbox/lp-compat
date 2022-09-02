@@ -349,6 +349,9 @@
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
   },
+  "com.gaminho.idlefivebasketball": {
+    "features": ["partial-iap", "subscription-restore-purchase"]
+  },
 
   "bazinac.aplikacenahouby": {
     "category": "tools",
@@ -399,10 +402,6 @@
   },
   "com.hariotica": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.moondustries.idlefamily": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gaminho.idlefivebasketball": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
