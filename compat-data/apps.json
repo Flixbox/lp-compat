@@ -354,6 +354,9 @@
   "com.sparklingsociety.battleempireromanwars": {
     "features": ["iap", "multiplayer", "account-login"]
   },
+  "com.NamelessStudio.DungeonsAndHonor": {
+    "features": ["iap", "multiplayer"]
+  },
   "coloring.color.number.happy.paint.art.drawing.puzzle": {
     "features": [
       "iap",
