@@ -355,13 +355,14 @@
     "features": ["iap"]
   },
   "com.dejavustudio.AnotherWorld": {
-    "features": ["iap"]
+    "category": "root",
+    "features": ["iap", "may-require-root"]
   },
   "com.lemonjamgames.idlehero": {
     "features": ["iap"]
   },
   "com.sparklingsociety.battleempireromanwars": {
-    "features": ["iap", "multiplayer", "account-login"]
+    "features": ["iap", "no-multiplayer", "account-login"]
   },
   "com.NamelessStudio.DungeonsAndHonor": {
     "features": ["iap", "multiplayer"]
@@ -400,6 +401,9 @@
   "com.wellgame.mergemyth": {
     "features": ["iap"]
   },
+  "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
+    "features": ["iap", "restore-purchase"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
@@ -422,10 +426,6 @@
   },
 
   "com.hadeul.mage": { "category": "root", "features": ["root-iap"] },
-  "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
-    "category": "root",
-    "features": ["root-iap", "restore-purchase"]
-  },
   "com.malcs.melvoridle": {
     "category": "root",
     "features": ["root-patch", "root-patch-iap"]
