@@ -35,7 +35,6 @@ import { usePersistentState } from "react-persistent-state";
 
 /*
  * TODO
- * Add price if available
  */
 
 type AppInfo = {
