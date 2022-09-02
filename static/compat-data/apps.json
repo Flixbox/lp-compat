@@ -337,7 +337,7 @@
     "features": ["iap", "facebook-login"]
   },
   "com.india.vs.pak.mega.classic.ludo": {
-    "features": ["iap", "multiplayer"]
+    "features": ["iap", "multiplayer", "facebook-login"]
   },
   "com.dark.heroes": {
     "features": ["iap", "multiplayer"]
