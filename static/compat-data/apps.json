@@ -354,6 +354,9 @@
   "com.OpenWorldInteractive.ClickerWarriors": {
     "features": ["iap"]
   },
+  "com.dejavustudio.AnotherWorld": {
+    "features": ["iap"]
+  },
   "com.sparklingsociety.battleempireromanwars": {
     "features": ["iap", "multiplayer", "account-login"]
   },
@@ -503,10 +506,6 @@
     "features": ["no-iap"]
   },
   "com.survival.last": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dejavustudio.AnotherWorld": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
