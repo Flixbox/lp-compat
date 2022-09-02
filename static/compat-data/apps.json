@@ -351,6 +351,9 @@
   "vn.apero.warriorDefenders.td.tower.defense.rush": {
     "features": ["iap"]
   },
+  "com.OpenWorldInteractive.ClickerWarriors": {
+    "features": ["iap"]
+  },
   "com.sparklingsociety.battleempireromanwars": {
     "features": ["iap", "multiplayer", "account-login"]
   },
@@ -489,10 +492,6 @@
     "features": ["unclear-iap"]
   },
   "com.funload.killmonster": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.OpenWorldInteractive.ClickerWarriors": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
