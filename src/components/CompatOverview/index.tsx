@@ -79,7 +79,7 @@ const FeatureList: FeatureItem[] = [
     ),
     description: (
       <Typography>
-        No root access is required for any of these patches.
+        No root access is required for these patches, unless stated otherwise.
       </Typography>
     ),
   },
