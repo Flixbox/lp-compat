@@ -366,6 +366,9 @@
   "com.NamelessStudio.DungeonsAndHonor": {
     "features": ["iap", "multiplayer"]
   },
+  "com.battlecreek.offroadoutlaws": {
+    "features": ["iap", "multiplayer"]
+  },
   "com.carxtech.carxdr2": {
     "category": "hof",
     "features": ["iap", "multiplayer"]
@@ -626,6 +629,7 @@
   "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
     "features": ["no-iap"]
   },
+  "com.battlecreek.nolimit2": { "features": ["no-iap"] },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
   "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
