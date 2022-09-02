@@ -110,9 +110,8 @@ const FeatureList: FeatureItem[] = [
     ),
     description: (
       <Typography>
-        All apps are patched using{" "}
-        <Link href="/docs/intro">the default IAP and Adblock patches</Link>{" "}
-        only.
+        Apps are patched using{" "}
+        <Link href="/docs/intro">the default IAP and Adblock patches</Link>.
       </Typography>
     ),
   },
