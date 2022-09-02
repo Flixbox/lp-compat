@@ -366,10 +366,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.aanz.ludo.online.multiplayer.offlineludo": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.funload.killmonster": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -613,5 +609,6 @@
   "com.prty.hpz": { "features": ["no-iap"] },
   "com.exaltedstudio.bighelmetheroes": { "features": ["no-iap"] },
   "space.indiecatsoft.mercenaryx": { "features": ["no-iap"] },
-  "com.aegisinteractive.goo": { "features": ["no-iap"] }
+  "com.aegisinteractive.goo": { "features": ["no-iap"] },
+  "com.aanz.ludo.online.multiplayer.offlineludo": { "features": ["no-iap"] }
 }
