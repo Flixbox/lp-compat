@@ -345,6 +345,9 @@
   "com.YEMA.FinalDestiny": {
     "features": ["iap", "too-many-iap-break"]
   },
+  "com.aerilys.idle.grail": {
+    "features": ["iap", "slightly-broken"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
@@ -402,10 +405,6 @@
   },
   "com.hariotica": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.moondustries.idlefamily": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.aerilys.idle.grail": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
