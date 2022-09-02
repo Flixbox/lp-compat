@@ -526,10 +526,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.hadeul.mage": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.lemonjamgames.idlehero": {
     "category": "unclear-iap",
@@ -624,6 +620,9 @@
     "features": ["unclear-iap"]
   },
 
+  "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
+    "features": ["no-iap"]
+  },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
   "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
