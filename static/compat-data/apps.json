@@ -367,6 +367,7 @@
     "features": ["iap", "multiplayer"]
   },
   "com.carxtech.carxdr2": {
+    "category": "hof",
     "features": ["iap", "multiplayer"]
   },
   "coloring.color.number.happy.paint.art.drawing.puzzle": {
