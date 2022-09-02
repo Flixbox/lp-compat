@@ -8,6 +8,8 @@ sidebar_position: 1
 
 Follow the tutorial on the official website. Make sure to give LP the "Draw over other apps" permission in the app's settings.
 
+Read the [important info about LP](/docs/lp-info.md) section.
+
 ## Create the modified APK file
 
 Follow these screenshots to create your modified APK file. Read any pop-ups you may come across and try to follow their advice, but don't worry too much about them.
