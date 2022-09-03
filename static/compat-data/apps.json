@@ -415,6 +415,9 @@
   "com.stormx.xteam": {
     "features": ["iap"]
   },
+  "com.oddyarts.StoneOfLifeEXNative": {
+    "features": ["iap"]
+  },
   "com.TironiumTech.IdlePlanetMiner": {
     "features": ["iap"]
   },
@@ -622,10 +625,6 @@
     "features": ["unclear-iap"]
   },
   "com.ForgeGames.ShadowOfTheEmpire": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.oddyarts.StoneOfLifeEXNative": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
