@@ -397,6 +397,9 @@
   "com.TironiumTech.IdlePlanetMiner": {
     "features": ["iap"]
   },
+  "com.booda.medieval.rpg": {
+    "features": ["iap"]
+  },
   "com.OpenWorldInteractive.ClickerWarriors": {
     "features": ["iap"]
   },
@@ -581,10 +584,6 @@
   },
   "com.BerryBaby.skullking": {
     "features": ["iap", "slightly-broken"]
-  },
-  "com.booda.medieval.rpg": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
   },
   "com.dreamplay.messyrc.google": {
     "category": "unclear-iap",
