@@ -348,6 +348,9 @@
   "com.nijigames.leturn": {
     "features": ["iap"]
   },
+  "com.miramerge": {
+    "features": ["iap", "special-patch-lvl"]
+  },
   "com.BerryBaby.skullking": {
     "features": ["iap", "slightly-broken"]
   },
@@ -407,6 +410,9 @@
     "features": ["iap"]
   },
   "com.stormx.xteam": {
+    "features": ["iap"]
+  },
+  "com.oddyarts.StoneOfLifeEXNative": {
     "features": ["iap"]
   },
   "com.TironiumTech.IdlePlanetMiner": {
@@ -616,10 +622,6 @@
     "features": ["unclear-iap"]
   },
   "com.ForgeGames.ShadowOfTheEmpire": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.oddyarts.StoneOfLifeEXNative": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2132,6 +2134,7 @@
     "features": ["no-iap"]
   },
   "com.creativemobile.nno": { "features": ["no-iap"] },
+  "com.kitkagames.fallbuddies": { "features": ["no-iap"] },
   "net.froemling.bombsquad": { "features": ["no-iap"] },
   "com.booblyc.defensecardstd": { "features": ["no-iap"] },
   "com.bsoftstu.boombattle": { "features": ["no-iap"] },
