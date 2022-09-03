@@ -578,10 +578,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.lemonjamgames.worldtale": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.wb.goog.injustice": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -2343,5 +2339,8 @@
   },
   "com.hariotica": {
     "features": ["no-iap", "facebook-login-broken", "may-require-root"]
+  },
+  "com.lemonjamgames.worldtale": {
+    "features": ["no-iap"]
   }
 }
