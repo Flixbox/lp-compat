@@ -339,6 +339,12 @@
   "com.nijigames.leturn": {
     "features": ["iap"]
   },
+  "com.BerryBaby.skullking": {
+    "features": ["iap", "slightly-broken"]
+  },
+  "com.dreamplay.messyrc.google": {
+    "features": ["iap", "no-multiplayer", "slightly-broken"]
+  },
   "com.noodlecake.reallybadchess": { "features": ["iap"] },
   "com.frvr.golddigger": { "features": ["iap", "facebook-login"] },
   "com.frvr.lines": { "features": ["iap", "facebook-login"] },
@@ -401,6 +407,9 @@
     "features": ["iap"]
   },
   "com.OpenWorldInteractive.ClickerWarriors": {
+    "features": ["iap"]
+  },
+  "path.of.evil.immortal.hunter.dungeon.rpg": {
     "features": ["iap"]
   },
   "com.dejavustudio.AnotherWorld": {
@@ -582,22 +591,11 @@
     "category": "root",
     "features": ["root-patch", "no-root-patch-iap"]
   },
-  "com.BerryBaby.skullking": {
-    "features": ["iap", "slightly-broken"]
-  },
-  "com.dreamplay.messyrc.google": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.MythiKiwi.MoeOS": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
   "com.brightstripe.parcels": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "path.of.evil.immortal.hunter.dungeon.rpg": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2009,6 +2007,10 @@
     "category": "unclear-iap",
     "features": ["unclear-iap", "may-require-root"]
   },
+  "com.gameannie.christmasblast": {
+    "category": "unclear-iap",
+    "features": ["unclear-iap"]
+  },
 
   "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
     "features": ["no-iap"]
@@ -2096,6 +2098,7 @@
   "com.notdoppler.crashofcars": { "features": ["no-iap"] },
   "com.trueaxis.trueskate": { "features": ["no-iap"] },
   "com.prty.hpz": { "features": ["no-iap"] },
+  "com.rollic.mayormatch": { "features": ["no-iap"] },
   "com.exaltedstudio.bighelmetheroes": { "features": ["no-iap"] },
   "space.indiecatsoft.mercenaryx": { "features": ["no-iap"] },
   "com.aegisinteractive.goo": { "features": ["no-iap"] },
