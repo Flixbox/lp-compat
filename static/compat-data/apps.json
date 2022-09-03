@@ -139,6 +139,9 @@
   "com.ultraandre.pccreator": {
     "features": ["iap"]
   },
+  "com.idle.hamster.energy": {
+    "features": ["iap"]
+  },
   "com.maddog.shaqfu": {
     "features": ["iap"]
   },
@@ -569,11 +572,6 @@
     "features": ["unclear-iap"]
   },
   "com.BerryBaby.skullking": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hariotica": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.idle.hamster.energy": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2343,5 +2341,6 @@
   },
   "com.funload.killmonster": {
     "features": ["no-iap"]
-  }
+  },
+  "com.hariotica": { "features": ["no-iap", "facebook-login-broken"] }
 }
