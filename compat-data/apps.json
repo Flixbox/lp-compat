@@ -450,6 +450,9 @@
   "com.wellgame.mergemyth": {
     "features": ["iap"]
   },
+  "kemco.rideonjapan.mareniabar": {
+    "features": ["iap"]
+  },
   "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
     "features": ["iap", "restore-purchase"]
   },
@@ -578,10 +581,6 @@
   },
   "com.BerryBaby.skullking": {
     "features": ["iap", "slightly-broken"]
-  },
-  "kemco.rideonjapan.mareniabar": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
   },
   "com.booda.medieval.rpg": {
     "category": "unclear-iap",
