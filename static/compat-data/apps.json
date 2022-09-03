@@ -591,6 +591,10 @@
     "category": "root",
     "features": ["root-patch", "no-root-patch-iap"]
   },
+  "com.tiregamestudio.rcp.real.car.parking": {
+    "category": "root",
+    "features": ["root-patch"]
+  },
   "com.MythiKiwi.MoeOS": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -600,10 +604,6 @@
     "features": ["unclear-iap"]
   },
   "com.notebuddy.punchman": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tiregamestudio.rcp.real.car.parking": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
