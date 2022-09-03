@@ -333,6 +333,9 @@
   "com.BaronnerieGames.Guildmasters": {
     "features": ["iap"]
   },
+  "com.nijigames.leturn": {
+    "features": ["iap"]
+  },
   "com.noodlecake.reallybadchess": { "features": ["iap"] },
   "com.frvr.golddigger": { "features": ["iap", "facebook-login"] },
   "com.frvr.lines": { "features": ["iap", "facebook-login"] },
@@ -584,10 +587,6 @@
     "features": ["unclear-iap"]
   },
   "com.alohagamestudios.kingofheroes": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nijigames.leturn": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
