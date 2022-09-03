@@ -137,7 +137,7 @@
     "features": ["iap"]
   },
   "com.ultraandre.pccreator": {
-    "features": ["iap"]
+    "features": ["iap", "partial-multiplayer"]
   },
   "com.idle.hamster.energy": {
     "features": ["iap"]
@@ -573,15 +573,7 @@
     "category": "root",
     "features": ["root-patch", "no-root-patch-iap"]
   },
-  "com.chillgaming.combatquest": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.BerryBaby.skullking": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.alohagamestudios.kingofheroes": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2323,6 +2315,9 @@
   "com.herocraft.game.free.armor.tank.arena.pvp.rts": {
     "features": ["no-iap"]
   },
+  "com.alohagamestudios.kingofheroes": {
+    "features": ["no-iap"]
+  },
   "com.LokumGames.ZulaMobile": { "features": ["no-iap"] },
   "com.alicegames.idle.rpg.battler": {
     "features": ["no-iap"]
@@ -2338,6 +2333,9 @@
   },
   "com.hariotica": {
     "features": ["no-iap", "facebook-login-broken", "may-require-root"]
+  },
+  "com.chillgaming.combatquest": {
+    "features": ["no-iap"]
   },
   "com.lemonjamgames.worldtale": {
     "features": ["no-iap"]
