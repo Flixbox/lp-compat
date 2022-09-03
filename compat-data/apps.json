@@ -604,8 +604,13 @@
     "features": ["unclear-iap"]
   },
   "com.notebuddy.punchman": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
+    "features": [
+      "iap",
+      "facebook-login",
+      "account-login",
+      "multiplayer",
+      "subscription"
+    ]
   },
   "net.hexage.reaper": {
     "category": "unclear-iap",
