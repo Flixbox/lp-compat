@@ -281,6 +281,15 @@
   "com.wb.goog.injustice": {
     "features": ["iap", "account-login"]
   },
+  "com.notebuddy.punchman": {
+    "features": [
+      "iap",
+      "facebook-login",
+      "account-login",
+      "multiplayer",
+      "subscription"
+    ]
+  },
   "com.FDGEntertainment.Oceanhorn.gp": {
     "features": ["iap", "repurchase"],
     "category": "hof"
@@ -600,19 +609,6 @@
     "features": ["unclear-iap"]
   },
   "com.brightstripe.parcels": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.notebuddy.punchman": {
-    "features": [
-      "iap",
-      "facebook-login",
-      "account-login",
-      "multiplayer",
-      "subscription"
-    ]
-  },
-  "net.hexage.reaper": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2131,6 +2127,9 @@
   "com.rogueharbour.billionair.airport": { "features": ["no-iap"] },
   "bling.crush.match3.free.android": { "features": ["no-iap"] },
   "com.idle.immortal.fun.legendary.rpg.destiny.king.games": {
+    "features": ["no-iap"]
+  },
+  "net.hexage.reaper": {
     "features": ["no-iap"]
   },
   "com.creativemobile.nno": { "features": ["no-iap"] },
