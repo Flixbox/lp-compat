@@ -489,6 +489,9 @@
     "category": "tools",
     "features": ["iap", "repurchase"]
   },
+  "com.kiloo.smashchamps": {
+    "features": ["iap", "partial-multiplayer", "facebook-login-broken"]
+  },
   "com.EightStudio.PitzMaker": {
     "category": "tools",
     "features": ["iap"]
@@ -613,10 +616,6 @@
     "features": ["unclear-iap"]
   },
   "com.ForgeGames.ShadowOfTheEmpire": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kiloo.smashchamps": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
