@@ -348,6 +348,12 @@
   "com.nijigames.leturn": {
     "features": ["iap"]
   },
+  "com.greenlightgames.deul": {
+    "features": ["iap"]
+  },
+  "com.miramerge": {
+    "features": ["iap", "special-patch-lvl"]
+  },
   "com.BerryBaby.skullking": {
     "features": ["iap", "slightly-broken"]
   },
@@ -2132,6 +2138,7 @@
     "features": ["no-iap"]
   },
   "com.creativemobile.nno": { "features": ["no-iap"] },
+  "com.kitkagames.fallbuddies": { "features": ["no-iap"] },
   "net.froemling.bombsquad": { "features": ["no-iap"] },
   "com.booblyc.defensecardstd": { "features": ["no-iap"] },
   "com.bsoftstu.boombattle": { "features": ["no-iap"] },

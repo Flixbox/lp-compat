@@ -375,6 +375,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Select patch option: Signature verification killer",
       color: theme.palette.info.main,
     },
+    "special-patch-lvl": {
+      label: "Select patch option: Support patch for LVL and Inapp emulation",
+      color: theme.palette.info.main,
+    },
     "may-require-root": {
       label: "This app may require a root-level patch to work.",
       color: theme.palette.info.main,
