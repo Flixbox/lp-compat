@@ -963,10 +963,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.backflipstudios.android.dragonvale": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.hitcents.drawastickmanepic2free": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -2153,6 +2149,7 @@
   "com.sensoryplayapps.adventure": { "features": ["no-iap"] },
   "com.alchemist.angelsaga": { "features": ["no-iap"] },
   "com.qcplay.aresvirus": { "features": ["no-iap"] },
+  "com.backflipstudios.android.dragonvale": { "features": ["no-iap"] },
   "kr.co.angames.galaxyconflict.google.android": { "features": ["no-iap"] },
   "com.cerberusinteractive.atlasempires": { "features": ["no-iap"] },
   "com.william.mobilegame": { "features": ["no-iap"] },
