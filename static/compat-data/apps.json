@@ -444,6 +444,9 @@
   "com.TechTreeGames.TheTower": {
     "features": ["iap", "no-multiplayer"]
   },
+  "com.llgroup.linearquestbattleidlerpg": {
+    "features": ["iap"]
+  },
   "com.wellgame.mergemyth": {
     "features": ["iap"]
   },
@@ -574,10 +577,6 @@
     "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.BerryBaby.skullking": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.llgroup.linearquestbattleidlerpg": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
