@@ -9,7 +9,7 @@ const config = {
   title: "Lucky Patcher Compatibility",
   tagline:
     "An incomplete & frequently updated list of apps that can be patched to remove in-app purchases and ads",
-  url: "https://flixbox.github.io/lp-compat",
+  url: "https://flixbox.github.io",
   baseUrl: "/lp-compat/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
