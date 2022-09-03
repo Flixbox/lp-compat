@@ -278,6 +278,9 @@
   "com.guycorp.rpg.games.idle.merge.games": {
     "features": ["iap"]
   },
+  "com.wb.goog.injustice": {
+    "features": ["iap", "account-login"]
+  },
   "com.FDGEntertainment.Oceanhorn.gp": {
     "features": ["iap", "repurchase"],
     "category": "hof"
@@ -575,10 +578,6 @@
     "features": ["unclear-iap"]
   },
   "com.BerryBaby.skullking": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.wb.goog.injustice": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
