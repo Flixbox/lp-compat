@@ -577,8 +577,7 @@
     "features": ["root-patch", "no-root-patch-iap"]
   },
   "com.BerryBaby.skullking": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
+    "features": ["iap", "slightly-broken"]
   },
   "kemco.rideonjapan.mareniabar": {
     "category": "unclear-iap",
