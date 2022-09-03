@@ -130,6 +130,15 @@
   "com.ketchapp.rider": {
     "features": ["iap"]
   },
+  "com.TechTreeGames.IdleDinoZoo": {
+    "features": ["iap"]
+  },
+  "com.GoldenParachuteGames.IdleMusicFestivalTycoon": {
+    "features": ["iap"]
+  },
+  "com.ultraandre.pccreator": {
+    "features": ["iap"]
+  },
   "com.maddog.shaqfu": {
     "features": ["iap"]
   },
@@ -234,6 +243,7 @@
   "com.d3p.mpq": { "features": ["iap"] },
   "com.IvanKovalov.quadline.android": { "features": ["iap"] },
   "com.roasterygames.smartphonetycoon2": { "features": ["iap"] },
+  "com.armorgames.sodadungeon": { "category": "hof", "features": ["iap"] },
   "com.armorgames.sodadungeon2": { "features": ["iap"], "category": "hof" },
   "com.outfit7.movingeye.swampattack": { "features": ["iap"] },
   "com.SimpleMission.SwordofOath": { "features": ["iap"] },
@@ -349,6 +359,21 @@
     "features": ["iap", "slightly-broken"]
   },
   "vn.apero.warriorDefenders.td.tower.defense.rush": {
+    "features": ["iap"]
+  },
+  "com.tivola.myredpanda": {
+    "features": ["iap"]
+  },
+  "com.tinytitanstudios.TrainChu": {
+    "features": ["iap"]
+  },
+  "com.WindingClock.WizardsWheel2": {
+    "features": ["iap"]
+  },
+  "com.stormx.xteam": {
+    "features": ["iap"]
+  },
+  "com.TironiumTech.IdlePlanetMiner": {
     "features": ["iap"]
   },
   "com.OpenWorldInteractive.ClickerWarriors": {
@@ -652,11 +677,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.armorgames.sodadungeon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-
   "com.nex.xquestarpg1": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -1220,10 +1240,6 @@
     "features": ["unclear-iap"]
   },
   "net.alexplay.petroleum_tycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.TironiumTech.IdlePlanetMiner": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -1887,10 +1903,6 @@
     "features": ["unclear-iap", "may-require-root"]
   },
   "com.buffstudio.timingheropaid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tinytitanstudios.TrainChu": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
