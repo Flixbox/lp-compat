@@ -348,9 +348,6 @@
   "com.nijigames.leturn": {
     "features": ["iap"]
   },
-  "com.greenlightgames.deul": {
-    "features": ["iap"]
-  },
   "com.miramerge": {
     "features": ["iap", "special-patch-lvl"]
   },
