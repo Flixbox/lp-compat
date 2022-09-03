@@ -200,6 +200,9 @@
   "com.GrumpyGames.Griblers": {
     "features": ["iap"]
   },
+  "com.kongregate.mobile.cardinalquest.google": {
+    "features": ["iap", "slightly-broken"]
+  },
   "com.makabaka.hellrider3": {
     "features": ["iap"]
   },
@@ -269,6 +272,9 @@
   "com.FDGEntertainment.redball4.gp": { "features": ["iap"] },
   "air.com.FDGEntertainment.Lonewolf.gp": { "features": ["iap"] },
   "air.com.FDGEntertainment.BloodyHarry": { "features": ["iap"] },
+  "com.guycorp.rpg.games.idle.merge.games": {
+    "features": ["iap"]
+  },
   "com.FDGEntertainment.Oceanhorn.gp": {
     "features": ["iap", "repurchase"],
     "category": "hof"
@@ -321,6 +327,9 @@
   "com.fdgentertainment.tentaclewars.gp.free": { "features": ["iap"] },
   "com.noodlecake.ssg2": { "features": ["iap"] },
   "com.noodlecake.altosadventure": { "features": ["iap"] },
+  "com.BaronnerieGames.Guildmasters": {
+    "features": ["iap"]
+  },
   "com.noodlecake.reallybadchess": { "features": ["iap"] },
   "com.frvr.golddigger": { "features": ["iap", "facebook-login"] },
   "com.frvr.lines": { "features": ["iap", "facebook-login"] },
@@ -335,6 +344,9 @@
   "com.frvr.puttrush": { "features": ["iap", "facebook-login-broken"] },
   "com.Sateda": { "features": ["iap", "repurchase"] },
   "com.mergedomhomedesign.game": { "features": ["iap"] },
+  "com.moondustries.idlefamily": {
+    "features": ["iap"]
+  },
   "com.zuma.deluxe.marble.puzzle": {
     "features": ["iap", "facebook-login-broken"]
   },
@@ -552,23 +564,7 @@
     "category": "root",
     "features": ["root-patch", "no-root-patch-iap"]
   },
-
-  "com.kongregate.mobile.cardinalquest.google": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.funload.killmonster": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.chillgaming.combatquest": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.alicegames.idle.rpg.battler": {
-    "features": ["no-iap"]
-  },
-  "com.survival.last": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -576,15 +572,7 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.BaronnerieGames.Guildmasters": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.hariotica": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.moondustries.idlefamily": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.idle.hamster.energy": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
@@ -610,10 +598,6 @@
     "features": ["unclear-iap"]
   },
   "kemco.rideonjapan.mareniabar": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.guycorp.rpg.games.idle.merge.games": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -1029,10 +1013,6 @@
     "features": ["unclear-iap"]
   },
   "com.ZipasGames.EventHorizon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.bigfishgames.mergetalesgoog": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2351,5 +2331,17 @@
   "com.herocraft.game.free.armor.tank.arena.pvp.rts": {
     "features": ["no-iap"]
   },
-  "com.LokumGames.ZulaMobile": { "features": ["no-iap"] }
+  "com.LokumGames.ZulaMobile": { "features": ["no-iap"] },
+  "com.alicegames.idle.rpg.battler": {
+    "features": ["no-iap"]
+  },
+  "com.survival.last": {
+    "features": ["no-iap"]
+  },
+  "com.bigfishgames.mergetalesgoog": {
+    "features": ["no-iap"]
+  },
+  "com.funload.killmonster": {
+    "features": ["no-iap"]
+  }
 }
