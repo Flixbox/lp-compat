@@ -7,15 +7,15 @@ import CompatOverview from "@site/src/components/CompatOverview/index";
 
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
 import { Box } from "@mui/material";
+import { faFaceSmileWink } from "@fortawesome/free-solid-svg-icons";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <FontAwesomeIcon icon={faFaceSmile} size="4x" />
+        <FontAwesomeIcon icon={faFaceSmileWink} size="4x" />
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <Box className={styles.buttons} flex="1" flexDirection="column">
