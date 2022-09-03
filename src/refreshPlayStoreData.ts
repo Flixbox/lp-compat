@@ -32,7 +32,7 @@ const fetchData = async () => {
 
   writeFileSync(
     "./static/compat-data/playstore.json",
-    JSON.stringify(playstore)
+    JSON.stringify(playstore, null, 4)
   );
 
   bar.stop();
