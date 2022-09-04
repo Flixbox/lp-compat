@@ -650,10 +650,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "kemco.execreate.asdivinehearts2premium": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "air.BackWars": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.telltalegames.batman100": {
     "category": "unclear-iap",
@@ -665,7 +661,7 @@
   },
   "com.ea.BejeweledBlitz_na": {
     "category": "unclear-iap",
-    "features": ["unclear-iap"]
+    "features": ["unclear-iap", "region-locked"]
   },
   "br.com.tapps.bidwars2": {
     "category": "unclear-iap",
