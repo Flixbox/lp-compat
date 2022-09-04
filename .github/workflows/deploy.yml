@@ -40,11 +40,16 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info
-          username: CustomUsername
-          color: "#ff00aa"
+          username: Compatibility List Update
+          color: "#33b5e5"
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: This is a custom description.
-          details: "Custom details: Somebody set up us the bomb."
+          description: A new update for the compatibility list will be deployed in about 60 seconds.
+          details: |
+            | 
+            "
+              # Changes:
+              ${{ github.event.head_commit.message }}
+            "
           footer: This is a footer.
-          text: This is where text goes.
+          text: Questions about the site? Found a cool app for the list? Ping @Flixbox
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
