@@ -311,7 +311,7 @@ const AppTile = ({ appId }: { appId: string }) => {
       color: theme.palette.warning.main,
     },
     "facebook-login-no-app-installed": {
-      label: "Facebook app must not be installed",
+      label: "Facebook app must not be installed to login",
       color: theme.palette.warning.main,
     },
     transfer: {
