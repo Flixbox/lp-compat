@@ -436,7 +436,7 @@
     "features": ["iap"]
   },
   "br.com.tapps.bidwars2": {
-    "features": ["iap"]
+    "features": ["iap", "subscription"]
   },
   "com.dejavustudio.AnotherWorld": {
     "category": "root",
@@ -492,6 +492,9 @@
     "features": ["iap"]
   },
   "kemco.rideonjapan.mareniabar": {
+    "features": ["iap"]
+  },
+  "com.gamehivecorp.beattheboss3": {
     "features": ["iap"]
   },
   "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
@@ -658,10 +661,6 @@
     "features": ["unclear-iap"]
   },
   "com.telltalegames.batman100": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gamehivecorp.beattheboss3": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
