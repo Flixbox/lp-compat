@@ -145,9 +145,6 @@
   "com.maddog.shaqfu": {
     "features": ["iap"]
   },
-  "com.spcomes.zombiehive": {
-    "features": ["iap"]
-  },
   "com.foursakenmedia.blockfortressempires": {
     "features": ["iap"]
   },
@@ -281,6 +278,9 @@
   "com.wb.goog.injustice": {
     "features": ["iap", "account-login"]
   },
+  "com.sixmonkeys.tap.hero.idle.rpg.game": {
+    "features": ["iap", "special-patch-lvl", "special-patch-signature"]
+  },
   "com.notebuddy.punchman": {
     "features": [
       "iap",
@@ -348,8 +348,14 @@
   "com.nijigames.leturn": {
     "features": ["iap"]
   },
+  "com.TrueMythGamesLtd.MergeToons": {
+    "features": ["iap"]
+  },
+  "com.blackcaviargames.samediresidence": {
+    "features": ["iap"]
+  },
   "com.miramerge": {
-    "features": ["iap", "special-patch-lvl"]
+    "features": ["iap", "special-patch-lvl", "region-locked"]
   },
   "com.BerryBaby.skullking": {
     "features": ["iap", "slightly-broken"]
@@ -472,6 +478,9 @@
     "features": ["iap", "no-multiplayer"]
   },
   "com.llgroup.linearquestbattleidlerpg": {
+    "features": ["iap"]
+  },
+  "com.ForgeGames.ShadowOfTheEmpire": {
     "features": ["iap"]
   },
   "com.wellgame.mergemyth": {
@@ -618,14 +627,6 @@
     "features": ["unclear-iap"]
   },
   "com.brightstripe.parcels": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ForgeGames.ShadowOfTheEmpire": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.sixmonkeys.tap.hero.idle.rpg.game": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
@@ -2014,10 +2015,15 @@
     "features": ["unclear-iap"]
   },
 
+  "com.spcomes.zombiehive": {
+    "features": ["no-iap", "apk-platinmods"]
+  },
+
   "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
     "features": ["no-iap"]
   },
   "com.kongregate.mobile.burritobison3.google": { "features": ["no-iap"] },
+  "com.TDF.GTM": { "features": ["no-iap"] },
   "com.battlecreek.nolimit2": { "features": ["no-iap"] },
   "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
   "com.dxx.firenow": { "features": ["no-iap"] },
