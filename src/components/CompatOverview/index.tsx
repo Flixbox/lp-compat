@@ -310,6 +310,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Facebook login broken",
       color: theme.palette.warning.main,
     },
+    "facebook-login-no-app-installed": {
+      label: "Facebook app must not be installed",
+      color: theme.palette.warning.main,
+    },
     transfer: {
       label: "App data can be transferred to another account",
       color: theme.palette.info.main,
