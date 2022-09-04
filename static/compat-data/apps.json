@@ -660,10 +660,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "com.telltalegames.batman100": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
   "com.ea.BejeweledBlitz_na": {
     "category": "unclear-iap",
     "features": ["unclear-iap", "region-locked"]
@@ -1375,6 +1371,9 @@
   "com.telltalegames.walkingdeadm100": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
+  },
+  "com.telltalegames.batman100": {
+    "features": ["iap", "account-login"]
   },
   "com.GermapurApps.MinerGunBuilder": {
     "category": "unclear-iap",
