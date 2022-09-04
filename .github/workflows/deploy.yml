@@ -13,6 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Send Discord webhook message
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: info
+          username: Compatibility List Update
+          color: "#33b5e5"
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description: A new update for the compatibility list will be deployed in about 60 seconds.
+          details: |
+            # Changes:
+            ${{ github.event.head_commit.message }}
+          footer: Questions about the site? Found a cool app for the list? Ping @Flixbox
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -36,20 +49,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
           publish_dir: ./build
-      - name: Send Discord webhook message
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: info
-          username: Compatibility List Update
-          color: "#33b5e5"
-          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: A new update for the compatibility list will be deployed in about 60 seconds.
-          details: |
-            | 
-            "
-              # Changes:
-              ${{ github.event.head_commit.message }}
-            "
-          footer: This is a footer.
-          text: Questions about the site? Found a cool app for the list? Ping @Flixbox
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
