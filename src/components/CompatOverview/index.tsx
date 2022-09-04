@@ -399,6 +399,10 @@ const AppTile = ({ appId }: { appId: string }) => {
       label: "Root patch doesn't make IAP available",
       color: theme.palette.info.main,
     },
+    "apk-platinmods": {
+      label: "Patched APK download at PlatinMods",
+      color: theme.palette.info.main,
+    },
   };
 
   return (
