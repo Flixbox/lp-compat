@@ -657,8 +657,7 @@
     "features": ["unclear-iap"]
   },
   "com.pixio.google.art.inc": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
+    "features": ["iap", "facebook-login", "facebook-login-no-app-installed"]
   },
   "com.ea.BejeweledBlitz_na": {
     "category": "unclear-iap",
