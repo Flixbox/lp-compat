@@ -250,7 +250,9 @@
   "com.armorgames.sodadungeon2": { "features": ["iap"], "category": "hof" },
   "com.outfit7.movingeye.swampattack": { "features": ["iap"] },
   "com.SimpleMission.SwordofOath": { "features": ["iap"] },
-  "com.metagamestudio.tapbusters": { "features": ["iap", "no-multiplayer"] },
+  "com.metagamestudio.tapbusters": {
+    "features": ["iap", "no-multiplayer", "facebook-login-broken"]
+  },
   "sk.phx.terrarium": { "features": ["iap"] },
   "com.loongcheer.moke.pixelknight.idlerpg.adventure": { "features": ["iap"] },
   "com.hg.townsmen7free": { "features": ["iap"] },
