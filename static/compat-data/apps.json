@@ -509,6 +509,8 @@
   "com.kiloo.smashchamps": {
     "features": ["iap", "partial-multiplayer", "facebook-login-broken"]
   },
+  "air.BackWars": { "features": ["iap", "slightly-broken", "dont-bother"] },
+
   "com.EightStudio.PitzMaker": {
     "category": "tools",
     "features": ["iap"]
@@ -652,7 +654,6 @@
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
-  "air.BackWars": { "category": "unclear-iap", "features": ["unclear-iap"] },
   "com.telltalegames.batman100": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
