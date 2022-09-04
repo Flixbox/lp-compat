@@ -500,6 +500,9 @@
   "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
     "features": ["iap", "restore-purchase"]
   },
+  "com.excellcube.ultimateaxeclicker": {
+    "features": ["iap"]
+  },
 
   "com.frvr.hex": {
     "features": ["partial-iap", "facebook-login"]
@@ -641,10 +644,6 @@
     "features": ["unclear-iap"]
   },
   "com.generagames.tap.pirates.idle": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.excellcube.ultimateaxeclicker": {
     "category": "unclear-iap",
     "features": ["unclear-iap"]
   },
