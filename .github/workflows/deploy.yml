@@ -24,9 +24,14 @@ jobs:
         run: npm run scrape
       - name: Build website
         run: npm run build
+      - name: Send Discord update
+        run: npm run discord
+        env:
+          CI: true
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Add scraped play store data
+          commit_message: CI - Add scraped play store data
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
@@ -36,16 +41,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
           publish_dir: ./build
-      - name: Send Discord webhook message
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: info
-          username: Compatibility List Update
-          color: "#33b5e5"
-          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: A new update for the compatibility list will be deployed in about 60 seconds.
-          details: |
-            **Changes:**
-            ${{ github.event.head_commit.message }}
-          footer: Questions about the site? Found a cool app for the list? Ping @Flixbox
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
