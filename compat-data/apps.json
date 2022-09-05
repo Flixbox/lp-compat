@@ -1,2347 +1,869 @@
 {
-  "com.gramgames.mergedragons": {
-    "features": ["iap", "facebook-login", "partial-multiplayer"],
-    "category": "hof"
-  },
-  "com.turner.pocketmorties": {
-    "features": ["iap", "no-multiplayer-iap"],
-    "category": "hof"
-  },
-  "com.ludia.dragons": {
-    "features": ["iap", "no-subscription"],
-    "category": "hof"
-  },
-  "com.ludia.jurassicworld": {
-    "features": ["iap", "no-subscription"],
-    "category": "hof"
-  },
-  "com.ironhidegames.android.kingdomrush": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.ironhidegames.android.ironmarines": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.Gcenter.DefenselegendX.TowerDefense.TD": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.Gcenter.Raid.Royal.TowerDefense.TD": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.gcenter.kingofdefense.battle.frontier.td": {
-    "features": ["iap"]
-  },
-  "com.Gcenter.KingofDefense2.epic.towerdefense": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.miniclip.plagueinc": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.ndemiccreations.rebelinc": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "grid.crawler.free.offline.rpg.games.dungeon.ward": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "uk.fiveaces.nsfc": {
-    "features": ["iap"]
-  },
-  "com.pixelbite.xwt": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.pixelbite.mutant": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.noxgames.hex.civ.strategy": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.noxgames.mage.hero": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.gonzossm.sttt": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.pixio.google.mtd": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.Wind.wings.Space.Shooter": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-
-  "com.alexanderwinn.landfall": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.armorgames.voidtyrant": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.hyperdotstudios.mythiclegends": {
-    "features": ["iap", "partial-multiplayer"],
-    "category": "hof"
-  },
-  "com.lemonjamstudio.infiniteknights": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.yodo1.rodeo.safari": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.sparklingsociety.cityisland5": {
-    "category": "hof",
-    "features": ["iap", "facebook-login"]
-  },
-  "com.dvdfu.chicken2": {
-    "features": ["iap"]
-  },
-  "com.fluffyfairygames.idleminertycoon": {
-    "features": ["iap"]
-  },
-  "com.prineside.tdi2": {
-    "features": ["iap"]
-  },
-  "com.time.trigger": {
-    "features": ["iap"]
-  },
-  "com.noodlecake.altosodyssey": {
-    "features": ["iap"]
-  },
-  "com.hyperbeard.odyssey": { "features": ["iap"] },
-  "com.armorgames.ctclegacy": { "features": ["iap"] },
-  "com.playsidestudios.idlearea51": { "features": ["iap"] },
-  "com.erow.stickmanheroes": {
-    "features": ["iap"]
-  },
-  "com.ketchapp.rider": {
-    "features": ["iap"]
-  },
-  "com.TechTreeGames.IdleDinoZoo": {
-    "features": ["iap"]
-  },
-  "com.GoldenParachuteGames.IdleMusicFestivalTycoon": {
-    "features": ["iap"]
-  },
-  "com.ultraandre.pccreator": {
-    "features": ["iap", "partial-multiplayer"]
-  },
-  "com.idle.hamster.energy": {
-    "features": ["iap"]
-  },
-  "com.maddog.shaqfu": {
-    "features": ["iap"]
-  },
-  "com.foursakenmedia.blockfortressempires": {
-    "features": ["iap"]
-  },
-  "com.asanteegames.magicrampage": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.lemonjamgames.neonimpact": {
-    "features": ["iap", "subscription"]
-  },
-  "com.limbic.towermadness2": {
-    "features": ["iap"]
-  },
-  "com.maxgames.aow2": {
-    "features": ["iap"]
-  },
-  "com.noxgames.hitman.hero.arpg": {
-    "features": ["iap"]
-  },
-  "com.BaronnerieGames.Rift": {
-    "features": ["iap"]
-  },
-  "com.erow.catsevo.android": {
-    "features": ["iap"]
-  },
-  "com.animocabrands.google.CrazyKings": {
-    "features": ["iap", "dont-bother"]
-  },
-  "com.armorgames.ctcsm": {
-    "features": ["iap"]
-  },
-  "ru.iriysoft.cursedtreasure2": {
-    "features": ["iap"]
-  },
-  "com.Roika.Darkrise": {
-    "features": ["iap"]
-  },
-  "com.loongcheer.tcg.deckadventure": {
-    "features": ["iap"]
-  },
-  "com.funstudio.dungeonheroes": {
-    "features": ["iap"]
-  },
-  "com.gunslingerstudios.dungeoning": {
-    "features": ["iap"]
-  },
-  "com.gacogames.epiccon": {
-    "features": ["iap"]
-  },
-  "com.EvoTApps.GameOfEvolution": {
-    "features": ["iap"]
-  },
-  "com.GrumpyGames.Griblers": {
-    "features": ["iap"]
-  },
-  "com.kongregate.mobile.cardinalquest.google": {
-    "features": ["iap", "slightly-broken"]
-  },
-  "com.makabaka.hellrider3": {
-    "features": ["iap"]
-  },
-  "com.weirdjohnny.idle.rpg": {
-    "features": ["iap", "dont-bother"]
-  },
-  "com.IdleMagicSchool.jlyt": {
-    "features": ["iap"]
-  },
-  "com.IronHorseGames.IdleMineRPG": {
-    "features": ["iap"],
-    "category": "hof"
-  },
-  "com.ShinobiGames.InfiniteW": {
-    "features": ["iap"]
-  },
-  "com.vkslrzm.Zombie": {
-    "features": ["iap"]
-  },
-  "bearface.games.merchant": {
-    "features": ["iap"]
-  },
-  "com.gramgames.london.mergegems": {
-    "features": ["iap", "dont-bother"]
-  },
-  "com.mergegame.merge": {
-    "features": ["iap"]
-  },
-  "com.wjoy.witch": {
-    "features": ["iap", "facebook-login"]
-  },
-  "com.sanctumstudio.mochicat": { "features": ["iap"] },
-  "com.gg.moduleTd": { "features": ["iap"] },
-  "com.dungeon.rpg.freeherowars": { "features": ["iap"] },
-  "com.savetheworld.game": { "features": ["iap"] },
-  "com.kotobagames.namelesscat": { "features": ["iap", "repurchase"] },
-  "com.chillyroom.zhmr.gp": { "features": ["iap"] },
-  "com.phantomrosegame.phantomRoseScarlett": {
-    "features": ["iap", "region-locked"]
-  },
-  "com.d3p.mpq": { "features": ["iap"] },
-  "com.IvanKovalov.quadline.android": { "features": ["iap"] },
-  "com.roasterygames.smartphonetycoon2": { "features": ["iap"] },
-  "com.armorgames.sodadungeon": { "category": "hof", "features": ["iap"] },
-  "com.armorgames.sodadungeon2": { "features": ["iap"], "category": "hof" },
-  "com.outfit7.movingeye.swampattack": { "features": ["iap"] },
-  "com.SimpleMission.SwordofOath": { "features": ["iap"] },
-  "com.metagamestudio.tapbusters": {
-    "features": ["iap", "no-multiplayer", "facebook-login-broken"]
-  },
-  "sk.phx.terrarium": { "features": ["iap"] },
-  "com.loongcheer.moke.pixelknight.idlerpg.adventure": { "features": ["iap"] },
-  "com.hg.townsmen7free": { "features": ["iap"] },
-  "com.DL.war.planes.inc.torpedo.bomber.fighter.aircraft.ww2": {
-    "features": ["iap"]
-  },
-  "com.stereo7games.wwd": { "features": ["iap"] },
-  "com.mastercomlimited.zombiedrive": { "features": ["iap"] },
-  "com.sonypicturestelevision.zombieland": {
-    "features": ["iap", "no-multiplayer"],
-    "category": "hof"
-  },
-  "com.pixelperfectdude.htdrive": { "features": ["iap"] },
-  "com.BeardyBird.Ailment": { "features": ["iap", "partial-multiplayer"] },
-  "com.pipkin.games.alchemy": { "features": ["iap"] },
-  "com.telltalegames.walkingdead100": { "features": ["iap", "account-login"] },
-  "com.telltalegames.walkingdead200": { "features": ["iap", "account-login"] },
-  "com.telltalegames.walkingdead300": { "features": ["iap", "account-login"] },
-  "com.FDGEntertainment.redball4.gp": { "features": ["iap"] },
-  "air.com.FDGEntertainment.Lonewolf.gp": { "features": ["iap"] },
-  "air.com.FDGEntertainment.BloodyHarry": { "features": ["iap"] },
-  "com.guycorp.rpg.games.idle.merge.games": {
-    "features": ["iap"]
-  },
-  "com.wb.goog.injustice": {
-    "features": ["iap", "account-login"]
-  },
-  "com.sixmonkeys.tap.hero.idle.rpg.game": {
-    "features": ["iap", "special-patch-lvl", "special-patch-signature"]
-  },
-  "com.notebuddy.punchman": {
-    "features": [
-      "iap",
-      "facebook-login",
-      "account-login",
-      "multiplayer",
-      "subscription"
-    ]
-  },
-  "com.FDGEntertainment.Oceanhorn.gp": {
-    "features": ["iap", "repurchase"],
-    "category": "hof"
-  },
-  "com.GearStudio.AlmoraDarkosen": { "features": ["iap", "repurchase"] },
-  "com.FDGEntertainment.SuperCatBros.gp": {
-    "features": ["iap", "slightly-broken"]
-  },
-  "com.giantssoftware.fs16": { "features": ["iap", "slightly-broken"] },
-  "air.com.lunime.gacharesort": { "features": ["iap"] },
-  "air.com.lunimobi.animegacha": { "features": ["iap"] },
-  "air.com.lunime.animefidgetspinner": { "features": ["iap"] },
-  "air.com.lunime.nekogacha": { "features": ["iap"] },
-  "air.com.lunime.gachalife": {
-    "features": ["iap", "transfer"],
-    "category": "hof"
-  },
-  "com.superluckycasino.epicjackpot.slots.vegas.android.free": {
-    "features": [
-      "iap",
-      "partial-multiplayer",
-      "no-multiplayer-iap",
-      "facebook-login-broken"
-    ]
-  },
-  "com.superluckycasino.billionaire.slots.vegas.android.free": {
-    "features": [
-      "iap",
-      "partial-multiplayer",
-      "no-multiplayer-iap",
-      "facebook-login-broken"
-    ]
-  },
-  "com.superluckycasino.viponly.slots.vegas.android.free": {
-    "features": [
-      "iap",
-      "partial-multiplayer",
-      "no-multiplayer-iap",
-      "facebook-login-broken"
-    ]
-  },
-  "manastorm.spacehorse": {
-    "features": ["iap", "multiplayer"],
-    "category": "hof"
-  },
-  "com.FDGEntertainment.CoverOrange1.gp": { "features": ["iap"] },
-  "com.FDGEntertainment.CoverOrange2.gp": { "features": ["iap"] },
-  "com.FDGEntertainment.BananaKongBlast.gp": { "features": ["iap"] },
-  "com.FDGEntertainment.RolyPolyMonsters.gp": { "features": ["iap"] },
-  "com.fdgentertainment.tentaclewars.gp.free": { "features": ["iap"] },
-  "com.noodlecake.ssg2": { "features": ["iap"] },
-  "com.noodlecake.altosadventure": { "features": ["iap"] },
-  "com.BaronnerieGames.Guildmasters": {
-    "features": ["iap"]
-  },
-  "com.nijigames.leturn": {
-    "features": ["iap"]
-  },
-  "com.TrueMythGamesLtd.MergeToons": {
-    "features": ["iap"]
-  },
-  "com.blackcaviargames.samediresidence": {
-    "features": ["iap"]
-  },
-  "com.miramerge": {
-    "features": ["iap", "special-patch-lvl", "region-locked"]
-  },
-  "com.BerryBaby.skullking": {
-    "features": ["iap", "slightly-broken"]
-  },
-  "com.dreamplay.messyrc.google": {
-    "features": ["iap", "no-multiplayer", "slightly-broken"]
-  },
-  "com.noodlecake.reallybadchess": { "features": ["iap"] },
-  "com.frvr.golddigger": { "features": ["iap", "facebook-login"] },
-  "com.frvr.lines": { "features": ["iap", "facebook-login"] },
-  "com.frvr.roadtrip": { "features": ["iap", "facebook-login"] },
-  "com.frvr.worlds": { "features": ["iap", "multiplayer", "facebook-login"] },
-  "com.frvr.kickup": { "features": ["iap", "facebook-login"] },
-  "com.frvr.cave": { "features": ["iap", "facebook-login"] },
-  "com.frvr.basketball": { "features": ["iap", "facebook-login"] },
-  "com.frvr.harpoon": { "features": ["iap", "facebook-login"] },
-  "com.frvr.slash": { "features": ["iap", "facebook-login"] },
-  "com.frvr.bubbleshooter": { "features": ["iap", "facebook-login-broken"] },
-  "com.frvr.puttrush": { "features": ["iap", "facebook-login-broken"] },
-  "com.Sateda": { "features": ["iap", "repurchase"] },
-  "com.mergedomhomedesign.game": { "features": ["iap"] },
-  "com.moondustries.idlefamily": {
-    "features": ["iap"]
-  },
-  "com.zuma.deluxe.marble.puzzle": {
-    "features": ["iap", "facebook-login-broken"]
-  },
-  "linkdesks.bubblegames.bubbleshooter.royal.pop": {
-    "features": ["iap", "facebook-login"]
-  },
-  "com.bigshark.dreammatch": { "features": ["iap"] },
-  "com.clarkstudio.breakem": { "features": ["iap"] },
-  "com.bricksbreakerballs.royal.king.ball.blast": {
-    "features": ["iap", "facebook-login"]
-  },
-  "com.india.vs.pak.mega.classic.ludo": {
-    "features": ["iap", "multiplayer", "facebook-login"]
-  },
-  "com.dark.heroes": {
-    "features": ["iap", "multiplayer"]
-  },
-  "com.YEMA.FinalDestiny": {
-    "features": ["iap", "too-many-iap-break"]
-  },
-  "com.aerilys.idle.grail": {
-    "features": ["iap", "slightly-broken"]
-  },
-  "vn.apero.warriorDefenders.td.tower.defense.rush": {
-    "features": ["iap"]
-  },
-  "com.tivola.myredpanda": {
-    "features": ["iap"]
-  },
-  "com.tinytitanstudios.TrainChu": {
-    "features": ["iap"]
-  },
-  "com.WindingClock.WizardsWheel2": {
-    "features": ["iap"]
-  },
-  "com.stormx.xteam": {
-    "features": ["iap"]
-  },
-  "com.oddyarts.StoneOfLifeEXNative": {
-    "features": ["iap"]
-  },
-  "com.TironiumTech.IdlePlanetMiner": {
-    "features": ["iap"]
-  },
-  "com.booda.medieval.rpg": {
-    "features": ["iap"]
-  },
-  "com.OpenWorldInteractive.ClickerWarriors": {
-    "features": ["iap"]
-  },
-  "path.of.evil.immortal.hunter.dungeon.rpg": {
-    "features": ["iap"]
-  },
-  "br.com.tapps.bidwars2": {
-    "features": ["iap", "subscription"]
-  },
-  "com.dejavustudio.AnotherWorld": {
-    "category": "root",
-    "features": ["iap", "may-require-root"]
-  },
-  "com.lemonjamgames.idlehero": {
-    "features": ["iap"]
-  },
-  "com.sparklingsociety.battleempireromanwars": {
-    "features": ["iap", "no-multiplayer", "account-login"]
-  },
-  "com.NamelessStudio.DungeonsAndHonor": {
-    "features": ["iap", "multiplayer"]
-  },
-  "com.battlecreek.offroadoutlaws": {
-    "features": ["iap", "multiplayer"]
-  },
-  "com.carxtech.carxdr2": {
-    "category": "hof",
-    "features": [
-      "iap",
-      "patch-before-first-launch",
-      "multiplayer",
-      "facebook-login"
-    ]
-  },
-  "com.CarXTech.highWay": {
-    "category": "hof",
-    "features": ["iap", "multiplayer"]
-  },
-  "com.ninjakiwi.btdadventuretime": {
-    "category": "hof",
-    "features": ["iap", "disable-data-on-lp-popup", "account-login"]
-  },
-  "coloring.color.number.happy.paint.art.drawing.puzzle": {
-    "features": [
-      "iap",
-      "special-patch-full-offline",
-      "special-patch-signature",
-      "facebook-login"
-    ]
-  },
-  "com.TechTreeGames.TheTower": {
-    "features": ["iap", "no-multiplayer"]
-  },
-  "com.llgroup.linearquestbattleidlerpg": {
-    "features": ["iap"]
-  },
-  "com.ForgeGames.ShadowOfTheEmpire": {
-    "features": ["iap"]
-  },
-  "com.generagames.tap.pirates.idle": {
-    "features": ["iap"]
-  },
-  "com.wellgame.mergemyth": {
-    "features": ["iap"]
-  },
-  "kemco.rideonjapan.mareniabar": {
-    "features": ["iap"]
-  },
-  "com.gamehivecorp.beattheboss3": {
-    "features": ["iap"]
-  },
-  "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire": {
-    "features": ["iap", "restore-purchase"]
-  },
-  "com.excellcube.ultimateaxeclicker": {
-    "features": ["iap"]
-  },
-
-  "com.frvr.hex": {
-    "features": ["partial-iap", "facebook-login"]
-  },
-  "com.gaminho.idlefivebasketball": {
-    "features": ["partial-iap", "subscription-restore-purchase"]
-  },
-
-  "bazinac.aplikacenahouby": {
-    "category": "tools",
-    "features": ["iap", "repurchase"]
-  },
-  "com.kiloo.smashchamps": {
-    "features": ["iap", "partial-multiplayer", "facebook-login-broken"]
-  },
-  "air.BackWars": { "features": ["iap", "slightly-broken", "dont-bother"] },
-
-  "com.EightStudio.PitzMaker": {
-    "category": "tools",
-    "features": ["iap"]
-  },
-  "get.instagram.followers.unfollowers": {
-    "category": "tools",
-    "features": ["iap"]
-  },
-
-  "com.hadeul.mage": { "category": "root", "features": ["root-iap"] },
-  "com.malcs.melvoridle": {
-    "category": "root",
-    "features": ["root-patch", "root-patch-iap"]
-  },
-  "ninja.creed.sniper.real3d.action.free.android": {
-    "category": "root",
-    "features": ["root-patch"]
-  },
-  "com.squareenixmontreal.hitmansniperandroid": {
-    "category": "root",
-    "features": ["root-patch", "root-patch-iap"]
-  },
-  "com.studiowildcard.wardrumstudios.ark": {
-    "category": "root",
-    "features": ["root-patch", "root-patch-iap"]
-  },
-
-  "jp.pokemon.pokemonquest": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "net.apex_designs.payback2": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.hasbro.beybladesenterprise": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "air.SiftHeadsRebornAndroid": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.bulkypix.deadeffect": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.wb.goog.legoswtfa": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.wb.lego.tcs": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.aspyr.swkotor": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.ea.games.r3_na": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.olzhas.carparking.multyplayer": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.pokemon.pokemonplayhouse": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "jp.pokemon.pokemonsmile": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "jp.pokemon.koiking": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.and.games505.TerrariaPaid": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.ea.games.nfs13_na": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "org.dashnet.cookieclicker": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.rovio.BadPiggies": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.rockstargames.gtalcs": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.rockstargames.gtavc": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.rockstar.gta3": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.rockstargames.gtasa": {
-    "category": "root",
-    "features": ["root-patch", "no-root-patch-iap"]
-  },
-  "com.tiregamestudio.rcp.real.car.parking": {
-    "category": "root",
-    "features": ["root-patch"]
-  },
-  "com.MythiKiwi.MoeOS": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.brightstripe.parcels": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.vpnmasterx.pro": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nex.xquestarpg1": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixio.google.art.inc": {
-    "features": ["iap", "facebook-login", "facebook-login-no-app-installed"]
-  },
-  "com.ea.BejeweledBlitz_na": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "region-locked"]
-  },
-  "com.kakarod.bighunter": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.dryginstudios.bioinc": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tenpercentred.biotix": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.noodlecake.bitcoin": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.mycompany.blockheads": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.crescentmoongames.blocky_roads": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.masilgames.BloodCopter": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.gramgames.london.bounzy": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.playgendary.bowmasters": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.superplusgames.hosandroid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.FunnerSoftLLC.BreweryBoss": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.Garawell.BridgeRace": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "champions.empire.bubble": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.Izy.tycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.Izygames.BusinessStrategy3": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.tinytouchtales.cardthief": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.AdrianZarzycki.idle.incremental.car.industry.tycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.StaffanEkvall.CarpetBombing": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.moontm.cartoon999": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gamevil.cartoonwars3.android.google.global.normal": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pocapp.castlecats": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.sharkjump.castlefusion": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.usm.catanuniverse": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.minogames.cats.client": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.erow.oneguncat": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.computerlunch.evolution": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kingsofgames.chessuniverse": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.chaloapps.roosterrudy": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.and.games505.chimpact2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.naquatic.civclicker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pikpok.wtd.play": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.BroDevStudio.CosmicTycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.heavyfall.constructioncity": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.heavyfall.constructioncity2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.heavyfall.constructioncity2.winter": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.heavyfall.diego1": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.sgn.cookiejam.gp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixelcubestudios.android.cookiecollector2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixelcubestudios.endlessidlecookietowerdefencetd": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "br.com.tapps.corgievolution": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.YEMA.corin": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.generagames.resistance": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "net.DuckyGames.CraftIsland": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gamefirst.craftytowncitybuilder": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.bscotch.crashlands": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.yodo1.crossyroad": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.zeptolab.ctr.ads": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.thecut.mobile.android.thecut": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.The717pixels.robotColony2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.herocraft.game.free.deadshell": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.generagames.deathtycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.deckeleven.railroads2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rockbite.deeptown": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.apdconsultinginc.defender1": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gamtropy.desertopia": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.spheregamestudios.designercity": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hg.devilsfree": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.boomdrag.devtycoon2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tigrido.dictator2.free": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.mugshotgames.digfender": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.bandagames.miner": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.disney.emojimatch_goo": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.quickturtle.EmployeeSurvival_en": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.serinus42.downdetector": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ziau.magicdragonvillage": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hitcents.drawastickmanepic2free": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.zalivka.animation2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.paullipnyagov.drumpads24": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.moontm.Dungeon999F": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.metamoki.pc.dungeonshop": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.duolingo": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.everbytestudio.interactive.text.chat.story.rpg.cyoa.duskwood": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.invictus.dustoff2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.auxbrain.egginc": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.betdon.egosword": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "qijaz221.github.io.musicplayer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rappidstudios.simulatorbattle": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rappidstudios.simulatorbattlephysics": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.electricpunch.epicgamemaker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "ocean.nomad.survival.simulator": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.mastercomlimited.epicHero": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.easytech.ew4": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ZipasGames.EventHorizon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "br.com.tapps.evolutiongalaxy": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "net.fdgames.ek.androidfull": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.eldring.exominer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.ExtraLives": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.bethsoft.falloutshelter": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.martinmagni.fancade": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.hotheadgames.google.free.empire": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.sgn.familyguy.gp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.snapbreak.faraway5": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ncoregames.faug": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.lionsden.fc5": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nexelon.fishinglife": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dream.house.design.makeover.match": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tarekmongy.FlappyCrush": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.triadgene.fleetcombat2_gp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.bigduckgames.flow": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "info.kfsoft.force.rotation": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.video.fxmaster": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.lunime.gachaclub": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.lunime.gachaworld": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "net.fishlabs.gof2hdallandroid2012": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.and.games505.chefemma": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.mobage.ww.a1912.Godus_Android": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.grimdev.grimquest": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.direlight.grimvalor": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.vulxhisers.grimwanderings2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixelstar.gsm": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nextgenreality.gunclub3": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.naquatic.guncrafterpro": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.frozenlakegames.GnS2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.hg.gunsandglory3free": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.appnetgames.headhunters": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dnddream.HeadBasketball": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.wb.headsup": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.barsstudios.getthegirl": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.uncosoft.highheels": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.fingersoft.hillclimb": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.superplusgames.hos2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.FryosStudios.HomunculusSandBox": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.magmafortress.hoplite": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.sharkjump.hotelslime": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.codigames.hotel.empire.tycoon.idle.game": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ubisoft.hungrysharkworld": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.TechTreeGames.IdleBrickBreaker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "games.starberry.coffeecorp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.appquantum.myidlecity": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gpp.idleconstruction": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.BlingBlingGames.CraftingIdleClicker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hako.idle.crafting.empire.tycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "de.lutsgames.idle_dice": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "se.ace.fishinc": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.gamemaker5.idlemafia": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "net.alexplay.petroleum_tycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "dovi.tycoon.idle.robotinc": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.lavaflame.IdleSkilling": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pabloleban.IdleSlayer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.anxiousottergames.spacefarmer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.weirdjohnny.clicker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.x3m.is": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.armorgames.infectonator3": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.camerasideas.instashot": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixelfactor.interstellarpilot": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.sidheinteractive.sif.DR": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dieselpuppet.detectivestory": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.japaneselevelup.jalupapp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "io.shenron.jel": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.halfbrick.jetpackjoyride": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.aubjective.jobmania": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.playgendary.kickthebuddy": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nexstreaming.app.kinemasterfree": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.ironhidegames.android.kingdomrush4": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.ironhidegames.android.kingdomrushorigins": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ketchapp.knifehit": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.SinobiGames.CursedDungeon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "jp.orange_cube.dotrike": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.cornago.stefano.lapse": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.wygame.legionwar": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.wb.goog.lbbg": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.wb.lego.marvel": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "lets.survive.apocalypse.survival": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.Games751.LifeGallery": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.chinzilla.littlealchemist.google": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "special-patch-full-offline"]
-  },
-  "dk.tactile.lilysgarden": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.simyasolutions.ling.universal": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nitrome.magictouch": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.SpaceInch.LoveOfMoney": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.fingersoft.makemore": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.racecat.fantasy": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.martinmagni.mekorama": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.sharkjump.spacemelons": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.chaloapps.memeswars": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.zjoy.fairy": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.gramgames.farmest": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.skunkworksgames.mergefriends": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gramgames.mergemagic": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.fusee.MergeMaster": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.xjoy.mermaid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.fumbgames.monstermerge": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.SuperAwesome.MergeSafari": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.telltalegames.walkingdeadm100": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.telltalegames.batman100": {
-    "features": ["iap", "account-login"]
-  },
-  "com.GermapurApps.MinerGunBuilder": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ilixa.mirror": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hutchgames.hilldash2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.EvilChaotic.ModernWarplanes": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.oxiwyle.modernage2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.madoGames.moonscloset": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.baldricksoft.moonshades_dungeon_crawler": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ohbibi.motorworldcarfactory": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.lionstudios.mrbullet": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ketchapp.mrgun": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.musescore.playerlite": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.stormx.factory": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.buffstudio.mysticguardian.paid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "jp.co.hit_point.nekoatsume": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.PrismaThunder.Necromancer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.taptonecromance.io.right.click.necromance.online": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nordigames.nfh": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nordigames.nfh2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hippiegame.nevergone": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.blackpanther.ninjaarashi": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.blackpanther.ninjaarashi2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.generagames.ninjadash.samuraironin.jumprpg": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ludia.tmnt": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.foursakenmedia.noblemen": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.sweatychair.lastofhumanity": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "special-patch-signature"]
-  },
-  "com.awedea.nyx": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.birdydogstudio.oceanishome": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.birdydogstudio.oceanishome.islandlife": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.twitchyfinger.google.myoffice": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.GalacticSlice.OneBitAdventure": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.superthomaslab.rootessentials": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.lilithgame.roc.gp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.beachinteractive.omo": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.OwnGames.OwnKingdom": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "paint.by.number.relax.pixel.art.drawing.book.free": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rmg.idle.evil.party.clicker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tipsworks.android.pascalswager.google": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "restore-purchase", "may-require-root"]
-  },
-  "com.outerminds.tubular": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kabouzeid.gramophone": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.micabyte.android.pirates.gold": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.joycity.potc": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.piratesoutlaws.fabledgame": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.StudioFurukawa.PixelCarRacer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "pl.mw.playmagnus": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.ea.game.pvzfree_row": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "jigsaw.puzzle.free.games": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "moonbear.PocketBuild": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nimblebit.pockettrains": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.translantic.polyescape2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.and.games505.portal_knights": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "me.pou.app": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.amrita.producer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.spookyhousestudios.progressbar95": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rinzz.projectmuse": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.psiphon3.subscription": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.wb.goog.ellen.psych": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.zeptolab.monsters.free.google": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.bscotch.quadropus": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rsgapps.reactor": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rockstargames.rdr2app": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.newstargames.retrobowl": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pikpok.bbl.play": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.abuksigun.rpg_prototype": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ludusstudio.runandgun": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.ketchapp.runbirdrun": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "cukey.runerebirth": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "smellymoo.sand": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.rodan.fish": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "ru.strategygames.worldwar2online": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "air.net.ideasam.games.cat": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tohsoft.game.ninja.shadow.fighter2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dyadgames.cookieswirlworld": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.shdgames.sierra7.gp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "pl.codejungle.simplestrpggame": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.ea.game.simpsons4_na": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "iap-before-load"]
-  },
-  "pine.game.skydancer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dhxmedia.slugitout2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hutchgames.smashbandits": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hutchgames.smashcopsheat": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.rkgames.basisgame": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "advenworks.com.snakeblast": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.generagames.soccer.royale.football.pvp.online": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.devsisters.SolitaireDeckedOut": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.sega.sonicboomandroid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nooleus.android.spaceagency": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixelbite.sm2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.dobermannstudios.spartanfirefight": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hazar.fps": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.tiltingpoint.spongebob": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.stereo7games.steampunk": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.airapport.steampunkidlespinner": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "io.stellio.music": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.stickman.dragon.fight.stick.warriors.stickmanwarriors": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.mindy.grap1": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.skygo.stickfightarcher": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.FDGEntertainment.StickSquad.gp": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.megafox.stone.park.idle.tycoon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kiloo.stormblades": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "cn.xishanju.google.strangeworld": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.crescentmoongames.subdivision": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.SuperCity": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.thomasyoung.superfowlst": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.IfelseMedia.SwordAndGlory": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.touchfoo.swordigo": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "air.com.game.whiskeybarrelstudios.swordsandsandals2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.com.game.whiskeybarrelstudios.swordsandsandals5redux": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.playrisedigital.ttrwtne": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.hg.takashi.ninjagames": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nomadgames.talisman": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.outfit7.mytalkingangela2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nlabsoft.tankdefence": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.akpublish.tankon2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.playgendary.tanks": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixelkeep.taptapsurvival": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.odaatstudio.powerman": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.topcog.tapwizard2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.Evrac.TavernRumble": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.cogooland.theagentofcogoo": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.digitalsecrets.thedarkpursuer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "info.flowersoft.theotown.theotown": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.parallax.wallpapers.live.uhd": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kongregate.mobile.thetrail.google": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gameinsight.tribez": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.JamieParish.TheWanderer": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "dev.onhit.theyarecoming": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.RestGames.Trapdungeon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.buffstudio.timingheropaid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kiarygames.tinyroom": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "games.tinycloud.tinyshop": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.companyname.Space_Program": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.playgendary.tom": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.bscotch.towelfight2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.percent.towerbreaker": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.hg.townsmen7": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.clancystudios.retrottrapadventureandroid": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.teamtricky.tc": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tastyrook.agent": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.fellhuhn.monstermatch": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "de.sundrumdevelopment.truckerjoe": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.tunnelbear.android": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.secretexit.turbodismount": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.studiodrill.dragonmaster": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.earlymorningstudio.vampiresfall2": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.greenheartgames.gdt": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.nummagames.VikingWars": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.ldw.vvo2": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "com.wallify.hdwallpaper": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.Avalon.Pendragon": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.chundos.zombies": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.gma.water.sort.puzzle": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.reliancegames.wwemayhem": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.pixeltoys.freeblade": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.vestasoft.weedfarm": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "air.WeekendWarriors": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.disney.wheresmywater2_goo": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.mergeland.animal.adventure.island": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "ru.crazypanda.crossfire": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.IMStudio.WOS": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.bravetale.worldtank": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.kocogames.wartroops1944": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "air.WRCareer": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "air.WR3DFree": { "category": "unclear-iap", "features": ["unclear-iap"] },
-  "videoeditor.videorecorder.screenrecorder": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.TechTreeGames.ZenIdle": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.luandungames.zombiehell4.android.googleplay": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-  "com.imcrazy.hs": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.gameannie.christmasblast": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap"]
-  },
-
-  "com.spcomes.zombiehive": {
-    "features": ["no-iap", "apk-platinmods"]
-  },
-
-  "com.chargedmonkey.idlequestheroesepicdungeonrpg": {
-    "features": ["no-iap"]
-  },
-  "com.kongregate.mobile.burritobison3.google": { "features": ["no-iap"] },
-  "com.TDF.GTM": { "features": ["no-iap"] },
-  "com.battlecreek.nolimit2": { "features": ["no-iap"] },
-  "com.ftt.eroica.gl.aos": { "features": ["no-iap"] },
-  "com.dxx.firenow": { "features": ["no-iap"] },
-  "com.ninjakiwi.sasza4": { "features": ["no-iap"] },
-  "com.square_enix.android_googleplay.WOTVffbeww": { "features": ["no-iap"] },
-  "com.boltrend.disgaea.en": { "features": ["no-iap"] },
-  "com.notdoppler.earntodie2": { "features": ["no-iap"] },
-  "com.loadcomplete.mergedefense": { "features": ["no-iap"] },
-  "com.windforce.wjxt.fanti": { "features": ["no-iap"] },
-  "com.hidea.cat": { "features": ["no-iap"] },
-  "com.spcomes.esabyss": { "features": ["no-iap"] },
-  "com.hamsteroncoke.zenge": { "features": ["no-iap"] },
-  "com.wildsky.wildarmydraft": { "features": ["no-iap"] },
-  "com.kakaogames.wdfp": { "features": ["no-iap"] },
-  "cc.jasfun.wizard": { "features": ["no-iap"] },
-  "co.imba.archero": { "features": ["no-iap"] },
-  "com.gamigo.ext.town": { "features": ["no-iap"] },
-  "com.redspell.nanotanks": { "features": ["no-iap"] },
-  "com.lnrgame.roguelike": { "features": ["no-iap"] },
-  "ca.roofdog.pm3": { "features": ["no-iap"] },
-  "com.grand.survival.ocean.adventure": { "features": ["no-iap"] },
-  "com.swordman.reforged": { "features": ["no-iap"] },
-  "ru.aivik.refactory.google2": { "features": ["no-iap"] },
-  "com.wildsky.wildcastle": { "features": ["no-iap"] },
-  "com.com.tann.dice": { "features": ["no-iap"] },
-  "com.kakaogames.gdts": { "features": ["no-iap"] },
-  "com.vizorapps.atlantis": { "features": ["no-iap"] },
-  "tdcgame.zombie.idle.defense": { "features": ["no-iap"] },
-  "com.xtt.iasurv2": { "features": ["no-iap"] },
-  "com.pixelfederation.ts2": { "features": ["no-iap"] },
-  "com.kongregate.mobile.tinkerisland.google": { "features": ["no-iap"] },
-  "com.FunFlavorGames.HeroPark": { "features": ["no-iap"] },
-  "com.tiedan.game.EdgeOfDoom": { "features": ["no-iap"] },
-  "com.tapps.games.dig.dinoquest2": { "features": ["no-iap"] },
-  "online.limitless.appleknight.free": { "features": ["no-iap"] },
-  "com.beesquare.almostahero": { "features": ["no-iap"] },
-  "com.RetrostyleGames.LastPirate.deadthieves": { "features": ["no-iap"] },
-  "jp.oridio.museum": { "features": ["no-iap"] },
-  "com.gm_shaber.dayr": { "features": ["no-iap"] },
-  "com.dawinstone.b2be": { "features": ["no-iap"] },
-  "com.superplusgames.oos": { "features": ["no-iap"] },
-  "com.aldagames.zombieshooter": { "features": ["no-iap"] },
-  "com.dreamgate.steampunktower2.android": { "features": ["no-iap"] },
-  "com.datavisionstudio.roguelike": { "features": ["no-iap"] },
-  "com.ctugames.km2": { "features": ["no-iap"] },
-  "com.Kraken.TinyWorlds": { "features": ["no-iap"] },
-  "com.noxgames.shadow.deck.card.ccg": { "features": ["no-iap"] },
-  "com.pixelbite.ga2": { "features": ["no-iap"] },
-  "com.pixelbite.sm3": { "features": ["no-iap"] },
-  "com.biglime.cookingmadness": { "features": ["no-iap"] },
-  "com.preus.PreusZombi": { "features": ["no-iap"] },
-  "com.oxiwyle.alternativehistory20tgcentury": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.oxiwyle.kievanrusageofcolonization": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.fdgentertainment.bananakong": { "features": ["no-iap"] },
-  "com.FDGEntertainment.BananaKong2.gp": { "features": ["no-iap"] },
-  "com.FDGEntertainment.RedBallRunner": { "features": ["no-iap"] },
-  "sp.repcount": { "features": ["no-iap"] },
-  "com.imaginalis.HouseFlipperMobile": { "features": ["no-iap"] },
-  "com.rayark.cytus2": { "features": ["no-iap"] },
-  "com.noodlecake.leapon": { "features": ["no-iap"] },
-  "com.noodlecake.mmmfingers": { "features": ["no-iap"] },
-  "com.noodlecake.perfectgrind": { "features": ["no-iap"] },
-  "com.lootboy.app": { "features": ["no-iap"] },
-  "com.pokulan.aliveinshelter": {
-    "category": "unclear-iap",
-    "features": ["unclear-iap", "may-require-root"]
-  },
-  "com.bluegnc.AOSBTEAM": { "features": ["no-iap"] },
-  "com.ExiliumGames.Anima": { "features": ["no-iap"] },
-  "air.com.luni.animearcade": { "features": ["no-iap"] },
-  "com.GamerMind.Warriors_of_the_Universe_Online": { "features": ["no-iap"] },
-  "com.maxgames.stickwarlegacy": { "features": ["no-iap"] },
-  "com.wildlifestudios.free.online.games.suspects": { "features": ["no-iap"] },
-  "com.notdoppler.crashofcars": { "features": ["no-iap"] },
-  "com.trueaxis.trueskate": { "features": ["no-iap"] },
-  "com.prty.hpz": { "features": ["no-iap"] },
-  "com.rollic.mayormatch": { "features": ["no-iap"] },
-  "com.exaltedstudio.bighelmetheroes": { "features": ["no-iap"] },
-  "space.indiecatsoft.mercenaryx": { "features": ["no-iap"] },
-  "com.aegisinteractive.goo": { "features": ["no-iap"] },
-  "com.aanz.ludo.online.multiplayer.offlineludo": { "features": ["no-iap"] },
-  "exize.tapas.girlAdrift": { "features": ["no-iap"] },
-  "com.soulgame.idlePrimitive": { "features": ["no-iap"] },
-  "com.zts.ageoffantasy": { "features": ["no-iap"] },
-  "com.abc.AgeofKingdomsHD": { "features": ["no-iap"] },
-  "com.cle.allstar": { "features": ["no-iap"] },
-  "com.ideactiongameGlobal.armagearab": { "features": ["no-iap"] },
-  "com.sensoryplayapps.adventure": { "features": ["no-iap"] },
-  "com.alchemist.angelsaga": { "features": ["no-iap"] },
-  "com.qcplay.aresvirus": { "features": ["no-iap"] },
-  "com.backflipstudios.android.dragonvale": { "features": ["no-iap"] },
-  "kr.co.angames.galaxyconflict.google.android": { "features": ["no-iap"] },
-  "com.cerberusinteractive.atlasempires": { "features": ["no-iap"] },
-  "com.william.mobilegame": { "features": ["no-iap"] },
-  "badminton.blitz.sports.free.game.android": { "features": ["no-iap"] },
-  "com.actgames.amg.android.gl": { "features": ["no-iap"] },
-  "com.pennypop.monsters.live": { "features": ["no-iap"] },
-  "com.traplight.battleslides": { "features": ["no-iap"] },
-  "com.AH.BattleofKingdoms": { "features": ["no-iap"] },
-  "com.halfbrick.boosterraiders": { "features": ["no-iap"] },
-  "com.mobilemafia.slgrpg.asia": { "features": ["no-iap"] },
-  "com.rogueharbour.billionair.airport": { "features": ["no-iap"] },
-  "bling.crush.match3.free.android": { "features": ["no-iap"] },
-  "com.idle.immortal.fun.legendary.rpg.destiny.king.games": {
-    "features": ["no-iap"]
-  },
-  "net.hexage.reaper": {
-    "features": ["no-iap"]
-  },
-  "com.creativemobile.nno": { "features": ["no-iap"] },
-  "com.kitkagames.fallbuddies": { "features": ["no-iap"] },
-  "net.froemling.bombsquad": { "features": ["no-iap"] },
-  "com.booblyc.defensecardstd": { "features": ["no-iap"] },
-  "com.bsoftstu.boombattle": { "features": ["no-iap"] },
-  "com.tortugateam.bravelandheroes": { "features": ["no-iap"] },
-  "com.funplus.coa": { "features": ["no-iap"] },
-  "com.tomtominc.candiesncurses": { "features": ["no-iap"] },
-  "com.my.etd.dev": { "features": ["no-iap"] },
-  "com.realtimegames.projectcc": { "features": ["no-iap"] },
-  "com.motu.ldt3.twft": { "features": ["no-iap"] },
-  "com.indiecode.cheftycoon": { "features": ["no-iap"] },
-  "com.runewaker.deus": { "features": ["no-iap"] },
-  "com.ratatatgames.coindragon": { "features": ["no-iap"] },
-  "com.lb4business.swordsbowsmagic": { "features": ["no-iap"] },
-  "com.animocabrands.google.CrazyDefenseHeroes": { "features": ["no-iap"] },
-  "com.gametaiwan.cp": { "features": ["no-iap"] },
-  "com.godzilab.idlerpg": { "features": ["no-iap"] },
-  "norisk.jingde.android.en.com": { "features": ["no-iap"] },
-  "com.gamepub.df": { "features": ["no-iap"] },
-  "com.rpgwikigames.darknessrising": { "features": ["no-iap"] },
-  "com.trefle.dashero": { "features": ["no-iap"] },
-  "com.garage.demonblade": { "features": ["no-iap"] },
-  "com.ncroquis.evillegion": { "features": ["no-iap"] },
-  "com.miniit.dice": { "features": ["no-iap"] },
-  "com.outstandinggame.divinityand": { "features": ["no-iap"] },
-  "com.maf.idle.puppy.cafe.tycoon": { "features": ["no-iap"] },
-  "com.lv0.dotrangers": { "features": ["no-iap"] },
-  "com.dragonascension.games": { "features": ["no-iap"] },
-  "com.deemedyainc.duels": { "features": ["no-iap"] },
-  "net.teemosoft.alchemist": { "features": ["no-iap"] },
-  "com.droidhen.dungeon": { "features": ["no-iap"] },
-  "com.bigfishgames.dungeonbossf2pgoogle": { "features": ["no-iap"] },
-  "br.com.dungeon.fellowship": { "features": ["no-iap"] },
-  "com.twoguysgames.dungeonslayer": { "features": ["no-iap"] },
-  "skydragon.ylempire": { "features": ["no-iap"] },
-  "com.qmhy.ead": { "features": ["no-iap"] },
-  "com.apexpoint.android.dragons": { "features": ["no-iap"] },
-  "com.lemonjamgames.endlesswinteren": { "features": ["no-iap"] },
-  "com.GacoGames.EC2": { "features": ["no-iap"] },
-  "net.cravemob.epicfantasy": { "features": ["no-iap"] },
-  "com.vivastudios.mecha.robot.rpg.girls": { "features": ["no-iap"] },
-  "com.sanctumstudio.eternalsenia2": { "features": ["no-iap"] },
-  "com.nomadgames.everybodyrpgpay": { "features": ["no-iap"] },
-  "com.honeydew.evolutionhero": { "features": ["no-iap"] },
-  "com.topgamesinc.evony": { "features": ["no-iap"] },
-  "com.ltgames.android.idle": { "features": ["no-iap"] },
-  "com.mergefun.dragon.fantasticpets": { "features": ["no-iap"] },
-  "com.indie.shj.google.en": { "features": ["no-iap"] },
-  "com.boltrend.floen": { "features": ["no-iap"] },
-  "com.zynga.farmville3": { "features": ["no-iap"] },
-  "com.flaregames.fieldrunners": { "features": ["no-iap"] },
-  "com.playmage.rpgGame": { "features": ["no-iap"] },
-  "com.mehen.findung": { "features": ["no-iap"] },
-  "com.HolydayStudios.Firestone": { "features": ["no-iap"] },
-  "ru.overmobile.forge": { "features": ["no-iap"] },
-  "com.janeious.fusionguardslive": { "features": ["no-iap"] },
-  "games.fatlion.gems.arena.crafting": { "features": ["no-iap"] },
-  "uk.co.gimmebreak.getmebro": { "features": ["no-iap"] },
-  "com.happiigamerstudios.GladiatorRising2": { "features": ["no-iap"] },
-  "com.memesmongames.archerhero": { "features": ["no-iap"] },
-  "com.harvest.android.gr": { "features": ["no-iap"] },
-  "com.idiocracy.HELLPER": { "features": ["no-iap"] },
-  "com.honeydew1853.stealerhfree": { "features": ["no-iap"] },
-  "com.whoot.games.hot": { "features": ["no-iap"] },
-  "com.glu.epicheroes": { "features": ["no-iap"] },
-  "com.wolffun.herostrike.offline": { "features": ["no-iap"] },
-  "game.hyq.herounion": { "features": ["no-iap"] },
-  "com.playhardlab.heroship.aos": { "features": ["no-iap"] },
-  "com.coldfiregames.dungeon.manager.tycoon.idle.game": {
-    "features": ["no-iap"]
-  },
-  "com.superplanet.idleguardians": { "features": ["no-iap"] },
-  "com.idle.hero.immortal.blade": { "features": ["no-iap"] },
-  "com.phantorama.idlekingdoms": { "features": ["no-iap"] },
-  "com.mobirix.idleknights": { "features": ["no-iap"] },
-  "com.skylinegames.idle.legend.heroes": { "features": ["no-iap"] },
-  "com.aboutgames.com.unity.idlerpg.mobile2D": { "features": ["no-iap"] },
-  "com.ruloistudios.idledungeoncrawler": { "features": ["no-iap"] },
-  "com.eastsidegames.idlestonks": { "features": ["no-iap"] },
-  "com.idle.heroes.war": { "features": ["no-iap"] },
-  "com.immortaltaoists.en": { "features": ["no-iap"] },
-  "com.SuperAwesome.InfiniteDungeonBreach": { "features": ["no-iap"] },
-  "com.magicfind.infinityfree": { "features": ["no-iap"] },
-  "com.bytro.supremacy1.thegreatwar": { "features": ["no-iap"] },
-  "com.makingfun.ironbound": { "features": ["no-iap"] },
-  "com.rocket.jackal.squad": { "features": ["no-iap"] },
-  "com.my.juggernautwars": { "features": ["no-iap"] },
-  "com.kids.vs.zombies.pvp.multiplayer.pve.brawl.first.person.fps.shooter.action.games": {
-    "features": ["no-iap"]
-  },
-  "com.idle.heroes.fantasy": { "features": ["no-iap"] },
-  "com.topebox.realmwars": { "features": ["no-iap"] },
-  "net.kairosoft.android.kingdom_en": { "features": ["no-iap"] },
-  "azurgames.idle.war": { "features": ["no-iap"] },
-  "com.awesomepiece.castle": { "features": ["no-iap"] },
-  "com.vividgames.knight.fight.honor.chivalry": { "features": ["no-iap"] },
-  "com.robotogames.iogame": { "features": ["no-iap"] },
-  "com.FunFinery.LegacyOfLegends": { "features": ["no-iap"] },
-  "com.epicwar.mir2.legend.game": { "features": ["no-iap"] },
-  "com.legendofrunes.gameark.global": { "features": ["no-iap"] },
-  "com.king.solgard": { "features": ["no-iap"] },
-  "com.gametaiwan.idnew": { "features": ["no-iap"] },
-  "com.ifree.loas.google": { "features": ["no-iap"] },
-  "fr.spinbot.lordzio": { "features": ["no-iap"] },
-  "com.lostocean.civilization": { "features": ["no-iap"] },
-  "com.gameofmafia.global": { "features": ["no-iap"] },
-  "air.com.fs.magicquest": { "features": ["no-iap"] },
-  "com.mangaonline.jflr.apken": { "features": ["no-iap"] },
-  "com.lemix.megatower": { "features": ["no-iap"] },
-  "com.mouseduck.boomerang": { "features": ["no-iap"] },
-  "com.Deliciousgames.MergeOfMini": { "features": ["no-iap"] },
-  "com.indiecode.dungeon": { "features": ["no-iap"] },
-  "br.com.tapps.minequest2": { "features": ["no-iap"] },
-  "com.tsixi.crazybomb2gp": { "features": ["no-iap"] },
-  "com.wonderland.monsteraab": { "features": ["no-iap"] },
-  "com.dwgames.ssucksso": { "features": ["no-iap"] },
-  "com.zillionwhales.mushroomwars2": { "features": ["no-iap"] },
-  "com.ftxgames.narcos": { "features": ["no-iap"] },
-  "com.tiltingpoint.bigwolf.narcosfactory": { "features": ["no-iap"] },
-  "com.koplagames.kopla01": { "features": ["no-iap"] },
-  "com.IterativeStudios.Nordicandia": { "features": ["no-iap"] },
-  "jp.kcopro.app005.Orderzero": { "features": ["no-iap"] },
-  "com.tarodev.Paladin": { "features": ["no-iap"] },
-  "com.HiClayStudio.PandaclipTheBlackThief": { "features": ["no-iap"] },
-  "com.mngo.knights": { "features": ["no-iap"] },
-  "com.giraffegames.pool": { "features": ["no-iap"] },
-  "com.linktown.powpowgirl": { "features": ["no-iap"] },
-  "com.habby.punball": { "features": ["no-iap"] },
-  "com.evilzeppelin.quest4fuel.arena.rpg": { "features": ["no-iap"] },
-  "com.raid.heroes.total.war": { "features": ["no-iap"] },
-  "kr.co.questgames.druwadungeonag": { "features": ["no-iap"] },
-  "com.babeltimeus.legendstd": { "features": ["no-iap"] },
-  "com.OneTier.ReelBoy": { "features": ["no-iap"] },
-  "com.innogames.riseofcultures": { "features": ["no-iap"] },
-  "com.qumaron.riseofromanrempire": { "features": ["no-iap"] },
-  "com.king.hero.rpg.tactics": { "features": ["no-iap"] },
-  "com.huuuge.rh.archer.hero": { "features": ["no-iap"] },
-  "com.elysium.royal.knight.tales.anime.rpg.mmo.gacha.impact": {
-    "features": ["no-iap"]
-  },
-  "me.nextdoors.tower": { "features": ["no-iap"] },
-  "com.cookapps.ShadowKnightsIdleRPG": { "features": ["no-iap"] },
-  "com.trueknownewgame.ec2": { "features": ["no-iap"] },
-  "com.gamesture.team.guild.raids.pvp.multiplayer": { "features": ["no-iap"] },
-  "com.herocraft.game.free.spaceshipbattles": { "features": ["no-iap"] },
-  "com.playdigious.sparklite": { "features": ["no-iap"] },
-  "akunososhiki.app.starVanisherUUUM": { "features": ["no-iap"] },
-  "com.zitga.ninja.stickman.legends.shadow.wars": { "features": ["no-iap"] },
-  "io.gearage.summonage": { "features": ["no-iap"] },
-  "com.innogames.sunrisevillage": { "features": ["no-iap"] },
-  "com.fg.ssaos": { "features": ["no-iap"] },
-  "com.elysium.game.sword.cat.fantasy.story.online.mmo.rpg.google": {
-    "features": ["no-iap"]
-  },
-  "com.skw.tqtm": { "features": ["no-iap"] },
-  "com.micro.tap.legend": { "features": ["no-iap"] },
-  "com.honeydew.herostores": { "features": ["no-iap"] },
-  "com.gamecircus.tycoon": { "features": ["no-iap"] },
-  "tap.lords.royale": { "features": ["no-iap"] },
-  "com.Unibyte_Studios.Terramorphers": { "features": ["no-iap"] },
-  "com.sngames.GOH.aos": { "features": ["no-iap"] },
-  "com.avalon.caveonline.global.googleplay": { "features": ["no-iap"] },
-  "com.netease.lotr": { "features": ["no-iap"] },
-  "com.impossibleapps.walkinghero": { "features": ["no-iap"] },
-  "com.minidragon.dw": { "features": ["no-iap"] },
-  "com.kabam.bigrobot": { "features": ["no-iap"] },
-  "com.avex.trinityseven": { "features": ["no-iap"] },
-  "com.aig.ultimatewar": { "features": ["no-iap"] },
-  "com.doubledown.undead.world.hero.afk.game": { "features": ["no-iap"] },
-  "com.daimoyx.wargame.heroes.google": { "features": ["no-iap"] },
-  "com.ageofeternity.global": { "features": ["no-iap"] },
-  "com.fungames.boomforce": { "features": ["no-iap"] },
-  "com.redantz.game.wartactics": { "features": ["no-iap"] },
-  "com.PixelToys.Sigmar": { "features": ["no-iap"] },
-  "com.tiltingpoint.warhammer": { "features": ["no-iap"] },
-  "com.minigame.warzp.gp": { "features": ["no-iap"] },
-  "com.tivola.wildshade.gp": { "features": ["no-iap"] },
-  "com.loongcheer.neverlate.wizardlegend.fightmaster": {
-    "features": ["no-iap"]
-  },
-  "com.wizarding.mystery.global": { "features": ["no-iap"] },
-  "com.Oryugen.WorldOfPrandisBeta": { "features": ["no-iap"] },
-  "com.craftgames.worldcrft": { "features": ["no-iap"] },
-  "com.herocraft.game.free.armor.tank.arena.pvp.rts": {
-    "features": ["no-iap"]
-  },
-  "com.alohagamestudios.kingofheroes": {
-    "features": ["no-iap"]
-  },
-  "com.LokumGames.ZulaMobile": { "features": ["no-iap"] },
-  "com.alicegames.idle.rpg.battler": {
-    "features": ["no-iap"]
-  },
-  "com.survival.last": {
-    "features": ["no-iap"]
-  },
-  "com.bigfishgames.mergetalesgoog": {
-    "features": ["no-iap"]
-  },
-  "com.funload.killmonster": {
-    "features": ["no-iap"]
-  },
-  "com.hariotica": {
-    "features": ["no-iap", "facebook-login-broken", "may-require-root"]
-  },
-  "com.chillgaming.combatquest": {
-    "features": ["no-iap"]
-  },
-  "com.lemonjamgames.worldtale": {
-    "features": ["no-iap"]
-  }
+  "com.gramgames.mergedragons":{"features":["iap","facebook-login","partial-multiplayer"],"category":"hof"},
+  "com.turner.pocketmorties":{"features":["iap","no-multiplayer-iap"],"category":"hof"},
+  "com.ludia.dragons":{"features":["iap","no-subscription"],"category":"hof"},
+  "com.ludia.jurassicworld":{"features":["iap","no-subscription"],"category":"hof"},
+  "com.ironhidegames.android.kingdomrush":{"features":["iap"],"category":"hof"},
+  "com.ironhidegames.android.ironmarines":{"features":["iap"],"category":"hof"},
+  "com.Gcenter.DefenselegendX.TowerDefense.TD":{"features":["iap"],"category":"hof"},
+  "com.Gcenter.Raid.Royal.TowerDefense.TD":{"features":["iap"],"category":"hof"},
+  "com.gcenter.kingofdefense.battle.frontier.td":{"features":["iap"]},
+  "com.Gcenter.KingofDefense2.epic.towerdefense":{"features":["iap"],"category":"hof"},
+  "com.miniclip.plagueinc":{"features":["iap"],"category":"hof"},
+  "com.ndemiccreations.rebelinc":{"features":["iap"],"category":"hof"},
+  "grid.crawler.free.offline.rpg.games.dungeon.ward":{"features":["iap"],"category":"hof"},
+  "uk.fiveaces.nsfc":{"features":["iap"]},"com.pixelbite.xwt":{"features":["iap"],"category":"hof"},
+  "com.pixelbite.mutant":{"features":["iap"],"category":"hof"},
+  "com.noxgames.hex.civ.strategy":{"features":["iap"],"category":"hof"},
+  "com.noxgames.mage.hero":{"features":["iap"],"category":"hof"},
+  "com.gonzossm.sttt":{"features":["iap"],"category":"hof"},
+  "com.pixio.google.mtd":{"features":["iap"],"category":"hof"},
+  "com.Wind.wings.Space.Shooter":{"features":["iap"],"category":"hof"},
+  "com.alexanderwinn.landfall":{"features":["iap"],"category":"hof"},
+  "com.armorgames.voidtyrant":{"features":["iap"],"category":"hof"},
+  "com.hyperdotstudios.mythiclegends":{"features":["iap","partial-multiplayer"],"category":"hof"},
+  "com.lemonjamstudio.infiniteknights":{"features":["iap"],"category":"hof"},
+  "com.yodo1.rodeo.safari":{"features":["iap"],"category":"hof"},
+  "com.sparklingsociety.cityisland5":{"category":"hof","features":["iap","facebook-login"]},
+  "com.dvdfu.chicken2":{"features":["iap"]},
+  "com.fluffyfairygames.idleminertycoon":{"features":["iap"]},
+  "com.prineside.tdi2":{"features":["iap"]},
+  "com.time.trigger":{"features":["iap"]},
+  "com.noodlecake.altosodyssey":{"features":["iap"]},
+  "com.hyperbeard.odyssey":{"features":["iap"]},
+  "com.armorgames.ctclegacy":{"features":["iap"]},
+  "com.playsidestudios.idlearea51":{"features":["iap"]},
+  "com.erow.stickmanheroes":{"features":["iap"]},
+  "com.ketchapp.rider":{"features":["iap"]},
+  "com.TechTreeGames.IdleDinoZoo":{"features":["iap"]},
+  "com.GoldenParachuteGames.IdleMusicFestivalTycoon":{"features":["iap"]},
+  "com.ultraandre.pccreator":{"features":["iap","partial-multiplayer"]},
+  "com.idle.hamster.energy":{"features":["iap"]},
+  "com.maddog.shaqfu":{"features":["iap"]},
+  "com.foursakenmedia.blockfortressempires":{"features":["iap"]},
+  "com.asanteegames.magicrampage":{"features":["iap"],"category":"hof"},
+  "com.lemonjamgames.neonimpact":{"features":["iap","subscription"]},
+  "com.limbic.towermadness2":{"features":["iap"]},
+  "com.maxgames.aow2":{"features":["iap"]},
+  "com.noxgames.hitman.hero.arpg":{"features":["iap"]},
+  "com.BaronnerieGames.Rift":{"features":["iap"]},
+  "com.erow.catsevo.android":{"features":["iap"]},
+  "com.animocabrands.google.CrazyKings":{"features":["iap","dont-bother"]},
+  "com.armorgames.ctcsm":{"features":["iap"]},
+  "ru.iriysoft.cursedtreasure2":{"features":["iap"]},
+  "com.Roika.Darkrise":{"features":["iap"]},
+  "com.loongcheer.tcg.deckadventure":{"features":["iap"]},
+  "com.funstudio.dungeonheroes":{"features":["iap"]},
+  "com.gunslingerstudios.dungeoning":{"features":["iap"]},
+  "com.gacogames.epiccon":{"features":["iap"]},
+  "com.EvoTApps.GameOfEvolution":{"features":["iap"]},
+  "com.GrumpyGames.Griblers":{"features":["iap"]},
+  "com.kongregate.mobile.cardinalquest.google":{"features":["iap","slightly-broken"]},
+  "com.makabaka.hellrider3":{"features":["iap"]},
+  "com.weirdjohnny.idle.rpg":{"features":["iap","dont-bother"]},
+  "com.IdleMagicSchool.jlyt":{"features":["iap"]},
+  "com.IronHorseGames.IdleMineRPG":{"features":["iap"],"category":"hof"},
+  "com.ShinobiGames.InfiniteW":{"features":["iap"]},
+  "com.vkslrzm.Zombie":{"features":["iap"]},
+  "bearface.games.merchant":{"features":["iap"]},
+  "com.gramgames.london.mergegems":{"features":["iap","dont-bother"]},
+  "com.mergegame.merge":{"features":["iap"]},
+  "com.wjoy.witch":{"features":["iap","facebook-login"]},
+  "com.sanctumstudio.mochicat":{"features":["iap"]},
+  "com.gg.moduleTd":{"features":["iap"]},
+  "com.dungeon.rpg.freeherowars":{"features":["iap"]},
+  "com.savetheworld.game":{"features":["iap"]},
+  "com.kotobagames.namelesscat":{"features":["iap","repurchase"]},
+  "com.chillyroom.zhmr.gp":{"features":["iap"]},
+  "com.phantomrosegame.phantomRoseScarlett":{"features":["iap","region-locked"]},
+  "com.d3p.mpq":{"features":["iap"]},
+  "com.IvanKovalov.quadline.android":{"features":["iap"]},
+  "com.roasterygames.smartphonetycoon2":{"features":["iap"]},
+  "com.armorgames.sodadungeon":{"category":"hof","features":["iap"]},
+  "com.armorgames.sodadungeon2":{"features":["iap"],"category":"hof"},
+  "com.outfit7.movingeye.swampattack":{"features":["iap"]},
+  "com.SimpleMission.SwordofOath":{"features":["iap"]},
+  "com.metagamestudio.tapbusters":{"features":["iap","no-multiplayer","facebook-login-broken"]},
+  "sk.phx.terrarium":{"features":["iap"]},
+  "com.loongcheer.moke.pixelknight.idlerpg.adventure":{"features":["iap"]},
+  "com.hg.townsmen7free":{"features":["iap"]},
+  "com.DL.war.planes.inc.torpedo.bomber.fighter.aircraft.ww2":{"features":["iap"]},
+  "com.stereo7games.wwd":{"features":["iap"]},
+  "com.mastercomlimited.zombiedrive":{"features":["iap"]},
+  "com.sonypicturestelevision.zombieland":{"features":["iap","no-multiplayer"],"category":"hof"},
+  "com.pixelperfectdude.htdrive":{"features":["iap"]},
+  "com.BeardyBird.Ailment":{"features":["iap","partial-multiplayer"]},
+  "com.pipkin.games.alchemy":{"features":["iap"]},
+  "com.telltalegames.walkingdead100":{"features":["iap","account-login"]},
+  "com.telltalegames.walkingdead200":{"features":["iap","account-login"]},
+  "com.telltalegames.walkingdead300":{"features":["iap","account-login"]},
+  "com.FDGEntertainment.redball4.gp":{"features":["iap"]},
+  "air.com.FDGEntertainment.Lonewolf.gp":{"features":["iap"]},
+  "air.com.FDGEntertainment.BloodyHarry":{"features":["iap"]},
+  "com.guycorp.rpg.games.idle.merge.games":{"features":["iap"]},
+  "com.wb.goog.injustice":{"features":["iap","account-login"]},
+  "com.sixmonkeys.tap.hero.idle.rpg.game":{"features":["iap","special-patch-lvl","special-patch-signature"]},
+  "com.notebuddy.punchman":{"features":["iap","facebook-login","account-login","multiplayer","subscription"]},
+  "com.FDGEntertainment.Oceanhorn.gp":{"features":["iap","repurchase"],"category":"hof"},
+  "com.GearStudio.AlmoraDarkosen":{"features":["iap","repurchase"]},
+  "com.FDGEntertainment.SuperCatBros.gp":{"features":["iap","slightly-broken"]},
+  "com.giantssoftware.fs16":{"features":["iap","slightly-broken"]},
+  "air.com.lunime.gacharesort":{"features":["iap"]},
+  "air.com.lunimobi.animegacha":{"features":["iap"]},
+  "air.com.lunime.animefidgetspinner":{"features":["iap"]},
+  "air.com.lunime.nekogacha":{"features":["iap"]},
+  "air.com.lunime.gachalife":{"features":["iap","transfer"],"category":"hof"},
+  "com.superluckycasino.epicjackpot.slots.vegas.android.free":{"features":["iap","partial-multiplayer","no-multiplayer-iap","facebook-login-broken"]},
+  "com.superluckycasino.billionaire.slots.vegas.android.free":{"features":["iap","partial-multiplayer","no-multiplayer-iap","facebook-login-broken"]},
+  "com.superluckycasino.viponly.slots.vegas.android.free":{"features":["iap","partial-multiplayer","no-multiplayer-iap","facebook-login-broken"]},
+  "manastorm.spacehorse":{"features":["iap","multiplayer"],"category":"hof"},
+  "com.FDGEntertainment.CoverOrange1.gp":{"features":["iap"]},
+  "com.FDGEntertainment.CoverOrange2.gp":{"features":["iap"]},
+  "com.FDGEntertainment.BananaKongBlast.gp":{"features":["iap"]},
+  "com.FDGEntertainment.RolyPolyMonsters.gp":{"features":["iap"]},
+  "com.fdgentertainment.tentaclewars.gp.free":{"features":["iap"]},
+  "com.noodlecake.ssg2":{"features":["iap"]},
+  "com.noodlecake.altosadventure":{"features":["iap"]},
+  "com.BaronnerieGames.Guildmasters":{"features":["iap"]},
+  "com.nijigames.leturn":{"features":["iap"]},
+  "com.TrueMythGamesLtd.MergeToons":{"features":["iap"]},
+  "com.blackcaviargames.samediresidence":{"features":["iap"]},
+  "com.miramerge":{"features":["iap","special-patch-lvl","region-locked"]},
+  "com.BerryBaby.skullking":{"features":["iap","slightly-broken"]},
+  "com.dreamplay.messyrc.google":{"features":["iap","no-multiplayer","slightly-broken"]},
+  "com.noodlecake.reallybadchess":{"features":["iap"]},
+  "com.frvr.golddigger":{"features":["iap","facebook-login"]},
+  "com.frvr.lines":{"features":["iap","facebook-login"]},
+  "com.frvr.roadtrip":{"features":["iap","facebook-login"]},
+  "com.frvr.worlds":{"features":["iap","multiplayer","facebook-login"]},
+  "com.frvr.kickup":{"features":["iap","facebook-login"]},
+  "com.frvr.cave":{"features":["iap","facebook-login"]},
+  "com.frvr.basketball":{"features":["iap","facebook-login"]},
+  "com.frvr.harpoon":{"features":["iap","facebook-login"]},
+  "com.frvr.slash":{"features":["iap","facebook-login"]},
+  "com.frvr.bubbleshooter":{"features":["iap","facebook-login-broken"]},
+  "com.frvr.puttrush":{"features":["iap","facebook-login-broken"]},
+  "com.Sateda":{"features":["iap","repurchase"]},
+  "com.mergedomhomedesign.game":{"features":["iap"]},
+  "com.moondustries.idlefamily":{"features":["iap"]},
+  "com.zuma.deluxe.marble.puzzle":{"features":["iap","facebook-login-broken"]},
+  "linkdesks.bubblegames.bubbleshooter.royal.pop":{"features":["iap","facebook-login"]},
+  "com.bigshark.dreammatch":{"features":["iap"]},
+  "com.clarkstudio.breakem":{"features":["iap"]},
+  "com.bricksbreakerballs.royal.king.ball.blast":{"features":["iap","facebook-login"]},
+  "com.india.vs.pak.mega.classic.ludo":{"features":["iap","multiplayer","facebook-login"]},
+  "com.dark.heroes":{"features":["iap","multiplayer"]},
+  "com.YEMA.FinalDestiny":{"features":["iap","too-many-iap-break"]},
+  "com.aerilys.idle.grail":{"features":["iap","slightly-broken"]},
+  "vn.apero.warriorDefenders.td.tower.defense.rush":{"features":["iap"]},
+  "com.tivola.myredpanda":{"features":["iap"]},
+  "com.tinytitanstudios.TrainChu":{"features":["iap"]},
+  "com.WindingClock.WizardsWheel2":{"features":["iap"]},
+  "com.stormx.xteam":{"features":["iap"]},
+  "com.oddyarts.StoneOfLifeEXNative":{"features":["iap"]},
+  "com.TironiumTech.IdlePlanetMiner":{"features":["iap"]},
+  "com.booda.medieval.rpg":{"features":["iap"]},
+  "com.OpenWorldInteractive.ClickerWarriors":{"features":["iap"]},
+  "path.of.evil.immortal.hunter.dungeon.rpg":{"features":["iap"]},
+  "br.com.tapps.bidwars2":{"features":["iap","subscription"]},
+  "com.dejavustudio.AnotherWorld":{"category":"root","features":["iap","may-require-root"]},
+  "com.lemonjamgames.idlehero":{"features":["iap"]},
+  "com.sparklingsociety.battleempireromanwars":{"features":["iap","no-multiplayer","account-login"]},
+  "com.NamelessStudio.DungeonsAndHonor":{"features":["iap","multiplayer"]},
+  "com.battlecreek.offroadoutlaws":{"features":["iap","multiplayer"]},
+  "com.carxtech.carxdr2":{"category":"hof","features":["iap","patch-before-first-launch","multiplayer","facebook-login"]},
+  "com.CarXTech.highWay":{"category":"hof","features":["iap","multiplayer"]},
+  "com.ninjakiwi.btdadventuretime":{"category":"hof","features":["iap","disable-data-on-lp-popup","account-login"]},
+  "coloring.color.number.happy.paint.art.drawing.puzzle":{"features":["iap","special-patch-full-offline","special-patch-signature","facebook-login"]},
+  "com.TechTreeGames.TheTower":{"features":["iap","no-multiplayer"]},
+  "com.llgroup.linearquestbattleidlerpg":{"features":["iap"]},
+  "com.ForgeGames.ShadowOfTheEmpire":{"features":["iap"]},
+  "com.generagames.tap.pirates.idle":{"features":["iap"]},
+  "com.wellgame.mergemyth":{"features":["iap"]},
+  "kemco.rideonjapan.mareniabar":{"features":["iap"]},
+  "com.gamehivecorp.beattheboss3":{"features":["iap"]},
+  "com.pixodust.games.free.rpg.medieval.merge.puzzle.empire":{"features":["iap","restore-purchase"]},
+  "com.excellcube.ultimateaxeclicker":{"features":["iap"]},
+  "com.frvr.hex":{"features":["partial-iap","facebook-login"]},
+  "com.gaminho.idlefivebasketball":{"features":["partial-iap","subscription-restore-purchase"]},
+  "bazinac.aplikacenahouby":{"category":"tools","features":["iap","repurchase"]},
+  "com.kiloo.smashchamps":{"features":["iap","partial-multiplayer","facebook-login-broken"]},
+  "air.BackWars":{"features":["iap","slightly-broken","dont-bother"]},
+  "com.EightStudio.PitzMaker":{"category":"tools","features":["iap"]},
+  "get.instagram.followers.unfollowers":{"category":"tools","features":["iap"]},
+  "com.hadeul.mage":{"category":"root","features":["root-iap"]},
+  "com.malcs.melvoridle":{"category":"root","features":["root-patch","root-patch-iap"]},
+  "ninja.creed.sniper.real3d.action.free.android":{"category":"root","features":["root-patch"]},
+  "com.squareenixmontreal.hitmansniperandroid":{"category":"root","features":["root-patch","root-patch-iap"]},
+  "com.studiowildcard.wardrumstudios.ark":{"category":"root","features":["root-patch","root-patch-iap"]},
+  "jp.pokemon.pokemonquest":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "net.apex_designs.payback2":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.hasbro.beybladesenterprise":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "air.SiftHeadsRebornAndroid":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.bulkypix.deadeffect":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.wb.goog.legoswtfa":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.wb.lego.tcs":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.aspyr.swkotor":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.ea.games.r3_na":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.olzhas.carparking.multyplayer":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.pokemon.pokemonplayhouse":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "jp.pokemon.pokemonsmile":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "jp.pokemon.koiking":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.and.games505.TerrariaPaid":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.ea.games.nfs13_na":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "org.dashnet.cookieclicker":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.rovio.BadPiggies":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.rockstargames.gtalcs":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.rockstargames.gtavc":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.rockstar.gta3":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.rockstargames.gtasa":{"category":"root","features":["root-patch","no-root-patch-iap"]},
+  "com.tiregamestudio.rcp.real.car.parking":{"category":"root","features":["root-patch"]},
+  "com.MythiKiwi.MoeOS":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.brightstripe.parcels":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.vpnmasterx.pro":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nex.xquestarpg1":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixio.google.art.inc":{"features":["iap","facebook-login","facebook-login-no-app-installed"]},
+  "com.ea.BejeweledBlitz_na":{"category":"unclear-iap","features":["unclear-iap","region-locked"]},
+  "com.kakarod.bighunter":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.dryginstudios.bioinc":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tenpercentred.biotix":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.noodlecake.bitcoin":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.mycompany.blockheads":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.crescentmoongames.blocky_roads":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.masilgames.BloodCopter":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.gramgames.london.bounzy":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.playgendary.bowmasters":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.superplusgames.hosandroid":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.FunnerSoftLLC.BreweryBoss":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.Garawell.BridgeRace":{"category":"unclear-iap","features":["unclear-iap"]},
+  "champions.empire.bubble":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.Izy.tycoon":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.Izygames.BusinessStrategy3":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.tinytouchtales.cardthief":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.AdrianZarzycki.idle.incremental.car.industry.tycoon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.StaffanEkvall.CarpetBombing":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.moontm.cartoon999":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gamevil.cartoonwars3.android.google.global.normal":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pocapp.castlecats":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.sharkjump.castlefusion":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.usm.catanuniverse":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.minogames.cats.client":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.erow.oneguncat":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.computerlunch.evolution":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.kingsofgames.chessuniverse":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.chaloapps.roosterrudy":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.and.games505.chimpact2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.naquatic.civclicker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pikpok.wtd.play":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.BroDevStudio.CosmicTycoon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.heavyfall.constructioncity":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.heavyfall.constructioncity2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.heavyfall.constructioncity2.winter":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.heavyfall.diego1":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.sgn.cookiejam.gp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixelcubestudios.android.cookiecollector2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixelcubestudios.endlessidlecookietowerdefencetd":{"category":"unclear-iap","features":["unclear-iap"]},
+  "br.com.tapps.corgievolution":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.YEMA.corin":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.generagames.resistance":{"category":"unclear-iap","features":["unclear-iap"]},
+  "net.DuckyGames.CraftIsland":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gamefirst.craftytowncitybuilder":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.bscotch.crashlands":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.yodo1.crossyroad":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.zeptolab.ctr.ads":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.thecut.mobile.android.thecut":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.The717pixels.robotColony2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.herocraft.game.free.deadshell":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.generagames.deathtycoon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.deckeleven.railroads2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rockbite.deeptown":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.apdconsultinginc.defender1":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gamtropy.desertopia":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.spheregamestudios.designercity":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hg.devilsfree":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.boomdrag.devtycoon2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tigrido.dictator2.free":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.mugshotgames.digfender":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.bandagames.miner":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.disney.emojimatch_goo":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.quickturtle.EmployeeSurvival_en":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.serinus42.downdetector":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ziau.magicdragonvillage":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hitcents.drawastickmanepic2free":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.zalivka.animation2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.paullipnyagov.drumpads24":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.moontm.Dungeon999F":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.metamoki.pc.dungeonshop":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.duolingo":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.everbytestudio.interactive.text.chat.story.rpg.cyoa.duskwood":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.invictus.dustoff2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.auxbrain.egginc":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.betdon.egosword":{"category":"unclear-iap","features":["unclear-iap"]},
+  "qijaz221.github.io.musicplayer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rappidstudios.simulatorbattle":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rappidstudios.simulatorbattlephysics":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.electricpunch.epicgamemaker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "ocean.nomad.survival.simulator":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.mastercomlimited.epicHero":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.easytech.ew4":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ZipasGames.EventHorizon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "br.com.tapps.evolutiongalaxy":{"category":"unclear-iap","features":["unclear-iap"]},
+  "net.fdgames.ek.androidfull":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.eldring.exominer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.ExtraLives":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.bethsoft.falloutshelter":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.martinmagni.fancade":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.hotheadgames.google.free.empire":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.sgn.familyguy.gp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.snapbreak.faraway5":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ncoregames.faug":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.lionsden.fc5":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nexelon.fishinglife":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.dream.house.design.makeover.match":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tarekmongy.FlappyCrush":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.triadgene.fleetcombat2_gp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.bigduckgames.flow":{"category":"unclear-iap","features":["unclear-iap"]},
+  "info.kfsoft.force.rotation":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.video.fxmaster":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.lunime.gachaclub":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.lunime.gachaworld":{"category":"unclear-iap","features":["unclear-iap"]},
+  "net.fishlabs.gof2hdallandroid2012":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.and.games505.chefemma":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.mobage.ww.a1912.Godus_Android":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.grimdev.grimquest":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.direlight.grimvalor":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.vulxhisers.grimwanderings2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixelstar.gsm":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nextgenreality.gunclub3":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.naquatic.guncrafterpro":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.frozenlakegames.GnS2":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.hg.gunsandglory3free":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.appnetgames.headhunters":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.dnddream.HeadBasketball":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.wb.headsup":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.barsstudios.getthegirl":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.uncosoft.highheels":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.fingersoft.hillclimb":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.superplusgames.hos2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.FryosStudios.HomunculusSandBox":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.magmafortress.hoplite":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.sharkjump.hotelslime":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.codigames.hotel.empire.tycoon.idle.game":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ubisoft.hungrysharkworld":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.TechTreeGames.IdleBrickBreaker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "games.starberry.coffeecorp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.appquantum.myidlecity":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gpp.idleconstruction":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.BlingBlingGames.CraftingIdleClicker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hako.idle.crafting.empire.tycoon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "de.lutsgames.idle_dice":{"category":"unclear-iap","features":["unclear-iap"]},
+  "se.ace.fishinc":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gamemaker5.idlemafia":{"category":"unclear-iap","features":["unclear-iap"]},
+  "net.alexplay.petroleum_tycoon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "dovi.tycoon.idle.robotinc":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.lavaflame.IdleSkilling":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pabloleban.IdleSlayer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.anxiousottergames.spacefarmer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.weirdjohnny.clicker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.x3m.is":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.armorgames.infectonator3":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.camerasideas.instashot":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixelfactor.interstellarpilot":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.sidheinteractive.sif.DR":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.dieselpuppet.detectivestory":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.japaneselevelup.jalupapp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "io.shenron.jel":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.halfbrick.jetpackjoyride":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.aubjective.jobmania":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.playgendary.kickthebuddy":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nexstreaming.app.kinemasterfree":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.ironhidegames.android.kingdomrush4":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.ironhidegames.android.kingdomrushorigins":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ketchapp.knifehit":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.SinobiGames.CursedDungeon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "jp.orange_cube.dotrike":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.cornago.stefano.lapse":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.wygame.legionwar":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.wb.goog.lbbg":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.wb.lego.marvel":{"category":"unclear-iap","features":["unclear-iap"]},
+  "lets.survive.apocalypse.survival":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.Games751.LifeGallery":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.chinzilla.littlealchemist.google":{"category":"unclear-iap","features":["unclear-iap","special-patch-full-offline"]},
+  "dk.tactile.lilysgarden":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.simyasolutions.ling.universal":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nitrome.magictouch":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.SpaceInch.LoveOfMoney":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.fingersoft.makemore":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.racecat.fantasy":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.martinmagni.mekorama":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.sharkjump.spacemelons":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.chaloapps.memeswars":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.zjoy.fairy":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gramgames.farmest":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.skunkworksgames.mergefriends":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gramgames.mergemagic":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.fusee.MergeMaster":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.xjoy.mermaid":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.fumbgames.monstermerge":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.SuperAwesome.MergeSafari":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.telltalegames.walkingdeadm100":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.telltalegames.batman100":{"features":["iap","account-login"]},
+  "com.GermapurApps.MinerGunBuilder":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ilixa.mirror":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hutchgames.hilldash2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.oxiwyle.modernage2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.EvilChaotic.ModernWarplanes":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.madoGames.moonscloset":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.baldricksoft.moonshades_dungeon_crawler":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ohbibi.motorworldcarfactory":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.lionstudios.mrbullet":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ketchapp.mrgun":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.musescore.playerlite":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.stormx.factory":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.buffstudio.mysticguardian.paid":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "jp.co.hit_point.nekoatsume":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.PrismaThunder.Necromancer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.taptonecromance.io.right.click.necromance.online":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nordigames.nfh":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nordigames.nfh2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hippiegame.nevergone":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.blackpanther.ninjaarashi":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.blackpanther.ninjaarashi2":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.generagames.ninjadash.samuraironin.jumprpg":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ludia.tmnt":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.foursakenmedia.noblemen":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.sweatychair.lastofhumanity":{"category":"unclear-iap","features":["unclear-iap","special-patch-signature"]},
+  "com.awedea.nyx":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.birdydogstudio.oceanishome":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.birdydogstudio.oceanishome.islandlife":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.twitchyfinger.google.myoffice":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.GalacticSlice.OneBitAdventure":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.superthomaslab.rootessentials":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.lilithgame.roc.gp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.beachinteractive.omo":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.OwnGames.OwnKingdom":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "paint.by.number.relax.pixel.art.drawing.book.free":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rmg.idle.evil.party.clicker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tipsworks.android.pascalswager.google":{"category":"unclear-iap","features":["unclear-iap","restore-purchase","may-require-root"]},
+  "com.outerminds.tubular":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.kabouzeid.gramophone":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.micabyte.android.pirates.gold":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.joycity.potc":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.piratesoutlaws.fabledgame":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.StudioFurukawa.PixelCarRacer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "pl.mw.playmagnus":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.ea.game.pvzfree_row":{"category":"unclear-iap","features":["unclear-iap"]},
+  "jigsaw.puzzle.free.games":{"category":"unclear-iap","features":["unclear-iap"]},
+  "moonbear.PocketBuild":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nimblebit.pockettrains":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.translantic.polyescape2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.and.games505.portal_knights":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "me.pou.app":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.amrita.producer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.spookyhousestudios.progressbar95":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rinzz.projectmuse":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.psiphon3.subscription":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.wb.goog.ellen.psych":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.zeptolab.monsters.free.google":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.bscotch.quadropus":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rsgapps.reactor":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rockstargames.rdr2app":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.newstargames.retrobowl":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pikpok.bbl.play":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.abuksigun.rpg_prototype":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ludusstudio.runandgun":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.ketchapp.runbirdrun":{"category":"unclear-iap","features":["unclear-iap"]},
+  "cukey.runerebirth":{"category":"unclear-iap","features":["unclear-iap"]},
+  "smellymoo.sand":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rodan.fish":{"category":"unclear-iap","features":["unclear-iap"]},
+  "ru.strategygames.worldwar2online":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "air.net.ideasam.games.cat":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tohsoft.game.ninja.shadow.fighter2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.dyadgames.cookieswirlworld":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.shdgames.sierra7.gp":{"category":"unclear-iap","features":["unclear-iap"]},
+  "pl.codejungle.simplestrpggame":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ea.game.simpsons4_na":{"category":"unclear-iap","features":["unclear-iap","iap-before-load"]},
+  "pine.game.skydancer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.dhxmedia.slugitout2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hutchgames.smashbandits":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hutchgames.smashcopsheat":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.rkgames.basisgame":{"category":"unclear-iap","features":["unclear-iap"]},
+  "advenworks.com.snakeblast":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.generagames.soccer.royale.football.pvp.online":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.devsisters.SolitaireDeckedOut":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.sega.sonicboomandroid":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nooleus.android.spaceagency":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixelbite.sm2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.dobermannstudios.spartanfirefight":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hazar.fps":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tiltingpoint.spongebob":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.stereo7games.steampunk":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.airapport.steampunkidlespinner":{"category":"unclear-iap","features":["unclear-iap"]},
+  "io.stellio.music":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.stickman.dragon.fight.stick.warriors.stickmanwarriors":{"category":"unclear-iap",
+  "features":["unclear-iap"]},"com.mindy.grap1":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.skygo.stickfightarcher":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.FDGEntertainment.StickSquad.gp":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.megafox.stone.park.idle.tycoon":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.kiloo.stormblades":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "cn.xishanju.google.strangeworld":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.crescentmoongames.subdivision":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.SuperCity":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.thomasyoung.superfowlst":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.IfelseMedia.SwordAndGlory":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.touchfoo.swordigo":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "air.com.game.whiskeybarrelstudios.swordsandsandals2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.com.game.whiskeybarrelstudios.swordsandsandals5redux":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.playrisedigital.ttrwtne":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.hg.takashi.ninjagames":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nomadgames.talisman":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.outfit7.mytalkingangela2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nlabsoft.tankdefence":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.akpublish.tankon2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.playgendary.tanks":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixelkeep.taptapsurvival":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.odaatstudio.powerman":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.topcog.tapwizard2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.Evrac.TavernRumble":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.cogooland.theagentofcogoo":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.digitalsecrets.thedarkpursuer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "info.flowersoft.theotown.theotown":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.parallax.wallpapers.live.uhd":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.kongregate.mobile.thetrail.google":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gameinsight.tribez":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.JamieParish.TheWanderer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "dev.onhit.theyarecoming":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.RestGames.Trapdungeon":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.buffstudio.timingheropaid":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.kiarygames.tinyroom":{"category":"unclear-iap","features":["unclear-iap"]},
+  "games.tinycloud.tinyshop":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.companyname.Space_Program":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.playgendary.tom":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.bscotch.towelfight2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.percent.towerbreaker":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.hg.townsmen7":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.clancystudios.retrottrapadventureandroid":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.teamtricky.tc":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tastyrook.agent":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.fellhuhn.monstermatch":{"category":"unclear-iap","features":["unclear-iap"]},
+  "de.sundrumdevelopment.truckerjoe":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.tunnelbear.android":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.secretexit.turbodismount":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.studiodrill.dragonmaster":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.earlymorningstudio.vampiresfall2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.greenheartgames.gdt":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.nummagames.VikingWars":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.ldw.vvo2":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.wallify.hdwallpaper":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.Avalon.Pendragon":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.chundos.zombies":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.gma.water.sort.puzzle":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.reliancegames.wwemayhem":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.pixeltoys.freeblade":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.vestasoft.weedfarm":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.WeekendWarriors":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.disney.wheresmywater2_goo":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.mergeland.animal.adventure.island":{"category":"unclear-iap","features":["unclear-iap"]},
+  "ru.crazypanda.crossfire":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.IMStudio.WOS":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.bravetale.worldtank":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.kocogames.wartroops1944":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "air.WRCareer":{"category":"unclear-iap","features":["unclear-iap"]},
+  "air.WR3DFree":{"category":"unclear-iap","features":["unclear-iap"]},
+  "videoeditor.videorecorder.screenrecorder":{"category":"unclear-iap",
+  "features":["unclear-iap","may-require-root"]},
+  "com.TechTreeGames.ZenIdle":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.luandungames.zombiehell4.android.googleplay":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.imcrazy.hs":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.gameannie.christmasblast":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.spcomes.zombiehive":{"features":["no-iap","apk-platinmods"]},
+  "com.chargedmonkey.idlequestheroesepicdungeonrpg":{"features":["no-iap"]},
+  "com.kongregate.mobile.burritobison3.google":{"features":["no-iap"]},
+  "com.TDF.GTM":{"features":["no-iap"]},
+  "com.battlecreek.nolimit2":{"features":["no-iap"]},
+  "com.ftt.eroica.gl.aos":{"features":["no-iap"]},
+  "com.dxx.firenow":{"features":["no-iap"]},
+  "com.ninjakiwi.sasza4":{"features":["no-iap"]},
+  "com.square_enix.android_googleplay.WOTVffbeww":{"features":["no-iap"]},
+  "com.boltrend.disgaea.en":{"features":["no-iap"]},
+  "com.notdoppler.earntodie2":{"features":["no-iap"]},
+  "com.loadcomplete.mergedefense":{"features":["no-iap"]},
+  "com.windforce.wjxt.fanti":{"features":["no-iap"]},
+  "com.hidea.cat":{"features":["no-iap"]},
+  "com.spcomes.esabyss":{"features":["no-iap"]},
+  "com.hamsteroncoke.zenge":{"features":["no-iap"]},
+  "com.wildsky.wildarmydraft":{"features":["no-iap"]},
+  "com.kakaogames.wdfp":{"features":["no-iap"]},
+  "cc.jasfun.wizard":{"features":["no-iap"]},
+  "co.imba.archero":{"features":["no-iap"]},
+  "com.gamigo.ext.town":{"features":["no-iap"]},
+  "com.redspell.nanotanks":{"features":["no-iap"]},
+  "com.lnrgame.roguelike":{"features":["no-iap"]},
+  "ca.roofdog.pm3":{"features":["no-iap"]},
+  "com.grand.survival.ocean.adventure":{"features":["no-iap"]},
+  "com.swordman.reforged":{"features":["no-iap"]},
+  "ru.aivik.refactory.google2":{"features":["no-iap"]},
+  "com.wildsky.wildcastle":{"features":["no-iap"]},
+  "com.com.tann.dice":{"features":["no-iap"]},
+  "com.kakaogames.gdts":{"features":["no-iap"]},
+  "com.vizorapps.atlantis":{"features":["no-iap"]},
+  "tdcgame.zombie.idle.defense":{"features":["no-iap"]},
+  "com.xtt.iasurv2":{"features":["no-iap"]},
+  "com.pixelfederation.ts2":{"features":["no-iap"]},
+  "com.kongregate.mobile.tinkerisland.google":{"features":["no-iap"]},
+  "com.FunFlavorGames.HeroPark":{"features":["no-iap"]},
+  "com.tiedan.game.EdgeOfDoom":{"features":["no-iap"]},
+  "com.tapps.games.dig.dinoquest2":{"features":["no-iap"]},
+  "online.limitless.appleknight.free":{"features":["no-iap"]},
+  "com.beesquare.almostahero":{"features":["no-iap"]},
+  "com.RetrostyleGames.LastPirate.deadthieves":{"features":["no-iap"]},
+  "jp.oridio.museum":{"features":["no-iap"]},
+  "com.gm_shaber.dayr":{"features":["no-iap"]},
+  "com.dawinstone.b2be":{"features":["no-iap"]},
+  "com.superplusgames.oos":{"features":["no-iap"]},
+  "com.aldagames.zombieshooter":{"features":["no-iap"]},
+  "com.dreamgate.steampunktower2.android":{"features":["no-iap"]},
+  "com.datavisionstudio.roguelike":{"features":["no-iap"]},
+  "com.ctugames.km2":{"features":["no-iap"]},
+  "com.Kraken.TinyWorlds":{"features":["no-iap"]},
+  "com.noxgames.shadow.deck.card.ccg":{"features":["no-iap"]},
+  "com.pixelbite.ga2":{"features":["no-iap"]},
+  "com.pixelbite.sm3":{"features":["no-iap"]},
+  "com.biglime.cookingmadness":{"features":["no-iap"]},
+  "com.preus.PreusZombi":{"features":["no-iap"]},
+  "com.oxiwyle.alternativehistory20tgcentury":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.oxiwyle.kievanrusageofcolonization":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.fdgentertainment.bananakong":{"features":["no-iap"]},
+  "com.FDGEntertainment.BananaKong2.gp":{"features":["no-iap"]},
+  "com.FDGEntertainment.RedBallRunner":{"features":["no-iap"]},
+  "sp.repcount":{"features":["no-iap"]},
+  "com.imaginalis.HouseFlipperMobile":{"features":["no-iap"]},
+  "com.rayark.cytus2":{"features":["no-iap"]},
+  "com.noodlecake.leapon":{"features":["no-iap"]},
+  "com.noodlecake.mmmfingers":{"features":["no-iap"]},
+  "com.noodlecake.perfectgrind":{"features":["no-iap"]},
+  "com.lootboy.app":{"features":["no-iap"]},
+  "com.pokulan.aliveinshelter":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
+  "com.bluegnc.AOSBTEAM":{"features":["no-iap"]},
+  "com.ExiliumGames.Anima":{"features":["no-iap"]},
+  "air.com.luni.animearcade":{"features":["no-iap"]},
+  "com.GamerMind.Warriors_of_the_Universe_Online":{"features":["no-iap"]},
+  "com.maxgames.stickwarlegacy":{"features":["no-iap"]},
+  "com.wildlifestudios.free.online.games.suspects":{"features":["no-iap"]},
+  "com.notdoppler.crashofcars":{"features":["no-iap"]},
+  "com.trueaxis.trueskate":{"features":["no-iap"]},
+  "com.prty.hpz":{"features":["no-iap"]},
+  "com.rollic.mayormatch":{"features":["no-iap"]},
+  "com.exaltedstudio.bighelmetheroes":{"features":["no-iap"]},
+  "space.indiecatsoft.mercenaryx":{"features":["no-iap"]},
+  "com.aegisinteractive.goo":{"features":["no-iap"]},
+  "com.aanz.ludo.online.multiplayer.offlineludo":{"features":["no-iap"]},
+  "exize.tapas.girlAdrift":{"features":["no-iap"]},
+  "com.soulgame.idlePrimitive":{"features":["no-iap"]},
+  "com.zts.ageoffantasy":{"features":["no-iap"]},
+  "com.abc.AgeofKingdomsHD":{"features":["no-iap"]},
+  "com.cle.allstar":{"features":["no-iap"]},
+  "com.ideactiongameGlobal.armagearab":{"features":["no-iap"]},
+  "com.sensoryplayapps.adventure":{"features":["no-iap"]},
+  "com.alchemist.angelsaga":{"features":["no-iap"]},
+  "com.qcplay.aresvirus":{"features":["no-iap"]},
+  "com.backflipstudios.android.dragonvale":{"features":["no-iap"]},
+  "kr.co.angames.galaxyconflict.google.android":{"features":["no-iap"]},
+  "com.cerberusinteractive.atlasempires":{"features":["no-iap"]},
+  "com.william.mobilegame":{"features":["no-iap"]},
+  "badminton.blitz.sports.free.game.android":{"features":["no-iap"]},
+  "com.actgames.amg.android.gl":{"features":["no-iap"]},
+  "com.pennypop.monsters.live":{"features":["no-iap"]},
+  "com.traplight.battleslides":{"features":["no-iap"]},
+  "com.AH.BattleofKingdoms":{"features":["no-iap"]},
+  "com.halfbrick.boosterraiders":{"features":["no-iap"]},
+  "com.mobilemafia.slgrpg.asia":{"features":["no-iap"]},
+  "com.rogueharbour.billionair.airport":{"features":["no-iap"]},
+  "bling.crush.match3.free.android":{"features":["no-iap"]},
+  "com.idle.immortal.fun.legendary.rpg.destiny.king.games":{"features":["no-iap"]},
+  "net.hexage.reaper":{"features":["no-iap"]},
+  "com.creativemobile.nno":{"features":["no-iap"]},
+  "com.kitkagames.fallbuddies":{"features":["no-iap"]},
+  "net.froemling.bombsquad":{"features":["no-iap"]},
+  "com.booblyc.defensecardstd":{"features":["no-iap"]},
+  "com.bsoftstu.boombattle":{"features":["no-iap"]},
+  "com.tortugateam.bravelandheroes":{"features":["no-iap"]},
+  "com.funplus.coa":{"features":["no-iap"]},
+  "com.tomtominc.candiesncurses":{"features":["no-iap"]},
+  "com.my.etd.dev":{"features":["no-iap"]},
+  "com.realtimegames.projectcc":{"features":["no-iap"]},
+  "com.motu.ldt3.twft":{"features":["no-iap"]},
+  "com.indiecode.cheftycoon":{"features":["no-iap"]},
+  "com.runewaker.deus":{"features":["no-iap"]},
+  "com.ratatatgames.coindragon":{"features":["no-iap"]},
+  "com.lb4business.swordsbowsmagic":{"features":["no-iap"]},
+  "com.animocabrands.google.CrazyDefenseHeroes":{"features":["no-iap"]},
+  "com.gametaiwan.cp":{"features":["no-iap"]},
+  "com.godzilab.idlerpg":{"features":["no-iap"]},
+  "norisk.jingde.android.en.com":{"features":["no-iap"]},
+  "com.gamepub.df":{"features":["no-iap"]},
+  "com.rpgwikigames.darknessrising":{"features":["no-iap"]},
+  "com.trefle.dashero":{"features":["no-iap"]},
+  "com.garage.demonblade":{"features":["no-iap"]},
+  "com.ncroquis.evillegion":{"features":["no-iap"]},
+  "com.miniit.dice":{"features":["no-iap"]},
+  "com.outstandinggame.divinityand":{"features":["no-iap"]},
+  "com.maf.idle.puppy.cafe.tycoon":{"features":["no-iap"]},
+  "com.lv0.dotrangers":{"features":["no-iap"]},
+  "com.dragonascension.games":{"features":["no-iap"]},
+  "com.deemedyainc.duels":{"features":["no-iap"]},
+  "net.teemosoft.alchemist":{"features":["no-iap"]},
+  "com.droidhen.dungeon":{"features":["no-iap"]},
+  "com.bigfishgames.dungeonbossf2pgoogle":{"features":["no-iap"]},
+  "br.com.dungeon.fellowship":{"features":["no-iap"]},
+  "com.twoguysgames.dungeonslayer":{"features":["no-iap"]},
+  "skydragon.ylempire":{"features":["no-iap"]},
+  "com.qmhy.ead":{"features":["no-iap"]},
+  "com.apexpoint.android.dragons":{"features":["no-iap"]},
+  "com.lemonjamgames.endlesswinteren":{"features":["no-iap"]},
+  "com.GacoGames.EC2":{"features":["no-iap"]},
+  "net.cravemob.epicfantasy":{"features":["no-iap"]},
+  "com.vivastudios.mecha.robot.rpg.girls":{"features":["no-iap"]},
+  "com.sanctumstudio.eternalsenia2":{"features":["no-iap"]},
+  "com.nomadgames.everybodyrpgpay":{"features":["no-iap"]},
+  "com.honeydew.evolutionhero":{"features":["no-iap"]},
+  "com.topgamesinc.evony":{"features":["no-iap"]},
+  "com.ltgames.android.idle":{"features":["no-iap"]},
+  "com.mergefun.dragon.fantasticpets":{"features":["no-iap"]},
+  "com.indie.shj.google.en":{"features":["no-iap"]},
+  "com.boltrend.floen":{"features":["no-iap"]},
+  "com.zynga.farmville3":{"features":["no-iap"]},
+  "com.flaregames.fieldrunners":{"features":["no-iap"]},
+  "com.playmage.rpgGame":{"features":["no-iap"]},
+  "com.mehen.findung":{"features":["no-iap"]},
+  "com.HolydayStudios.Firestone":{"features":["no-iap"]},
+  "ru.overmobile.forge":{"features":["no-iap"]},
+  "com.janeious.fusionguardslive":{"features":["no-iap"]},
+  "games.fatlion.gems.arena.crafting":{"features":["no-iap"]},
+  "uk.co.gimmebreak.getmebro":{"features":["no-iap"]},
+  "com.happiigamerstudios.GladiatorRising2":{"features":["no-iap"]},
+  "com.memesmongames.archerhero":{"features":["no-iap"]},
+  "com.harvest.android.gr":{"features":["no-iap"]},
+  "com.idiocracy.HELLPER":{"features":["no-iap"]},
+  "com.honeydew1853.stealerhfree":{"features":["no-iap"]},
+  "com.whoot.games.hot":{"features":["no-iap"]},
+  "com.glu.epicheroes":{"features":["no-iap"]},
+  "com.wolffun.herostrike.offline":{"features":["no-iap"]},
+  "game.hyq.herounion":{"features":["no-iap"]},
+  "com.playhardlab.heroship.aos":{"features":["no-iap"]},
+  "com.coldfiregames.dungeon.manager.tycoon.idle.game":{"features":["no-iap"]},
+  "com.superplanet.idleguardians":{"features":["no-iap"]},
+  "com.idle.hero.immortal.blade":{"features":["no-iap"]},
+  "com.phantorama.idlekingdoms":{"features":["no-iap"]},
+  "com.mobirix.idleknights":{"features":["no-iap"]},
+  "com.skylinegames.idle.legend.heroes":{"features":["no-iap"]},
+  "com.aboutgames.com.unity.idlerpg.mobile2D":{"features":["no-iap"]},
+  "com.ruloistudios.idledungeoncrawler":{"features":["no-iap"]},
+  "com.eastsidegames.idlestonks":{"features":["no-iap"]},
+  "com.idle.heroes.war":{"features":["no-iap"]},
+  "com.immortaltaoists.en":{"features":["no-iap"]},
+  "com.SuperAwesome.InfiniteDungeonBreach":{"features":["no-iap"]},
+  "com.magicfind.infinityfree":{"features":["no-iap"]},
+  "com.bytro.supremacy1.thegreatwar":{"features":["no-iap"]},
+  "com.makingfun.ironbound":{"features":["no-iap"]},
+  "com.rocket.jackal.squad":{"features":["no-iap"]},
+  "com.my.juggernautwars":{"features":["no-iap"]},
+  "com.kids.vs.zombies.pvp.multiplayer.pve.brawl.first.person.fps.shooter.action.games":{"features":["no-iap"]},
+  "com.idle.heroes.fantasy":{"features":["no-iap"]},
+  "com.topebox.realmwars":{"features":["no-iap"]},
+  "net.kairosoft.android.kingdom_en":{"features":["no-iap"]},
+  "azurgames.idle.war":{"features":["no-iap"]},
+  "com.awesomepiece.castle":{"features":["no-iap"]},
+  "com.vividgames.knight.fight.honor.chivalry":{"features":["no-iap"]},
+  "com.robotogames.iogame":{"features":["no-iap"]},
+  "com.FunFinery.LegacyOfLegends":{"features":["no-iap"]},
+  "com.epicwar.mir2.legend.game":{"features":["no-iap"]},
+  "com.legendofrunes.gameark.global":{"features":["no-iap"]},
+  "com.king.solgard":{"features":["no-iap"]},
+  "com.gametaiwan.idnew":{"features":["no-iap"]},
+  "com.ifree.loas.google":{"features":["no-iap"]},
+  "fr.spinbot.lordzio":{"features":["no-iap"]},
+  "com.lostocean.civilization":{"features":["no-iap"]},
+  "com.gameofmafia.global":{"features":["no-iap"]},
+  "air.com.fs.magicquest":{"features":["no-iap"]},
+  "com.mangaonline.jflr.apken":{"features":["no-iap"]},
+  "com.lemix.megatower":{"features":["no-iap"]},
+  "com.mouseduck.boomerang":{"features":["no-iap"]},
+  "com.Deliciousgames.MergeOfMini":{"features":["no-iap"]},
+  "com.indiecode.dungeon":{"features":["no-iap"]},
+  "br.com.tapps.minequest2":{"features":["no-iap"]},
+  "com.tsixi.crazybomb2gp":{"features":["no-iap"]},
+  "com.wonderland.monsteraab":{"features":["no-iap"]},
+  "com.dwgames.ssucksso":{"features":["no-iap"]},
+  "com.zillionwhales.mushroomwars2":{"features":["no-iap"]},
+  "com.ftxgames.narcos":{"features":["no-iap"]},
+  "com.tiltingpoint.bigwolf.narcosfactory":{"features":["no-iap"]},
+  "com.koplagames.kopla01":{"features":["no-iap"]},
+  "com.IterativeStudios.Nordicandia":{"features":["no-iap"]},
+  "jp.kcopro.app005.Orderzero":{"features":["no-iap"]},
+  "com.tarodev.Paladin":{"features":["no-iap"]},
+  "com.HiClayStudio.PandaclipTheBlackThief":{"features":["no-iap"]},
+  "com.mngo.knights":{"features":["no-iap"]},
+  "com.giraffegames.pool":{"features":["no-iap"]},
+  "com.linktown.powpowgirl":{"features":["no-iap"]},
+  "com.habby.punball":{"features":["no-iap"]},
+  "com.evilzeppelin.quest4fuel.arena.rpg":{"features":["no-iap"]},
+  "com.raid.heroes.total.war":{"features":["no-iap"]},
+  "kr.co.questgames.druwadungeonag":{"features":["no-iap"]},
+  "com.babeltimeus.legendstd":{"features":["no-iap"]},
+  "com.OneTier.ReelBoy":{"features":["no-iap"]},
+  "com.innogames.riseofcultures":{"features":["no-iap"]},
+  "com.qumaron.riseofromanrempire":{"features":["no-iap"]},
+  "com.king.hero.rpg.tactics":{"features":["no-iap"]},
+  "com.huuuge.rh.archer.hero":{"features":["no-iap"]},
+  "com.elysium.royal.knight.tales.anime.rpg.mmo.gacha.impact":{"features":["no-iap"]},
+  "me.nextdoors.tower":{"features":["no-iap"]},
+  "com.cookapps.ShadowKnightsIdleRPG":{"features":["no-iap"]},
+  "com.trueknownewgame.ec2":{"features":["no-iap"]},
+  "com.gamesture.team.guild.raids.pvp.multiplayer":{"features":["no-iap"]},
+  "com.herocraft.game.free.spaceshipbattles":{"features":["no-iap"]},
+  "com.playdigious.sparklite":{"features":["no-iap"]},
+  "akunososhiki.app.starVanisherUUUM":{"features":["no-iap"]},
+  "com.zitga.ninja.stickman.legends.shadow.wars":{"features":["no-iap"]},
+  "io.gearage.summonage":{"features":["no-iap"]},
+  "com.innogames.sunrisevillage":{"features":["no-iap"]},
+  "com.fg.ssaos":{"features":["no-iap"]},
+  "com.elysium.game.sword.cat.fantasy.story.online.mmo.rpg.google":{"features":["no-iap"]},
+  "com.skw.tqtm":{"features":["no-iap"]},
+  "com.micro.tap.legend":{"features":["no-iap"]},
+  "com.honeydew.herostores":{"features":["no-iap"]},
+  "com.gamecircus.tycoon":{"features":["no-iap"]},
+  "tap.lords.royale":{"features":["no-iap"]},
+  "com.Unibyte_Studios.Terramorphers":{"features":["no-iap"]},
+  "com.sngames.GOH.aos":{"features":["no-iap"]},
+  "com.avalon.caveonline.global.googleplay":{"features":["no-iap"]},
+  "com.netease.lotr":{"features":["no-iap"]},
+  "com.impossibleapps.walkinghero":{"features":["no-iap"]},
+  "com.minidragon.dw":{"features":["no-iap"]},
+  "com.kabam.bigrobot":{"features":["no-iap"]},
+  "com.avex.trinityseven":{"features":["no-iap"]},
+  "com.aig.ultimatewar":{"features":["no-iap"]},
+  "com.doubledown.undead.world.hero.afk.game":{"features":["no-iap"]},
+  "com.daimoyx.wargame.heroes.google":{"features":["no-iap"]},
+  "com.ageofeternity.global":{"features":["no-iap"]},
+  "com.fungames.boomforce":{"features":["no-iap"]},
+  "com.redantz.game.wartactics":{"features":["no-iap"]},
+  "com.PixelToys.Sigmar":{"features":["no-iap"]},
+  "com.tiltingpoint.warhammer":{"features":["no-iap"]},
+  "com.minigame.warzp.gp":{"features":["no-iap"]},
+  "com.tivola.wildshade.gp":{"features":["no-iap"]},
+  "com.loongcheer.neverlate.wizardlegend.fightmaster":{"features":["no-iap"]},
+  "com.wizarding.mystery.global":{"features":["no-iap"]},
+  "com.Oryugen.WorldOfPrandisBeta":{"features":["no-iap"]},
+  "com.craftgames.worldcrft":{"features":["no-iap"]},
+  "com.herocraft.game.free.armor.tank.arena.pvp.rts":{"features":["no-iap"]},
+  "com.alohagamestudios.kingofheroes":{"features":["no-iap"]},
+  "com.LokumGames.ZulaMobile":{"features":["no-iap"]},
+  "com.alicegames.idle.rpg.battler":{"features":["no-iap"]},
+  "com.survival.last":{"features":["no-iap"]},
+  "com.bigfishgames.mergetalesgoog":{"features":["no-iap"]},
+  "com.funload.killmonster":{"features":["no-iap"]},
+  "com.hariotica":{"features":["no-iap","facebook-login-broken","may-require-root"]},
+  "com.chillgaming.combatquest":{"features":["no-iap"]},
+  "com.lemonjamgames.worldtale":{"features":["no-iap"]}
 }
