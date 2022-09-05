@@ -37,6 +37,8 @@ import featureMap from "../../featureMap";
 /*
  * TODO
  * Send a proper update to discord webhook with details
+ * find a way to send all updates since last ci run, compare 2 commits - maybe with a "update: " commit tag
+ * fix head error thing in CI https://github.com/Flixbox/lp-compat/runs/8197172186?check_suite_focus=true
  */
 
 type AppInfo = {
