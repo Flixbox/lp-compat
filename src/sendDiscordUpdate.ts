@@ -1,8 +1,12 @@
-const git = require("simple-git");
+var exec = require("child_process").exec;
+function execute(command, callback) {
+  exec(command, function (error, stdout, stderr) {
+    callback(stdout, error, stderr);
+  });
+}
 
-git(__dirname).raw(
-  ["diff", "HEAD~", "--", ".//static//apps.json"],
-  (err, result) => {
-    console.log(result);
-  }
-);
+execute("git diff HEAD~ -- ./static/apps.json", (stdout, error, stderr) => {
+  console.log(error);
+  console.log(stdout);
+  console.log(stderr);
+});
