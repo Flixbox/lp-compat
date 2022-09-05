@@ -36,7 +36,8 @@
     "react-dom": "^17.0.2",
     "react-image-scroller": "^0.3.0",
     "react-persistent-state": "^1.1.7",
-    "react-render-if-visible": "^2.1.0"
+    "react-render-if-visible": "^2.1.0",
+    "webhook-discord": "^3.7.8"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.1",

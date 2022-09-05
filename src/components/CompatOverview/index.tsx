@@ -35,6 +35,7 @@ import { usePersistentState } from "react-persistent-state";
 
 /*
  * TODO
+ * Send a proper update to discord webhook with details
  */
 
 type AppInfo = {
