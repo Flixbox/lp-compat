@@ -44,6 +44,6 @@ You can also clean up all of your patched APK files at once. Go to your stock fi
 
 `/Android/data/ru.<random letters>.<random letters>/files/LuckyPatcher/Modified`
 
-Use X-Plore if you can't find a file manager with access to the
+Use [X-Plore](https://play.google.com/store/apps/details?id=com.lonelycatgames.Xplore) if you can't find a file manager with access to the path.
 
 You can delete everything in this `Modified` folder. It only contains your patched APKs and some metadata.
