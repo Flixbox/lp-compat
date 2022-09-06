@@ -17,6 +17,8 @@ import {
   Chip,
   ListItem,
   Input,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,6 +35,7 @@ import {
 import { xor } from "lodash";
 import { usePersistentState } from "react-persistent-state";
 import featureMap from "../../featureMap";
+import { useColorMode } from "@docusaurus/theme-common";
 
 /*
  * TODO
@@ -40,6 +43,23 @@ import featureMap from "../../featureMap";
  * find a way to send all updates since last ci run, compare 2 commits - maybe with a "update: " commit tag
  * fix head error thing in CI https://github.com/Flixbox/lp-compat/runs/8197172186?check_suite_focus=true
  */
+
+const Root = () => {
+  const { colorMode } = useColorMode();
+  return (
+    <>
+      <ThemeProvider
+        theme={createTheme({
+          palette: {
+            mode: colorMode,
+          },
+        })}
+      >
+        <CompatOverview />
+      </ThemeProvider>
+    </>
+  );
+};
 
 type AppInfo = {
   string: {
@@ -183,7 +203,7 @@ const categoryList = [
   },
 ];
 
-export default function CompatOverview(): JSX.Element {
+const CompatOverview = () => {
   const theme = useTheme();
   const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
     usePersistentState(categoryList.map((category) => category.id));
@@ -256,7 +276,7 @@ export default function CompatOverview(): JSX.Element {
       </div>
     </section>
   );
-}
+};
 
 const AppTile = ({ appId }: { appId: string }) => {
   const theme = useTheme();
@@ -337,3 +357,5 @@ const AppTile = ({ appId }: { appId: string }) => {
     </Grid>
   );
 };
+
+export default Root;
