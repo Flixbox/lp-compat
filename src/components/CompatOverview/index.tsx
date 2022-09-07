@@ -204,10 +204,13 @@ const categoryList = [
 ];
 
 const CompatOverview = () => {
-  const theme = useTheme();
   const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
     usePersistentState(categoryList.map((category) => category.id));
   const [appTitleFilter, setAppTitleFilter] = usePersistentState("");
+
+  const sortedAppInfo = Object.entries(appInfo).sort(
+    (a, b) => playstore[b[0]].minInstalls - playstore[a[0]].minInstalls
+  );
 
   return (
     <section className={styles.features}>
@@ -259,7 +262,7 @@ const CompatOverview = () => {
                   {title}
                 </Typography>
                 <Grid container>
-                  {Object.entries(appInfo).map(([appId, app]) => {
+                  {sortedAppInfo.map(([appId, app]) => {
                     if (
                       onlyRenderIf(app) &&
                       (playstore[appId].title
