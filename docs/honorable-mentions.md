@@ -10,10 +10,6 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 
 - DEUL Classic Ragdoll Shooter
 
-## Patchable apps that mysteriously can't be scraped automatically from the Play Store
-
-- [Car Industry Tycoon: Idle Sim](https://play.google.com/store/apps/details?id=com.AdrianZarzycki.idle.incremental.car.industry.tycoon&hl=en&gl=US)
-
 ## Patchable with Jasi Patcher
 
 - ExoMiner
