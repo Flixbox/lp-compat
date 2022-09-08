@@ -188,7 +188,7 @@
   "com.pixelcubestudios.endlessidlecookietowerdefencetd":{"features":["iap"]},
   "de.lutsgames.idle_dice":{"features":["iap"]},
   "net.alexplay.petroleum_tycoon":{"features":["iap"]},
-  "com.computerlunch.evolution":{"category": "hof","features":["iap", "account-login"]},
+  "com.computerlunch.evolution":{"category": "hof","features":["iap", "account-login", "transfer", "transfer-ios", "transfer-steam"]},
   "me.pou.app":{"features":["iap", "partial-multiplayer", "account-login"]},
   "com.zeptolab.ctr.ads":{"features":["iap", "subscription"]},
   "br.com.tapps.bidwars2":{"features":["iap","subscription"]},

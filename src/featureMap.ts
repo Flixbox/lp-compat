@@ -49,6 +49,14 @@ const featureMap = (theme = createTheme()) => ({
     label: "App data can be transferred to another account",
     color: theme.palette.info.main,
   },
+  "transfer-steam": {
+    label: "App data can be transferred to Steam",
+    color: theme.palette.info.main,
+  },
+  "transfer-ios": {
+    label: "App data can be transferred to iOS",
+    color: theme.palette.info.main,
+  },
   multiplayer: {
     label: "Full Multiplayer; IAP compatible",
     color: theme.palette.primary.main,
