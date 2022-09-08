@@ -9,6 +9,8 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 ### Region locked
 
 - DEUL Classic Ragdoll Shooter
+- Racing Heroes
+
 
 ## Patchable with Jasi Patcher
 
