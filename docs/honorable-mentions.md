@@ -5,11 +5,12 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 ## Patchable apps that vanished from the Play Store
 
 - Asdivine Hearts 2
+- Racing Heroes
 
 ### Region locked
 
 - DEUL Classic Ragdoll Shooter
-- Racing Heroes
+
 
 
 ## Patchable with Jasi Patcher
