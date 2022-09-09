@@ -146,6 +146,10 @@ const featureMap = (theme = createTheme()) => ({
     label: "Patched APK download at PlatinMods",
     color: theme.palette.info.main,
   },
+  "apk-apkpure": {
+    label: "Download APK from APKPure, then patch",
+    color: theme.palette.info.main,
+  }
 });
 
 export default featureMap;
