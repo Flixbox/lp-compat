@@ -533,7 +533,7 @@
   "com.JamieParish.TheWanderer":{"category":"unclear-iap","features":["unclear-iap"]},
   "dev.onhit.theyarecoming":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
   "com.RestGames.Trapdungeon":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
-  "com.buffstudio.timingheropaid":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.buffstudio.timinghero":{"category":"unclear-iap","features":["unclear-iap"]},
   "com.kiarygames.tinyroom":{"category":"unclear-iap","features":["unclear-iap"]},
   "games.tinycloud.tinyshop":{"category":"unclear-iap","features":["unclear-iap"]},
   "com.companyname.Space_Program":{"category":"unclear-iap","features":["unclear-iap"]},
