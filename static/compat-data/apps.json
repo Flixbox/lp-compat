@@ -186,7 +186,7 @@
   "com.WindingClock.WizardsWheel2":{"features":["iap"]},
   "com.stormx.xteam":{"features":["iap"]},
   "com.MythiKiwi.MoeOS":{"features":["iap"]},
-  "com.FreeOnlineGames.StuntCarDrivingSimulator": {"features": [ "iap", "multiplayer", "restore-purchase" ]},
+  "com.FreeOnlineGames.StuntCarDrivingSimulator": { "features": [ "iap", "multiplayer", "restore-purchase" ] },
   "com.oddyarts.StoneOfLifeEXNative":{"features":["iap"]},
   "com.TironiumTech.IdlePlanetMiner":{"features":["iap"]},
   "com.booda.medieval.rpg":{"features":["iap"]},
