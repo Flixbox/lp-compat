@@ -103,7 +103,7 @@ const main = async () => {
     console.log("Sending embed for " + title);
     hook.send({ embeds: [myEmbed] }).catch((e) => console.error(e));
 
-    await new Promise((f) => setTimeout(f, 1000));
+    await new Promise((f) => setTimeout(f, 500));
   });
 };
 
