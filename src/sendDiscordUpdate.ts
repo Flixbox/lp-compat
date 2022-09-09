@@ -77,7 +77,7 @@ const main = async () => {
       "Website Update will be deployed in about 60 seconds.\nCompatibility:";
     features.forEach(
       (feature) =>
-        (featuresString += `\n${featureMapInitialized[feature].label}`)
+        (featuresString += `\n${featureMapInitialized[feature.trim()].label}`)
     );
 
     let color = 0x0099ff;
