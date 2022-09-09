@@ -51,7 +51,7 @@ const main = async () => {
   const lines = stdout.split("\n");
   await lines.forEach(async (line) => {
     const fullLineRegex = /\+  \"(.*?)\"(.*)+/g;
-    const featuresRegex = /(?:\"features\":)(?:\[)(.*)(?:\"\])/g;
+    const featuresRegex = /(?:\"features\":)(?:\[) ?(.*) ?(?:\" ?\])/g;
     const result = fullLineRegex.exec(line);
     if (!result) return;
     const appId = result[1];
