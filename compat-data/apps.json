@@ -767,7 +767,7 @@
   "com.ratatatgames.coindragon":{"features":["no-iap"]},
   "com.lb4business.swordsbowsmagic":{"features":["no-iap"]},
   "com.animocabrands.google.CrazyDefenseHeroes":{"features":["no-iap"]},
-  "com.ninjakiwi.bloonstdbattles": { "features": [ "iap" ] },
+  "com.ninjakiwi.bloonstdbattles": { "features": [ "no-iap" ] },
   "com.gametaiwan.cp":{"features":["no-iap"]},
   "com.godzilab.idlerpg":{"features":["no-iap"]},
   "norisk.jingde.android.en.com":{"features":["no-iap"]},
