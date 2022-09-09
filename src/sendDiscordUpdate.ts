@@ -49,7 +49,7 @@ const main = async () => {
   console.log(stdout);
   if (!stdout) return;
   const lines = stdout.split("\n");
-  lines.forEach(async (line) => {
+  await lines.forEach(async (line) => {
     const fullLineRegex = /\+  \"(.*?)\"(.*)+/g;
     const featuresRegex = /(?:\"features\":)(?:\[)(.*)(?:\"\])/g;
     const result = fullLineRegex.exec(line);
