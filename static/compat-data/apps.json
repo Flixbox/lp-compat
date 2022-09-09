@@ -705,6 +705,7 @@
   "com.noodlecake.leapon":{"features":["no-iap"]},
   "com.noodlecake.mmmfingers":{"features":["no-iap"]},
   "com.noodlecake.perfectgrind":{"features":["no-iap"]},
+  "com.xd.TLCBT":{"features":["no-iap"]},
   "com.lootboy.app":{"features":["no-iap"]},
   "com.pokulan.aliveinshelter":{"category":"unclear-iap","features":["unclear-iap","may-require-root"]},
   "com.bluegnc.AOSBTEAM":{"features":["no-iap"]},
