@@ -224,7 +224,7 @@
   "com.xjoy.mermaid":{"features":["iap", "facebook-login", "subscription"]},
   "com.noodlecake.bitcoin":{"features":["iap"]},
   "com.gramgames.london.bounzy":{"features":["iap"]},
-  "com.lemonjamgames.worldtale":{"category": "unclear-iap","features":["unclear-iap", "restore-purchase", "slightly-broken"]},
+  "com.lemonjamgames.worldtale":{"features":["iap", "apk-apkpure", "special-patch-signature"]},
   "com.gameannie.christmasblast":{"features":["iap", "region-locked"]},
   "com.wellgame.mergemyth":{"features":["iap"]},
   "com.dancing.smash.hop.game.tiles.circles.beat.piano.beatracing":{"features":["iap", "subscription-restore-purchase"]},
