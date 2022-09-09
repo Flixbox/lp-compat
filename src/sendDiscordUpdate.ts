@@ -49,7 +49,7 @@ const main = async () => {
   console.log(stdout);
   if (!stdout) return;
   const lines = stdout.split("\n");
-  lines.forEach((line) => {
+  lines.forEach(async (line) => {
     const fullLineRegex = /\+  \"(.*?)\"(.*)+/g;
     const featuresRegex = /(?:\"features\":)(?:\[)(.*)(?:\"\])/g;
     const result = fullLineRegex.exec(line);
@@ -101,6 +101,8 @@ const main = async () => {
       });
 
     hook.send({ embeds: [myEmbed] });
+
+    await new Promise((f) => setTimeout(f, 1000));
   });
 };
 
