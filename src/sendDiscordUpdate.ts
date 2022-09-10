@@ -16,9 +16,6 @@ const logo = new AttachmentBuilder(logoPath);
 const featureMapInitialized = featureMap();
 
 const main = async () => {
-  console.log(
-    `git diff ${process.env.GITHUB_BEFORE} ${process.env.GITHUB_SHA} -- ./static/compat-data/apps.json`
-  );
   const { stdout, stderr, error } = await exec(
     `git diff ${process.env.GITHUB_BEFORE} ${process.env.GITHUB_SHA} -- ./static/compat-data/apps.json`
   );
