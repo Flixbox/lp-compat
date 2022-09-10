@@ -15,34 +15,9 @@ const logo = new AttachmentBuilder(logoPath);
 
 const featureMapInitialized = featureMap();
 
-const post = async () => {
-  let commitMsg = "";
-  {
-    const { stdout, stderr, error } = await exec("git log -1 --pretty=%B");
-    console.error(error);
-    console.error(stderr);
-    console.log(stdout);
-    commitMsg = stdout;
-  }
-  console.log("commitMsg", commitMsg);
-  if (commitMsg.indexOf("feat:") === -1) return;
-
-  let prevFeatCommitHash = "";
-  {
-    const { stdout, stderr, error } = await exec(
-      `git log -2 --grep="feat:" --pretty=%H`
-    );
-    console.error(error);
-    console.error(stderr);
-    console.log(stdout);
-    const lines = stdout.split("\n");
-    console.log(lines);
-    prevFeatCommitHash = lines[1];
-  }
-  console.log("prevFeatCommitHash", prevFeatCommitHash);
-
+const main = async () => {
   const { stdout, stderr, error } = await exec(
-    `git diff ${prevFeatCommitHash} HEAD -- ./static/compat-data/apps.json`
+    `git diff ${process.env.GITHUB_BEFORE} HEAD -- ./static/compat-data/apps.json`
   );
   console.error(error);
   console.error(stderr);
@@ -107,25 +82,5 @@ const post = async () => {
   });
 };
 
-const main = async () => {
-  let lines;
-  {
-    const { stdout, stderr, error } = await exec(
-      `git rev-list ${process.env.GITHUB_BEFORE}..${process.env.GITHUB_SHA}`
-    );
-    console.error(error);
-    console.error(stderr);
-    console.log(stdout);
-    lines = stdout.split("\n");
-    console.log(lines);
-  }
-  await lines.forEach(async (commit) => {
-    const { stdout, stderr, error } = await exec(`git checkout ${commit}`);
-    console.error(error);
-    console.error(stderr);
-    console.log(stdout);
-    await post()
-  });
-};
 
 main();
