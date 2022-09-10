@@ -50,7 +50,7 @@
   "com.ultraandre.pccreator":{"features":["iap","partial-multiplayer"]},
   "com.idle.hamster.energy":{"features":["iap"]},
   "com.maddog.shaqfu":{"features":["iap"]},
-  "com.earlymorningstudio.vampiresfall2":{"category": "hof","features":["iap", "facebook-login"]},
+  "com.earlymorningstudio.vampiresfall2":{"category": "hof","features":["iap", "facebook-login", "multiplayer"]},
   "com.crescentmoongames.blocky_roads":{"features":["iap"]},
   "com.gramgames.farmest":{"features":["iap"]},
   "com.tenpercentred.biotix":{"features":["iap", "partial-multiplayer"]},
