@@ -16,8 +16,11 @@ const logo = new AttachmentBuilder(logoPath);
 const featureMapInitialized = featureMap();
 
 const main = async () => {
+  console.log(
+    `git diff ${process.env.GITHUB_BEFORE} ${process.env.GITHUB_SHA} -- ./static/compat-data/apps.json`
+  );
   const { stdout, stderr, error } = await exec(
-    `git diff ${process.env.GITHUB_BEFORE} HEAD -- ./static/compat-data/apps.json`
+    `git diff ${process.env.GITHUB_BEFORE} ${process.env.GITHUB_SHA} -- ./static/compat-data/apps.json`
   );
   console.error(error);
   console.error(stderr);
@@ -81,6 +84,5 @@ const main = async () => {
     await new Promise((f) => setTimeout(f, 500));
   });
 };
-
 
 main();
