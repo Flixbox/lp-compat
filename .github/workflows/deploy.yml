@@ -28,7 +28,7 @@ jobs:
         run: npm run build
       - name: Send Discord update
         run: |
-          for commit in $(git rev-list ${{ github.base_ref }}..${{ github.head_ref }}); do
+          for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
               git checkout $commit
               npm run discord
           done
