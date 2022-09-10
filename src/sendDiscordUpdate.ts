@@ -15,7 +15,7 @@ const logo = new AttachmentBuilder(logoPath);
 
 const featureMapInitialized = featureMap();
 
-const main = async () => {
+const post = async () => {
   let commitMsg = "";
   {
     const { stdout, stderr, error } = await exec("git log -1 --pretty=%B");
@@ -104,6 +104,27 @@ const main = async () => {
     hook.send({ embeds: [myEmbed] }).catch((e) => console.error(e));
 
     await new Promise((f) => setTimeout(f, 500));
+  });
+};
+
+const main = async () => {
+  let lines;
+  {
+    const { stdout, stderr, error } = await exec(
+      `git rev-list ${process.env.GITHUB_BEFORE}..${process.env.GITHUB_SHA}`
+    );
+    console.error(error);
+    console.error(stderr);
+    console.log(stdout);
+    lines = stdout.split("\n");
+    console.log(lines);
+  }
+  await lines.forEach(async (commit) => {
+    const { stdout, stderr, error } = await exec(`git checkout ${commit}`);
+    console.error(error);
+    console.error(stderr);
+    console.log(stdout);
+    await post()
   });
 };
 

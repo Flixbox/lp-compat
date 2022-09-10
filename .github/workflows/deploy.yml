@@ -30,14 +30,12 @@ jobs:
       - name: Build website
         run: npm run build
       - name: Send Discord update
-        run: |
-          for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
-              git checkout $commit
-              npm run discord
-          done
+        run: npm run discord
         env:
           CI: true
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GITHUB_BEFORE: ${{ github.event.before}}
+          GITHUB_SHA: ${{ github.sha}}
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
