@@ -12,7 +12,6 @@ const featureMapInitialized = featureMap();
 const dateString = moment().format("YYYY-W");
 const MAX_REDDIT_POST_LENGTH = 39999;
 
-
 // Create a new snoowrap requester with OAuth credentials.
 // For more information on getting credentials, see here: https://github.com/not-an-aardvark/reddit-oauth-helper
 const r = new snoowrap({
@@ -29,6 +28,12 @@ const main = async () => {
 
   const updateFilePath = `/docs/updates/Update_${dateString}.md`;
 
+  {
+    const { stdout, stderr, error } = await exec(`git fetch`);
+    console.error(error);
+    console.error(stderr);
+    console.log(stdout);
+  }
   const { stdout, stderr, error } = await exec(
     `git diff "HEAD@{5 days ago}" HEAD -U0 -w -- ./static/compat-data/apps.json`
   );
