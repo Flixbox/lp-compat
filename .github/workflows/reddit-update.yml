@@ -22,9 +22,6 @@ jobs:
         run: npm install --frozen-lockfile --force
       - name: Scrape play store data for apps
         run: npm run scrape
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: CI - Add scraped play store data
       - name: Post to Reddit
         run: npm run reddit
         env:
