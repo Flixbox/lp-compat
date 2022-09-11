@@ -1,5 +1,5 @@
 const snoowrap = require("snoowrap");
-import { sortBy, forOwn } from "lodash";
+import { sortBy, forOwn, reverse } from "lodash";
 import moment from "moment";
 import util from "util";
 import { writeFile } from "fs";
@@ -65,7 +65,8 @@ The IAP column describes if you can get In-App purchases for free.
 
   const apps = {};
 
-  await lines.forEach(async (line) => {
+  // Reverse because we want to process the oldest updates first and overwrite with newer ones
+  await reverse(lines).forEach(async (line) => {
     const fullLineRegex = /\+  \"(.*?)\"(.*)+/g;
     const featuresRegex = /(?:\"features\":) ?(?:\[) ?(.*) ?(?:\" ?\])/g;
     const result = fullLineRegex.exec(line);
