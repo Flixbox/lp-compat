@@ -2,10 +2,10 @@ name: Weekly Post to Reddit
 
 on:
   workflow_dispatch:
-  schedule:
+  #schedule:
     # - cron: "0 13 * * 0"
     # Disabled for now, until the issues are fixed.
-    - cron: "* * * * *"
+   
 
 jobs:
   deploy:
