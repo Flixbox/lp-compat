@@ -160,13 +160,13 @@ The IAP column describes if you can get In-App purchases for free.
     text: redditPostText,
     subredditName: "flixboxtesting",
   });
-  post
+  await post
     .sticky({ num: 2 })
     .distinguish()
     .approve()
     .assignFlair({ text: "✨ Weekly Update", css_class: "weekly-thread" });
 
-  post.reply(
+  await post.reply(
     "You can discuss the updates here. For the most recent version, head to the [list](https://flixbox.github.io/lp-compat/). If you know any other compatible or incompatible apps, feel free to post them here as well!"
   );
   console.log("post: ", post);
