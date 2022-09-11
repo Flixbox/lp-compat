@@ -29,7 +29,7 @@ const main = async () => {
   const updateFilePath = `/docs/updates/Update_${dateString}.md`;
 
   {
-    const { stdout, stderr, error } = await exec(`git fetch`);
+    const { stdout, stderr, error } = await exec(`git fetch --all`);
     console.error(error);
     console.error(stderr);
     console.log(stdout);
