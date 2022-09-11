@@ -1,5 +1,5 @@
 const snoowrap = require("snoowrap");
-import { sortBy } from "lodash";
+import { sortBy, forOwn } from "lodash";
 import moment from "moment";
 import util from "util";
 import { writeFile } from "fs";
@@ -63,6 +63,8 @@ The IAP column describes if you can get In-App purchases for free.
   const tableRows = [];
   const tableAlign = ["l", "c", "l", "r"];
 
+  const apps = {};
+
   await lines.forEach(async (line) => {
     const fullLineRegex = /\+  \"(.*?)\"(.*)+/g;
     const featuresRegex = /(?:\"features\":) ?(?:\[) ?(.*) ?(?:\" ?\])/g;
@@ -89,16 +91,24 @@ The IAP column describes if you can get In-App purchases for free.
       priceText,
     } = playstore[appId];
 
-    const row = [`[${title}](${url})`, "❓", scoreText, installs, minInstalls];
+    apps[appId] = [
+      `[${title}](${url})`,
+      "❓",
+      scoreText,
+      installs,
+      minInstalls,
+    ];
 
-    if (features.indexOf("iap") > -1) row[1] = "✅";
-    if (features.indexOf("no-iap") > -1) row[1] = "❌";
+    if (features.indexOf("iap") > -1) apps[appId][1] = "✅";
+    if (features.indexOf("no-iap") > -1) apps[appId][1] = "❌";
     if (
       features.indexOf("root-patch") > -1 ||
       features.indexOf("may-require-root") > -1
     )
-      row[1] = "🤖";
+      apps[appId][1] = "🤖";
+  });
 
+  forOwn(apps, (row) => {
     tableRows.push(row);
   });
 
