@@ -17,7 +17,7 @@ const featureMapInitialized = featureMap();
 
 const main = async () => {
   const { stdout, stderr, error } = await exec(
-    `git diff ${process.env.GITHUB_BEFORE} ${process.env.GITHUB_SHA} -- ./static/compat-data/apps.json`
+    `git diff ${process.env.GITHUB_BEFORE} ${process.env.GITHUB_SHA} -U0 -w -- ./static/compat-data/apps.json`
   );
   console.error(error);
   console.error(stderr);
