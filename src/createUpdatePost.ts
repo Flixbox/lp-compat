@@ -1,4 +1,4 @@
-const snoowrap = require("snoowrap");
+import snoowrap from "snoowrap";
 import { sortBy, forOwn, reverse } from "lodash";
 import moment from "moment";
 import util from "util";
@@ -150,7 +150,8 @@ The IAP column describes if you can get In-App purchases for free.
   console.log(redditPostText);
 
   // Automatically creating a stickied thread for a moderated subreddit
-  r.getSubreddit("luckypatcher")
+  const post = await r
+    .getSubreddit("flixboxtesting")
     .submitSelfpost({
       title: `App compatibility updates - Week ${dateString}`,
       text: redditPostText,
@@ -158,10 +159,12 @@ The IAP column describes if you can get In-App purchases for free.
     .sticky()
     .distinguish()
     .approve()
-    .assignFlair({ text: "✨ Weekly Update", css_class: "weekly-thread" })
-    .reply(
-      "You can discuss the updates here. For the most recent version, head to the [list](https://flixbox.github.io/lp-compat/). If you know any other compatible or incompatible apps, feel free to post them here as well!"
-    );
+    .assignFlair({ text: "✨ Weekly Update", css_class: "weekly-thread" });
+
+  post.reply(
+    "You can discuss the updates here. For the most recent version, head to the [list](https://flixbox.github.io/lp-compat/). If you know any other compatible or incompatible apps, feel free to post them here as well!"
+  );
+  console.log("post: ", post);
 };
 
 main();
