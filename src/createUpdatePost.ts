@@ -4,6 +4,7 @@ import moment from "moment";
 import util from "util";
 import { writeFile } from "fs";
 const exec = util.promisify(require("child_process").exec);
+const readFile = util.promisify(require("fs").readFile);
 import featureMap from "./featureMap";
 const playstore = require("../static/compat-data/playstore.json");
 
@@ -149,14 +150,18 @@ The IAP column describes if you can get In-App purchases for free.
 
   console.log(redditPostText);
 
+  const lastPostUrl = await readFile("./lastRedditPost.txt");
+
+  console.log("lastPostUrl", lastPostUrl);
+
   // Automatically creating a stickied thread for a moderated subreddit
   const post = await r
-    .getSubreddit("flixboxtesting")
     .submitSelfpost({
       title: `App compatibility updates - Week ${dateString}`,
       text: redditPostText,
+      subredditName: "flixboxtesting",
     })
-    .sticky()
+    .sticky({ num: 2 })
     .distinguish()
     .approve()
     .assignFlair({ text: "✨ Weekly Update", css_class: "weekly-thread" });
@@ -165,6 +170,8 @@ The IAP column describes if you can get In-App purchases for free.
     "You can discuss the updates here. For the most recent version, head to the [list](https://flixbox.github.io/lp-compat/). If you know any other compatible or incompatible apps, feel free to post them here as well!"
   );
   console.log("post: ", post);
+
+  writeFile(`./lastRedditPost.txt`, post, () => undefined);
 };
 
 main();
