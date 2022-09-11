@@ -26,9 +26,9 @@ jobs:
         run: npm run reddit
         env:
           CI: true
-          REDDIT_CLIENT_ID: ${{ secrets.DISCORD_WEBHOOK }}
-          REDDIT_CLIENT_SECRET: ${{ secrets.DISCORD_WEBHOOK }}
-          REDDIT_REFRESH_TOKEN: ${{ secrets.DISCORD_WEBHOOK }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_REFRESH_TOKEN: ${{ secrets.REDDIT_REFRESH_TOKEN }}
           GITHUB_BEFORE: ${{ github.event.before}}
           GITHUB_SHA: ${{ github.sha}}
       - name: Build website
