@@ -35,7 +35,7 @@ const main = async () => {
     console.log(stdout);
   }
   const { stdout, stderr, error } = await exec(
-    `git diff "HEAD@{5 days ago}" HEAD -U0 -w -- ./static/compat-data/apps.json`
+    `git diff "origin/main@{5 days ago}" HEAD -U0 -w -- ./static/compat-data/apps.json`
   );
   console.error(error);
   console.error(stderr);
