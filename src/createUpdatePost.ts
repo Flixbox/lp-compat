@@ -1,4 +1,4 @@
-import snoowrap from "snoowrap";
+const snoowrap = require("snoowrap");
 import { sortBy, forOwn, reverse } from "lodash";
 import moment from "moment";
 import util from "util";
@@ -155,12 +155,12 @@ The IAP column describes if you can get In-App purchases for free.
   console.log("lastPostUrl", lastPostUrl);
 
   // Automatically creating a stickied thread for a moderated subreddit
-  const post = await r
-    .submitSelfpost({
-      title: `App compatibility updates - Week ${dateString}`,
-      text: redditPostText,
-      subredditName: "flixboxtesting",
-    })
+  const post = await r.submitSelfpost({
+    title: `App compatibility updates - Week ${dateString}`,
+    text: redditPostText,
+    subredditName: "flixboxtesting",
+  });
+  post
     .sticky({ num: 2 })
     .distinguish()
     .approve()
