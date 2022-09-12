@@ -1011,6 +1011,8 @@
   "com.yodo1.crossyroad":{"features":["no-iap", "root-patch"]},
   "com.duolingo":{"features":["no-iap"]},
   "com.trueaxis.truesurf":{"features":["no-iap"]},
+  "com.matteljv.uno":{"features":["no-iap"]},
+  "com.candywriter.bitlife":{"features":["no-iap", "may-require-root"]},
   "ocean.nomad.survival.simulator":{"features":["no-iap"]},
   "com.mxtech.videoplayer.ad":{"features":["no-iap"]}
 }
