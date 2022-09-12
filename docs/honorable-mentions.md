@@ -7,12 +7,11 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 - Asdivine Hearts 2
 - Racing Heroes
 - Racing Clash Club: Car Game
+- Table Top Racing
 
 ### Region locked
 
 - DEUL Classic Ragdoll Shooter
-
-
 
 ## Patchable with Jasi Patcher
 
