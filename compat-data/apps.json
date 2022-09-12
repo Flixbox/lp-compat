@@ -871,7 +871,7 @@
   "com.zillionwhales.mushroomwars2":{"features":["no-iap"]},
   "com.ftxgames.narcos":{"features":["no-iap"]},
   "com.tiltingpoint.bigwolf.narcosfactory":{"features":["no-iap"]},
-  "com.mediator_software.ivry":{"category": "root", "features":["root-iap"]},
+  "com.mediator_software.ivry":{"features":["no-iap"]},
   "com.gamehivecorp.taptitans2":{"features":["no-iap"]},
   "com.avid.cue":{"features":["no-iap"]},
   "com.AbleGames.DalToKi":{"features":["no-iap"]},
