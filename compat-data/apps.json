@@ -121,6 +121,8 @@
   "air.com.FDGEntertainment.BloodyHarry":{"features":["iap"]},
   "com.guycorp.rpg.games.idle.merge.games":{"features":["iap"]},
   "com.disney.emojimatch_goo":{"features":["iap"]},
+  "linkdesks.oceanblast.fish.pop":{"features":["iap", "facebook-login"]},
+  "linkdesks.oceanmatch":{"features":["iap"]},
   "ninja.sesame.app.edge":{"features":["iap"]},
   "com.phonemaster.jewelhunter":{"features":["iap", "subscription", "subscription-restore-purchase", "facebook-login"]},
   "com.daladev.randomrush.towerdefense":{"features":["iap"]},
