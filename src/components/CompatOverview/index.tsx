@@ -139,7 +139,7 @@ const FeatureList: FeatureItem[] = [
     icon: <FontAwesomeIcon icon={faListCheck} color="#607d8b" />,
     description: (
       <Typography>
-        Many apps work with LP, even if they're not on the list!
+        Many apps work with LP, even if they're not on the list - Please try them yourself and report back!
       </Typography>
     ),
   },
@@ -147,7 +147,7 @@ const FeatureList: FeatureItem[] = [
     icon: <FontAwesomeIcon icon={faDiscord} color="#607d8b" />,
     description: (
       <Typography>
-        Anything missing? Create an{" "}
+        Found something? Create an{" "}
         <Link href="https://github.com/Flixbox/lp-compat/issues">issue</Link> or
         post on the <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
       </Typography>
