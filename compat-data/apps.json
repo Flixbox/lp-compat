@@ -156,7 +156,7 @@
   "com.noodlecake.ssg2":{"features":["iap"]},
   "net.fdgames.ek.android":{"features":["iap"]},
   "air.net.ideasam.games.cat":{"features":["iap"]},
-  "com.SpaceInch.LoveOfMoney":{"features":["iap"]},
+  "com.SpaceInch.LoveOfMoney":{"features":["iap", "facebook-login", "partial-multiplayer"]},
   "com.noodlecake.altosadventure":{"features":["iap"]},
   "com.BaronnerieGames.Guildmasters":{"features":["iap"]},
   "com.nijigames.leturn":{"features":["iap"]},
