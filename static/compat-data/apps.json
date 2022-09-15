@@ -441,7 +441,7 @@
   "jp.pokemon.koiking":{"category":"root","features":["root-patch","no-root-patch-iap"]},
   "com.and.games505.TerrariaPaid":{"category":"root","features":["root-patch","no-root-patch-iap"]},
   "com.ea.games.nfs13_na":{"category":"root","features":["root-patch","no-root-patch-iap"]},
-  "com.armnomads.junkyardkeeper":{"category":"root","features":["root-patch"]},
+  "com.armnomads.junkyardkeeper":{"category":"root","features":["iap", "may-require-root"]},
   "org.dashnet.cookieclicker":{"category":"root","features":["root-patch","no-root-patch-iap"]},
   "com.rovio.BadPiggies":{"category":"root","features":["root-patch","no-root-patch-iap"]},
   "com.rockstargames.gtalcs":{"category":"root","features":["root-patch","no-root-patch-iap"]},
