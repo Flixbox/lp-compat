@@ -458,7 +458,7 @@
   "cn.xishanju.google.strangeworld":{"category":"unclear-iap","features":["unclear-iap"]},
   "com.electrowolff.factory": { "category": "unclear-iap", "features": [ "unclear-iap" ] },
   "com.PlayAppsAsia.Invention": { "category": "unclear-iap", "features": [ "unclear-iap" ] },
-  "com.reliancegames.hgpanemrun": { "category": "unclear-iap", "features": [ "unclear-iap" ] },
+  "com.reliancegames.hgpanemrun": {"features": [ "no-iap" ] },
   "com.spcomes.zombiehive":{"features":["no-iap","apk-platinmods"]},
   "com.chargedmonkey.idlequestheroesepicdungeonrpg":{"features":["no-iap"]},
   "com.kongregate.mobile.burritobison3.google":{"features":["no-iap"]},
