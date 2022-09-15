@@ -28,6 +28,7 @@ import {
   faBug,
   faEye,
   faEyeSlash,
+  faList,
   faRectangleAd,
   faStore,
   faTrophy,
@@ -39,10 +40,7 @@ import { useColorMode } from "@docusaurus/theme-common";
 
 /*
  * TODO
- * Automated weekly changelog for reddit (crossposted to Discord via link)
- * Every Changelog has #WW.YY
- * the WW is weekend, YY is year
- * So, like week 42, year 22 (42.22)
+ * Sort by name button next to headings for categories
  */
 
 const Root = () => {
@@ -134,6 +132,14 @@ const FeatureList: FeatureItem[] = [
       <Typography>
         Apps are patched using{" "}
         <Link href="/docs/intro">the default IAP and Adblock patches</Link>.
+      </Typography>
+    ),
+  },
+  {
+    icon: <FontAwesomeIcon icon={faList} color="#607d8b" />,
+    description: (
+      <Typography>
+        Many apps work with LP, even if they're not on the list!
       </Typography>
     ),
   },
