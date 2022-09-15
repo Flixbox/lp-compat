@@ -123,7 +123,7 @@ const FeatureList: FeatureItem[] = [
             color="#e51c23"
             size="xs"
             opacity={0.9}
-            transform="down-4 right-4"
+            transform="down-4 right-8"
           />
         </Box>
       </Box>
