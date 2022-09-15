@@ -450,7 +450,7 @@
   "com.tiregamestudio.rcp.real.car.parking":{"category":"root","features":["root-patch"]},
   "com.pixio.google.art.inc":{"features":["iap","facebook-login","facebook-login-no-app-installed"]},
   "com.chaloapps.nudajeneznayu":{"category":"unclear-iap","features":["unclear-iap"]},
-  "com.ncoregames.faug":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.ncoregames.faug":{"features":["no-iap"]},
   "jp.orange_cube.dotrike":{"category":"unclear-iap","features":["unclear-iap"]},
   "com.simyasolutions.ling.universal":{"category":"unclear-iap","features":["unclear-iap"]},
   "com.telltalegames.batman100":{"features":["iap","account-login"]},
