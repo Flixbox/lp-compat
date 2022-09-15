@@ -4,6 +4,14 @@ sidebar_position: 2
 
 # Patching an app
 
+:::caution
+
+The download link on the official Lucky Patcher website frequently breaks and spams you with pop-ups. Use an adblocker - [uBlock Origin](https://ublockorigin.com) for desktop and [AdGuard DNS](https://adguard-dns.io/en/public-dns.html) for Android.
+
+Alternatively, you can find a download link [in the #resources channel on Discord](https://discord.gg/RS5ddYf7mw).
+
+:::
+
 ## Set up Lucky Patcher
 
 Follow the tutorial on the official website. Make sure to give LP the "Draw over other apps" permission in the app's settings.
@@ -28,7 +36,7 @@ Apply some patches.
 
 ![](/img/iap_patches.jpg)
 
-If you're facing troubles with some in-app purchases, apply the *Signature verification killer* patch as well. It helps sometimes.
+If you're facing troubles with some in-app purchases, apply the _Signature verification killer_ patch as well. It helps sometimes.
 
 Finally, install the modified APK file by tapping the "Go to file" button and then the "Reinstall" button.
 
