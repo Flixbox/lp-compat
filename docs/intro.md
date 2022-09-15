@@ -28,7 +28,7 @@ Apply some patches.
 
 ![](/img/iap_patches.jpg)
 
-If you're facing troubles with some in-app purchases, apply the *Signature verification killer* patch at well. It helps sometimes.
+If you're facing troubles with some in-app purchases, apply the *Signature verification killer* patch as well. It helps sometimes.
 
 Finally, install the modified APK file by tapping the "Go to file" button and then the "Reinstall" button.
 
