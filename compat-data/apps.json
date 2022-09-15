@@ -453,7 +453,7 @@
   "com.chaloapps.nudajeneznayu":{"category":"unclear-iap","features":["unclear-iap"]},
   "com.ncoregames.faug":{"features":["no-iap"]},
   "jp.orange_cube.dotrike":{"category":"unclear-iap","features":["unclear-iap"]},
-  "com.simyasolutions.ling.universal":{"category":"unclear-iap","features":["unclear-iap"]},
+  "com.simyasolutions.ling.universal":{"features":["no-iap"]},
   "com.telltalegames.batman100":{"features":["iap","account-login"]},
   "com.tiltingpoint.spongebob":{"features":["iap", "facebook-login"]},
   "cn.xishanju.google.strangeworld":{"category":"unclear-iap","features":["unclear-iap"]},
