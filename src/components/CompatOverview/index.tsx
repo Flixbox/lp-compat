@@ -25,7 +25,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
   faBan,
-  faBug,
+  faCommentsDollar,
   faEye,
   faEyeSlash,
   faListCheck,
@@ -119,7 +119,7 @@ const FeatureList: FeatureItem[] = [
         <Box className="fa-layers fa-fw" ml={4}>
           <FontAwesomeIcon icon={faStore} color="#607d8b" />
           <FontAwesomeIcon
-            icon={faBug}
+            icon={faCommentsDollar}
             color="#e51c23"
             size="xs"
             opacity={0.9}
