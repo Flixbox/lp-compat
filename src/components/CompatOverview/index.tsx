@@ -28,7 +28,7 @@ import {
   faBug,
   faEye,
   faEyeSlash,
-  faList,
+  faListCheck,
   faRectangleAd,
   faStore,
   faTrophy,
@@ -136,7 +136,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    icon: <FontAwesomeIcon icon={faList} color="#607d8b" />,
+    icon: <FontAwesomeIcon icon={faListCheck} color="#607d8b" />,
     description: (
       <Typography>
         Many apps work with LP, even if they're not on the list!
