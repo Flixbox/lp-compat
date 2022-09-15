@@ -6,9 +6,9 @@ sidebar_position: 2
 
 :::caution
 
-The download link on the official Lucky Patcher website frequently breaks and spams you with pop-ups. Use an adblocker - [uBlock Origin](https://ublockorigin.com) for desktop and [AdGuard DNS](https://adguard-dns.io/en/public-dns.html) for Android.
+The download link on the official Lucky Patcher website frequently breaks and spams you with pop-ups in the browser. Use an adblocker - [uBlock Origin](https://ublockorigin.com) for desktop and [AdGuard DNS](https://adguard-dns.io/en/public-dns.html) for Android if you plan to visit the website.
 
-Alternatively, you can find a download link [in the #resources channel on Discord](https://discord.gg/RS5ddYf7mw).
+Alternatively, you can find a safe download link [in the #resources channel on Discord](https://discord.gg/RS5ddYf7mw).
 
 :::
 
