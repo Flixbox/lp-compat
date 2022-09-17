@@ -35,7 +35,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { xor } from "lodash";
 import { usePersistentState } from "react-persistent-state";
-import featureMap from "../../featureMap";
+import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
 
 /*
@@ -195,6 +195,14 @@ const categoryList = [
     onlyRenderIf: (appInfo) => appInfo.category === "tools",
   },
   {
+    id: "uncategorized",
+    title: "Uncategorized apps",
+    onlyRenderIf: (appInfo) =>
+      !appInfo.category &&
+      appInfo.features.indexOf("no-iap") === -1 &&
+      appInfo.features.indexOf("iap") === -1,
+  },
+  {
     id: "unclear-iap",
     title: "Needs verification",
     onlyRenderIf: (appInfo) => appInfo.category === "unclear-iap",
@@ -292,7 +300,6 @@ const CompatOverview = () => {
 
 const AppTile = ({ appId }: { appId: string }) => {
   const theme = useTheme();
-  const featureMapInitialized = featureMap(theme);
   const { iap, features } = appInfo[appId];
   const {
     title,
@@ -329,17 +336,17 @@ const AppTile = ({ appId }: { appId: string }) => {
                     elevation={0}
                     padding={0.5}
                     sx={{
-                      backgroundColor: featureMapInitialized[feature].color,
+                      backgroundColor: getFeature(feature, theme).color,
                     }}
                     key={feature}
                     mt={0.5}
                   >
                     <Typography
                       color={theme.palette.getContrastText(
-                        featureMapInitialized[feature].color
+                        getFeature(feature, theme).color
                       )}
                     >
-                      {featureMapInitialized[feature].label}
+                      {getFeature(feature, theme).label}
                     </Typography>
                   </Paper>
                 ))}

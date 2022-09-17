@@ -149,7 +149,17 @@ const featureMap = (theme = createTheme()) => ({
   "apk-apkpure": {
     label: "Download APK from APKPure, then patch",
     color: theme.palette.info.main,
-  }
+  },
 });
 
-export default featureMap;
+const getFeature = (featureString: string, theme = createTheme()) => {
+  const feature = featureMap(theme)[featureString] || {};
+  if (featureString.indexOf("::") > -1) {
+    const parts = featureString.split("::");
+    feature.color = theme.palette[parts[0]]?.main || theme.palette.info.main;
+    feature.label = parts[1];
+  }
+  return feature;
+};
+
+export default getFeature;

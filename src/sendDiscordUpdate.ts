@@ -1,7 +1,7 @@
 import util from "util";
 const exec = util.promisify(require("child_process").exec);
 import { AttachmentBuilder, EmbedBuilder, WebhookClient } from "discord.js";
-import featureMap from "./featureMap";
+import getFeature from "./featureMap";
 const playstore = require("../static/compat-data/playstore.json");
 
 console.log("cwd", process.cwd());
@@ -12,8 +12,6 @@ const hook = new WebhookClient({
 });
 const logoPath = "./static/img/favicon.ico";
 const logo = new AttachmentBuilder(logoPath);
-
-const featureMapInitialized = featureMap();
 
 const main = async () => {
   const { stdout, stderr, error } = await exec(
@@ -51,8 +49,7 @@ const main = async () => {
     let featuresString =
       "Website Update will be deployed in about 60 seconds.\nCompatibility:";
     features.forEach(
-      (feature) =>
-        (featuresString += `\n${featureMapInitialized[feature.trim()].label}`)
+      (feature) => (featuresString += `\n${getFeature(feature.trim()).label}`)
     );
 
     let color = 0x0099ff;
