@@ -180,7 +180,7 @@
   "com.frvr.puttrush":{"features":["iap","facebook-login-broken"]},
   "com.Sateda":{"features":["iap","repurchase"]},
   "com.mawika.boxzio":{"features":["iap", "multiplayer", "::Every IAP can only be purchased once (up to capacity of 1090)"]},
-  "si.hopalai.kobi.kobi":{"features":["iap"]},
+  "si.hopalai.kobi.kobi":{"category": "tools", "features":["iap"]},
   "com.mergedomhomedesign.game":{"features":["iap"]},
   "com.bigduckgames.flow":{"features":["iap"]},
   "com.omnayastudios.toyrider":{"features":["iap"]},
