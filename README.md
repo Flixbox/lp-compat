@@ -1,5 +1,7 @@
 # LP Compatibility Overview
 
+A website that displays which apps can be patched with Lucky Patcher.
+
 Main page: https://flixbox.github.io/lp-compat/
 
 ## Initial setup
@@ -11,8 +13,6 @@ Main page: https://flixbox.github.io/lp-compat/
 ## Adding a new game
 
 - Add it to the file `static/compat-data/apps.json`
-- Run `npm run scrape` to download play store data
+- Add any custom features with the following syntax: `<color>::<feature text>`. Example: `warning::IAP patch only works on version 4.2; download APK on APKPure`
+- Make sure you don't add any `,` characters to the feature list, otherwise the Discord regex gets confused
 - Run `npm run start` to check if it's being shown
-- Prefix your commit with "feat:" to make sure it will show up in Discord. Make sure you always wait for the CI to finish and pull the changes before committing, otherwise you'll create a merge commit and the Discord script will ignore the changes.
-
-You can skip the scraping if you want. Then the CI will do it for you and commit the scraped data. Just do a `git pull` once it's done.
