@@ -297,6 +297,7 @@
   "io.shenron.jel":{"features":["iap"]},
   "com.chaloapps.memeswars":{"features":["iap"]},
   "com.nitrome.magictouch":{"features":["iap"]},
+  "com.design.friends":{"features":["iap", "region-locked"]},
   "com.ketchapp.mrgun":{"features":["iap"]},
   "com.colorswitch.switch2":{"features":["iap"]},
   "com.heavyfall.constructioncity":{"features":["iap"]},
