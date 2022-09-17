@@ -2,6 +2,10 @@
 
 Apps that didn't make the list, but for some reason still deserve a spot on the site.
 
+## Patchable apps that only work on a certain version
+
+- Cytus 2 works on version 4.2.5 and below
+
 ## Patchable apps that vanished from the Play Store
 
 - Asdivine Hearts 2
