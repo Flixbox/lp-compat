@@ -269,7 +269,7 @@ const CompatOverview = () => {
         </div>
         <Box m={8} />
         <Box className="row" display="flex" flexDirection="column">
-          <Box display="flex">
+          <Grid container>
             <Typography variant="h3">Filter apps</Typography>
             <Box flexGrow={1} />
             <Select
@@ -282,7 +282,7 @@ const CompatOverview = () => {
                 </MenuItem>
               ))}
             </Select>
-          </Box>
+          </Grid>
 
           <Input
             placeholder="Filter app title or ID"
