@@ -19,12 +19,16 @@ import {
   Input,
   ThemeProvider,
   createTheme,
+  Button,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
   faBan,
+  faCaretDown,
   faCommentsDollar,
   faEye,
   faEyeSlash,
@@ -230,9 +234,29 @@ const CompatOverview = () => {
     "",
     "appTitleFilter"
   );
+  const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
 
-  const sortedAppInfo = Object.entries(appInfo).sort(
-    (a, b) => playstore[b[0]].minInstalls - playstore[a[0]].minInstalls
+  if (!sorting) setSorting("installs-asc");
+
+  const sortOptions = {
+    "name-asc": {
+      title: "Sort by name",
+      getSortedApps: (appArray) =>
+        appArray.sort((a, b) =>
+          playstore[a[0]].title.localeCompare(playstore[b[0]].title)
+        ),
+    },
+    "installs-asc": {
+      title: "Sort by downloads",
+      getSortedApps: (appArray) =>
+        appArray.sort(
+          (a, b) => playstore[b[0]].minInstalls - playstore[a[0]].minInstalls
+        ),
+    },
+  };
+
+  const sortedAppInfo = sortOptions[sorting].getSortedApps(
+    Object.entries(appInfo)
   );
 
   return (
@@ -245,7 +269,21 @@ const CompatOverview = () => {
         </div>
         <Box m={8} />
         <Box className="row" display="flex" flexDirection="column">
-          <Typography variant="h3">Filter apps</Typography>
+          <Box display="flex">
+            <Typography variant="h3">Filter apps</Typography>
+            <Box flexGrow={1} />
+            <Select
+              value={sorting}
+              onChange={(e) => setSorting(e.target.value)}
+            >
+              {Object.entries(sortOptions).map((element) => (
+                <MenuItem value={element[0]} key={element[0]}>
+                  {element[1].title}
+                </MenuItem>
+              ))}
+            </Select>
+          </Box>
+
           <Input
             placeholder="Filter app title or ID"
             value={appTitleFilter}
