@@ -5,10 +5,14 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import CompatOverview from "@site/src/components/CompatOverview/index";
 
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box } from "@mui/material";
 import { faFaceSmileWink } from "@fortawesome/free-solid-svg-icons";
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();

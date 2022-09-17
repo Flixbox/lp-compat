@@ -32,6 +32,7 @@
     "cli-progress": "^3.11.2",
     "clsx": "^1.2.1",
     "discord.js": "^14.3.0",
+    "docusaurus-plugin-sass": "^0.2.2",
     "google-play-scraper": "^9.1.1",
     "lodash": "^4.17.21",
     "markdown-table": "^3.0.2",
@@ -42,6 +43,7 @@
     "react-image-scroller": "^0.3.0",
     "react-persistent-state": "^1.1.7",
     "react-render-if-visible": "^2.1.0",
+    "sass": "^1.54.9",
     "snoowrap": "^1.23.0",
     "webhook-discord": "^3.7.8"
   },
