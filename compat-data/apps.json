@@ -603,6 +603,8 @@
   "com.companyname.Space_Program":{"features":["no-iap"]},
   "com.TheSkies.DeadlyFight":{"features":["no-iap"]},
   "com.rvappstudios.lastheroes":{"features":["no-iap"]},
+  "de.stryder_it.simdashboard":{"features":["no-iap"]},
+  "com.tipsterchat":{"features":["no-iap"]},
   "com.digitalsecrets.thedarkpursuer":{"features":["no-iap"]},
   "com.ldw.vvo2":{"features":["no-iap"]},
   "com.kayac.ball_run":{"features":["warning::Requires modded Play Store; no IAP in game"]},
