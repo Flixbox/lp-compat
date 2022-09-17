@@ -240,6 +240,7 @@
   "com.mobage.ww.a1912.Godus_Android":{"category": "hof","features":["iap"]},
   "com.tivola.myredpanda":{"features":["iap"]},
   "com.amelosinteractive.snake":{"features":["iap"]},
+  "com.karmatic.expminima":{"features":["iap"]},
   "com.tinytitanstudios.TrainChu":{"features":["iap"]},
   "com.WindingClock.WizardsWheel2":{"features":["iap"]},
   "com.ketchapp.knifehit":{"features":["iap"]},
