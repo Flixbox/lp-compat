@@ -45,6 +45,11 @@ const AddApp = () => {
         <Typography variant="h3">Add an app</Typography>
         <Box m={3} />
         <form onSubmit={handleSubmit}>
+          <Typography>
+            Either check the LP app info for the package name or search the play
+            store.
+          </Typography>
+          <Box m={2} />
           <Box display="flex">
             <TextField
               value={enteredPackage}
