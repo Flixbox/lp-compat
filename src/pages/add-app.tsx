@@ -5,20 +5,26 @@ import {
   Container,
   Grid,
   Input,
+  List,
+  ListItem,
+  ListItemText,
   TextField,
   Typography,
 } from "@mui/material";
 import { usePersistentState } from "react-persistent-state";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAdd } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const AddApp = () => {
-  const [appPackages, setAppPackages] = usePersistentState([]);
-  const [enteredPackage, setEnteredPackage] = usePersistentState("");
+  const [appPackages, setAppPackages] = usePersistentState([], "appPackages");
+  const [enteredPackage, setEnteredPackage] = usePersistentState(
+    "",
+    "enteredPackage"
+  );
 
   let codeBlock = "";
   appPackages.forEach(
-    (appPackage) => (codeBlock = `${codeBlock}\n${appPackage}`)
+    (appPackage) => (codeBlock = `${codeBlock}${appPackage}\n`)
   );
 
   const handleSubmit = () => setAppPackages([...appPackages, enteredPackage]);
@@ -41,6 +47,23 @@ const AddApp = () => {
           <Button variant="outlined" onClick={handleSubmit}>
             <FontAwesomeIcon icon={faAdd} size="lg" />
           </Button>
+        </Box>
+        <Box m={3} />
+        <Box>
+          <List dense>
+            {appPackages.map((appPackage) => (
+              <ListItem
+                secondaryAction={
+                  <Button aria-label="delete">
+                    <FontAwesomeIcon icon={faTrash} size="lg" />
+                  </Button>
+                }
+                key={appPackage}
+              >
+                <ListItemText primary={appPackage} />
+              </ListItem>
+            ))}
+          </List>
         </Box>
         <Box m={3} />
         <Box>

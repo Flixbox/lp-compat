@@ -222,8 +222,14 @@ const categoryList = [
 
 const CompatOverview = () => {
   const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
-    usePersistentState(categoryList.map((category) => category.id));
-  const [appTitleFilter, setAppTitleFilter] = usePersistentState("");
+    usePersistentState(
+      categoryList.map((category) => category.id),
+      "onlyShowTheseCategories"
+    );
+  const [appTitleFilter, setAppTitleFilter] = usePersistentState(
+    "",
+    "appTitleFilter"
+  );
 
   const sortedAppInfo = Object.entries(appInfo).sort(
     (a, b) => playstore[b[0]].minInstalls - playstore[a[0]].minInstalls
