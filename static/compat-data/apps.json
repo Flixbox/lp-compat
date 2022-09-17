@@ -336,7 +336,7 @@
   "com.FigaseGame.MagicBattleMergeRandomCards":{"category": "hof", "features":["iap", "multiplayer", "subscription"]},
   "studio.weplay.repair":{"features":["iap"]},
   "com.luckyspingames.merge":{"features":["iap"]},
-  "com.vewointeractive.nexomon.extinction":{"category": "hof","features":["iap", "warning::IAP patch works on many devices, but not on all - Try it!"]},
+  "com.vewointeractive.nexomon.extinction":{"category": "hof","features":["iap", "warning::IAP patch works on many devices; but not on all - Try it!"]},
   "com.pocapp.dungeondogsgame":{"features":["iap"]},
   "com.tunnelbear.android":{"features":["iap", "repurchase"]},
   "com.fingersoft.hillclimb":{"features":["iap"]},
