@@ -66,6 +66,10 @@ module.exports = {
 
     // TODO Validate json file integrity
 
+    await interaction.reply(
+      `Seems like the app ${packageId} with features "${featuresString}" checks out. Adding!`
+    );
+
     try {
       console.log(`git init`);
       await exec(`git init`);
@@ -110,6 +114,6 @@ module.exports = {
       return await error("Couldn't push to the repo!");
     }
 
-    return await response(`App added to the repo.`);
+    return await interaction.followUp(`Added app!`);
   },
 };
