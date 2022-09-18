@@ -1,4 +1,4 @@
-import getFeature from "@site/src/featureMap";
+import getFeature from "../../featureMap";
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
