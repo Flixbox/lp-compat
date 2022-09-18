@@ -1,4 +1,5 @@
 {
+  "mobi.byss.vroomz":{"features":["no-iap","::Added to list by Rubbel die Katz#5816"]},
   "com.gramgames.mergedragons":{"features":["iap","facebook-login","partial-multiplayer"],"category":"hof"},
   "com.turner.pocketmorties":{"features":["iap","no-multiplayer-iap"],"category":"hof"},
   "com.ludia.dragons":{"features":["iap","no-subscription"],"category":"hof"},
