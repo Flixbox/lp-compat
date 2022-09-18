@@ -1,5 +1,7 @@
 import getFeature from "../../featureMap";
 import insertLine from "insert-line";
+import util from "util";
+const exec = util.promisify(require("child_process").exec);
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
@@ -67,11 +69,15 @@ module.exports = {
     }
 
     try {
-        
-      } catch (e) {
-        console.error(e);
-        return error("Couldn't push to the repo!");
-      }    
+      await exec(`git add .`);
+      await exec(
+        `git commit -m "Bot - Add app (added by ${interaction.user.tag})"`
+      );
+      await exec(`git push`);
+    } catch (e) {
+      console.error(e);
+      return error("Couldn't push to the repo!");
+    }
 
     return response(
       `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "${fullLine}"`
