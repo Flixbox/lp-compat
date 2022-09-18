@@ -45,6 +45,7 @@ module.exports = {
         if (!feat.name) throw new Error();
       });
     } catch (e) {
+      console.error(e);
       return error("Your feature string is not right!");
     }
 
@@ -57,7 +58,7 @@ module.exports = {
         )
         .at(2);
     } catch (e) {
-      console.log(e);
+      console.error(e);
       return error("Couldn't write to the app list!");
     }
 
