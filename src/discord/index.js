@@ -11,14 +11,14 @@ const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 // Execute code when the "ready" client event is triggered.
 client.once("ready", () => {
   console.log("cwd", process.cwd());
-  
+
   const commandFiles = fs
-    .readdirSync("./src/discord/commands")
+    .readdirSync("/src/discord/commands")
     .filter((file) => file.endsWith(".js")); // Get and filter all the files in the "Commands" Folder.
 
   // Loop through the command files
   for (const file of commandFiles) {
-    const command = require(`./src/discord/commands${file}`); // Get and define the command file.
+    const command = require(`/src/discord/commands${file}`); // Get and define the command file.
     commands.set(command.data.name, command); // Set the command name and file for handler to use.
     commandarray.push(command.data.toJSON()); // Push the command data to an array (for sending to the API).
   }
