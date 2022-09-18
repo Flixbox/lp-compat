@@ -8,6 +8,9 @@ const client = new Client({
 
 console.log("cwd", process.cwd());
 console.log(fs.readdirSync("."));
+console.log(fs.readdirSync("src/"));
+console.log(fs.readdirSync("src/discord/"));
+console.log(fs.readdirSync("src/discord/commands"));
 
 const commands = new Collection(); // Where the bot (slash) commands will be stored.
 const commandarray = []; // Array to store commands for sending to the REST API.
@@ -17,6 +20,8 @@ client.once("ready", () => {
   const commandFiles = fs
     .readdirSync("src/discord/commands")
     .filter((file) => file.endsWith(".js")); // Get and filter all the files in the "Commands" Folder.
+
+  console.log("commandFiles " + commandFiles);
 
   // Loop through the command files
   for (const file of commandFiles) {
