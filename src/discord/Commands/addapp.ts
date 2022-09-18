@@ -42,7 +42,7 @@ module.exports = {
     try {
       featuresArray.forEach((feature) => {
         const feat = getFeature(feature);
-        if (!feat.name) throw new Error();
+        if (!feat.label) throw new Error();
       });
     } catch (e) {
       console.error(e);
