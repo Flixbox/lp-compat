@@ -62,8 +62,14 @@ module.exports = {
       return error("Couldn't write to the app list!");
     }
 
+    let featuresString = "";
+    featuresArray.forEach((feature, index) => {
+      featuresString = `${featuresString}"${feature}"`;
+      if (index !== featuresArray.length - 1) featuresString += ",";
+    });
+
     return response(
-      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "  "${packageId}":{"features":[${featuresArray.toString()}]},"`
+      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "  "${packageId}":{"features":[${featuresString}]},"`
     );
   },
 };
