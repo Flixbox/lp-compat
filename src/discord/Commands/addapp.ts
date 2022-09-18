@@ -75,12 +75,16 @@ module.exports = {
 
     try {
       await exec(`git init`);
+      await exec(`git config --global user.email "felix@tietjen.it"`);
+      await exec(`git config --global user.name "LP Railway CI"`);
       await exec(`git checkout -b main`);
       await exec(`git add .`);
       await exec(
         `git commit -m "Bot - Add app (added by ${interaction.user.tag})"`
       );
-      await exec(`git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git main`);
+      await exec(
+        `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git main`
+      );
     } catch (e) {
       console.error(e);
       return error("Couldn't push to the repo!");
