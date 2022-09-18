@@ -51,7 +51,7 @@ module.exports = {
       });
     } catch (e) {
       console.error(e);
-      return error("Your feature string is not right!");
+      return await error("Your feature string is not right!");
     }
 
     // TODO check if package exists
@@ -95,7 +95,7 @@ module.exports = {
           .at(2);
       } catch (e) {
         console.error(e);
-        return error("Couldn't write to the app list!");
+        return await error("Couldn't write to the app list!");
       }
 
       await exec(`git add -A`);
@@ -107,9 +107,9 @@ module.exports = {
       );
     } catch (e) {
       console.error(e);
-      return error("Couldn't push to the repo!");
+      return await error("Couldn't push to the repo!");
     }
 
-    return response(`App added to the repo.`);
+    return await response(`App added to the repo.`);
   },
 };
