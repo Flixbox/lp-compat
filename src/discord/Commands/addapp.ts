@@ -87,6 +87,7 @@ module.exports = {
       await exec(`git fetch --depth=1`);
       console.log(`git checkout`);
       await exec(`git checkout -f -B main --track origin/main`);
+      console.log(`git checkout done`);
 
 
       try {
