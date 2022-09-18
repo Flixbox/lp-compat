@@ -86,11 +86,8 @@ module.exports = {
       console.log(`git fetch --depth=1`);
       await exec(`git fetch --depth=1`);
       console.log(`git checkout`);
-      await exec(`git checkout -B main --track origin/main`);
-      console.log(`git pull`);
-      await exec(`git pull`);
-      console.log(`git reset origin/main`);
-      await exec(`git reset origin/main`);
+      await exec(`git checkout -f -B main --track origin/main`);
+
 
       try {
         insertLine("./static/compat-data/apps.json")
