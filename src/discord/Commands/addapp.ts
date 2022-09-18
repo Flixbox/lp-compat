@@ -40,6 +40,11 @@ module.exports = {
 
     // TODO check if user has the right permissions
 
+    if (!interaction.user.roles.cache.has("670375841523433472"))
+      return await error(
+        "You don't have the `Compatibility List Manager` role. Sorry!"
+      );
+
     if (!packageId || !features) return error();
 
     const featuresArray = features.split(",");
