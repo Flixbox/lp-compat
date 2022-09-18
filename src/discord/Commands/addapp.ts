@@ -89,7 +89,6 @@ module.exports = {
       await exec(`git checkout -f -B main --track origin/main`);
       console.log(`git checkout done`);
 
-
       try {
         insertLine("./static/compat-data/apps.json")
           .contentSync(fullLine)
@@ -112,7 +111,7 @@ module.exports = {
     }
 
     return response(
-      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "${fullLine}"`
+      `App "${packageId}" with features "${featuresString}" added to the repo. The site usually takes 3 minutes to update. \nLine: "${fullLine}"`
     );
   },
 };
