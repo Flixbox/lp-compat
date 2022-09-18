@@ -39,6 +39,7 @@
     "discord.js": "^14.3.0",
     "docusaurus-plugin-sass": "^0.2.2",
     "google-play-scraper": "^9.1.1",
+    "insert-line": "^1.1.0",
     "lodash": "^4.17.21",
     "markdown-table": "^3.0.2",
     "moment": "^2.29.4",

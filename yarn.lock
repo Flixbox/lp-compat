@@ -5292,6 +5292,11 @@ inline-style-parser@0.1.1:
   resolved "https://registry.yarnpkg.com/inline-style-parser/-/inline-style-parser-0.1.1.tgz#ec8a3b429274e9c0a1f1c4ffa9453a7fef72cea1"
   integrity sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==
 
+insert-line@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/insert-line/-/insert-line-1.1.0.tgz#6dcc0003505f009a2ba8e8ed6a4d42386439fd0f"
+  integrity sha512-+sJ9fMN0VX9hmNuGtxaARPe7oA/a/atDzU+1v2IeDW66cJdm82gAbzfap4cyDRQ4710pZy3PtjL6Q5iJvX4cDA==
+
 interpret@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"

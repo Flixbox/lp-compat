@@ -1,4 +1,5 @@
 import getFeature from "../../featureMap";
+import insertLine from "insert-line";
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
@@ -49,8 +50,16 @@ module.exports = {
       return error();
     }
 
+    // TODO check if package exists
+
+    insertLine("../../../static/compat-data/apps.json")
+      .contentSync(
+        `  "${packageId}":{"features":[${featuresArray.toString()}]},`
+      )
+      .at(2);
+
     return response(
-      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update.`
+      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "  "${packageId}":{"features":[${featuresArray.toString()}]},"`
     );
   },
 };
