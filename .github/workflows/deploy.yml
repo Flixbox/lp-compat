@@ -20,7 +20,7 @@ jobs:
           node-version: 18
           cache: npm
       - name: Install dependencies
-        run: npm install --frozen-lockfile --force
+        run: yarn
       - name: Scrape play store data for apps
         run: npm run scrape
       - name: Build website
