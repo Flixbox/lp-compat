@@ -36,7 +36,10 @@ module.exports = {
 
     if (!packageId || !features) return error();
 
+    features.push(`::Added to list by ${interaction.user.tag}`);
+
     const featuresArray = features.split(",");
+    // Some degree of validation
     try {
       featuresArray.forEach((feature) => {
         const feat = getFeature(feature);
