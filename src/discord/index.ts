@@ -5,7 +5,7 @@ import {
   GatewayIntentBits,
   Collection,
   SlashCommandBuilder,
-} from "discord.js"; // Define Client, Intents, and Collection.
+} from "discord.js";
 import importDir from "directory-import";
 
 type Command = { data: any; execute: (interaction, client) => any };
@@ -14,7 +14,7 @@ const commands = []; // Where the bot (slash) commands will be stored.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 const clientId = "1021002998069067777";
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const clientCommands = new Collection<string, Command>();
+const clientCommands = new Collection<string, Command>(); // Client commands contain the logic that is executed on the client
 
 importDir(
   { directoryPath: "./Commands" },
@@ -26,6 +26,8 @@ importDir(
 );
 
 console.info(commands);
+
+console.info("clientCommands", clientCommands);
 
 const rest = new REST({ version: "10" }).setToken(token);
 
