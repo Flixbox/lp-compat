@@ -10,6 +10,8 @@ const commandarray = []; // Array to store commands for sending to the REST API.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 // Execute code when the "ready" client event is triggered.
 client.once("ready", () => {
+  console.log("cwd", process.cwd());
+  
   const commandFiles = fs
     .readdirSync("./src/discord/commands")
     .filter((file) => file.endsWith(".js")); // Get and filter all the files in the "Commands" Folder.
