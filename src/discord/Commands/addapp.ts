@@ -100,7 +100,7 @@ module.exports = {
 
       await exec(`git add -A`);
       await exec(
-        `git commit -m "Bot - Add app (added by ${interaction.user.tag})"`
+        `git commit -m "Bot - Add app ${packageId} (added by ${interaction.user.tag})"`
       );
       await exec(
         `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git main`
