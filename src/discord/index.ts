@@ -37,6 +37,10 @@ const rest = new REST({ version: "10" }).setToken(token);
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
+  console.log(interaction.commandName);
+
+  console.log(commands);
+
   const command = commands.find(
     (command) => command.name === interaction.commandName
   );
