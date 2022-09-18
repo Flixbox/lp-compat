@@ -38,7 +38,10 @@ module.exports = {
 
     // TODO check if user has the right permissions
 
-    if (!interaction.member.roles.cache.has("670375841523433472"))
+    if (
+      !interaction.member.roles.cache.has("670375841523433472") &&
+      !interaction.member.id !== interaction.guild.ownerId
+    )
       return await error(
         "You don't have the `Compatibility List Manager` role. Sorry!"
       );
