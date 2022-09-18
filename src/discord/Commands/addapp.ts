@@ -52,7 +52,7 @@ module.exports = {
     // TODO check if package exists
 
     try {
-      insertLine("../../../static/compat-data/apps.json")
+      insertLine("./static/compat-data/apps.json")
         .contentSync(
           `  "${packageId}":{"features":[${featuresArray.toString()}]},`
         )
