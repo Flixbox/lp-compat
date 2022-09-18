@@ -6,21 +6,21 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 }); // Connect to our discord bot.
 
+import importDir from "directory-import";
+
 const commands = new Collection(); // Where the bot (slash) commands will be stored.
 const commandarray = []; // Array to store commands for sending to the REST API.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 // Execute code when the "ready" client event is triggered.
 client.once("ready", () => {
-  const commandFiles = fs
-    .readdirSync("src/discord/Commands")
-    .filter((file) => file.endsWith(".js")); // Get and filter all the files in the "Commands" Folder.
-
-  // Loop through the command files
-  for (const file of commandFiles) {
-    const command = require(`src/discord/Commands/${file}`); // Get and define the command file.
-    commands.set(command.data.name, command); // Set the command name and file for handler to use.
-    commandarray.push(command.data.toJSON()); // Push the command data to an array (for sending to the API).
-  }
+  importDir(
+    { directoryPath: "./Commands" },
+    (moduleName, modulePath, command) => {
+      console.info({ moduleName, modulePath, command });
+      commands.set(command.data.name, command); // Set the command name and file for handler to use.
+      commandarray.push(command.data.toJSON()); // Push the command data to an array (for sending to the API).
+    }
+  );
 
   const rest = new REST({ version: "9" }).setToken(token); // Define "rest" for use in registering commands
   // Register slash commands.
