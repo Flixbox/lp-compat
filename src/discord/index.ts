@@ -69,3 +69,5 @@ client.on("interactionCreate", async (interaction) => {
     });
   }
 });
+
+client.login(token); // Login to the bot client via the defined "token" string.
