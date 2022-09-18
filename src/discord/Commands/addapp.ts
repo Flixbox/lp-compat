@@ -1,3 +1,5 @@
+import getFeature from "@site/src/featureMap";
+
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
@@ -10,6 +12,7 @@ module.exports = {
         .setDescription(
           "The package ID can be found in the Lucky Patcher app info or in the Play Store URL of the app."
         )
+        .setRequired(true)
     )
     .addStringOption((option) =>
       option
@@ -17,19 +20,34 @@ module.exports = {
         .setDescription(
           "A list of notes under the app. Example 1: no-iap | Example 2: iap,warning::Download only on APKPure"
         )
+        .setRequired(true)
     ),
   execute: async (interaction, client) => {
     const packageId = interaction.options.getString("packageid");
     const features = interaction.options.getString("features");
 
-    const respond = (content, ephemeral = false) =>
+    const response = (content, ephemeral = false) =>
       interaction.reply({ content, ephemeral });
     const error = () =>
-      respond(
+      response(
         "Something isn't right. Try again with different parameters.",
         true
       );
 
     if (!packageId || !features) return error();
+
+    const featuresArray = features.split(",");
+    try {
+      featuresArray.forEach((feature) => {
+        const feat = getFeature(feature);
+        if (!feat.name) throw new Error();
+      });
+    } catch (e) {
+      return error();
+    }
+
+    return response(
+      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update.`
+    );
   },
 };
