@@ -24,22 +24,20 @@ module.exports = {
         .setRequired(true)
     ),
   execute: async (interaction, client) => {
-    const packageId = interaction.options.getString("packageid");
-    const features = interaction.options.getString("features");
+    const packageId: string = interaction.options.getString("packageid");
+    const features: string = interaction.options.getString("features");
 
     const response = (content, ephemeral = false) =>
       interaction.reply({ content, ephemeral });
-    const error = () =>
-      response(
-        "Something isn't right. Try again with different parameters.",
-        true
-      );
+    const error = (
+      e = "Something isn't right. Try again with different parameters."
+    ) => response(e, true);
 
     if (!packageId || !features) return error();
 
-    features.push(`::Added to list by ${interaction.user.tag}`);
-
     const featuresArray = features.split(",");
+    featuresArray.push(`::Added to list by ${interaction.user.tag}`);
+
     // Some degree of validation
     try {
       featuresArray.forEach((feature) => {
@@ -47,16 +45,21 @@ module.exports = {
         if (!feat.name) throw new Error();
       });
     } catch (e) {
-      return error();
+      return error("Your feature string is not right!");
     }
 
     // TODO check if package exists
 
-    insertLine("../../../static/compat-data/apps.json")
-      .contentSync(
-        `  "${packageId}":{"features":[${featuresArray.toString()}]},`
-      )
-      .at(2);
+    try {
+      insertLine("../../../static/compat-data/apps.json")
+        .contentSync(
+          `  "${packageId}":{"features":[${featuresArray.toString()}]},`
+        )
+        .at(2);
+    } catch (e) {
+      console.log(e);
+      return error("Couldn't write to the app list!");
+    }
 
     return response(
       `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "  "${packageId}":{"features":[${featuresArray.toString()}]},"`
