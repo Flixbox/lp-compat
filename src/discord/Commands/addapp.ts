@@ -30,7 +30,7 @@ module.exports = {
         .setRequired(true)
     ),
   execute: async (interaction, client) => {
-    const packageId: string = interaction.options.getString("packageid");
+    let packageId: string = interaction.options.getString("packageid");
     const features: string = interaction.options.getString("features");
 
     const response = (content, ephemeral = false) =>
@@ -63,8 +63,17 @@ module.exports = {
       return await error("Your feature string is not right!");
     }
 
+    // packageId could be a URL, we should handle that properly.
     try {
-      await axios.get(`https://play.google.com/store/apps/details?id=${packageId}`);
+      var url = new URL(packageId);
+      var id = url.searchParams.get("id");
+      packageId = id;
+    } catch (e) {}
+
+    try {
+      await axios.get(
+        `https://play.google.com/store/apps/details?id=${packageId}`
+      );
     } catch (e) {
       console.error(e);
       return await error(
