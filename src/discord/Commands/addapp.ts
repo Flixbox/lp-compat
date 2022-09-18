@@ -30,10 +30,8 @@ module.exports = {
     const packageId: string = interaction.options.getString("packageid");
     const features: string = interaction.options.getString("features");
 
-    await interaction.deferReply();
-
     const response = (content, ephemeral = false) =>
-      interaction.reply({ content, ephemeral });
+      interaction.editReply({ content, ephemeral });
     const error = (
       e = "Something isn't right. Try again with different parameters."
     ) => response(e, true);
@@ -117,7 +115,7 @@ module.exports = {
       return await error("Couldn't push to the repo!");
     }
 
-    return await interaction.reply(
+    return await interaction.editReply(
       `Added the app ${packageId} with features "${featuresString}"! Thanks ${interaction.user.tag}!\n\nDeployment usually takes about 3 minutes.`
     );
   },

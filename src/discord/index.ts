@@ -48,13 +48,14 @@ const rest = new REST({ version: "10" }).setToken(token);
   }
 })();
 
-client.on("interactionCreate", async (interaction) => {
+client.on("interactionCreate", async (interaction: any) => {
   if (!interaction.isCommand()) return;
+  await interaction.deferReply();
 
   const command = clientCommands.get(interaction.commandName);
 
   if (!command)
-    await interaction.reply({
+    await interaction.editReply({
       content: `Could not find command "${interaction.commandName}"!`,
       ephemeral: true,
     });
@@ -63,7 +64,7 @@ client.on("interactionCreate", async (interaction) => {
     await command.execute(interaction, client);
   } catch (error) {
     console.error(error);
-    await interaction.reply({
+    await interaction.editReply({
       content: "There was an error while executing this command!",
       ephemeral: true,
     });
