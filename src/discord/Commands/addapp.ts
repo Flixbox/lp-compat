@@ -64,13 +64,6 @@ module.exports = {
 
     const fullLine = `  "${packageId}":{"features":[${featuresString}]},`;
 
-    try {
-      insertLine("./static/compat-data/apps.json").contentSync(fullLine).at(2);
-    } catch (e) {
-      console.error(e);
-      return error("Couldn't write to the app list!");
-    }
-
     // TODO Validate json file integrity
 
     try {
@@ -82,8 +75,19 @@ module.exports = {
       );
       await exec(`git fetch --all`);
       await exec(`git reset --hard HEAD`);
+      await exec(`git clean -f -d`);
       await exec(`git pull`);
       await exec(`git checkout -b main`);
+
+      try {
+        insertLine("./static/compat-data/apps.json")
+          .contentSync(fullLine)
+          .at(2);
+      } catch (e) {
+        console.error(e);
+        return error("Couldn't write to the app list!");
+      }
+
       await exec(`git add -A`);
       await exec(
         `git commit -m "Bot - Add app (added by ${interaction.user.tag})"`
