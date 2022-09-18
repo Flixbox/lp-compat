@@ -1,6 +1,7 @@
 import getFeature from "../../featureMap";
 import insertLine from "insert-line";
 import util from "util";
+import { readFile } from "fs";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
@@ -36,8 +37,6 @@ module.exports = {
       e = "Something isn't right. Try again with different parameters."
     ) => response(e, true);
 
-    // TODO check if user has the right permissions
-
     if (
       !interaction.member.roles.cache.has("670375841523433472") &&
       interaction.member.id !== interaction.guild.ownerId
@@ -46,7 +45,7 @@ module.exports = {
         "You don't have the `Compatibility List Manager` role. Sorry!"
       );
 
-    if (!packageId || !features) return error();
+    if (!packageId || !features) return await error();
 
     const featuresArray = features.split(",");
     featuresArray.push(`::Added to list by ${interaction.user.tag}`);
@@ -71,8 +70,6 @@ module.exports = {
     });
 
     const fullLine = `  "${packageId}":{"features":[${featuresString}]},`;
-
-    // TODO Validate json file integrity
 
     try {
       console.log(`git init`);
@@ -106,6 +103,10 @@ module.exports = {
         return await error("Couldn't write to the app list!");
       }
 
+      readFile("./static/compat-data/apps.json", "utf8", function (err, data) {
+        JSON.parse(data);
+      });
+
       await exec(`git add -A`);
       await exec(
         `git commit -m "Bot - Add app ${packageId} (added by ${interaction.user.tag})"`
@@ -115,7 +116,9 @@ module.exports = {
       );
     } catch (e) {
       console.error(e);
-      return await error("Couldn't push to the repo!");
+      return await error(
+        "Couldn't push to the repo! Try again in 3 minutes, the CI needs some time to deploy."
+      );
     }
 
     return await interaction.editReply(
