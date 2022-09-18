@@ -45,6 +45,8 @@ client.on("interactionCreate", async (interaction) => {
     (command) => command.name === interaction.commandName
   );
 
+  console.log("command", command)
+
   if (!command) return;
 
   try {
