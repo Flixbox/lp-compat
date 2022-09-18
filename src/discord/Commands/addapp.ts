@@ -40,7 +40,7 @@ module.exports = {
 
     if (
       !interaction.member.roles.cache.has("670375841523433472") &&
-      !interaction.member.id !== interaction.guild.ownerId
+      interaction.member.id !== interaction.guild.ownerId
     )
       return await error(
         "You don't have the `Compatibility List Manager` role. Sorry!"
