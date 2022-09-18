@@ -30,6 +30,8 @@ module.exports = {
     const packageId: string = interaction.options.getString("packageid");
     const features: string = interaction.options.getString("features");
 
+    await interaction.deferReply();
+
     const response = (content, ephemeral = false) =>
       interaction.reply({ content, ephemeral });
     const error = (
@@ -65,10 +67,6 @@ module.exports = {
     const fullLine = `  "${packageId}":{"features":[${featuresString}]},`;
 
     // TODO Validate json file integrity
-
-    await interaction.reply(
-      `Seems like the app ${packageId} with features "${featuresString}" checks out. Adding!`
-    );
 
     try {
       console.log(`git init`);
@@ -114,6 +112,8 @@ module.exports = {
       return await error("Couldn't push to the repo!");
     }
 
-    return await interaction.followUp(`Added app!`);
+    return await interaction.reply(
+      `Added the app ${packageId} with features "${featuresString}"! Thanks ${interaction.user.tag}!\n\nDeployment usually takes about 3 minutes.`
+    );
   },
 };
