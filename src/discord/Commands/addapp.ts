@@ -83,8 +83,8 @@ module.exports = {
           `git remote set-url origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
         );
       }
-      console.log(`git fetch --all`);
-      await exec(`git fetch --all`);
+      console.log(`git fetch --depth=1`);
+      await exec(`git fetch --depth=1`);
       console.log(`git checkout`);
       await exec(`git checkout -B main --track origin/main`);
       console.log(`git pull`);
