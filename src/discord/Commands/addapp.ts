@@ -80,10 +80,9 @@ module.exports = {
         );
       }
       await exec(`git fetch --all`);
-      await exec(`git reset --hard HEAD`);
-      await exec(`git clean -f -d`);
+      await exec(`git checkout -b main --track origin/main`);
       await exec(`git pull`);
-      await exec(`git checkout -b main`);
+      await exec(`git reset origin/main`);
 
       try {
         insertLine("./static/compat-data/apps.json")
