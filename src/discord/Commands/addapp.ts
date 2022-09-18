@@ -6,7 +6,7 @@ module.exports = {
     .setDescription("Add a new app to the list!")
     .addStringOption((option) =>
       option
-        .setName("packageId")
+        .setName("packageid")
         .setDescription(
           "The package ID can be found in the Lucky Patcher app info or in the Play Store URL of the app."
         )
@@ -19,7 +19,7 @@ module.exports = {
         )
     ),
   execute: async (interaction, client) => {
-    const packageId = interaction.options.getString("packageId");
+    const packageId = interaction.options.getString("packageid");
     const features = interaction.options.getString("features");
 
     const respond = (content, ephemeral = false) =>
