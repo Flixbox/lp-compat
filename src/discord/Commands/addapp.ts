@@ -2,8 +2,9 @@ import getFeature from "../../featureMap";
 import insertLine from "insert-line";
 import util from "util";
 const exec = util.promisify(require("child_process").exec);
-
 const { SlashCommandBuilder } = require("@discordjs/builders");
+
+const pat = process.env.GITHUB_PAT; // Token from Railway Env Variable.
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -34,6 +35,8 @@ module.exports = {
     const error = (
       e = "Something isn't right. Try again with different parameters."
     ) => response(e, true);
+
+    // TODO check if user has the right permissions
 
     if (!packageId || !features) return error();
 
@@ -68,12 +71,16 @@ module.exports = {
       return error("Couldn't write to the app list!");
     }
 
+    // TODO Validate json file integrity
+
     try {
+      await exec(`git init`);
+      await exec(`git checkout -b main`);
       await exec(`git add .`);
       await exec(
         `git commit -m "Bot - Add app (added by ${interaction.user.tag})"`
       );
-      await exec(`git push`);
+      await exec(`git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git main`);
     } catch (e) {
       console.error(e);
       return error("Couldn't push to the repo!");
