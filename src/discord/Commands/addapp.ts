@@ -1,7 +1,9 @@
 import getFeature from "../../featureMap";
 import insertLine from "insert-line";
 import util from "util";
+import https from "https";
 import { readFile } from "fs";
+import axios from "axios";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
@@ -61,7 +63,14 @@ module.exports = {
       return await error("Your feature string is not right!");
     }
 
-    // TODO check if package exists
+    try {
+      await axios.get(`play.google.com/store/apps/details?id=${packageId}`);
+    } catch (e) {
+      console.error(e);
+      return await error(
+        "The app package ID is not right! It should look like this: com.gramgames.mergedragons"
+      );
+    }
 
     let featuresString = "";
     featuresArray.forEach((feature, index) => {
