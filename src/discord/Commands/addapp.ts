@@ -119,7 +119,7 @@ module.exports = {
     }
 
     return await interaction.editReply(
-      `Added the app ${packageId} with features "${featuresString}"! Thanks ${interaction.user.tag}!\n\nDeployment usually takes about 3 minutes.`
+      `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nDeployment usually takes about 3 minutes.`
     );
   },
 };
