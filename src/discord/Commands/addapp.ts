@@ -71,7 +71,7 @@ module.exports = {
       await exec(`git config --global user.email "felix@tietjen.it"`);
       await exec(`git config --global user.name "LP Railway CI"`);
       await exec(
-        `git remote add origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
+        `git remote set-url origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
       );
       await exec(`git fetch --all`);
       await exec(`git reset --hard HEAD`);
