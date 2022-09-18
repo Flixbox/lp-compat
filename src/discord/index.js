@@ -7,7 +7,7 @@ const client = new Client({
 }); // Connect to our discord bot.
 
 console.log("cwd", process.cwd());
-console.log(fs.readdirSync("src/discord/commands"));
+console.log(fs.readdirSync("."));
 
 const commands = new Collection(); // Where the bot (slash) commands will be stored.
 const commandarray = []; // Array to store commands for sending to the REST API.
