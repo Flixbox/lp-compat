@@ -6,26 +6,18 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 }); // Connect to our discord bot.
 
-console.log("cwd", process.cwd());
-console.log(fs.readdirSync("."));
-console.log(fs.readdirSync("src/"));
-console.log(fs.readdirSync("src/discord/"));
-console.log(fs.readdirSync("src/discord/commands"));
-
 const commands = new Collection(); // Where the bot (slash) commands will be stored.
 const commandarray = []; // Array to store commands for sending to the REST API.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 // Execute code when the "ready" client event is triggered.
 client.once("ready", () => {
   const commandFiles = fs
-    .readdirSync("src/discord/commands")
+    .readdirSync("src/discord/Commands")
     .filter((file) => file.endsWith(".js")); // Get and filter all the files in the "Commands" Folder.
-
-  console.log("commandFiles " + commandFiles);
 
   // Loop through the command files
   for (const file of commandFiles) {
-    const command = require(`src/discord/commands${file}`); // Get and define the command file.
+    const command = require(`src/discord/Commands${file}`); // Get and define the command file.
     commands.set(command.data.name, command); // Set the command name and file for handler to use.
     commandarray.push(command.data.toJSON()); // Push the command data to an array (for sending to the API).
   }
