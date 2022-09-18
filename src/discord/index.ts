@@ -52,14 +52,18 @@ client.on("interactionCreate", async (interaction) => {
   const command = clientCommands.get(interaction.commandName);
 
   if (!command)
-    await interaction.reply(
-      `Could not find command "${interaction.commandName}"!`
-    );
+    await interaction.reply({
+      content: `Could not find command "${interaction.commandName}"!`,
+      ephemeral: true,
+    });
 
   try {
     await command.execute(interaction, client);
   } catch (error) {
     console.error(error);
-    await interaction.reply("There was an error while executing this command!");
+    await interaction.reply({
+      content: "There was an error while executing this command!",
+      ephemeral: true,
+    });
   }
 });
