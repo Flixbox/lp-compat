@@ -67,21 +67,29 @@ module.exports = {
     // TODO Validate json file integrity
 
     try {
+      console.log(`git init`);
       await exec(`git init`);
+      console.log(`git config --global user.email "felix@tietjen.it"`);
       await exec(`git config --global user.email "felix@tietjen.it"`);
       await exec(`git config --global user.name "LP Railway CI"`);
       try {
+        console.log(`git remote add origin`);
         await exec(
           `git remote add origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
         );
       } catch (e) {
+        console.log(`git remote set-url origin`);
         await exec(
           `git remote set-url origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
         );
       }
+      console.log(`git fetch --all`);
       await exec(`git fetch --all`);
+      console.log(`git checkout`);
       await exec(`git checkout -b main --track origin/main`);
+      console.log(`git pull`);
       await exec(`git pull`);
+      console.log(`git reset origin/main`);
       await exec(`git reset origin/main`);
 
       try {
