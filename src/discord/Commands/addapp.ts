@@ -110,8 +110,6 @@ module.exports = {
       return error("Couldn't push to the repo!");
     }
 
-    return response(
-      `App "${packageId}" with features "${featuresString}" added to the repo. The site usually takes 3 minutes to update. \nLine: "${fullLine}"`
-    );
+    return response(`App added to the repo.`);
   },
 };
