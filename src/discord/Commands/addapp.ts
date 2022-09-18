@@ -51,25 +51,30 @@ module.exports = {
 
     // TODO check if package exists
 
-    try {
-      insertLine("./static/compat-data/apps.json")
-        .contentSync(
-          `  "${packageId}":{"features":[${featuresArray.toString()}]},`
-        )
-        .at(2);
-    } catch (e) {
-      console.error(e);
-      return error("Couldn't write to the app list!");
-    }
-
     let featuresString = "";
     featuresArray.forEach((feature, index) => {
       featuresString = `${featuresString}"${feature}"`;
       if (index !== featuresArray.length - 1) featuresString += ",";
     });
 
+    const fullLine = `  "${packageId}":{"features":[${featuresString}]},`;
+
+    try {
+      insertLine("./static/compat-data/apps.json").contentSync(fullLine).at(2);
+    } catch (e) {
+      console.error(e);
+      return error("Couldn't write to the app list!");
+    }
+
+    try {
+        
+      } catch (e) {
+        console.error(e);
+        return error("Couldn't push to the repo!");
+      }    
+
     return response(
-      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "  "${packageId}":{"features":[${featuresString}]},"`
+      `App "${packageId}" with features "${features}" added to the repo. The site usually takes 3 minutes to update. Line: "${fullLine}"`
     );
   },
 };
