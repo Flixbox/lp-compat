@@ -86,7 +86,7 @@ module.exports = {
       console.log(`git fetch --all`);
       await exec(`git fetch --all`);
       console.log(`git checkout`);
-      await exec(`git checkout -b main --track origin/main`);
+      await exec(`git checkout -B main --track origin/main`);
       console.log(`git pull`);
       await exec(`git pull`);
       console.log(`git reset origin/main`);
