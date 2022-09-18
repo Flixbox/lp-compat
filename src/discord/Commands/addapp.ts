@@ -64,7 +64,7 @@ module.exports = {
     }
 
     try {
-      await axios.get(`play.google.com/store/apps/details?id=${packageId}`);
+      await axios.get(`https://play.google.com/store/apps/details?id=${packageId}`);
     } catch (e) {
       console.error(e);
       return await error(
