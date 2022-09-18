@@ -29,6 +29,8 @@ console.info(commands);
 
 console.info("clientCommands", clientCommands);
 
+console.log("hello", clientCommands.get("hello"));
+
 const rest = new REST({ version: "10" }).setToken(token);
 
 // Register slash commands.
@@ -47,7 +49,7 @@ const rest = new REST({ version: "10" }).setToken(token);
 })();
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isCommand()) return;
 
   const command = clientCommands.get(interaction.commandName);
 
