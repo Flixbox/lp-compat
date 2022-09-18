@@ -77,8 +77,14 @@ module.exports = {
       await exec(`git init`);
       await exec(`git config --global user.email "felix@tietjen.it"`);
       await exec(`git config --global user.name "LP Railway CI"`);
+      await exec(
+        `git remote add origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
+      );
+      await exec(`git fetch --all`);
+      await exec(`git reset --hard HEAD`);
+      await exec(`git pull`);
       await exec(`git checkout -b main`);
-      await exec(`git add .`);
+      await exec(`git add -A`);
       await exec(
         `git commit -m "Bot - Add app (added by ${interaction.user.tag})"`
       );
