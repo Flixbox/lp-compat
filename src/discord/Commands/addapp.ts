@@ -94,7 +94,7 @@ module.exports = {
     const branchName = `feature/addapp-${interactionId}`;
 
     try {
-      await exec(`nix-env -iA hub`);
+      await exec(`nix-env -iA nixos.hub`);
       console.log(`git init`);
       await exec(`git init`);
       console.log(`git config --global user.email "felix@tietjen.it"`);
