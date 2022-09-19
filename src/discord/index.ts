@@ -49,7 +49,7 @@ const rest = new REST({ version: "10" }).setToken(token);
     console.error(error);
   }
 
-  await exec(`nix-channel --add https://nixos.org/channels/nix-latest`);
+  await exec(`nix-channel --add https://nixos.org/channels/nixpkgs-unstable`);
   await exec(`nix-channel --update`);
   await exec(`nix-env -iA hub`);
 })();
