@@ -94,6 +94,7 @@ module.exports = {
     const branchName = `feature/addapp-${interactionId}`;
 
     try {
+      await exec(`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`);
       console.log(`git init`);
       await exec(`git init`);
       console.log(`git config --global user.email "felix@tietjen.it"`);
