@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const pat = process.env.GITHUB_TOKEN; // Token from Railway Env Variable.
+const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 
 module.exports = {
   data: new SlashCommandBuilder()

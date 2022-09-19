@@ -49,9 +49,9 @@ const rest = new REST({ version: "10" }).setToken(token);
     console.error(error);
   }
 
-  // await exec(`nix-channel --add https://nixos.org/channels/nixpkgs-unstable`);
-  // await exec(`nix-channel --update`);
-  await exec(`nix-env -iA nixos.gitAndTools.gh`);
+  await exec(`nix-channel --add https://nixos.org/channels/nixpkgs-unstable`);
+  await exec(`nix-channel --update`);
+  await exec(`nix-env -i gh`);
 })();
 
 client.on("interactionCreate", async (interaction: any) => {
