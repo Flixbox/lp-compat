@@ -32,6 +32,9 @@ module.exports = {
   execute: async (interaction, client) => {
     let packageId: string = interaction.options.getString("packageid");
     const features: string = interaction.options.getString("features");
+    const isStaff =
+      interaction.member.roles.cache.has("670375841523433472") ||
+      interaction.member.id === interaction.guild.ownerId;
 
     const response = (content, ephemeral = false) =>
       interaction.editReply({ content, ephemeral });
@@ -39,10 +42,7 @@ module.exports = {
       e = "Something isn't right. Try again with different parameters."
     ) => response(e, true);
 
-    if (
-      !interaction.member.roles.cache.has("670375841523433472") &&
-      interaction.member.id !== interaction.guild.ownerId
-    )
+    if (!isStaff)
       return await error(
         "You don't have the `Compatibility List Manager` role. Sorry!"
       );
@@ -140,7 +140,10 @@ module.exports = {
       console.log(
         `git push --set-upstream https://Flixbox:PAT@github.com/Flixbox/lp-compat.git "${branchName}" done`
       );
-      await exec(`gh pr create --base main --head "${branchName}" --fill`);
+      const pr = await exec(
+        `gh pr create --base main --head "${branchName}" --fill`
+      );
+      if (isStaff) await exec(`gh pr merge "${pr}" --auto -r`);
     } catch (e) {
       console.error(e);
       return await error(
@@ -148,8 +151,11 @@ module.exports = {
       );
     }
 
+    let textResponse = `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`
+    if (isStaff) textResponse = `${textResponse}\nPR was automatically merged.`
+
     return await interaction.editReply(
-      `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`
+      textResponse
     );
   },
 };
