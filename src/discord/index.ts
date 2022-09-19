@@ -52,6 +52,7 @@ const rest = new REST({ version: "10" }).setToken(token);
   await exec(`nix-channel --add https://nixos.org/channels/nixpkgs-unstable`);
   await exec(`nix-channel --update`);
   await exec(`nix-env -iA nixpkgs.gh`);
+  await exec(`gh config set prompt disabled`);
 })();
 
 client.on("interactionCreate", async (interaction: any) => {
