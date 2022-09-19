@@ -17,3 +17,5 @@ Main page: https://flixbox.github.io/lp-compat/
 - Add any custom features with the following syntax: `<color>::<feature text>`. Example: `warning::IAP patch only works on version 4.2; download APK on APKPure`
 - Make sure you don't add any `,` characters to the feature list, otherwise the Discord regex gets confused
 - Run `npm run start` to check if it's being shown
+
+Or just use the Discord bot.
