@@ -143,7 +143,7 @@ module.exports = {
       const { stdout } = await exec(
         `gh pr create --base main --head "${branchName}" --fill`
       );
-      if (isStaff) await exec(`gh pr merge "${stdout}" --auto -r`);
+      if (isStaff) await exec(`gh pr merge --auto -r`);
     } catch (e) {
       console.error(e);
       return await error(
