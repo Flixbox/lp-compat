@@ -6,6 +6,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
+import apps from "../../../static/compat-data/apps.json";
 
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 
@@ -32,6 +33,9 @@ module.exports = {
   execute: async (interaction, client) => {
     let packageId: string = interaction.options.getString("packageid");
     const features: string = interaction.options.getString("features");
+    const isStaff =
+      interaction.member.roles.cache.has("670375841523433472") ||
+      interaction.member.id === interaction.guild.ownerId;
 
     const response = (content, ephemeral = false) =>
       interaction.editReply({ content, ephemeral });
@@ -39,15 +43,16 @@ module.exports = {
       e = "Something isn't right. Try again with different parameters."
     ) => response(e, true);
 
-    if (
-      !interaction.member.roles.cache.has("670375841523433472") &&
-      interaction.member.id !== interaction.guild.ownerId
-    )
+    /*
+    if (!isStaff)
       return await error(
         "You don't have the `Compatibility List Manager` role. Sorry!"
       );
+    */
 
     if (!packageId || !features) return await error();
+
+    if (apps[packageId]) return await error("That app is already on the list!");
 
     const featuresArray = features.split(",");
     featuresArray.push(`::Added to list by ${interaction.user.tag}`);
@@ -140,7 +145,10 @@ module.exports = {
       console.log(
         `git push --set-upstream https://Flixbox:PAT@github.com/Flixbox/lp-compat.git "${branchName}" done`
       );
-      await exec(`gh pr create --base main --head "${branchName}" --fill`);
+      const { stdout } = await exec(
+        `gh pr create --base main --head "${branchName}" --fill`
+      );
+      if (isStaff) await exec(`gh pr merge --auto -r`);
     } catch (e) {
       console.error(e);
       return await error(
@@ -148,8 +156,9 @@ module.exports = {
       );
     }
 
-    return await interaction.editReply(
-      `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`
-    );
+    let textResponse = `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`;
+    if (isStaff) textResponse = `${textResponse}\nPR was automatically merged.`;
+
+    return await interaction.editReply(textResponse);
   },
 };

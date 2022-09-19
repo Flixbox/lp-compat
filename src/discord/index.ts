@@ -32,12 +32,11 @@ console.info(commands);
 
 console.info("clientCommands", clientCommands);
 
-console.log("hello", clientCommands.get("hello"));
-
 const rest = new REST({ version: "10" }).setToken(token);
 
 // Register slash commands.
 (async () => {
+  console.log("Installing some required software...");
   await exec(`nix-channel --add https://nixos.org/channels/nixpkgs-unstable`);
   await exec(`nix-channel --update`);
   await exec(`nix-env -iA nixpkgs.gh`);
@@ -56,6 +55,7 @@ const rest = new REST({ version: "10" }).setToken(token);
     console.error(error);
   }
 
+  console.log("Set up complete and ready for commands!");
   setUpComplete = true;
 })();
 
