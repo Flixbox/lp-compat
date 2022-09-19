@@ -10,6 +10,9 @@ import {
 } from "discord.js";
 import importDir from "directory-import";
 
+// TODO Command to add multiple apps
+// TODO staff only command to edit an app
+
 type Command = { data: any; execute: (interaction, client) => any };
 
 let setUpComplete = false;
