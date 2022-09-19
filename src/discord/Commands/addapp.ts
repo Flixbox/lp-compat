@@ -1,7 +1,6 @@
 import getFeature from "../../featureMap";
 import insertLine from "insert-line";
 import util from "util";
-import https from "https";
 import { readFile } from "fs";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
@@ -94,7 +93,6 @@ module.exports = {
     const branchName = `feature/addapp-${interactionId}`;
 
     try {
-      await exec(`nix-env -iA nixos.hub`);
       console.log(`git init`);
       await exec(`git init`);
       console.log(`git config --global user.email "felix@tietjen.it"`);
