@@ -12,6 +12,7 @@ import importDir from "directory-import";
 
 type Command = { data: any; execute: (interaction, client) => any };
 
+let setUpComplete = false;
 const commands = []; // Where the bot (slash) commands will be stored.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 const clientId = "1021002998069067777";
@@ -54,11 +55,18 @@ const rest = new REST({ version: "10" }).setToken(token);
   } catch (error) {
     console.error(error);
   }
+
+  setUpComplete = true;
 })();
 
 client.on("interactionCreate", async (interaction: any) => {
   if (!interaction.isCommand()) return;
   await interaction.deferReply();
+  if (!setUpComplete)
+    return await interaction.editReply({
+      content: `Bot is still deploying, try again in 30 seconds!`,
+      ephemeral: true,
+    });
 
   const command = clientCommands.get(interaction.commandName);
 
