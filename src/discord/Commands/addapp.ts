@@ -6,6 +6,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
+import apps from "../../../static/compat-data/apps.json";
 
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 
@@ -42,12 +43,16 @@ module.exports = {
       e = "Something isn't right. Try again with different parameters."
     ) => response(e, true);
 
+    /*
     if (!isStaff)
       return await error(
         "You don't have the `Compatibility List Manager` role. Sorry!"
       );
+    */
 
     if (!packageId || !features) return await error();
+
+    if (apps[packageId]) return await error("That app is already on the list!");
 
     const featuresArray = features.split(",");
     featuresArray.push(`::Added to list by ${interaction.user.tag}`);
