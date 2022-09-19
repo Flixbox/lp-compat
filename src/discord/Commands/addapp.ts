@@ -94,7 +94,7 @@ module.exports = {
     const branchName = `feature/addapp-${interactionId}`;
 
     try {
-      await exec(`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`);
+      await exec(`nix-env -i hub`);
       console.log(`git init`);
       await exec(`git init`);
       console.log(`git config --global user.email "felix@tietjen.it"`);
@@ -116,8 +116,6 @@ module.exports = {
       console.log(`git checkout`);
       await exec(`git checkout -f -B main --track origin/main`);
       console.log(`git checkout done`);
-      await exec(`brew install hub`);
-      console.log(`brew install hub done`);
       await exec(`git checkout -B "${branchName}"`);
       console.log(`git checkout -B "${branchName}" done`);
 
