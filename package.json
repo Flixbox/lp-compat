@@ -52,6 +52,7 @@
     "react-render-if-visible": "^2.1.0",
     "sass": "^1.54.9",
     "snoowrap": "^1.23.0",
+    "uuid": "^9.0.0",
     "webhook-discord": "^3.7.8"
   },
   "devDependencies": {

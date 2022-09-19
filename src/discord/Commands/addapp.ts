@@ -4,10 +4,11 @@ import util from "util";
 import https from "https";
 import { readFile } from "fs";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const pat = process.env.GITHUB_PAT; // Token from Railway Env Variable.
+const pat = process.env.GITHUB_TOKEN; // Token from Railway Env Variable.
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -89,6 +90,9 @@ module.exports = {
 
     const fullLine = `  "${packageId}":{"features":[${featuresString}]},`;
 
+    const interactionId = uuidv4();
+    const branchName = `feature/addapp-${interactionId}`;
+
     try {
       console.log(`git init`);
       await exec(`git init`);
@@ -111,6 +115,10 @@ module.exports = {
       console.log(`git checkout`);
       await exec(`git checkout -f -B main --track origin/main`);
       console.log(`git checkout done`);
+      await exec(`brew install hub`);
+      console.log(`brew install hub done`);
+      await exec(`git checkout -B "${branchName}"`);
+      console.log(`git checkout -B "${branchName}" done`);
 
       try {
         insertLine("./static/compat-data/apps.json")
@@ -130,7 +138,13 @@ module.exports = {
         `git commit -m "Bot - Add app ${packageId} (added by ${interaction.user.tag})"`
       );
       await exec(
-        `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git main`
+        `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git "${branchName}"`
+      );
+      console.log(
+        `git push --set-upstream https://Flixbox:PAT@github.com/Flixbox/lp-compat.git "${branchName}" done`
+      );
+      await exec(
+        `hub pull-request --base main --head "${branchName}" --no-edit`
       );
     } catch (e) {
       console.error(e);
@@ -140,7 +154,7 @@ module.exports = {
     }
 
     return await interaction.editReply(
-      `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nDeployment usually takes about 3 minutes.`
+      `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`
     );
   },
 };
