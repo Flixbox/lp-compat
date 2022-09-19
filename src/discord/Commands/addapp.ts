@@ -140,9 +140,7 @@ module.exports = {
       console.log(
         `git push --set-upstream https://Flixbox:PAT@github.com/Flixbox/lp-compat.git "${branchName}" done`
       );
-      await exec(
-        `hub-unstable pull-request --base main --head "${branchName}" --no-edit`
-      );
+      await exec(`gh pr create --base main --fill`);
     } catch (e) {
       console.error(e);
       return await error(
