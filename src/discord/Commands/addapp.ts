@@ -52,7 +52,7 @@ module.exports = {
     const featuresArray = features.split(",");
     featuresArray.push(`::Added to list by ${interaction.user.tag}`);
 
-    // Some degree of validation
+    // Some degree of validation for the features
     try {
       featuresArray.forEach((feature) => {
         const feat = getFeature(feature);
