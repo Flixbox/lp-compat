@@ -7,7 +7,7 @@ Main page: https://flixbox.github.io/lp-compat/
 ## Initial setup
 
 - Install Node.js and yarn
-- Run `yarn` (One dependency is a bit broken in its dependency tree, don't worry about it)
+- Run `yarn`
 - Run `npm run start`
 
 ## Adding a new game
