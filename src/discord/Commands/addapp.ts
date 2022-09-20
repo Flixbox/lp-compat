@@ -1,21 +1,20 @@
 import getFeature from "../../featureMap";
 import insertLine from "insert-line";
 import util from "util";
-import { readFile } from "fs";
+import { readFileSync } from "fs";
 
-import { v4 as uuidv4 } from "uuid";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 import {
+  checkoutNewGitBranch,
+  finalizePullRequest,
   isStaff,
   processFeatures,
   processPackage,
   validatePackage,
 } from "../util";
 import { Interaction, InteractionType } from "discord.js";
-
-const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -69,33 +68,8 @@ module.exports = {
 
     const fullLine = `  "${processedPackage}":{"features":[${featuresString}]},`;
 
-    const interactionId = uuidv4();
-    const branchName = `feature/addapp-${interactionId}`;
-
     try {
-      console.log(`git init`);
-      await exec(`git init`);
-      console.log(`git config --global user.email "felix@tietjen.it"`);
-      await exec(`git config --global user.email "felix@tietjen.it"`);
-      await exec(`git config --global user.name "LP Railway CI"`);
-      try {
-        console.log(`git remote add origin`);
-        await exec(
-          `git remote add origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
-        );
-      } catch (e) {
-        console.log(`git remote set-url origin`);
-        await exec(
-          `git remote set-url origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
-        );
-      }
-      console.log(`git fetch --depth=1`);
-      await exec(`git fetch --depth=1`);
-      console.log(`git checkout`);
-      await exec(`git checkout -f -B main --track origin/main`);
-      console.log(`git checkout done`);
-      await exec(`git checkout -B "${branchName}"`);
-      console.log(`git checkout -B "${branchName}" done`);
+      const branchName = await checkoutNewGitBranch();
 
       try {
         insertLine("./static/compat-data/apps.json")
@@ -106,24 +80,15 @@ module.exports = {
         return await error("Couldn't write to the app list!");
       }
 
-      readFile("./static/compat-data/apps.json", "utf8", function (err, data) {
-        JSON.parse(data);
-      });
+      // Validate altered apps file
+      const data = readFileSync("./static/compat-data/apps.json", "utf8");
+      JSON.parse(data);
 
-      await exec(`git add -A`);
-      await exec(
-        `git commit -m "Bot - Add app ${processedPackage} (added by ${interaction.user.tag})"`
+      await finalizePullRequest(
+        branchName,
+        "Bot - Add app ${processedPackage} (added by ${interaction.user.tag})",
+        isStaff(interaction)
       );
-      await exec(
-        `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git "${branchName}"`
-      );
-      console.log(
-        `git push --set-upstream https://Flixbox:PAT@github.com/Flixbox/lp-compat.git "${branchName}" done`
-      );
-      const { stdout } = await exec(
-        `gh pr create --base main --head "${branchName}" --fill`
-      );
-      if (isStaff(interaction)) await exec(`gh pr merge --auto -r`);
     } catch (e) {
       console.error(e);
       return await error(
