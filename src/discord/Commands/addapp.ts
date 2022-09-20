@@ -1,7 +1,7 @@
 import getFeature from "../../featureMap";
-import insertLine from "insert-line";
+
 import util from "util";
-import { readFileSync } from "fs";
+
 
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
@@ -9,6 +9,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 import {
   checkoutNewGitBranch,
   finalizePullRequest,
+  insertApp,
   isStaff,
   processFeatures,
   processPackage,
@@ -66,23 +67,10 @@ module.exports = {
     if (!featuresString)
       return await error("Your feature string is not right!");
 
-    const fullLine = `  "${processedPackage}":{"features":[${featuresString}], "dateModified": ${Date.now()}},`;
-
     try {
       const branchName = await checkoutNewGitBranch();
 
-      try {
-        insertLine("./static/compat-data/apps.json")
-          .contentSync(fullLine)
-          .at(2);
-      } catch (e) {
-        console.error(e);
-        return await error("Couldn't write to the app list!");
-      }
-
-      // Validate altered apps file
-      const data = readFileSync("./static/compat-data/apps.json", "utf8");
-      JSON.parse(data);
+      await insertApp(processedPackage, featuresString);
 
       await finalizePullRequest(
         branchName,

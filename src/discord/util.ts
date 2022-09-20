@@ -5,6 +5,8 @@ import getFeature from "../featureMap";
 import { v4 as uuidv4 } from "uuid";
 import util from "util";
 const exec = util.promisify(require("child_process").exec);
+import insertLine from "insert-line";
+import { readFileSync } from "fs";
 
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 
@@ -108,4 +110,12 @@ export const finalizePullRequest = async (
     `gh pr create --base main --head "${branchName}" --fill`
   );
   if (autoMerge) await exec(`gh pr merge --auto -r`);
+};
+
+export const insertApp = async (processedPackage, featuresString) => {
+  const fullLine = `  "${processedPackage}":{"features":[${featuresString}], "dateModified": ${Date.now()}},`;
+  insertLine("./static/compat-data/apps.json").contentSync(fullLine).at(2);
+  // Validate altered apps file
+  const data = readFileSync("./static/compat-data/apps.json", "utf8");
+  JSON.parse(data);
 };
