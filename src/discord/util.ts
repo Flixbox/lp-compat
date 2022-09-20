@@ -97,7 +97,7 @@ export const finalizePullRequest = async (
   autoMerge = false
 ) => {
   await exec(`git add -A`);
-  await exec(`git commit -m ${message}`);
+  await exec(`git commit -m "${message}`");
   await exec(
     `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git "${branchName}"`
   );
