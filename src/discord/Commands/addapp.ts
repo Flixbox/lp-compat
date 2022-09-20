@@ -66,7 +66,7 @@ module.exports = {
     if (!featuresString)
       return await error("Your feature string is not right!");
 
-    const fullLine = `  "${processedPackage}":{"features":[${featuresString}]},`;
+    const fullLine = `  "${processedPackage}":{"features":[${featuresString}], "dateModified": ${Date.now()}},`;
 
     try {
       const branchName = await checkoutNewGitBranch();
