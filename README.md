@@ -4,6 +4,10 @@
 ![Website CI](https://img.shields.io/static/v1?label=Discord%20bot%20on&message=Railway&color=blueviolet&style=flat&logo=railway)
 ![](https://img.shields.io/uptimerobot/ratio/m792717344-6d627ad71592aa371175f9d6?style=flat)
 
+![](https://img.shields.io/codeclimate/maintainability/Flixbox/lp-compat?style=flat)
+![](https://img.shields.io/codeclimate/issues/Flixbox/lp-compat)
+![](https://img.shields.io/codeclimate/tech-debt/Flixbox/lp-compat)
+
 A website that displays which apps can be patched with Lucky Patcher.
 
 Main page: https://flixbox.github.io/lp-compat/
