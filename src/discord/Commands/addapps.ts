@@ -18,8 +18,8 @@ import { Interaction, InteractionType } from "discord.js";
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("addapp")
-    .setDescription("Add a new app to the list!")
+    .setName("addapps")
+    .setDescription("Add new apps to the list!")
     .addStringOption((option) =>
       option
         .setName("packages")
@@ -53,14 +53,14 @@ module.exports = {
       const branchName = await checkoutNewGitBranch();
 
       try {
-        individualApps.forEach(async (fullAppParamString) => {
+        for (const fullAppParamString of individualApps) {
           const [packageId, features] = fullAppParamString.split("%");
           const processedPackage = await processPackage(packageId);
           const featuresString = await processFeatures(features, interaction);
           if (!featuresString || !processedPackage) throw new Error();
 
           await insertApp(processedPackage, featuresString);
-        });
+        }
       } catch (e) {
         return await error("Your apps list is not right!");
       }
