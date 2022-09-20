@@ -24,7 +24,7 @@ module.exports = {
       option
         .setName("packages")
         .setDescription(
-          "<package>@<features>|<package>@<features>|... - package: like com.gramgames.mergedragons -/features"
+          "<package>@<features>|<package>@<features>|... - Detailed explanation /help"
         )
         .setRequired(true)
     ),
