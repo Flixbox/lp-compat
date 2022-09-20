@@ -12,13 +12,13 @@ module.exports = {
 
     let queuedText = "";
     for (const [i, feature] of Object.keys(features).entries()) {
-      queuedText = `${queuedText}\n${feature}\n*${features[feature].label}*`;
+      queuedText = `${queuedText}\n**${feature}**\n*${features[feature].label}*`;
       if (i % 12 === 0 && i !== 0) {
         await interaction.followUp(queuedText);
         queuedText = "";
       }
     }
-    if(queuedText) await interaction.followUp(queuedText);
+    if (queuedText) await interaction.followUp(queuedText);
 
     return await interaction.followUp(`
 You can also create custom features using this syntax:
