@@ -2,7 +2,6 @@ import getFeature from "../../featureMap";
 
 import util from "util";
 
-
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
@@ -23,23 +22,15 @@ module.exports = {
     .setDescription("Add a new app to the list!")
     .addStringOption((option) =>
       option
-        .setName("packageid")
+        .setName("packages")
         .setDescription(
-          "The package ID can be found in the Lucky Patcher app info or in the Play Store URL of the app."
-        )
-        .setRequired(true)
-    )
-    .addStringOption((option) =>
-      option
-        .setName("features")
-        .setDescription(
-          "A list of notes under the app. Example 1: no-iap | Example 2: iap,warning::Download only on APKPure"
+          "<package>%<features>|<package>%<features>|... // package is the play store ID or link (like com.gramgames.mergedragons) // check /features"
         )
         .setRequired(true)
     ),
+
   execute: async (interaction, client) => {
-    let packageId: string = interaction.options.getString("packageid");
-    const features: string = interaction.options.getString("features");
+    let packages: string = interaction.options.getString("packages");
 
     const response = (content, ephemeral = false) =>
       interaction.editReply({ content, ephemeral });
@@ -54,27 +45,29 @@ module.exports = {
       );
     */
 
-    if (!packageId || !features) return await error();
+    if (!packages) return await error();
 
-    const processedPackage = await processPackage(packageId);
-
-    if (!processedPackage)
-      return await error(
-        "The app package ID is not right or is already on the list! It should look like this: com.gramgames.mergedragons"
-      );
-
-    const featuresString = await processFeatures(features, interaction);
-    if (!featuresString)
-      return await error("Your feature string is not right!");
+    const individualApps = packages.split("|");
 
     try {
       const branchName = await checkoutNewGitBranch();
 
-      await insertApp(processedPackage, featuresString);
+      try {
+        individualApps.forEach(async (fullAppParamString) => {
+          const [packageId, features] = fullAppParamString.split("%");
+          const processedPackage = await processPackage(packageId);
+          const featuresString = await processFeatures(features, interaction);
+          if (!featuresString || !processedPackage) throw new Error();
+
+          await insertApp(processedPackage, featuresString);
+        });
+      } catch (e) {
+        return await error("Your apps list is not right!");
+      }
 
       await finalizePullRequest(
         branchName,
-        `Bot - Add app ${processedPackage} (added by ${interaction.user.tag})`,
+        `Bot - Add apps (added by ${interaction.user.tag})`,
         isStaff(interaction)
       );
     } catch (e) {
@@ -84,7 +77,7 @@ module.exports = {
       );
     }
 
-    let textResponse = `Added the app \`${processedPackage}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`;
+    let textResponse = `Added apps!\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`;
     if (isStaff(interaction))
       textResponse = `${textResponse}\nPR was automatically merged.`;
 
