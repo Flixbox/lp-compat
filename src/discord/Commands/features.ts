@@ -7,8 +7,9 @@ module.exports = {
     .setDescription("Show the features that you can add to an app"),
   execute: async (interaction, client) => {
     let textResponse = `Available features:`;
-    Object.keys(featureMap()).forEach(
-      (feature) => (textResponse = `${textResponse}\n${feature}`)
+    const features = featureMap()
+    Object.keys(features).forEach(
+      (feature) => (textResponse = `${textResponse}\n${feature}\n*${features[feature].label}*`)
     );
 
     return await interaction.editReply(textResponse);
