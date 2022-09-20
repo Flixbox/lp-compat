@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 
-const featureMap = (theme = createTheme()) => ({
+export const featureMap = (theme = createTheme()) => ({
   iap: {
     label: "IAP patch works!",
     color: theme.palette.success.main,
