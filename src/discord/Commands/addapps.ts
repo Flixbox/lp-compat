@@ -24,7 +24,7 @@ module.exports = {
       option
         .setName("packages")
         .setDescription(
-          "<package>%<features>|<package>%<features>|... - package: like com.gramgames.mergedragons -/features"
+          "<package>@<features>|<package>@<features>|... - package: like com.gramgames.mergedragons -/features"
         )
         .setRequired(true)
     ),
@@ -54,7 +54,7 @@ module.exports = {
 
       try {
         for (const fullAppParamString of individualApps) {
-          const [packageId, features] = fullAppParamString.split("%");
+          const [packageId, features] = fullAppParamString.split("@");
           const processedPackage = await processPackage(packageId);
           const featuresString = await processFeatures(features, interaction);
           if (!featuresString || !processedPackage) throw new Error();
