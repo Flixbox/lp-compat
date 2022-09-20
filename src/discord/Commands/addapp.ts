@@ -2,11 +2,18 @@ import getFeature from "../../featureMap";
 import insertLine from "insert-line";
 import util from "util";
 import { readFile } from "fs";
-import axios from "axios";
+
 import { v4 as uuidv4 } from "uuid";
 const exec = util.promisify(require("child_process").exec);
 const { SlashCommandBuilder } = require("@discordjs/builders");
-import apps from "../../../static/compat-data/apps.json";
+
+import {
+  isStaff,
+  processFeatures,
+  processPackage,
+  validatePackage,
+} from "../util";
+import { Interaction, InteractionType } from "discord.js";
 
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 
@@ -33,9 +40,6 @@ module.exports = {
   execute: async (interaction, client) => {
     let packageId: string = interaction.options.getString("packageid");
     const features: string = interaction.options.getString("features");
-    const isStaff =
-      interaction.member.roles.cache.has("670375841523433472") ||
-      interaction.member.id === interaction.guild.ownerId;
 
     const response = (content, ephemeral = false) =>
       interaction.editReply({ content, ephemeral });
@@ -52,47 +56,18 @@ module.exports = {
 
     if (!packageId || !features) return await error();
 
-    if (apps[packageId]) return await error("That app is already on the list!");
+    const processedPackage = await processPackage(packageId);
 
-    const featuresArray = features.split(",");
-    featuresArray.push(`::Added to list by ${interaction.user.tag}`);
-
-    // Some degree of validation for the features
-    try {
-      featuresArray.forEach((feature) => {
-        const feat = getFeature(feature);
-        if (!feat.label) throw new Error();
-      });
-    } catch (e) {
-      console.error(e);
-      return await error("Your feature string is not right!");
-    }
-
-    // packageId could be a URL, we should handle that properly.
-    try {
-      var url = new URL(packageId);
-      var id = url.searchParams.get("id");
-      packageId = id;
-    } catch (e) {}
-
-    try {
-      await axios.get(
-        `https://play.google.com/store/apps/details?id=${packageId}`
-      );
-    } catch (e) {
-      console.error(e);
+    if (!processedPackage)
       return await error(
-        "The app package ID is not right! It should look like this: com.gramgames.mergedragons"
+        "The app package ID is not right or is already on the list! It should look like this: com.gramgames.mergedragons"
       );
-    }
 
-    let featuresString = "";
-    featuresArray.forEach((feature, index) => {
-      featuresString = `${featuresString}"${feature}"`;
-      if (index !== featuresArray.length - 1) featuresString += ",";
-    });
+    const featuresString = await processFeatures(features, interaction);
+    if (!featuresString)
+      return await error("Your feature string is not right!");
 
-    const fullLine = `  "${packageId}":{"features":[${featuresString}]},`;
+    const fullLine = `  "${processedPackage}":{"features":[${featuresString}]},`;
 
     const interactionId = uuidv4();
     const branchName = `feature/addapp-${interactionId}`;
@@ -137,7 +112,7 @@ module.exports = {
 
       await exec(`git add -A`);
       await exec(
-        `git commit -m "Bot - Add app ${packageId} (added by ${interaction.user.tag})"`
+        `git commit -m "Bot - Add app ${processedPackage} (added by ${interaction.user.tag})"`
       );
       await exec(
         `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git "${branchName}"`
@@ -148,7 +123,7 @@ module.exports = {
       const { stdout } = await exec(
         `gh pr create --base main --head "${branchName}" --fill`
       );
-      if (isStaff) await exec(`gh pr merge --auto -r`);
+      if (isStaff(interaction)) await exec(`gh pr merge --auto -r`);
     } catch (e) {
       console.error(e);
       return await error(
@@ -156,8 +131,9 @@ module.exports = {
       );
     }
 
-    let textResponse = `Added the app \`${packageId}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`;
-    if (isStaff) textResponse = `${textResponse}\nPR was automatically merged.`;
+    let textResponse = `Added the app \`${processedPackage}\`!\nFeatures: \`${featuresString}\`\nThanks ${interaction.user.tag}!\nPR has been created and will be verified by the mods.`;
+    if (isStaff(interaction))
+      textResponse = `${textResponse}\nPR was automatically merged.`;
 
     return await interaction.editReply(textResponse);
   },
