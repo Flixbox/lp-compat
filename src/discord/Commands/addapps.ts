@@ -24,7 +24,7 @@ module.exports = {
       option
         .setName("packages")
         .setDescription(
-          "<package>%<features>|<package>%<features>|... // package is the play store ID or link (like com.gramgames.mergedragons) // check /features"
+          "<package>%<features>|<package>%<features>|... - package: like com.gramgames.mergedragons -/features"
         )
         .setRequired(true)
     ),
