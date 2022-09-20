@@ -86,7 +86,7 @@ module.exports = {
 
       await finalizePullRequest(
         branchName,
-        "Bot - Add app ${processedPackage} (added by ${interaction.user.tag})",
+        `Bot - Add app ${processedPackage} (added by ${interaction.user.tag})`,
         isStaff(interaction)
       );
     } catch (e) {
