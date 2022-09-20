@@ -646,7 +646,7 @@
   "com.FDGEntertainment.RedBallRunner":{"features":["no-iap"]},
   "sp.repcount":{"features":["no-iap"]},
   "com.imaginalis.HouseFlipperMobile":{"features":["no-iap"]},
-  "com.rayark.cytus2":{"features":["info::IAP work on version 4.2.5 and below"]},
+  "com.rayark.cytus2":{"features":["may-require-root","info::IAP work on version 4.2.5 and below"]},
   "com.noodlecake.leapon":{"features":["no-iap"]},
   "com.noodlecake.mmmfingers":{"features":["no-iap"]},
   "com.noodlecake.perfectgrind":{"features":["no-iap"]},
