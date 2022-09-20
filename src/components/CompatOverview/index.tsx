@@ -253,6 +253,11 @@ const CompatOverview = () => {
           (a, b) => playstore[b[0]].minInstalls - playstore[a[0]].minInstalls
         ),
     },
+    "date-modified": {
+      title: "Sort by last modified",
+      getSortedApps: (appArray) =>
+        appArray.sort((a, b) => b[1].dateModified - a[1].dateModified),
+    },
   };
 
   const sortedAppInfo = sortOptions[sorting].getSortedApps(
