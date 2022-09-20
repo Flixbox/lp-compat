@@ -13,7 +13,7 @@ module.exports = {
     let queuedText = "";
     for (const [i, feature] of Object.keys(features).entries()) {
       queuedText = `${queuedText}\n${feature}\n*${features[feature].label}*`;
-      if (i % 5 === 0) {
+      if (i % 5 === 0 && i !== 0) {
         await interaction.followUp(queuedText);
         queuedText = "";
       }
