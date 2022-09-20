@@ -12,17 +12,15 @@ module.exports = {
       (feature) =>
         (textResponse = `${textResponse}\n${feature}\n*${features[feature].label}*`)
     );
-    textResponse = `${textResponse}
-
+    await interaction.editReply(textResponse);
+    return await interaction.followUp(`
 You can also create custom features using this syntax:
-
+    
 \`::Download version 1.2.3 on APKPure; then patch\`
-
+    
 \`warning::Don't click the fake ads - Please use AdGuard\`
-
+    
 \`success::IAP work with some minor restrictions\`
-`;
-
-    return await interaction.editReply(textResponse);
+`);
   },
 };
