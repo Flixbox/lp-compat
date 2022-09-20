@@ -4,12 +4,12 @@
 ![](https://img.shields.io/static/v1?label=Discord%20bot%20on&message=Railway&color=blueviolet&style=flat&logo=railway)
 ![](https://img.shields.io/uptimerobot/ratio/m792717344-6d627ad71592aa371175f9d6?style=flat)
 
-![](https://img.shields.io/codeclimate/maintainability/Flixbox/lp-compat?style=flat)
-![](https://img.shields.io/codeclimate/issues/Flixbox/lp-compat)
-![](https://img.shields.io/codeclimate/tech-debt/Flixbox/lp-compat)
+![](https://img.shields.io/codeclimate/maintainability/Flixbox/lp-compat?style=flat&logo=code%20climate)
+![](https://img.shields.io/codeclimate/issues/Flixbox/lp-compat?style=flat&logo=code%20climate)
+![](https://img.shields.io/codeclimate/tech-debt/Flixbox/lp-compat?style=flat&logo=code%20climate)
 
 [![](https://img.shields.io/static/v1?label=Discuss&message=on%20Reddit&color=FF4500&style=flat&logo=reddit)](https://www.reddit.com/r/luckypatcher/)
-[![](https://img.shields.io/static/v1?label=Discuss&message=on%20Discord&color=7289DA&style=flat&logo=reddit)](https://discord.gg/RS5ddYf7mw)
+[![](https://img.shields.io/static/v1?label=Discuss&message=on%20Discord&color=7289DA&style=flat&logo=discord)](https://discord.gg/RS5ddYf7mw)
 
 A website that displays which apps can be patched with Lucky Patcher.
 
