@@ -344,7 +344,7 @@ const CompatOverview = () => {
 
 const AppTile = ({ appId }: { appId: string }) => {
   const theme = useTheme();
-  const { iap, features } = appInfo[appId];
+  const { iap, features, dateModified } = appInfo[appId];
   const {
     title,
     icon,
@@ -409,7 +409,19 @@ const AppTile = ({ appId }: { appId: string }) => {
                 <Typography variant="subtitle2">⭐{scoreText}</Typography>
                 <Typography variant="subtitle2">📩 {installs}</Typography>
               </Box>
-              <Typography variant="subtitle2">{genre}</Typography>
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                flexWrap="wrap"
+              >
+                <Typography variant="subtitle2">{genre}</Typography>
+                {dateModified && (
+                  <Typography variant="subtitle2" whiteSpace="nowrap">
+                    Entry last modified:{" "}
+                    {new Date(dateModified).toLocaleString()}
+                  </Typography>
+                )}
+              </Box>
               {!free && (
                 <Typography variant="subtitle2">{priceText}</Typography>
               )}
