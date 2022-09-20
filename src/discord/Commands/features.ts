@@ -18,7 +18,7 @@ module.exports = {
         queuedText = "";
       }
     }
-    await interaction.followUp(queuedText);
+    if(queuedText) await interaction.followUp(queuedText);
 
     return await interaction.followUp(`
 You can also create custom features using this syntax:
