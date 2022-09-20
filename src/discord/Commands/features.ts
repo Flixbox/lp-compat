@@ -7,12 +7,19 @@ module.exports = {
     .setDescription("Show the features that you can add to an app"),
   execute: async (interaction, client) => {
     let textResponse = `Available features:`;
-    const features = featureMap();
-    Object.keys(features).forEach(
-      (feature) =>
-        (textResponse = `${textResponse}\n${feature}\n*${features[feature].label}*`)
-    );
     await interaction.editReply(textResponse);
+    const features = featureMap();
+
+    let queuedText = "";
+    for (const [i, feature] of Object.keys(features).entries()) {
+      queuedText = `${queuedText}\n${feature}\n*${features[feature].label}*`;
+      if (i % 5 === 0) {
+        await interaction.followUp(queuedText);
+        queuedText = "";
+      }
+    }
+    await interaction.followUp(queuedText);
+
     return await interaction.followUp(`
 You can also create custom features using this syntax:
     
