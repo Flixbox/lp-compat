@@ -1,11 +1,12 @@
 import { executeAppsQuery } from "./util";
 
-const getPlaystoreData = require("../backend/getPlaystoreData");
+const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
 export default async (app) => {
+  console.log(app);
   await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId }))
-      throw new Error("App already exists!");
+      throw new Error(`App ${app.appId} already exists!`);
     const {
       title,
       summary,
@@ -27,7 +28,7 @@ export default async (app) => {
       updated,
       version,
       recentChanges,
-      url
+      url,
     } = await getPlaystoreData(app.appId);
     console.info(`adding ${app.appId}`);
     return await appsCollection.insertOne({
@@ -52,7 +53,7 @@ export default async (app) => {
       updated,
       version,
       recentChanges,
-      url
+      url,
     });
   });
 
