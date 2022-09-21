@@ -1,5 +1,6 @@
 import express from "express";
 import addApp from "../db/addApp";
+import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 
 const app = express();
@@ -19,6 +20,12 @@ app.get("/", async (req, res) => {
 
 app.get("/apps/get/:appId", async (req, res) => {
   res.send(await getApp(req.params.appId));
+});
+
+app.get("/apps/all", async (req, res) => {
+  const allApps = await getAllApps();
+  console.log(JSON.stringify(allApps).length);
+  res.send();
 });
 
 app.post("/apps/add/", async (req, res) => {
