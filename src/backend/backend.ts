@@ -6,6 +6,7 @@ const apps = require("../../static/compat-data/apps.json");
 
 const app = express();
 const port = process.env.PORT || 5000;
+const hostname = process.env.HOSTNAME || "localhost"
 
 (async () => {
   // for (const appId of Object.keys(apps)) {
@@ -35,6 +36,6 @@ app.post("/apps/add/", async (req, res) => {
   res.send(await addApp(app));
 });
 
-app.listen(port, () => {
-  console.log(`Express listening on port ${port}!`);
+app.listen(port, hostname, () => {
+  console.log(`Express listening on port ${hostname}:${port}!`);
 });
