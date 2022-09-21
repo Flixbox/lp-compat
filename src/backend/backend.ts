@@ -1,5 +1,4 @@
-const express = require("express");
-import apps from "../../static/compat-data/apps.json";
+import express from "express";
 import addApp from "../db/addApp";
 import getApp from "../db/getApp";
 
@@ -12,12 +11,19 @@ async function run() {
   // }
 }
 
+app.use(express.json());
+
 app.get("/", async (req, res) => {
   res.send("Hello World!");
 });
 
 app.get("/apps/get/:appId", async (req, res) => {
   res.send(await getApp(req.params.appId));
+});
+
+app.post("/apps/add/", async (req, res) => {
+  const app = req.body;
+  res.send(await addApp(app));
 });
 
 app.listen(port, () => {
