@@ -1,25 +1,25 @@
-import { MongoClient } from "mongodb";
+const express = require("express");
 import apps from "../../static/compat-data/apps.json";
-const playstore = require("../../static/compat-data/playstore.json");
+import addApp from "../db/addApp";
+import getApp from "../db/getApp";
 
-const uri = process.env.MONGO_URL;
-const client = new MongoClient(uri);
+const app = express();
+const port = 5000;
 
 async function run() {
-  try {
-    const database = client.db("test");
-    const appsCollection = database.collection("apps");
-    for (const appId of Object.keys(apps)) {
-      await appsCollection.insertOne({
-        appId,
-        ...apps[appId],
-        ...playstore[appId],
-      });
-      console.info(`added ${appId}`);
-    }
-  } finally {
-    await client.close();
-  }
+  // for (const appId of Object.keys(apps)) {
+  //   await addApp(apps[appId]);
+  // }
 }
 
-run().catch(console.dir);
+app.get("/", async (req, res) => {
+  res.send("Hello World!");
+});
+
+app.get("/apps/get/:appId", async (req, res) => {
+  res.send(await getApp(req.params.appId));
+});
+
+app.listen(port, () => {
+  console.log(`Express listening on port ${port}!`);
+});

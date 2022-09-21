@@ -1,7 +1,7 @@
-import gplay from "google-play-scraper";
 import { writeFileSync } from "fs";
 import { SingleBar, Presets } from "cli-progress";
 import apps from "../static/compat-data/apps.json";
+import getPlaystoreData from "./backend/getPlaystoreData";
 const oldPlayStoreData = require("../static/compat-data/playstore.json");
 
 const fetchData = async () => {
@@ -19,7 +19,7 @@ const fetchData = async () => {
       if (oldPlayStoreData[appId] && oldPlayStoreData[appId].title) {
         playstore[appId] = oldPlayStoreData[appId];
       } else {
-        const result = await gplay.app({ appId });
+        const result = await getPlaystoreData(appId);
         playstore[appId] = result;
         await new Promise((f) => setTimeout(f, 300));
       }
