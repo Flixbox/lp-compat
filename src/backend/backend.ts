@@ -1,4 +1,5 @@
 import express from "express";
+import helmet from "helmet";
 import addApp from "../db/addApp";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
@@ -8,14 +9,15 @@ const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
 
+app.use(helmet());
+app.use(express.json());
+
 (async () => {
   // for (const appId of Object.keys(apps)) {
   //   await addApp({ appId, ...apps[appId] });
   //   console.log("added " + appId);
   // }
 })();
-
-app.use(express.json());
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");
