@@ -1,9 +1,5 @@
 # LP Compatibility Overview
 
-[![](https://github.com/Flixbox/lp-compat/actions/workflows/deploy.yml/badge.svg)](https://github.com/Flixbox/lp-compat/actions/workflows/deploy.yml)
-![](https://img.shields.io/static/v1?label=Discord%20bot%20on&message=Railway&color=blueviolet&style=flat&logo=railway)
-[![](https://img.shields.io/uptimerobot/ratio/m792717344-6d627ad71592aa371175f9d6?style=flat)](https://stats.uptimerobot.com/kPYMYIk88k)
-
 [
 ![](https://img.shields.io/codeclimate/maintainability/Flixbox/lp-compat?style=flat&logo=code%20climate)
 ![](https://img.shields.io/codeclimate/issues/Flixbox/lp-compat?style=flat&logo=code%20climate)
@@ -16,6 +12,13 @@
 A website that displays which apps can be patched with Lucky Patcher.
 
 Main page: https://flixbox.github.io/lp-compat/
+
+[![](https://github.com/Flixbox/lp-compat/actions/workflows/deploy.yml/badge.svg)](https://github.com/Flixbox/lp-compat/actions/workflows/deploy.yml)
+[![](https://img.shields.io/uptimerobot/ratio/m792717344-6d627ad71592aa371175f9d6?style=flat&logo=github)](https://stats.uptimerobot.com/kPYMYIk88k)
+
+There's a Discord bot as well. It can be used to add apps to the list without having to go into the code itself.
+
+![](https://img.shields.io/static/v1?label=Discord%20bot%20on&message=Railway&color=blueviolet&style=flat&logo=railway)
 
 ## Initial setup
 
