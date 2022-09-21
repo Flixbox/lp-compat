@@ -16,6 +16,7 @@
     "scrape": "npx ts-node ./src/refreshPlayStoreData.ts",
     "discord:update": "npx ts-node ./src/sendDiscordUpdate.ts",
     "discord:bot": "npx ts-node ./src/discord/index.ts",
+    "backend:run": "npx ts-node ./src/backend/backend.ts",
     "reddit": "npx ts-node ./src/createUpdatePost.ts"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "lodash": "^4.17.21",
     "markdown-table": "^3.0.2",
     "moment": "^2.29.4",
+    "mongodb": "^4.10.0",
     "prism-react-renderer": "^1.3.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
