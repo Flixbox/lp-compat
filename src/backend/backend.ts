@@ -1,6 +1,7 @@
 import express from "express";
 const helmet = require("helmet");
 import addApp from "../db/addApp";
+import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 const apps = require("../../static/compat-data/apps.json");
@@ -29,6 +30,12 @@ app.get("/apps/get/:appId", async (req, res) => {
 
 app.get("/apps/all", async (req, res) => {
   const allApps = await getAllApps();
+  console.log(JSON.stringify(allApps).length);
+  res.send(allApps);
+});
+
+app.get("/apps/all/ids", async (req, res) => {
+  const allApps = await getAllAppIds();
   console.log(JSON.stringify(allApps).length);
   res.send(allApps);
 });
