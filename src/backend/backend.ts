@@ -5,7 +5,7 @@ import getApp from "../db/getApp";
 const apps = require("../../static/compat-data/apps.json");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 (async () => {
   // for (const appId of Object.keys(apps)) {

@@ -32,6 +32,7 @@ export default async (app) => {
     } = await getPlaystoreData(app.appId);
     console.info(`adding ${app.appId}`);
     return await appsCollection.insertOne({
+      dateModified: Date.now(),
       ...app,
       title,
       summary,
