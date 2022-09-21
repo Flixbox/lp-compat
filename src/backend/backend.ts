@@ -6,7 +6,7 @@ const apps = require("../../static/compat-data/apps.json");
 
 const app = express();
 const port = process.env.PORT || 5000;
-const hostname = process.env.HOSTNAME || "localhost"
+const hostname = process.env.HOSTNAME || "localhost";
 
 (async () => {
   // for (const appId of Object.keys(apps)) {
