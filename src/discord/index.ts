@@ -49,9 +49,10 @@ const rest = new REST({ version: "10" }).setToken(token);
   try {
     console.log("Started refreshing application (/) commands.");
 
-    await rest.put(Routes.applicationCommands(clientId), {
-      body: commands,
-    });
+    // TODO
+    // await rest.put(Routes.applicationCommands(clientId), {
+    //   body: commands,
+    // });
 
     console.log("Successfully reloaded application (/) commands.");
   } catch (error) {
@@ -63,6 +64,10 @@ const rest = new REST({ version: "10" }).setToken(token);
 })();
 
 client.on("interactionCreate", async (interaction: any) => {
+  // TODO
+  return await interaction.reply(
+    "The bot and the entire platform is currently undergoing a massive rewrite. Please have some patience."
+  );
   if (!interaction.isCommand()) return;
   await interaction.deferReply();
   if (!setUpComplete)
