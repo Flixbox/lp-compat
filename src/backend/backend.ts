@@ -1,5 +1,5 @@
 import express from "express";
-import helmet from "helmet";
+const helmet = require("helmet");
 import addApp from "../db/addApp";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
