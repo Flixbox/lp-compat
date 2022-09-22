@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from ".";
 import axiosInstance from "./axios";
 
-export const pageSize = 20;
+export const pageSize = 50;
 
 export const fetchApps = createAsyncThunk(
   "apps/all",
