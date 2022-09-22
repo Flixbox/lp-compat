@@ -198,6 +198,34 @@ const CompatOverview = () => {
     // dispatch(fetchApps());
   }, []);
 
+  const visibilitySettings = [
+    {
+      id: "compatible",
+      title: "Other games",
+      onlyRenderIf: (app: App) => app.features.indexOf("iap") > -1,
+    },
+    {
+      id: "unclear-iap",
+      title: "Uncategorized",
+      onlyRenderIf: (app: App) =>
+        app.features.indexOf("iap") === -1 &&
+        app.features.indexOf("no-iap") === -1,
+    },
+    {
+      id: "incompatible",
+      title: "Incompatible apps",
+      onlyRenderIf: (app: App) => app.features.indexOf("no-iap") > -1,
+    },
+  ];
+
+  const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
+    usePersistentState(
+      visibilitySettings.map((category) => category.id),
+      "onlyShowTheseVisibilitySettings"
+    );
+
+  console.log(onlyShowTheseCategories);
+
   if (!sorting) setSorting("installs-asc");
 
   const sortOptions = {
@@ -270,6 +298,29 @@ const CompatOverview = () => {
               setAppTitleFilter(e.currentTarget.value.toLowerCase())
             }
           />
+
+          {visibilitySettings.map(({ id, title }) => (
+            <ListItem key={id}>
+              <Chip
+                label={title}
+                onClick={() =>
+                  setOnlyShowTheseCategories(xor(onlyShowTheseCategories, [id]))
+                }
+                icon={
+                  <FontAwesomeIcon
+                    icon={
+                      onlyShowTheseCategories.indexOf(id) !== -1
+                        ? faEye
+                        : faEyeSlash
+                    }
+                    color="#e51c23"
+                    size="lg"
+                    opacity={0.9}
+                  />
+                }
+              />
+            </ListItem>
+          ))}
         </Box>
         <div id="apps"></div>
         <Box>
@@ -279,13 +330,26 @@ const CompatOverview = () => {
 
         {sortedApps.map((app) => {
           if (appsRendered.indexOf(app.appId) !== -1) return;
+
           if (
-            app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
-            app.appId.toLowerCase().indexOf(appTitleFilter) !== -1
-          ) {
-            appsRendered.push(app.appId);
-            return <AppTile app={app} key={app.appId} />;
-          }
+            app.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
+            app.appId.toLowerCase().indexOf(appTitleFilter) === -1
+          )
+            return;
+
+          let shouldRenderApp = false;
+          onlyShowTheseCategories.forEach((category) => {
+            if (
+              visibilitySettings
+                .find((setting) => setting.id === category)
+                .onlyRenderIf(app)
+            )
+              shouldRenderApp = true;
+          });
+          if (!shouldRenderApp) return;
+
+          appsRendered.push(app.appId);
+          return <AppTile app={app} key={app.appId} />;
         })}
       </div>
     </section>
