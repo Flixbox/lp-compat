@@ -236,15 +236,18 @@ const CompatOverview = () => {
   const sortOptions = {
     "name-asc": {
       title: "Sort by name",
-      getSortedApps: () => apps.sort((a, b) => a.title.localeCompare(b.title)),
+      getSortedApps: () =>
+        [...apps].sort((a, b) => a.title.localeCompare(b.title)),
     },
     "installs-asc": {
       title: "Sort by downloads",
-      getSortedApps: () => apps.sort((a, b) => b.minInstalls - a.minInstalls),
+      getSortedApps: () =>
+        [...apps].sort((a, b) => b.minInstalls - a.minInstalls),
     },
     "date-modified": {
       title: "Sort by last modified",
-      getSortedApps: () => apps.sort((a, b) => b.dateModified - a.dateModified),
+      getSortedApps: () =>
+        [...apps].sort((a, b) => b.dateModified - a.dateModified),
     },
   };
 
