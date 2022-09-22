@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import ImageScroller from "react-image-scroller";
-import RenderIfVisible from "react-render-if-visible";
 import { useIsVisible } from "react-is-visible";
 import InfiniteScroll from "react-infinite-scroller";
 import {
@@ -45,6 +44,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   App,
   fetchApp,
+  fetchAppCount,
   fetchApps,
   fetchAppsByPage,
 } from "@site/src/redux/appsSlice";
@@ -186,9 +186,13 @@ const CompatOverview = () => {
   const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
   const [pageNumber, setPageNumber] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
 
+  const pageSize = 10;
+
   useEffect(() => {
+    dispatch(fetchAppCount()).then((res) => setAppCount(res.payload));
     // dispatch(fetchApps());
   }, []);
 
@@ -213,6 +217,8 @@ const CompatOverview = () => {
   };
 
   const sortedAppInfo = sortOptions[sorting].getSortedApps();
+
+  const appsRendered = [];
 
   return (
     <section className={styles.features}>
@@ -252,6 +258,10 @@ const CompatOverview = () => {
           pageStart={0}
           loadMore={() => {
             if (loading) return;
+            if (pageNumber * pageSize >= appCount) {
+              setLoading(false);
+              return;
+            }
             setLoading(true);
             dispatch(fetchAppsByPage({ page: pageNumber })).then(() => {
               setPageNumber(pageNumber + 1);
@@ -260,17 +270,21 @@ const CompatOverview = () => {
           }}
           hasMore={true}
           loader={
-            <div className="loader" key={0}>
-              Loading ...
-            </div>
+            <Box>
+              {`Loaded ${apps.length} out of ${appCount} apps!`}
+              {loading && ` Loading more...`}
+            </Box>
           }
         >
           {apps.map((app) => {
+            if (appsRendered.indexOf(app.appId) !== -1) return;
             if (
               app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
               app.appId.toLowerCase().indexOf(appTitleFilter) !== -1
-            )
+            ) {
+              appsRendered.push(app.appId);
               return <AppTile app={app} key={app.appId} />;
+            }
           })}
         </InfiniteScroll>
       </div>
@@ -298,81 +312,72 @@ const AppTile = ({ app }: { app: App }) => {
   const nodeRef = useRef();
   const isVisible = useIsVisible(nodeRef);
   useEffect(() => {
-    if (isVisible && !title) dispatch(fetchApp({ appId }));
+    // if (isVisible && !title) dispatch(fetchApp({ appId }));
   }, [isVisible]);
 
   return (
     <Grid item ref={nodeRef} xs={12} m={1}>
-      <RenderIfVisible defaultHeight={800} stayRendered>
-        <a href={url}>
-          <Card style={{ maxWidth: "100%" }}>
-            <CardContent sx={{ padding: "8px" }}>
-              <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
-                {screenshots.map((image) => (
-                  <img
-                    src={image}
-                    alt="App screenshot"
-                    loading="lazy"
-                    key={image}
-                  />
-                ))}
-              </ImageScroller>
-              {features &&
-                features.map((feature) => (
-                  <Paper
-                    component={Box}
-                    elevation={0}
-                    padding={0.5}
-                    sx={{
-                      backgroundColor: getFeature(feature, theme).color,
-                    }}
-                    key={feature}
-                    mt={0.5}
+      <a href={url}>
+        <Card style={{ maxWidth: "100%" }}>
+          <CardContent sx={{ padding: "8px" }}>
+            <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
+              {screenshots.map((image) => (
+                <img
+                  src={image}
+                  alt="App screenshot"
+                  loading="lazy"
+                  key={image}
+                />
+              ))}
+            </ImageScroller>
+            {features &&
+              features.map((feature) => (
+                <Paper
+                  component={Box}
+                  elevation={0}
+                  padding={0.5}
+                  sx={{
+                    backgroundColor: getFeature(feature, theme).color,
+                  }}
+                  key={feature}
+                  mt={0.5}
+                >
+                  <Typography
+                    color={theme.palette.getContrastText(
+                      getFeature(feature, theme).color
+                    )}
                   >
-                    <Typography
-                      color={theme.palette.getContrastText(
-                        getFeature(feature, theme).color
-                      )}
-                    >
-                      {getFeature(feature, theme).label}
-                    </Typography>
-                  </Paper>
-                ))}
-              <Box display="flex" mt={1}>
-                <Avatar
-                  src={icon}
-                  variant="square"
-                  sx={{ marginRight: 1 }}
-                ></Avatar>
-                <Box display="flex" flexDirection="column">
-                  <Typography>{title}</Typography>
-                  <Typography variant="subtitle2">{appId}</Typography>
-                </Box>
-              </Box>
-              <Box display="flex" justifyContent="space-between">
-                <Typography variant="subtitle2">⭐{scoreText}</Typography>
-                <Typography variant="subtitle2">📩 {installs}</Typography>
-              </Box>
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                flexWrap="wrap"
-              >
-                <Typography variant="subtitle2">{genre}</Typography>
-                {dateModified && (
-                  <Typography variant="subtitle2" whiteSpace="nowrap">
-                    Entry last modified:{" "}
-                    {new Date(dateModified).toLocaleString()}
+                    {getFeature(feature, theme).label}
                   </Typography>
-                )}
+                </Paper>
+              ))}
+            <Box display="flex" mt={1}>
+              <Avatar
+                src={icon}
+                variant="square"
+                sx={{ marginRight: 1 }}
+              ></Avatar>
+              <Box display="flex" flexDirection="column">
+                <Typography>{title}</Typography>
+                <Typography variant="subtitle2">{appId}</Typography>
               </Box>
-              {!free && (
-                <Typography variant="subtitle2">{priceText}</Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between">
+              <Typography variant="subtitle2">⭐{scoreText}</Typography>
+              <Typography variant="subtitle2">📩 {installs}</Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+              <Typography variant="subtitle2">{genre}</Typography>
+              {dateModified && (
+                <Typography variant="subtitle2" whiteSpace="nowrap">
+                  Entry last modified: {new Date(dateModified).toLocaleString()}
+                </Typography>
               )}
-            </CardContent>
-          </Card>
-        </a>
-      </RenderIfVisible>
+            </Box>
+            {!free && <Typography variant="subtitle2">{priceText}</Typography>}
+          </CardContent>
+        </Card>
+      </a>
     </Grid>
   );
 };
