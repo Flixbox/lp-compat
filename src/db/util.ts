@@ -29,4 +29,6 @@ export const appProjection = {
   screenshots: 1,
   free: 1,
   priceText: 1,
-}
+};
+
+export const pageSize = 20;

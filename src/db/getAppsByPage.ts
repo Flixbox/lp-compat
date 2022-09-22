@@ -1,4 +1,4 @@
-import { appProjection, executeAppsQuery } from "./util";
+import { appProjection, executeAppsQuery, pageSize } from "./util";
 
 export default async (page = 0) => {
   return await executeAppsQuery(
@@ -11,8 +11,8 @@ export default async (page = 0) => {
           }
         )
         .sort({ minInstalls: -1 })
-        .skip(page * 10)
-        .limit(10)
+        .skip(page * pageSize)
+        .limit(pageSize)
         .toArray()
   );
 };

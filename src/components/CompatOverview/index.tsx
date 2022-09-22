@@ -51,6 +51,7 @@ import {
 } from "@site/src/redux/appsSlice";
 import { Provider } from "react-redux";
 import { store } from "../../redux";
+import { pageSize } from "@site/src/db/util";
 
 const Root = () => {
   const { colorMode } = useColorMode();
@@ -190,10 +191,12 @@ const CompatOverview = () => {
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
 
-  const pageSize = 10;
+  
 
   useEffect(() => {
-    dispatch(fetchAppCount()).then((res) => setAppCount(res.payload));
+    dispatch(fetchAppCount()).then((res) => {
+      setAppCount(res.payload);
+    });
     // dispatch(fetchApps());
   }, []);
 
@@ -217,9 +220,25 @@ const CompatOverview = () => {
     },
   };
 
-  const sortedAppInfo = sortOptions[sorting].getSortedApps();
+  const sortedApps = sortOptions[sorting].getSortedApps();
 
   const appsRendered = [];
+
+  const loadMore = () => {
+    if (loading) return;
+    if (pageNumber * pageSize >= appCount || apps.length >= appCount) {
+      if (loading) setLoading(false);
+      return;
+    }
+    !loading && setLoading(true);
+    dispatch(fetchAppsByPage({ page: pageNumber })).then(() => {
+      setPageNumber(pageNumber + 1);
+      setLoading(false);
+    });
+  };
+
+  // Attempt to finish loading
+  useEffect(() => loadMore(), [apps, loading, appCount]);
 
   return (
     <section className={styles.features}>
@@ -255,39 +274,21 @@ const CompatOverview = () => {
           />
         </Box>
         <div id="apps"></div>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={() => {
-            if (loading) return;
-            if (pageNumber * pageSize >= appCount) {
-              setLoading(false);
-              return;
-            }
-            setLoading(true);
-            dispatch(fetchAppsByPage({ page: pageNumber })).then(() => {
-              setPageNumber(pageNumber + 1);
-              setLoading(false);
-            });
-          }}
-          hasMore={true}
-          loader={
-            <Box>
-              {`Loaded ${apps.length} out of ${appCount} apps!`}
-              {loading && ` Loading more...`}
-            </Box>
+        <Box>
+          {`Loaded ${apps.length} out of ${appCount} apps!`}
+          {loading && ` Loading more...`}
+        </Box>
+
+        {sortedApps.map((app) => {
+          if (appsRendered.indexOf(app.appId) !== -1) return;
+          if (
+            app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
+            app.appId.toLowerCase().indexOf(appTitleFilter) !== -1
+          ) {
+            appsRendered.push(app.appId);
+            return <AppTile app={app} key={app.appId} />;
           }
-        >
-          {apps.map((app) => {
-            if (appsRendered.indexOf(app.appId) !== -1) return;
-            if (
-              app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
-              app.appId.toLowerCase().indexOf(appTitleFilter) !== -1
-            ) {
-              appsRendered.push(app.appId);
-              return <AppTile app={app} key={app.appId} />;
-            }
-          })}
-        </InfiniteScroll>
+        })}
       </div>
     </section>
   );
@@ -295,7 +296,6 @@ const CompatOverview = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme();
-  const dispatch = useAppDispatch();
   const {
     appId,
     features,
@@ -310,14 +310,9 @@ const AppTile = ({ app }: { app: App }) => {
     free,
     priceText,
   } = app;
-  const nodeRef = useRef();
-  const isVisible = useIsVisible(nodeRef);
-  useEffect(() => {
-    // if (isVisible && !title) dispatch(fetchApp({ appId }));
-  }, [isVisible]);
 
   return (
-    <Grid item ref={nodeRef} xs={12} m={1}>
+    <Grid item xs={12} m={1}>
       <RenderIfVisible defaultHeight={800} stayRendered>
         <a href={url}>
           <Card style={{ maxWidth: "100%" }}>
