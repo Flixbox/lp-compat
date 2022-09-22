@@ -3,6 +3,7 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import ImageScroller from "react-image-scroller";
 import { useIsVisible } from "react-is-visible";
+import RenderIfVisible from "react-render-if-visible";
 import InfiniteScroll from "react-infinite-scroller";
 import {
   Card,
@@ -317,67 +318,76 @@ const AppTile = ({ app }: { app: App }) => {
 
   return (
     <Grid item ref={nodeRef} xs={12} m={1}>
-      <a href={url}>
-        <Card style={{ maxWidth: "100%" }}>
-          <CardContent sx={{ padding: "8px" }}>
-            <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
-              {screenshots.map((image) => (
-                <img
-                  src={image}
-                  alt="App screenshot"
-                  loading="lazy"
-                  key={image}
-                />
-              ))}
-            </ImageScroller>
-            {features &&
-              features.map((feature) => (
-                <Paper
-                  component={Box}
-                  elevation={0}
-                  padding={0.5}
-                  sx={{
-                    backgroundColor: getFeature(feature, theme).color,
-                  }}
-                  key={feature}
-                  mt={0.5}
-                >
-                  <Typography
-                    color={theme.palette.getContrastText(
-                      getFeature(feature, theme).color
-                    )}
+      <RenderIfVisible defaultHeight={800} stayRendered>
+        <a href={url}>
+          <Card style={{ maxWidth: "100%" }}>
+            <CardContent sx={{ padding: "8px" }}>
+              <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
+                {screenshots.map((image) => (
+                  <img
+                    src={image}
+                    alt="App screenshot"
+                    loading="lazy"
+                    key={image}
+                  />
+                ))}
+              </ImageScroller>
+              {features &&
+                features.map((feature) => (
+                  <Paper
+                    component={Box}
+                    elevation={0}
+                    padding={0.5}
+                    sx={{
+                      backgroundColor: getFeature(feature, theme).color,
+                    }}
+                    key={feature}
+                    mt={0.5}
                   >
-                    {getFeature(feature, theme).label}
-                  </Typography>
-                </Paper>
-              ))}
-            <Box display="flex" mt={1}>
-              <Avatar
-                src={icon}
-                variant="square"
-                sx={{ marginRight: 1 }}
-              ></Avatar>
-              <Box display="flex" flexDirection="column">
-                <Typography>{title}</Typography>
-                <Typography variant="subtitle2">{appId}</Typography>
+                    <Typography
+                      color={theme.palette.getContrastText(
+                        getFeature(feature, theme).color
+                      )}
+                    >
+                      {getFeature(feature, theme).label}
+                    </Typography>
+                  </Paper>
+                ))}
+              <Box display="flex" mt={1}>
+                <Avatar
+                  src={icon}
+                  variant="square"
+                  sx={{ marginRight: 1 }}
+                ></Avatar>
+                <Box display="flex" flexDirection="column">
+                  <Typography>{title}</Typography>
+                  <Typography variant="subtitle2">{appId}</Typography>
+                </Box>
               </Box>
-            </Box>
-            <Box display="flex" justifyContent="space-between">
-              <Typography variant="subtitle2">⭐{scoreText}</Typography>
-              <Typography variant="subtitle2">📩 {installs}</Typography>
-            </Box>
-            <Box display="flex" justifyContent="space-between" flexWrap="wrap">
-              <Typography variant="subtitle2">{genre}</Typography>
-              {dateModified && (
-                <Typography variant="subtitle2" whiteSpace="nowrap">
-                  Entry last modified: {new Date(dateModified).toLocaleString()}
-                </Typography>
+              <Box display="flex" justifyContent="space-between">
+                <Typography variant="subtitle2">⭐{scoreText}</Typography>
+                <Typography variant="subtitle2">📩 {installs}</Typography>
+              </Box>
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                flexWrap="wrap"
+              >
+                <Typography variant="subtitle2">{genre}</Typography>
+                {dateModified && (
+                  <Typography variant="subtitle2" whiteSpace="nowrap">
+                    Entry last modified:{" "}
+                    {new Date(dateModified).toLocaleString()}
+                  </Typography>
+                )}
+              </Box>
+              {!free && (
+                <Typography variant="subtitle2">{priceText}</Typography>
               )}
-            </Box>
-            {!free && <Typography variant="subtitle2">{priceText}</Typography>}
-          </CardContent>
-        </Card>
-      </a>
+            </CardContent>
+          </Card>
+        </a>
+      </RenderIfVisible>
     </Grid>
   );
 };
