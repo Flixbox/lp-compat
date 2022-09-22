@@ -1,5 +1,6 @@
 import express from "express";
 const helmet = require("helmet");
+import cors from "cors";
 import addApp from "../db/addApp";
 import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
@@ -11,6 +12,7 @@ const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
 
+app.use(cors());
 app.use(helmet());
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup());

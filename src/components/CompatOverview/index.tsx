@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import ImageScroller from "react-image-scroller";
@@ -39,22 +39,26 @@ import { xor } from "lodash";
 import { usePersistentState } from "react-persistent-state";
 import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
-import { useAppSelector } from "../../redux/hooks";
-import { App } from "@site/src/redux/appsSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { App, fetchApps } from "@site/src/redux/appsSlice";
+import { Provider } from "react-redux";
+import { store } from "../../redux";
 
 const Root = () => {
   const { colorMode } = useColorMode();
   return (
     <>
-      <ThemeProvider
-        theme={createTheme({
-          palette: {
-            mode: colorMode,
-          },
-        })}
-      >
-        <CompatOverview />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider
+          theme={createTheme({
+            palette: {
+              mode: colorMode,
+            },
+          })}
+        >
+          <CompatOverview />
+        </ThemeProvider>
+      </Provider>
     </>
   );
 };
@@ -210,6 +214,7 @@ const categoryList = [
 ];
 
 const CompatOverview = () => {
+  const dispatch = useAppDispatch();
   const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
     usePersistentState(
       categoryList.map((category) => category.id),
@@ -222,6 +227,10 @@ const CompatOverview = () => {
   const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
   const apps = useAppSelector((state) => state.apps);
 
+  useEffect(() => {
+    dispatch(fetchApps());
+  });
+
   if (!sorting) setSorting("installs-asc");
 
   const sortOptions = {
@@ -231,13 +240,11 @@ const CompatOverview = () => {
     },
     "installs-asc": {
       title: "Sort by downloads",
-      getSortedApps: (appArray) =>
-        appArray.sort((a, b) => b.minInstalls - a.minInstalls),
+      getSortedApps: () => apps.sort((a, b) => b.minInstalls - a.minInstalls),
     },
     "date-modified": {
       title: "Sort by last modified",
-      getSortedApps: (appArray) =>
-        appArray.sort((a, b) => b.dateModified - a.dateModified),
+      getSortedApps: () => apps.sort((a, b) => b.dateModified - a.dateModified),
     },
   };
 
