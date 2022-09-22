@@ -22,6 +22,7 @@ import {
   Button,
   Select,
   MenuItem,
+  IconButton,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,6 +35,7 @@ import {
   faEyeSlash,
   faListCheck,
   faRectangleAd,
+  faRefresh,
   faStore,
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
@@ -205,7 +207,7 @@ const CompatOverview = () => {
   const visibilitySettings = [
     {
       id: "compatible",
-      title: "Other games",
+      title: "Compatible apps",
       onlyRenderIf: (app: App) => app.features.indexOf("iap") > -1,
     },
     {
@@ -332,7 +334,10 @@ const CompatOverview = () => {
           {`Loaded ${apps.length} out of ${appCount} apps!`}
           {loading && ` Loading more...`}
           <br />
-          {`Last updated: ${new Date(appsListUpdated).toLocaleString()}`}
+          <IconButton onClick={() => refreshApps()}>
+            <FontAwesomeIcon icon={faRefresh} />
+          </IconButton>
+          {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
         {sortedApps.map((app) => {
@@ -405,6 +410,7 @@ const AppTile = ({ app }: { app: App }) => {
                     key={feature}
                     mt={0.5}
                   >
+                    {app._id}
                     <Typography
                       color={theme.palette.getContrastText(
                         getFeature(feature, theme).color

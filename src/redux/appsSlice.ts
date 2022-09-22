@@ -80,6 +80,10 @@ export const appsSlice = createSlice({
       state[index] = action.payload;
     });
     builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
+      action.payload.forEach(
+        (app) =>
+          app._id === "632c280dabd31def75d1ac54" && console.log("Found app!")
+      );
       return [...state, ...action.payload];
     });
   },
