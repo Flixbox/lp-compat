@@ -10,7 +10,7 @@ export default async (page = 0) => {
             projection: appProjection,
           }
         )
-        .sort("minInstalls")
+        .sort({ minInstalls: 1 })
         .skip(page * 10)
         .limit(10)
         .toArray()
