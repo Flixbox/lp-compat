@@ -1,8 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
-import apps from "../../../static/compat-data/apps.json";
-import playstore from "../../../static/compat-data/playstore.json";
 import ImageScroller from "react-image-scroller";
 import RenderIfVisible from "react-render-if-visible";
 import {
@@ -41,11 +39,8 @@ import { xor } from "lodash";
 import { usePersistentState } from "react-persistent-state";
 import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
-
-/*
- * TODO
- * Sort by name button next to headings for categories
- */
+import { useAppSelector } from "../../redux/hooks";
+import { App } from "@site/src/redux/appsSlice";
 
 const Root = () => {
   const { colorMode } = useColorMode();
@@ -63,16 +58,6 @@ const Root = () => {
     </>
   );
 };
-
-type AppInfo = {
-  string: {
-    iap: number;
-    category?: string;
-    features?: string[];
-  };
-};
-
-const appInfo = apps as unknown as AppInfo;
 
 type FeatureItem = {
   icon: JSX.Element;
@@ -235,34 +220,28 @@ const CompatOverview = () => {
     "appTitleFilter"
   );
   const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
+  const apps = useAppSelector((state) => state.apps);
 
   if (!sorting) setSorting("installs-asc");
 
   const sortOptions = {
     "name-asc": {
       title: "Sort by name",
-      getSortedApps: (appArray) =>
-        appArray.sort((a, b) =>
-          playstore[a[0]].title.localeCompare(playstore[b[0]].title)
-        ),
+      getSortedApps: () => apps.sort((a, b) => a.title.localeCompare(b.title)),
     },
     "installs-asc": {
       title: "Sort by downloads",
       getSortedApps: (appArray) =>
-        appArray.sort(
-          (a, b) => playstore[b[0]].minInstalls - playstore[a[0]].minInstalls
-        ),
+        appArray.sort((a, b) => b.minInstalls - a.minInstalls),
     },
     "date-modified": {
       title: "Sort by last modified",
       getSortedApps: (appArray) =>
-        appArray.sort((a, b) => b[1].dateModified - a[1].dateModified),
+        appArray.sort((a, b) => b.dateModified - a.dateModified),
     },
   };
 
-  const sortedAppInfo = sortOptions[sorting].getSortedApps(
-    Object.entries(appInfo)
-  );
+  const sortedAppInfo = sortOptions[sorting].getSortedApps();
 
   return (
     <section className={styles.features}>
@@ -328,15 +307,13 @@ const CompatOverview = () => {
                   {title}
                 </Typography>
                 <Grid container>
-                  {sortedAppInfo.map(([appId, app]) => {
+                  {sortedAppInfo.map((app) => {
                     if (
                       onlyRenderIf(app) &&
-                      (playstore[appId].title
-                        .toLowerCase()
-                        .indexOf(appTitleFilter) !== -1 ||
-                        appId.toLowerCase().indexOf(appTitleFilter) !== -1)
+                      (app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
+                        app.appId.toLowerCase().indexOf(appTitleFilter) !== -1)
                     )
-                      return <AppTile appId={appId} key={appId} />;
+                      return <AppTile app={app} key={app.appId} />;
                   })}
                 </Grid>
               </div>
@@ -347,10 +324,12 @@ const CompatOverview = () => {
   );
 };
 
-const AppTile = ({ appId }: { appId: string }) => {
+const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme();
-  const { iap, features, dateModified } = appInfo[appId];
   const {
+    appId,
+    features,
+    dateModified,
     title,
     icon,
     installs,
@@ -360,7 +339,7 @@ const AppTile = ({ appId }: { appId: string }) => {
     screenshots,
     free,
     priceText,
-  } = playstore[appId];
+  } = app;
 
   return (
     <Grid item xs={12} m={1}>
