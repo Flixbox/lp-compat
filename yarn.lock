@@ -5261,7 +5261,7 @@ history@^4.9.0:
     tiny-warning "^1.0.0"
     value-equal "^1.0.1"
 
-hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
+hoist-non-react-statics@3.3.2, hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -7407,6 +7407,14 @@ react-image-scroller@^0.3.0:
     intersection-observer "^0.5.1"
     smoothscroll-polyfill "^0.4.3"
     style-loader "^0.23.1"
+
+react-is-visible@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-is-visible/-/react-is-visible-1.2.0.tgz#d737ecf6609d31ce4237aeb2e49da2a7454e63cd"
+  integrity sha512-052RH7aHdKrABOBH12wvS2zTAzJ8MnaswPvX2AQGq5wxvD8BnQ5vcnf0cA0cj2g4bjH0+qXz1AIkEL9ZlnN23A==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    hoist-non-react-statics "3.3.2"
 
 react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0:
   version "16.13.1"
