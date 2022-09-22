@@ -7,6 +7,7 @@ import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
 import getAppsByPage from "../db/getAppsByPage";
+import getAppCount from "../db/getAppCount";
 // const apps = require("../../static/compat-data/apps.json");
 
 const app = express();
@@ -27,6 +28,10 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup());
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");
+});
+
+app.get("/apps/count", async (req, res) => {
+  res.send(await getAppCount());
 });
 
 app.get("/apps/get/:appId", async (req, res) => {

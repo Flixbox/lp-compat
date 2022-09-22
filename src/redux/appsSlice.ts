@@ -18,6 +18,11 @@ export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   async ({ page }) => (await axiosInstance.get(`apps/page/${page}`)).data
 );
 
+export const fetchAppCount = createAsyncThunk(
+  "apps/count",
+  async () => (await axiosInstance.get(`apps/count`)).data
+);
+
 export interface App {
   appId: string;
   features: string[];

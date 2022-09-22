@@ -177,62 +177,15 @@ function Feature({ icon, description }: FeatureItem) {
   );
 }
 
-const categoryList = [
-  {
-    id: "hof",
-    title: "Hall of Fame",
-    onlyRenderIf: (appInfo) => appInfo.category === "hof",
-  },
-  {
-    id: "other-games",
-    title: "Other games",
-    onlyRenderIf: (appInfo) =>
-      !appInfo.category && appInfo.features.indexOf("iap") > -1,
-  },
-  {
-    id: "tools",
-    title: "Tools",
-    onlyRenderIf: (appInfo) => appInfo.category === "tools",
-  },
-  {
-    id: "uncategorized",
-    title: "Uncategorized apps",
-    onlyRenderIf: (appInfo) =>
-      !appInfo.category &&
-      appInfo.features.indexOf("no-iap") === -1 &&
-      appInfo.features.indexOf("iap") === -1,
-  },
-  {
-    id: "unclear-iap",
-    title: "Needs verification",
-    onlyRenderIf: (appInfo) => appInfo.category === "unclear-iap",
-  },
-  {
-    id: "root",
-    title: "Requires Root",
-    onlyRenderIf: (appInfo) => appInfo.category === "root",
-  },
-  {
-    id: "incompatible",
-    title: "Incompatible apps",
-    onlyRenderIf: (appInfo) =>
-      !appInfo.category && appInfo.features.indexOf("no-iap") > -1,
-  },
-];
-
 const CompatOverview = () => {
   const dispatch = useAppDispatch();
-  const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
-    usePersistentState(
-      categoryList.map((category) => category.id),
-      "onlyShowTheseCategories"
-    );
   const [appTitleFilter, setAppTitleFilter] = usePersistentState(
     "",
     "appTitleFilter"
   );
   const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
   const [pageNumber, setPageNumber] = useState(0);
+  const [loading, setLoading] = useState(false);
   const apps = useAppSelector((state) => state.apps);
 
   useEffect(() => {
@@ -293,37 +246,18 @@ const CompatOverview = () => {
               setAppTitleFilter(e.currentTarget.value.toLowerCase())
             }
           />
-          {categoryList.map(({ id, title }) => (
-            <ListItem key={id}>
-              <Chip
-                label={title}
-                onClick={() =>
-                  setOnlyShowTheseCategories(xor(onlyShowTheseCategories, [id]))
-                }
-                icon={
-                  <FontAwesomeIcon
-                    icon={
-                      onlyShowTheseCategories.indexOf(id) !== -1
-                        ? faEye
-                        : faEyeSlash
-                    }
-                    color="#e51c23"
-                    size="lg"
-                    opacity={0.9}
-                  />
-                }
-              />
-            </ListItem>
-          ))}
         </Box>
         <div id="apps"></div>
         <InfiniteScroll
           pageStart={0}
-          loadMore={() =>
-            dispatch(fetchAppsByPage({ page: pageNumber })).then(() =>
-              setPageNumber(pageNumber + 1)
-            )
-          }
+          loadMore={() => {
+            if (loading) return;
+            setLoading(true);
+            dispatch(fetchAppsByPage({ page: pageNumber })).then(() => {
+              setPageNumber(pageNumber + 1);
+              setLoading(false);
+            });
+          }}
           hasMore={true}
           loader={
             <div className="loader" key={0}>
