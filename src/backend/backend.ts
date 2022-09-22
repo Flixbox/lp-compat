@@ -5,6 +5,7 @@ import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
+// const apps = require("../../static/compat-data/apps.json");
 
 const app = express();
 const port = +process.env.PORT || 5000;

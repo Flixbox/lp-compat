@@ -18,6 +18,7 @@ export interface App {
   minInstalls: number;
   price: number;
   free: boolean;
+  score: number;
   scoreText: string;
   priceText: string;
   androidVersion: number;
