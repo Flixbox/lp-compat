@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from ".";
 import axiosInstance from "./axios";
+import { clearState, setAppsListPage } from "./systemSlice";
 
 export const pageSize = 50;
 
@@ -17,8 +18,13 @@ export const fetchApp = createAsyncThunk<any, { appId: string }>(
 
 export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   "apps/page",
-  async ({ page }) =>
-    (await axiosInstance.get(`apps/page/${page}/${pageSize}`)).data
+  async ({ page }, thunkAPI) => {
+    const data = (await axiosInstance.get(`apps/page/${page}/${pageSize}`))
+      .data;
+    console.log("page", page);
+    thunkAPI.dispatch(setAppsListPage(page + 1));
+    return data;
+  }
 );
 
 export const fetchAppCount = createAsyncThunk(
@@ -27,6 +33,7 @@ export const fetchAppCount = createAsyncThunk(
 );
 
 export interface App {
+  _id: string;
   appId: string;
   features: string[];
   dateModified: number;
@@ -64,6 +71,7 @@ export const appsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(clearState, (state, action) => initialState);
     builder.addCase(fetchApps.fulfilled, (state, action) => action.payload);
     builder.addCase(fetchApp.fulfilled, (state, action) => {
       const index = state.findIndex(
@@ -72,10 +80,13 @@ export const appsSlice = createSlice({
       if (index < 0) state.push(action.payload);
       state[index] = action.payload;
     });
-    builder.addCase(fetchAppsByPage.fulfilled, (state, action) => [
-      ...state,
-      ...action.payload,
-    ]);
+    builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
+      action.payload.forEach(
+        (app) =>
+          app._id === "632c2ae4abd31def75d1aed4" && console.log("Found app!")
+      );
+      return [...state, ...action.payload];
+    });
   },
 });
 

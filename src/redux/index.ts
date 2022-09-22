@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import appsReducer from "./appsSlice";
+import systemReducer from "./systemSlice";
 import { save, load } from "redux-localstorage-simple";
 
 export const store = configureStore({
   reducer: {
     apps: appsReducer,
+    system: systemReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(save()),
   preloadedState: load(),

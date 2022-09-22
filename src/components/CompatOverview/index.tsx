@@ -52,6 +52,8 @@ import {
 } from "@site/src/redux/appsSlice";
 import { Provider } from "react-redux";
 import { store } from "../../redux";
+import { clearState, setAppsListPage } from "@site/src/redux/systemSlice";
+import { clear } from "redux-localstorage-simple";
 
 const Root = () => {
   const { colorMode } = useColorMode();
@@ -186,10 +188,12 @@ const CompatOverview = () => {
     "appTitleFilter"
   );
   const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
-  const [pageNumber, setPageNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
+  const { appsListUpdated, appsListPage } = useAppSelector(
+    (state) => state.system
+  );
 
   useEffect(() => {
     dispatch(fetchAppCount()).then((res) => {
@@ -224,8 +228,6 @@ const CompatOverview = () => {
       "onlyShowTheseVisibilitySettings"
     );
 
-  console.log(onlyShowTheseCategories);
-
   if (!sorting) setSorting("installs-asc");
 
   const sortOptions = {
@@ -246,19 +248,38 @@ const CompatOverview = () => {
     },
   };
 
+  // Shh, the counter isn't buggy when the user reloads the page during load...
+  if (apps.length > appCount && appCount !== 0) {
+    // dispatch(clearState());
+    // clear();
+  }
+
+  var seen = {};
+  var hasDuplicates = apps.some(function (currentObject) {
+    if (seen.hasOwnProperty(currentObject._id)) {
+      // Current name is already seen
+      console.log(currentObject);
+      return true;
+    }
+
+    // Current name is being seen for the first time
+    return (seen[currentObject._id] = false);
+  });
+
   const sortedApps = sortOptions[sorting].getSortedApps();
 
   const appsRendered = [];
 
   const loadMore = () => {
     if (loading) return;
-    if (pageNumber * pageSize >= appCount || apps.length >= appCount) {
+    if (appsListPage * pageSize >= appCount || apps.length >= appCount) {
       if (loading) setLoading(false);
       return;
     }
     !loading && setLoading(true);
-    dispatch(fetchAppsByPage({ page: pageNumber })).then(() => {
-      setPageNumber(pageNumber + 1);
+    console.log("appsListPage", appsListPage);
+    dispatch(fetchAppsByPage({ page: appsListPage })).then(() => {
+      setAppsListPage(appsListPage + 1);
       setLoading(false);
     });
   };
@@ -323,10 +344,12 @@ const CompatOverview = () => {
           ))}
         </Box>
         <div id="apps"></div>
-        <Box>
+        <Typography>
           {`Loaded ${apps.length} out of ${appCount} apps!`}
           {loading && ` Loading more...`}
-        </Box>
+          <br />
+          {`Last updated: ${new Date(appsListUpdated).toLocaleString()}`}
+        </Typography>
 
         {sortedApps.map((app) => {
           if (appsRendered.indexOf(app.appId) !== -1) return;
