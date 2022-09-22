@@ -21,7 +21,6 @@ const systemSlice = createSlice({
       state.appsListUpdated = action.payload;
     },
     setAppsListPage(state, action: PayloadAction<number>) {
-      console.log("action.payload", action.payload);
       state.appsListPage = action.payload;
     },
   },

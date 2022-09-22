@@ -52,7 +52,7 @@ import {
 } from "@site/src/redux/appsSlice";
 import { Provider } from "react-redux";
 import { store } from "../../redux";
-import { clearState, setAppsListPage } from "@site/src/redux/systemSlice";
+import { clearState } from "@site/src/redux/systemSlice";
 import { clear } from "redux-localstorage-simple";
 
 const Root = () => {
@@ -248,27 +248,12 @@ const CompatOverview = () => {
     },
   };
 
-  // Shh, the counter isn't buggy when the user reloads the page during load...
-  if (apps.length > appCount && appCount !== 0) {
-    // dispatch(clearState());
-    // clear();
-  }
-
-  var seen = {};
-  var hasDuplicates = apps.some(function (currentObject) {
-    if (seen.hasOwnProperty(currentObject._id)) {
-      // Current name is already seen
-      console.log(currentObject);
-      return true;
-    }
-
-    // Current name is being seen for the first time
-    return (seen[currentObject._id] = false);
-  });
+  const refreshApps = () => {
+    dispatch(clearState());
+    clear();
+  };
 
   const sortedApps = sortOptions[sorting].getSortedApps();
-
-  const appsRendered = [];
 
   const loadMore = () => {
     if (loading) return;
@@ -279,7 +264,6 @@ const CompatOverview = () => {
     !loading && setLoading(true);
     console.log("appsListPage", appsListPage);
     dispatch(fetchAppsByPage({ page: appsListPage })).then(() => {
-      setAppsListPage(appsListPage + 1);
       setLoading(false);
     });
   };
@@ -352,8 +336,6 @@ const CompatOverview = () => {
         </Typography>
 
         {sortedApps.map((app) => {
-          if (appsRendered.indexOf(app.appId) !== -1) return;
-
           if (
             app.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
             app.appId.toLowerCase().indexOf(appTitleFilter) === -1
@@ -371,7 +353,6 @@ const CompatOverview = () => {
           });
           if (!shouldRenderApp) return;
 
-          appsRendered.push(app.appId);
           return <AppTile app={app} key={app.appId} />;
         })}
       </div>

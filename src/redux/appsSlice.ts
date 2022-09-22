@@ -21,7 +21,6 @@ export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   async ({ page }, thunkAPI) => {
     const data = (await axiosInstance.get(`apps/page/${page}/${pageSize}`))
       .data;
-    console.log("page", page);
     thunkAPI.dispatch(setAppsListPage(page + 1));
     return data;
   }
@@ -81,10 +80,6 @@ export const appsSlice = createSlice({
       state[index] = action.payload;
     });
     builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
-      action.payload.forEach(
-        (app) =>
-          app._id === "632c2ae4abd31def75d1aed4" && console.log("Found app!")
-      );
       return [...state, ...action.payload];
     });
   },
