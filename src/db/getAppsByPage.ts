@@ -1,6 +1,6 @@
 import { appProjection, executeAppsQuery } from "./util";
 
-export default async () => {
+export default async (page = 0) => {
   return await executeAppsQuery(
     async (appsCollection) =>
       await appsCollection
@@ -11,6 +11,8 @@ export default async () => {
           }
         )
         .sort("installs")
+        .skip(page * 10)
+        .limit(10)
         .toArray()
   );
 };

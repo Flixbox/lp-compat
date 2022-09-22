@@ -6,6 +6,7 @@ import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
+import getAppsByPage from "../db/getAppsByPage";
 // const apps = require("../../static/compat-data/apps.json");
 
 const app = express();
@@ -36,6 +37,12 @@ app.get("/apps/all", async (req, res) => {
   const allApps = await getAllApps();
   console.log(JSON.stringify(allApps).length);
   res.send(allApps);
+});
+
+app.get("/apps/page/:page", async (req, res) => {
+  const apps = await getAppsByPage(+req.params.page);
+  console.log(JSON.stringify(apps).length);
+  res.send(apps);
 });
 
 app.get("/apps/all/ids", async (req, res) => {

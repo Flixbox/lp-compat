@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import ImageScroller from "react-image-scroller";
 import RenderIfVisible from "react-render-if-visible";
+import { useIsVisible } from "react-is-visible";
+import InfiniteScroll from "react-infinite-scroller";
 import {
   Card,
   Typography,
@@ -40,7 +42,12 @@ import { usePersistentState } from "react-persistent-state";
 import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { App, fetchApps } from "@site/src/redux/appsSlice";
+import {
+  App,
+  fetchApp,
+  fetchApps,
+  fetchAppsByPage,
+} from "@site/src/redux/appsSlice";
 import { Provider } from "react-redux";
 import { store } from "../../redux";
 
@@ -225,11 +232,12 @@ const CompatOverview = () => {
     "appTitleFilter"
   );
   const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
+  const [pageNumber, setPageNumber] = useState(0);
   const apps = useAppSelector((state) => state.apps);
 
   useEffect(() => {
     dispatch(fetchApps());
-  });
+  }, []);
 
   if (!sorting) setSorting("installs-asc");
 
@@ -309,26 +317,24 @@ const CompatOverview = () => {
           ))}
         </Box>
         <div id="apps"></div>
-        {categoryList.map(
-          ({ id, title, onlyRenderIf }) =>
-            onlyShowTheseCategories.indexOf(id) !== -1 && (
-              <div className="row" key={id}>
-                <Typography variant="h3" id={id}>
-                  {title}
-                </Typography>
-                <Grid container>
-                  {sortedAppInfo.map((app) => {
-                    if (
-                      onlyRenderIf(app) &&
-                      (app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
-                        app.appId.toLowerCase().indexOf(appTitleFilter) !== -1)
-                    )
-                      return <AppTile app={app} key={app.appId} />;
-                  })}
-                </Grid>
-              </div>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={() => dispatch(fetchAppsByPage({ page: pageNumber }))}
+          hasMore={true}
+          loader={
+            <div className="loader" key={0}>
+              Loading ...
+            </div>
+          }
+        >
+          {apps.map((app) => {
+            if (
+              app.title.toLowerCase().indexOf(appTitleFilter) !== -1 ||
+              app.appId.toLowerCase().indexOf(appTitleFilter) !== -1
             )
-        )}
+              return <AppTile app={app} key={app.appId} />;
+          })}
+        </InfiniteScroll>
       </div>
     </section>
   );
@@ -336,6 +342,7 @@ const CompatOverview = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme();
+  const dispatch = useAppDispatch();
   const {
     appId,
     features,
@@ -350,9 +357,14 @@ const AppTile = ({ app }: { app: App }) => {
     free,
     priceText,
   } = app;
+  const nodeRef = useRef();
+  const isVisible = useIsVisible(nodeRef);
+  useEffect(() => {
+    if (isVisible && !title) dispatch(fetchApp({ appId }));
+  }, [isVisible]);
 
   return (
-    <Grid item xs={12} m={1}>
+    <Grid item ref={nodeRef} xs={12} m={1}>
       <RenderIfVisible defaultHeight={800} stayRendered>
         <a href={url}>
           <Card style={{ maxWidth: "100%" }}>
