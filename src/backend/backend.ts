@@ -44,8 +44,8 @@ app.get("/apps/all", async (req, res) => {
   res.send(allApps);
 });
 
-app.get("/apps/page/:page", async (req, res) => {
-  const apps = await getAppsByPage(+req.params.page);
+app.get("/apps/page/:page/:pagesize", async (req, res) => {
+  const apps = await getAppsByPage(+req.params.page, +req.params.pagesize);
   console.log(JSON.stringify(apps).length);
   res.send(apps);
 });

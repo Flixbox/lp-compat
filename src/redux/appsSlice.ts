@@ -3,6 +3,8 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from ".";
 import axiosInstance from "./axios";
 
+export const pageSize = 20;
+
 export const fetchApps = createAsyncThunk(
   "apps/all",
   async () => (await axiosInstance.get("/apps/all")).data
@@ -15,7 +17,8 @@ export const fetchApp = createAsyncThunk<any, { appId: string }>(
 
 export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   "apps/page",
-  async ({ page }) => (await axiosInstance.get(`apps/page/${page}`)).data
+  async ({ page }) =>
+    (await axiosInstance.get(`apps/page/${page}/${pageSize}`)).data
 );
 
 export const fetchAppCount = createAsyncThunk(

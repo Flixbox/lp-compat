@@ -48,10 +48,10 @@ import {
   fetchAppCount,
   fetchApps,
   fetchAppsByPage,
+  pageSize,
 } from "@site/src/redux/appsSlice";
 import { Provider } from "react-redux";
 import { store } from "../../redux";
-import { pageSize } from "@site/src/db/util";
 
 const Root = () => {
   const { colorMode } = useColorMode();
@@ -190,8 +190,6 @@ const CompatOverview = () => {
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
-
-  
 
   useEffect(() => {
     dispatch(fetchAppCount()).then((res) => {

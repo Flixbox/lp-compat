@@ -31,4 +31,3 @@ export const appProjection = {
   priceText: 1,
 };
 
-export const pageSize = 20;
