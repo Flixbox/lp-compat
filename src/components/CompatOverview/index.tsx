@@ -236,7 +236,7 @@ const CompatOverview = () => {
   const apps = useAppSelector((state) => state.apps);
 
   useEffect(() => {
-    dispatch(fetchApps());
+    // dispatch(fetchApps());
   }, []);
 
   if (!sorting) setSorting("installs-asc");
@@ -319,7 +319,11 @@ const CompatOverview = () => {
         <div id="apps"></div>
         <InfiniteScroll
           pageStart={0}
-          loadMore={() => dispatch(fetchAppsByPage({ page: pageNumber }))}
+          loadMore={() =>
+            dispatch(fetchAppsByPage({ page: pageNumber })).then(() =>
+              setPageNumber(pageNumber + 1)
+            )
+          }
           hasMore={true}
           loader={
             <div className="loader" key={0}>
