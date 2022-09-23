@@ -3,6 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from ".";
 import axiosInstance from "./axios";
 import { clearState, setAppsListPage } from "./systemSlice";
+import { App } from "../types";
 
 export const pageSize = 50;
 
@@ -30,36 +31,6 @@ export const fetchAppCount = createAsyncThunk(
   "apps/count",
   async () => (await axiosInstance.get(`apps/count`)).data
 );
-
-export interface App {
-  _id: string;
-  appId: string;
-  features: string[];
-  dateModified: number;
-  title: string;
-  summary: string;
-  installs: string;
-  minInstalls: number;
-  price: number;
-  free: boolean;
-  score: number;
-  scoreText: string;
-  priceText: string;
-  androidVersion: number;
-  androidVersionText: string;
-  developer: string;
-  developerId: string;
-  genre: string;
-  genreId: string;
-  icon: string;
-  headerImage: string;
-  screenshots: string[];
-  adSupported: boolean;
-  updated: number;
-  version: string;
-  recentChanges: string;
-  url: string;
-}
 
 // Define the initial state using that type
 const initialState: App[] = [];

@@ -1,3 +1,4 @@
+import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { executeAppsQuery } from "./util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
@@ -63,4 +64,8 @@ export default async (app) => {
   });
 
   console.info(`added ${app.appId}`);
+
+  await sendDiscordUpdate(app.appId);
+
+  console.log("Discord update sent! " + app.appId);
 };

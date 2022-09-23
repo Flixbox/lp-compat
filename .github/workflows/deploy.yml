@@ -21,17 +21,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: yarn
-      - name: Scrape play store data for apps
-        run: npm run scrape
       - name: Build website
         run: npm run build
-      - name: Send Discord update
-        run: npm run discord:update
-        env:
-          CI: true
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          GITHUB_BEFORE: ${{ github.event.before}}
-          GITHUB_SHA: ${{ github.sha}}
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus

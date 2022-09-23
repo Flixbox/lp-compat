@@ -13,8 +13,6 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "scrape": "npx ts-node ./src/refreshPlayStoreData.ts",
-    "discord:update": "npx ts-node ./src/sendDiscordUpdate.ts",
     "discord:bot": "npx ts-node ./src/discord/index.ts",
     "backend:run": "npx ts-node ./src/backend/backend.ts",
     "reddit": "npx ts-node ./src/createUpdatePost.ts"

@@ -45,7 +45,6 @@ import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
-  App,
   fetchApp,
   fetchAppCount,
   fetchApps,
@@ -56,6 +55,7 @@ import { Provider } from "react-redux";
 import { store } from "../../redux";
 import { clearState } from "@site/src/redux/systemSlice";
 import { clear } from "redux-localstorage-simple";
+import { App } from "@site/src/types";
 
 const Root = () => {
   const { colorMode } = useColorMode();
