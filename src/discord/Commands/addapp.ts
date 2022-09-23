@@ -51,6 +51,7 @@ module.exports = {
     if (!featuresString) return await error();
 
     let features;
+    let appId;
     try {
       features = await processFeatures(featuresString, interaction);
     } catch (e) {
@@ -60,7 +61,7 @@ module.exports = {
     }
 
     try {
-      const appId = await processPackage(packageParam);
+      appId = await processPackage(packageParam);
       if (!features || !appId) throw new Error();
 
       await addApp({ appId, features } as App);
@@ -70,9 +71,9 @@ module.exports = {
       );
     }
 
-    let textResponse = `Added app!\nThanks ${interaction.user.tag}!\n.`;
-    if (isStaff(interaction))
-      textResponse = `${textResponse}\nPR was automatically merged.`;
+    let textResponse = `Added app ${appId}!\nThanks ${interaction.user.tag}!\n.`;
+    // if (isStaff(interaction))
+    //   textResponse = `${textResponse}\nPR was automatically merged.`;
 
     return await interaction.editReply(textResponse);
   },
