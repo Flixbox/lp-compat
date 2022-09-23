@@ -54,6 +54,13 @@ app.get("/apps/all/ids", async (req, res) => {
 });
 
 app.post("/apps/add/", async (req, res) => {
+  /*  #swagger.parameters['obj'] = {
+                in: 'body',
+                description: 'App information.',
+                required: true,
+                schema: { $ref: "#/definitions/App" }
+      } 
+  */
   const app = req.body;
   res.send(await addApp(app, res));
 });

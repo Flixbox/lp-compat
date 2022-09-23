@@ -15,7 +15,7 @@
     "typecheck": "tsc",
     "discord:bot": "npx ts-node ./src/discord/index.ts",
     "backend:run": "yarn run backend:codegen && npx ts-node ./src/backend/backend.ts",
-    "backend:codegen": "npx ts-node ./src/backend/swagger-codegen.ts",
+    "backend:codegen": "npx ts-node ./src/backend/swaggerCodegen.ts",
     "reddit": "npx ts-node ./src/createUpdatePost.ts"
   },
   "dependencies": {
