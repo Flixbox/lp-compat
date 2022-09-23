@@ -6,8 +6,8 @@ import {
   processPackage,
   validatePackage,
 } from "../util";
-import addApp from "@site/src/db/addApp";
-import { App } from "@site/src/types";
+import addApp from "../../db/addApp";
+import { App } from "../../types";
 
 module.exports = {
   data: new SlashCommandBuilder()
