@@ -71,7 +71,7 @@ module.exports = {
       );
     }
 
-    let textResponse = `Added app ${appId}!\nThanks ${interaction.user.tag}!\n.`;
+    let textResponse = `Added app ${appId}!\nThanks ${interaction.user.tag}!`;
     // if (isStaff(interaction))
     //   textResponse = `${textResponse}\nPR was automatically merged.`;
 
