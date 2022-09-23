@@ -9,7 +9,7 @@ import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
-// const apps = require("../../static/compat-data/apps.json");
+import generatedDocs from "../../swagger-output.json";
 
 const app = express();
 const port = +process.env.PORT || 5000;
@@ -21,41 +21,17 @@ app.use(express.json());
 app.use(
   "/api-docs",
   swaggerUi.serve,
-  swaggerUi.setup(specs, { explorer: true })
+  swaggerUi.setup(generatedDocs, { explorer: true })
 );
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");
 });
 
-/**
- * @openapi
- * /apps/count:
- *   get:
- *     responses:
- *       200:
- *         description: Returns the amount of apps currently in the app list.
- */
 app.get("/apps/count", async (req, res) => {
   res.send(await getAppCount());
 });
 
-/**
- * @openapi
- * /apps/get/{appId}:
- *   get:
- *     parameters:
- *       - name: id
- *         in: path
- *         description: User ID
- *         required: true
- *         schema:
- *           type: integer
- *           format: int64
- *     responses:
- *       200:
- *         description: Returns the amount of apps currently in the app list.
- */
 app.get("/apps/get/:appId", async (req, res) => {
   res.send(await getApp(req.params.appId));
 });
