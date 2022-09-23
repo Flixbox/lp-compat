@@ -15,13 +15,44 @@ const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
 
-// const specs = swaggerJsdoc(options);
+const options = {
+  failOnErrors: true,
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "lp-compat",
+      version: "0.1.0",
+      description:
+        "Lucky Patcher compatibility list API. Manages the app list.",
+      contact: {
+        name: "Flixbox",
+        url: "https://flixbox.github.io/lp-compat/",
+      },
+    },
+  },
+  apis: ["./src/backend/backend.ts"],
+};
+
+const specs = swaggerJsdoc(options);
 
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup());
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 
+/**
+ * @openapi
+ * /:
+ *   get:
+ *     description: Welcome to swagger-jsdoc!
+ *     responses:
+ *       200:
+ *         description: Returns a mysterious string.
+ */
 app.get("/", async (req, res) => {
   res.send("Hello World!");
 });
