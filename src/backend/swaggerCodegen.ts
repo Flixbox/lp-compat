@@ -2,11 +2,16 @@ const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
   info: {
-    title: "My API",
-    description: "Description",
+    title: "Lucky Patcher Compatibility API",
+    description: "An API for managing the list of compatible apps.",
   },
-  schemes: ["http", "https"],
+  schemes: ["https"],
+  host: "luck.up.railway.app",
   definitions: {
+    AppCompatData: {
+      appId: "com.time.trigger",
+      features: ["iap"],
+    },
     App: {
       dateModified: 1663837807701,
       appId: "com.time.trigger",
@@ -36,7 +41,7 @@ const doc = {
       adSupported: true,
       updated: 1657362669000,
       version: "1.12.18",
-      recentChanges: "Buf fixes. ",
+      recentChanges: "Bug fixes. ",
       url: "https://example.com",
     },
   },
