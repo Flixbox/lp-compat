@@ -1,5 +1,3 @@
-import util from "util";
-const exec = util.promisify(require("child_process").exec);
 import { REST } from "@discordjs/rest";
 import {
   Routes,
@@ -10,7 +8,6 @@ import {
 } from "discord.js";
 import importDir from "directory-import";
 
-// TODO Command to add multiple apps
 // TODO staff only command to edit an app
 
 type Command = { data: any; execute: (interaction, client) => any };
@@ -39,20 +36,12 @@ const rest = new REST({ version: "10" }).setToken(token);
 
 // Register slash commands.
 (async () => {
-  console.log("Installing some required software...");
-  await exec(`nix-channel --add https://nixos.org/channels/nixpkgs-unstable`);
-  await exec(`nix-channel --update`);
-  await exec(`nix-env -iA nixpkgs.gh`);
-  await exec(`gh config set prompt disabled`);
-  console.log("gh set up successfully!");
-
   try {
     console.log("Started refreshing application (/) commands.");
 
-    // TODO
-    // await rest.put(Routes.applicationCommands(clientId), {
-    //   body: commands,
-    // });
+    await rest.put(Routes.applicationCommands(clientId), {
+      body: commands,
+    });
 
     console.log("Successfully reloaded application (/) commands.");
   } catch (error) {
