@@ -7,11 +7,12 @@ const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
 export default async (app: App, res?: Response) => {
   console.log(app);
-  await executeAppsQuery(async (appsCollection) => {
+  return await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
       res && res.status(409).send();
       throw new Error(`App ${app.appId} already exists!`);
     }
+    const playStoreData = await getPlaystoreData(app.appId);
     const {
       title,
       summary,
@@ -36,9 +37,9 @@ export default async (app: App, res?: Response) => {
       version,
       recentChanges,
       url,
-    } = await getPlaystoreData(app.appId);
+    } = playStoreData;
     console.info(`adding ${app.appId}`);
-    return await appsCollection.insertOne({
+    const result = await appsCollection.insertOne({
       dateModified: Date.now(),
       ...app,
       title,
@@ -65,11 +66,13 @@ export default async (app: App, res?: Response) => {
       recentChanges,
       url,
     });
+
+    console.info(`added ${app.appId}`);
+
+    await sendDiscordUpdate({ ...app, ...playStoreData });
+
+    console.log("Discord update sent! " + app.appId);
+
+    return result;
   });
-
-  console.info(`added ${app.appId}`);
-
-  await sendDiscordUpdate(app);
-
-  console.log("Discord update sent! " + app.appId);
 };
