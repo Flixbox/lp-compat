@@ -61,6 +61,7 @@
     "redux-localstorage-simple": "^2.5.1",
     "sass": "^1.54.9",
     "snoowrap": "^1.23.0",
+    "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.5.0",
     "ts-node": "^10.9.1",
     "uuid": "^9.0.0",

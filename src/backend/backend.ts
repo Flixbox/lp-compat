@@ -1,5 +1,6 @@
 import express from "express";
 const helmet = require("helmet");
+import jsdoc from "swagger-jsdoc";
 import cors from "cors";
 import addApp from "../db/addApp";
 import getAllAppIds from "../db/getAllAppIds";
@@ -18,13 +19,6 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup());
-
-(async () => {
-  // for (const appId of Object.keys(apps)) {
-  //   await addApp({ appId, ...apps[appId] });
-  //   console.log("added " + appId);
-  // }
-})();
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");

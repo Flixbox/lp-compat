@@ -42,7 +42,7 @@ You can get a full list of predefined features using the \`features\` command.
 
 \`/addapp games.onebutton.golfbattle no-iap\`
 
-\`/addapp https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en&gl=us iap,|facebook-login\`
+\`/addapp https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en&gl=us iap|facebook-login\`
 
 **/features**
 
