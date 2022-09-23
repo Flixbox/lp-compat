@@ -44,19 +44,18 @@ app.use(
   swaggerUi.setup(specs, { explorer: true })
 );
 
-/**
- * @openapi
- * /:
- *   get:
- *     description: Welcome to swagger-jsdoc!
- *     responses:
- *       200:
- *         description: Returns a mysterious string.
- */
 app.get("/", async (req, res) => {
   res.send("Hello World!");
 });
 
+/**
+ * @openapi
+ * /apps/count:
+ *   get:
+ *     responses:
+ *       200:
+ *         description: Returns the amount of apps currently in the app list.
+ */
 app.get("/apps/count", async (req, res) => {
   res.send(await getAppCount());
 });
