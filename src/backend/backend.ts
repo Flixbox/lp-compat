@@ -20,40 +20,39 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(generatedDocs, { explorer: true })
 );
-app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-app.get("/", async (req, res) => {
+app.get("/", cors(), async (req, res) => {
   res.send("Hello World!");
 });
 
-app.get("/apps/count", async (req, res) => {
+app.get("/apps/count", cors(), async (req, res) => {
   res.send(await getAppCount());
 });
 
-app.get("/apps/get/:appId", async (req, res) => {
+app.get("/apps/get/:appId", cors(), async (req, res) => {
   res.send(await getApp(req.params.appId));
 });
 
-app.get("/apps/all", async (req, res) => {
+app.get("/apps/all", cors(), async (req, res) => {
   const allApps = await getAllApps();
   console.log(JSON.stringify(allApps).length);
   res.send(allApps);
 });
 
-app.get("/apps/page/:page/:pagesize", async (req, res) => {
+app.get("/apps/page/:page/:pagesize", cors(), async (req, res) => {
   const apps = await getAppsByPage(+req.params.page, +req.params.pagesize);
   res.send(apps);
 });
 
-app.get("/apps/all/ids", async (req, res) => {
+app.get("/apps/all/ids", cors(), async (req, res) => {
   const allApps = await getAllAppIds();
   console.log(JSON.stringify(allApps).length);
   res.send(allApps);
 });
 
-app.post("/apps/add/", async (req, res) => {
+app.post("/apps/add/", cors(), async (req, res) => {
   /*  #swagger.parameters['app'] = {
                 in: 'body',
                 description: 'App information.',
