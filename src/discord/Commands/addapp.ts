@@ -50,14 +50,24 @@ module.exports = {
     if (!packageParam) return await error();
     if (!featuresString) return await error();
 
+    let features;
+    try {
+      features = await processFeatures(featuresString, interaction);
+    } catch (e) {
+      return await error(
+        "Your feature list isn't right! Check /help for a guide."
+      );
+    }
+
     try {
       const appId = await processPackage(packageParam);
-      const features = await processFeatures(featuresString, interaction);
       if (!features || !appId) throw new Error();
 
       await addApp({ appId, features } as App);
     } catch (e) {
-      return await error("Your apps list is not right!");
+      return await error(
+        "Your app package isn't right! Maybe it's already on the list or it's not written properly? Try putting in the play store URL to the app! Check /help as well."
+      );
     }
 
     let textResponse = `Added app!\nThanks ${interaction.user.tag}!\n.`;
