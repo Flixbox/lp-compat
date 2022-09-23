@@ -57,7 +57,7 @@ app.get("/apps/all/ids", async (req, res) => {
 
 app.post("/apps/add/", async (req, res) => {
   const app = req.body;
-  res.send(await addApp(app));
+  res.send(await addApp(app, res));
 });
 
 app.listen(port, hostname, () => {

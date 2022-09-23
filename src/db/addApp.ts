@@ -1,13 +1,17 @@
+import { Response } from "express";
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
+import { App } from "../types";
 import { executeAppsQuery } from "./util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
-export default async (app) => {
+export default async (app: App, res: Response) => {
   console.log(app);
   await executeAppsQuery(async (appsCollection) => {
-    if (await appsCollection.findOne({ appId: app.appId }))
+    if (await appsCollection.findOne({ appId: app.appId })) {
+      res.status(409).send();
       throw new Error(`App ${app.appId} already exists!`);
+    }
     const {
       title,
       summary,
@@ -65,7 +69,7 @@ export default async (app) => {
 
   console.info(`added ${app.appId}`);
 
-  await sendDiscordUpdate(app.appId);
+  await sendDiscordUpdate(app);
 
   console.log("Discord update sent! " + app.appId);
 };
