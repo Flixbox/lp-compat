@@ -153,7 +153,7 @@ export const featureMap = (theme = createTheme()) => ({
 });
 
 const getFeature = (featureString: string, theme = createTheme()) => {
-  const feature = featureMap(theme)[featureString] || {};
+  const feature = featureMap(theme)[featureString.toLowerCase()] || {};
   if (featureString.indexOf("::") > -1) {
     const parts = featureString.split("::");
     feature.color = theme.palette[parts[0]]?.main || theme.palette.info.main;
