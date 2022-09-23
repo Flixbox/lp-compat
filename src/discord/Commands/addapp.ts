@@ -62,12 +62,18 @@ module.exports = {
 
     try {
       appId = await processPackage(packageParam);
-      if (!features || !appId) throw new Error();
-
-      await addApp({ appId, features } as App);
+      if (!features || !appId) throw new Error();     
     } catch (e) {
       return await error(
-        "Your app package isn't right! Maybe it's already on the list or it's not written properly? Try putting in the play store URL to the app! Check /help as well."
+        "Your app package isn't right! Maybe it's not written properly? Try putting in the play store URL to the app! Check /help as well."
+      );
+    }
+
+    try  {
+      await addApp({ appId, features } as App);
+    } catch(e) {
+      return await error(
+        "Your app package is probably already on the list! Check /help as well."
       );
     }
 

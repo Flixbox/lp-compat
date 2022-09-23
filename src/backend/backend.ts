@@ -1,6 +1,6 @@
 import express from "express";
 const helmet = require("helmet");
-import jsdoc from "swagger-jsdoc";
+import swaggerJsdoc from "swagger-jsdoc";
 import cors from "cors";
 import addApp from "../db/addApp";
 import getAllAppIds from "../db/getAllAppIds";
@@ -14,6 +14,8 @@ import getAppCount from "../db/getAppCount";
 const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
+
+// const specs = swaggerJsdoc(options);
 
 app.use(cors());
 app.use(helmet());
