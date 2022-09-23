@@ -410,7 +410,6 @@ const AppTile = ({ app }: { app: App }) => {
                     key={feature}
                     mt={0.5}
                   >
-                    {app._id}
                     <Typography
                       color={theme.palette.getContrastText(
                         getFeature(feature, theme).color
