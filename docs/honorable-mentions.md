@@ -9,6 +9,10 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 - Racing Clash Club: Car Game
 - Table Top Racing
 
+## Unpatchable games that vanished from the play store
+
+- The Amazing Spider-Man
+
 ### Region locked
 
 - DEUL Classic Ragdoll Shooter
