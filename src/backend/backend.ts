@@ -15,11 +15,11 @@ const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
 
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(generatedDocs, { explorer: true })
-);
+// app.use(
+//   "/api-docs",
+//   swaggerUi.serve,
+//   swaggerUi.setup(generatedDocs, { explorer: true })
+// );
 app.use(helmet());
 app.use(express.json());
 app.use(
