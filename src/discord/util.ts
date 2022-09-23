@@ -1,5 +1,4 @@
 import { Interaction } from "discord.js";
-import apps from "../../static/compat-data/apps.json";
 import axios from "axios";
 import getFeature from "../featureMap";
 import { v4 as uuidv4 } from "uuid";
@@ -15,7 +14,6 @@ export const isStaff = (interaction) =>
   interaction.member.id === interaction.guild.ownerId;
 
 export const validatePackage = async (packageId: string) => {
-  if (apps[packageId]) return false;
   try {
     await axios.get(
       `https://play.google.com/store/apps/details?id=${packageId}`
@@ -41,7 +39,7 @@ export const processFeatures = async (
   features: string,
   interaction: Interaction
 ) => {
-  const featuresArray = features.split(",");
+  const featuresArray = features.split("|");
   featuresArray.push(`::Added to list by ${interaction.user.tag}`);
 
   // Some degree of validation for the features
@@ -54,68 +52,5 @@ export const processFeatures = async (
     return false;
   }
 
-  let featuresString = "";
-  featuresArray.forEach((feature, index) => {
-    featuresString = `${featuresString}"${feature}"`;
-    if (index !== featuresArray.length - 1) featuresString += ",";
-  });
-  return featuresString;
-};
-
-export const checkoutNewGitBranch = async () => {
-  const interactionId = uuidv4();
-  const branchName = `feature/bot-branch-${interactionId}`;
-
-  console.log(`git init`);
-  await exec(`git init`);
-  console.log(`git config --global user.email "felix@tietjen.it"`);
-  await exec(`git config --global user.email "felix@tietjen.it"`);
-  await exec(`git config --global user.name "LP Railway CI"`);
-  try {
-    console.log(`git remote add origin`);
-    await exec(
-      `git remote add origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
-    );
-  } catch (e) {
-    console.log(`git remote set-url origin`);
-    await exec(
-      `git remote set-url origin https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git`
-    );
-  }
-  console.log(`git fetch --depth=1`);
-  await exec(`git fetch --depth=1`);
-  console.log(`git checkout`);
-  await exec(`git checkout -f -B main --track origin/main`);
-  console.log(`git checkout done`);
-  await exec(`git checkout -B "${branchName}"`);
-  console.log(`git checkout -B "${branchName}" done`);
-
-  return branchName;
-};
-
-export const finalizePullRequest = async (
-  branchName,
-  message = "Bot - Compatibility list update from Discord",
-  autoMerge = false
-) => {
-  await exec(`git add -A`);
-  await exec(`git commit -m "${message}"`);
-  await exec(
-    `git push --set-upstream https://Flixbox:${pat}@github.com/Flixbox/lp-compat.git "${branchName}"`
-  );
-  console.log(
-    `git push --set-upstream https://Flixbox:PAT@github.com/Flixbox/lp-compat.git "${branchName}" done`
-  );
-  const { stdout } = await exec(
-    `gh pr create --base main --head "${branchName}" --fill`
-  );
-  if (autoMerge) await exec(`gh pr merge --auto -r`);
-};
-
-export const insertApp = async (processedPackage, featuresString) => {
-  const fullLine = `  "${processedPackage}":{"features":[${featuresString}], "dateModified": ${Date.now()}},`;
-  insertLine("./static/compat-data/apps.json").contentSync(fullLine).at(2);
-  // Validate altered apps file
-  const data = readFileSync("./static/compat-data/apps.json", "utf8");
-  JSON.parse(data);
+  return featuresArray;
 };

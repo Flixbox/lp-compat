@@ -5,11 +5,11 @@ import { executeAppsQuery } from "./util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
-export default async (app: App, res: Response) => {
+export default async (app: App, res?: Response) => {
   console.log(app);
   await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
-      res.status(409).send();
+      res && res.status(409).send();
       throw new Error(`App ${app.appId} already exists!`);
     }
     const {

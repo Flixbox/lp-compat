@@ -15,19 +15,15 @@ When you execute commands, please make sure to use Slash Commands.
 Simply type / into the chat bar and click the command you wish to execute. 
 Just typing /addapps will *not* work.
 
-**/addapps**
+**/addapp**
 
-This command allows you to add several apps to the compatibility list at once. 
+This command allows you to an app to the compatibility list. 
 
-After the apps are verified individually, a pull request with the new apps will be created.
-The pull request will be automatically merged if a staff member executes this command, 
-otherwise it will be reviewed and merged by a staff member manually.
-Once the pull request is merged, the bot and the site will redeploy. 
-This process takes about 3-4 minutes and the bot will be unusable for about a minute.
+After the app is verified, it will be added to the database.
 
 *Syntax*
 
-\`/addapps <package>@<features>|<package>@<features>|...\`
+\`/addapp <package> <feature>|<feature>|...\`
 
 *package*
 
@@ -36,17 +32,17 @@ The package name is found when you tap "App info" in Lucky Patcher.
 
 *features*
 
-This is a comma-separated list of notes on the app, like \`iap,facebook-login\` or just \`no-iap\`.
-Make sure not to use any commas in the list and take note to prefix any custom notes with \`::\`.
+This is a pipe-separated list of notes on the app, like \`iap|facebook-login\` or just \`no-iap\`.
+Make sure not to use any pipes in the feature description and take note to prefix any custom notes with \`::\`.
 You can get a full list of predefined features using the \`features\` command.
 
 *Examples*
 
-\`/addapps com.gramgames.mergedragons@iap\`
+\`/addapp com.gramgames.mergedragons iap|::Works with version 1.2.3 from APKPure\`
 
-\`/addapps games.onebutton.golfbattle@no-iap|com.mkarpenko.worldbox@no-iap\`
+\`/addapp games.onebutton.golfbattle no-iap\`
 
-\`/addapps https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en&gl=us@iap,facebook-login|games.onebutton.golfbattle@no-iap|com.mkarpenko.worldbox@no-iap\`
+\`/addapp https://play.google.com/store/apps/details?id=com.gramgames.mergedragons&hl=en&gl=us iap,|facebook-login\`
 
 **/features**
 
