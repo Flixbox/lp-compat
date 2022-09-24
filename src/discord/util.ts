@@ -9,7 +9,7 @@ import insertLine from "insert-line";
 import { readFileSync } from "fs";
 
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
-const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
+const discordToken = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 
 export const isStaff = (interaction) =>
   interaction.member.roles.cache.has("670375841523433472") ||
@@ -57,14 +57,16 @@ export const processFeatures = async (
   return featuresArray;
 };
 
-export const login = async () => {
+export const getDiscord = async (code) => {
   const client = await new Client({
     clientID: "1021002998069067777",
-    clientSecret: token,
+    clientSecret: discordToken,
     scopes: ["identify", "guilds"],
     redirectURI: "https://flixbox.github.io/lp-compat/login",
   });
 
-  console.log("client", client)
-  
+  const token = (await client.getAccessToken("8kYuLrkA7KXKYwJDIHpgpVYCKAIqUC"))
+    .accessToken;
+  return await client.getUser(token);
+  // client.getGuilds(accessToken)
 };

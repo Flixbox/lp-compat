@@ -72,6 +72,14 @@ const config = {
             href: "https://discord.gg/RS5ddYf7mw",
             position: "right",
           },
+          {
+            type: "html",
+            position: "right",
+            value: `
+            <a id="discord-login" href="https://discord.com/api/oauth2/authorize?client_id=1021002998069067777&redirect_uri=https%3A%2F%2Fflixbox.github.io%2Flp-compat%2F&response_type=code&scope=identify%20guilds">
+              Login
+            </a>`,
+          },
         ],
       },
       prism: {
@@ -80,7 +88,7 @@ const config = {
       },
     }),
 
-    plugins: ['docusaurus-plugin-sass'],
+  plugins: ["docusaurus-plugin-sass"],
 };
 
 module.exports = config;
