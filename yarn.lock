@@ -4199,6 +4199,13 @@ discord-api-types@^0.37.3:
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.10.tgz#d596ed7178f349009e6a9109de5724f11a1de157"
   integrity sha512-NvDh2Puc3wZQzQt2zLavlI5ewBnLFjI46/NJmvWIs6OC0JOkq7KcmH4s80X2+22mSQ3wUyge2mxq3cGYRT2noQ==
 
+discord-oauth2-api@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/discord-oauth2-api/-/discord-oauth2-api-1.1.2.tgz#03ca16e8892076f5948fd904c1e2eca69bd56145"
+  integrity sha512-lhy8/kFIpximmibkQYTCBw5dfcc3Nym4StWGOqi/UXTxBrSZP0DHLgCFqacdpim2RHfSrM4+CEuLsk8cZ4xvqw==
+  dependencies:
+    node-fetch "^2.6.0"
+
 discord.js@^14.3.0:
   version "14.3.0"
   resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.3.0.tgz#9e43df7e4d2d14b11f3de751236e983159c3d3d0"
@@ -6489,7 +6496,7 @@ node-emoji@^1.10.0:
   dependencies:
     lodash "^4.17.21"
 
-node-fetch@2.6.7:
+node-fetch@2.6.7, node-fetch@^2.6.0:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==

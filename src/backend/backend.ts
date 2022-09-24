@@ -10,6 +10,7 @@ import swaggerUi from "swagger-ui-express";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
+import { login } from "../discord/util";
 
 const app = express();
 const port = +process.env.PORT || 5000;
@@ -26,6 +27,10 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");
+});
+
+app.get("/login", async (req, res) => {
+  res.send(await login());
 });
 
 app.get("/apps/count", async (req, res) => {

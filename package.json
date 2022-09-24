@@ -40,6 +40,7 @@
     "cors": "^2.8.5",
     "directory-import": "^2.3.1",
     "discord-api-types": "^0.24.0",
+    "discord-oauth2-api": "^1.1.2",
     "discord.js": "^14.3.0",
     "docusaurus-plugin-sass": "^0.2.2",
     "express": "5.0.0-beta.1",
