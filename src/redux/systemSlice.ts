@@ -1,5 +1,6 @@
-import { createAction, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import axiosInstance from "./axios";
 
 interface SystemState {
   appsListUpdated: number;
@@ -12,6 +13,11 @@ const initialState = {
 } as SystemState;
 
 export const clearState = createAction("clear");
+
+export const fetchDiscord = createAsyncThunk<any, { code: string }>(
+  "/discord/get",
+  async ({ code }) => (await axiosInstance.get(`discord/get/${code}`)).data
+);
 
 const systemSlice = createSlice({
   name: "system",
