@@ -25,7 +25,12 @@ import {
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { featureMap } from "../featureMap";
-import { addApp, editApp, getPlayStoreData } from "../redux/appsSlice";
+import {
+  addApp,
+  editApp,
+  getPlayStoreData,
+  searchPlayStoreData,
+} from "../redux/appsSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
