@@ -157,8 +157,6 @@ const EditAppDialog = ({ open, appId = "" }) => {
             handleChange={handleChange}
           />
           <Box m={1} />
-          <Typography>{appId}</Typography>
-          <Box m={1} />
           {getPlayStoreResult?.title && (
             <Typography>{`Searched app ID ${editState.appId} and found app in play store with title ${getPlayStoreResult.title}`}</Typography>
           )}
@@ -223,10 +221,20 @@ const EditAppDialog = ({ open, appId = "" }) => {
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResult.map((result) => (
                   <>
-                    <img src={result.icon} />
+                    <Box display="flex">
+                      <img src={result.icon} width="100" height="100" />
+                      <Button
+                        onClick={() => {
+                          handleChange("appId", result.appId);
+                          handleChange("appId", result.title);
+                        }}
+                      >
+                        Use this app
+                      </Button>
+                    </Box>
                     <Typography>ID: {result.appId} </Typography>
                     <Typography>Title: {result.title}</Typography>
-                    {result.price && (
+                    {+result.price && (
                       <Typography>Price: {result.price}</Typography>
                     )}
                     <Box m={1} />
