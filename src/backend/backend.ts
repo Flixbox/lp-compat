@@ -48,6 +48,8 @@ app.use(
     secret: process.env.SESSION_KEY_1,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      secure: true,
+      sameSite: "none",
     },
     store: store,
     // Boilerplate options, see:
