@@ -71,6 +71,7 @@ export const getDiscord = async (code, req) => {
     console.log("Grabbed access token from session!", accessToken);
   } else {
     const tokenData = await client.getAccessToken(code);
+    accessToken = tokenData.accessToken;
     console.log("tokenData", tokenData);
   }
 
