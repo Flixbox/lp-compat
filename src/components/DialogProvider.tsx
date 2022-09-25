@@ -22,7 +22,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { featureMap } from "../featureMap";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { closeDialog } from "../redux/systemSlice";
@@ -70,79 +70,88 @@ const EditAppDialog = ({ open, appId = "" }) => {
     dispatch(closeDialog({ dialog: "EDIT_APP" }));
   };
 
+  // Populate edit fields when the dialog opens
+  useEffect(() => {
+    if (open) setEditState({ ...initialAppData } as App);
+  }, [open]);
+
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>
-      <AppBar sx={{ position: "relative" }}>
-        <Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            onClick={handleClose}
-            aria-label="close"
-          >
-            <FontAwesomeIcon icon={faTimes} />
-          </IconButton>
-          <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-            Edit app
-          </Typography>
-          <Button autoFocus color="inherit" onClick={handleClose}>
-            save
-          </Button>
-        </Toolbar>
-      </AppBar>
-      <Box m={1} />
-      <Typography>{appId}</Typography>
-      <Box m={1} />
-      <AppTextField
-        field="title"
-        editState={editState}
-        handleChange={handleChange}
-      />
-      <Box m={1} />
-      <Typography>
-        You can select various pre-defined features from the list or add your
-        own. <br /> Please try to always at least choose one of iap, unclear-iap
-        or no-iap so that users can filter the list. <br />
-        You can add custom features by prefixing them with :: <br />
-        Examples: <br />
-        ::Works with version 1.2.3 from APKPure <br />
-        warning::Does not work with Android 12
-      </Typography>
-      <Box m={1} />
-      <Autocomplete
-        multiple
-        id="tags-filled"
-        options={Object.keys(features).map((key) => key)}
-        freeSolo
-        value={editState.features}
-        onChange={(event: any, newValue) => {
-          console.log("onChange", newValue);
-          handleChange("features", newValue);
-        }}
-        renderTags={(value: readonly string[], getTagProps) =>
-          value.map((option: string, index: number) => (
-            <Chip
-              variant="outlined"
-              label={option}
-              {...getTagProps({ index })}
-            />
-          ))
-        }
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            variant="filled"
-            label="Features"
-            placeholder="Features"
+      {open && (
+        <>
+          <AppBar sx={{ position: "relative" }}>
+            <Toolbar>
+              <IconButton
+                edge="start"
+                color="inherit"
+                onClick={handleClose}
+                aria-label="close"
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </IconButton>
+              <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                Edit app
+              </Typography>
+              <Button autoFocus color="inherit" onClick={handleClose}>
+                save
+              </Button>
+            </Toolbar>
+          </AppBar>
+          <Box m={1} />
+          <Typography>{appId}</Typography>
+          <Box m={1} />
+          <AppTextField
+            field="title"
+            editState={editState}
+            handleChange={handleChange}
           />
-        )}
-        renderOption={(props, option) => (
-          <Box component="li" flexDirection="column" {...props}>
-            <Typography>{features[option].label}</Typography>
-            <Typography variant="caption">{option}</Typography>
-          </Box>
-        )}
-      />
+          <Box m={1} />
+          <Typography>
+            You can select various pre-defined features from the list or add
+            your own. <br /> Please try to always at least choose one of iap,
+            unclear-iap or no-iap so that users can filter the list. <br />
+            You can add custom features by prefixing them with :: <br />
+            Examples: <br />
+            ::Works with version 1.2.3 from APKPure <br />
+            warning::Does not work with Android 12
+          </Typography>
+          <Box m={1} />
+          <Autocomplete
+            multiple
+            id="tags-filled"
+            options={Object.keys(features).map((key) => key)}
+            freeSolo
+            value={editState.features}
+            onChange={(event: any, newValue) => {
+              console.log("onChange", newValue);
+              handleChange("features", newValue);
+            }}
+            renderTags={(value: readonly string[], getTagProps) =>
+              value.map((option: string, index: number) => (
+                <Chip
+                  variant="outlined"
+                  label={option}
+                  {...getTagProps({ index })}
+                />
+              ))
+            }
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="filled"
+                label="Features"
+                placeholder="Features"
+              />
+            )}
+            renderOption={(props, option) => (
+              <Box component="li" flexDirection="column" {...props}>
+                <Typography>{features[option].label}</Typography>
+                <Typography variant="caption">{option}</Typography>
+              </Box>
+            )}
+          />
+        </>
+      )}
     </Dialog>
   );
 };
