@@ -65,7 +65,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
     setEditState({ ...editState, [part]: value });
   };
 
-  const handleClose = () => dispatch(closeDialog({ dialog: "EDIT_APP" }));
+  const handleClose = () => {
+    setEditState({} as App);
+    dispatch(closeDialog({ dialog: "EDIT_APP" }));
+  };
+
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>
       <AppBar sx={{ position: "relative" }}>
