@@ -43,7 +43,13 @@ const store = new MongoDBStore(
 // );
 app.use(helmet());
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://flixbox.github.io",
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+    credentials: true,
+  })
+);
 app.use(
   session({
     name: "session",
