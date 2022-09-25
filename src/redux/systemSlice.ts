@@ -75,8 +75,8 @@ const systemSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(clearState, (state, action) => initialState);
     builder.addCase(fetchDiscord.fulfilled, (state, action) => {
-      state.discordUser = action.payload.discordUser;
-      state.discordGuilds = action.payload.discordGuilds;
+      state.discordUser = action.payload.user;
+      state.discordGuilds = action.payload.guilds;
     });
   },
 });
