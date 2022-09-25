@@ -470,7 +470,7 @@ const AppTile = ({ app }: { app: App }) => {
               {!free && (
                 <Typography variant="subtitle2">{priceText}</Typography>
               )}
-              {discordUser.username && (
+              {discordUser?.username && (
                 <IconButton
                   onClick={() =>
                     openDialog({ dialog: "EDIT_APP", data: { appId } })

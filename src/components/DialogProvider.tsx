@@ -7,7 +7,7 @@ const DialogProvider = () => {
   const { dialogs } = useAppSelector((state) => state.system);
   return (
     <>
-      <EditAppDialog open={dialogs.EDIT_APP.open} />
+      <EditAppDialog open={dialogs?.EDIT_APP.open} />
     </>
   );
 };
