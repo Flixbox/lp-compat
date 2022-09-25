@@ -140,7 +140,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
               Does the app {editState.appId} exist on the Play Store?
             </Alert>
           )}
-          {!getPlayStoreResult.title && (
+          {!getPlayStoreResult?.title && (
             <Alert severity="info">
               Could not find an app with this ID.
               <br />
