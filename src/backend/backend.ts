@@ -61,7 +61,7 @@ app.use(
       maxAge: 1000 * 60 * 60 * 2, // 2 hrs
       secure: true,
       sameSite: "none",
-      httpOnly: false,
+      httpOnly: true,
     },
     store: store,
   })
