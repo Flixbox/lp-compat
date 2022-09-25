@@ -18,12 +18,14 @@ interface SystemState {
   appsListUpdated: number;
   appsListPage: number;
   discordUser?: DiscordUser;
+  discordGuilds?: [];
 }
 
 const initialState = {
   appsListUpdated: Date.now(),
   appsListPage: 0,
   discordUser: undefined,
+  discordGuilds: [],
 } as SystemState;
 
 export const clearState = createAction("clear");
@@ -50,7 +52,8 @@ const systemSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(clearState, (state, action) => initialState);
     builder.addCase(fetchDiscord.fulfilled, (state, action) => {
-      state.discordUser = action.payload;
+      state.discordUser = action.payload.discordUser;
+      state.discordGuilds = action.payload.discordGuilds;
     });
   },
 });
