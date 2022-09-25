@@ -7,7 +7,7 @@ const hook = new WebhookClient({
   url: process.env.DISCORD_WEBHOOK || "",
 });
 
-export default async (app: App) => {
+export default async (app: App, change = "added") => {
   if (!app || !app.appId || !app.features || !app.title) return;
 
   const {
@@ -24,8 +24,7 @@ export default async (app: App) => {
     priceText,
   } = app;
 
-  let featuresString =
-    "Website Update will be deployed in about 60 seconds.\nCompatibility:";
+  let featuresString = "\nCompatibility:";
   features.forEach(
     (feature) => (featuresString += `\n${getFeature(feature.trim()).label}`)
   );
@@ -40,7 +39,10 @@ export default async (app: App) => {
     .setTitle(title)
     .setURL(url)
     .setAuthor({
-      name: "App updated on Compatibility List",
+      name:
+        change === "added"
+          ? "App added on Compatibility List"
+          : "App changed on Compatibility List",
       url: "https://flixbox.github.io/lp-compat/",
     })
     .setDescription(featuresString)

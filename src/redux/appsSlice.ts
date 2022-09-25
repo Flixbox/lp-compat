@@ -37,6 +37,11 @@ export const addApp = createAsyncThunk<any, { app: App }>(
   async ({ app }) => (await axiosInstance.post(`apps/add/`, app)).data
 );
 
+export const editApp = createAsyncThunk<any, { app: App }>(
+  "apps/edit",
+  async ({ app }) => (await axiosInstance.post(`apps/edit/`, app)).data
+);
+
 // Define the initial state using that type
 const initialState: App[] = [];
 

@@ -14,6 +14,7 @@ import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
 import { getDiscord } from "../discord/util";
+import editApp from "../db/editApp";
 
 const MongoDBStore = mongo(session);
 
@@ -117,6 +118,11 @@ app.post("/apps/add/", async (req, res) => {
   */
   const app = req.body;
   res.send(await addApp(app, res));
+});
+
+app.post("/apps/edit/", async (req, res) => {
+  const app = req.body;
+  res.send(await editApp(app, res));
 });
 
 app.listen(port, hostname, () => {

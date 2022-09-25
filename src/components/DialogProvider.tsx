@@ -25,7 +25,7 @@ import {
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { featureMap } from "../featureMap";
-import { addApp } from "../redux/appsSlice";
+import { addApp, editApp } from "../redux/appsSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
@@ -79,11 +79,16 @@ const EditAppDialog = ({ open, appId = "" }) => {
   }, [open]);
 
   const handleSave = async () => {
-    const result = await dispatch(addApp({ app: editState }));
+    let result = await dispatch(addApp({ app: editState }));
     if (result.meta.requestStatus === "fulfilled") {
       handleClose();
     } else {
-      setError(true);
+      result = await dispatch(editApp({ app: editState }));
+      if (result.meta.requestStatus === "fulfilled") {
+        handleClose();
+      } else {
+        setError(true);
+      }
     }
   };
 
