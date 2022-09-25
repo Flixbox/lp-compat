@@ -25,7 +25,7 @@ import {
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { featureMap } from "../featureMap";
-import { addApp, editApp } from "../redux/appsSlice";
+import { addApp, editApp, getPlayStoreData } from "../redux/appsSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
@@ -63,6 +63,10 @@ const EditAppDialog = ({ open, appId = "" }) => {
   const features = featureMap(theme);
 
   console.log("editState", editState);
+
+  dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
+    console.log(res)
+  );
 
   const handleChange = (part, value) => {
     setEditState({ ...editState, [part]: value });

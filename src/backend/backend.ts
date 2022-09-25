@@ -15,6 +15,7 @@ import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
 import { getDiscord } from "../discord/util";
 import editApp from "../db/editApp";
+import getPlayStoreData from "../db/getPlayStoreData";
 
 const MongoDBStore = mongo(session);
 
@@ -123,6 +124,10 @@ app.post("/apps/add/", async (req, res) => {
 app.post("/apps/edit/", async (req, res) => {
   const app = req.body;
   res.send(await editApp(app, res));
+});
+
+app.post("/playstore/get/:appId", async (req, res) => {
+  res.send(await getPlayStoreData(req.params.appId));
 });
 
 app.listen(port, hostname, () => {
