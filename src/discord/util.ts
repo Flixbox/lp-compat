@@ -67,6 +67,7 @@ export const getDiscord = async (code, req) => {
 
   let accessToken;
   if (req.session.discordRefreshToken) {
+    console.log("refresh token in session!", req.session.discordRefreshToken);
     const refreshToken = req.session.discordRefreshToken;
     const tokenData = client.refreshToken(refreshToken);
     accessToken = tokenData.accessToken;

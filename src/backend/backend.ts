@@ -7,7 +7,7 @@ import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
-import session from "express-session";
+import session from "cookie-session";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
@@ -27,8 +27,7 @@ app.use(express.json());
 app.use(cors());
 app.use(
   session({
-    secret: process.env.DISCORD_TOKEN,
-    cookie: { secure: true },
+    name: session,
   })
 );
 

@@ -5,7 +5,12 @@ import { save, load } from "redux-localstorage-simple";
 
 const stateToSave = {
   namespace: "flixbox",
-  states: ["apps", "system.appsListPage", "system.appsListUpdated"],
+  states: [
+    "apps",
+    "system.appsListPage",
+    "system.appsListUpdated",
+    "system.dialogs",
+  ],
 };
 
 export const store = configureStore({

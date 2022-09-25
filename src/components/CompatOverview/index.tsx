@@ -52,7 +52,7 @@ import {
   fetchAppsByPage,
   pageSize,
 } from "@site/src/redux/appsSlice";
-import { Provider } from "react-redux";
+import { Provider, useStore } from "react-redux";
 import { store } from "../../redux";
 import {
   clearState,
@@ -410,6 +410,7 @@ const AppTile = ({ app }: { app: App }) => {
   } = app;
   const { discordUser } = useAppSelector((state) => state.system);
   const dispatch = useAppDispatch();
+  const store = useStore();
 
   return (
     <Grid item xs={12} m={1}>
@@ -483,9 +484,9 @@ const AppTile = ({ app }: { app: App }) => {
           </a>
           {discordUser?.username && (
             <IconButton
-              onClick={() =>
-                dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }))
-              }
+              onClick={() => {
+                dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }));
+              }}
             >
               <FontAwesomeIcon icon={faPen} />
             </IconButton>
