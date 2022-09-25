@@ -3,7 +3,10 @@ import appsReducer from "./appsSlice";
 import systemReducer from "./systemSlice";
 import { save, load } from "redux-localstorage-simple";
 
-const stateToSave = { namespace: "flixbox", states: ["apps"] };
+const stateToSave = {
+  namespace: "flixbox",
+  states: ["apps", "system.appsListPage", "system.appsListUpdated"],
+};
 
 export const store = configureStore({
   reducer: {

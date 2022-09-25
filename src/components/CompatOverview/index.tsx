@@ -198,7 +198,10 @@ const CompatOverview = () => {
     "",
     "appsTitleFilter"
   );
-  const [sorting, setSorting] = usePersistentState("installs-asc", "apps-sorting");
+  const [sorting, setSorting] = usePersistentState(
+    "installs-asc",
+    "apps-sorting"
+  );
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
@@ -276,9 +279,12 @@ const CompatOverview = () => {
 
   const sortedApps = sortOptions[sorting].getSortedApps();
 
+  const appsListComplete =
+    appsListPage * pageSize >= appCount || apps.length >= appCount;
+
   const loadMore = () => {
     if (loading) return;
-    if (appsListPage * pageSize >= appCount || apps.length >= appCount) {
+    if (appsListComplete) {
       if (loading) setLoading(false);
       return;
     }
@@ -291,7 +297,7 @@ const CompatOverview = () => {
 
   // Attempt to finish loading
   useEffect(() => loadMore(), [apps, loading, appCount]);
-
+  console.log(loading);
   return (
     <section className={styles.features}>
       <div className="container">
@@ -353,9 +359,11 @@ const CompatOverview = () => {
           {`Loaded ${apps.length} out of ${appCount} apps!`}
           {loading && ` Loading more...`}
           <br />
-          <IconButton onClick={() => refreshApps()}>
-            <FontAwesomeIcon icon={faRefresh} />
-          </IconButton>
+          {!loading && appsListComplete && (
+            <IconButton onClick={() => refreshApps()}>
+              <FontAwesomeIcon icon={faRefresh} />
+            </IconButton>
+          )}
           {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
