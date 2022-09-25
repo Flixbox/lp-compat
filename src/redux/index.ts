@@ -8,7 +8,8 @@ export const store = configureStore({
     apps: appsReducer,
     system: systemReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(save()),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(save({ states: ["apps"] })),
   preloadedState: load(),
 });
 
