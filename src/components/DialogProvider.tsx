@@ -1,6 +1,7 @@
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  Alert,
   AppBar,
   Autocomplete,
   Button,
@@ -57,6 +58,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   ) || { appId };
   console.log("initialAppData", initialAppData);
   const [editState, setEditState] = useState<App>({ ...initialAppData } as App);
+  const [error, setError] = useState(false);
   const theme = useTheme();
   const features = featureMap(theme);
 
@@ -78,7 +80,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
 
   const handleSave = async () => {
     const result = await dispatch(addApp({ app: editState }));
-    if (result.meta.requestStatus === "fulfilled") handleClose();
+    if (result.meta.requestStatus === "fulfilled") {
+      handleClose();
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -103,6 +109,19 @@ const EditAppDialog = ({ open, appId = "" }) => {
               </Button>
             </Toolbar>
           </AppBar>
+          <Box m={1} />
+          {error && (
+            <Alert
+              severity="error"
+              onClose={() => {
+                setError(false);
+              }}
+            >
+              That didn't work. Make sure you prefix any custom features with ::
+              <br />
+              Does the app {editState.appId} exist on the Play Store?
+            </Alert>
+          )}
           <Box m={1} />
           <Typography>{appId}</Typography>
           <Box m={1} />
