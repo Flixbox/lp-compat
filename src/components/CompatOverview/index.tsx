@@ -409,6 +409,7 @@ const AppTile = ({ app }: { app: App }) => {
     priceText,
   } = app;
   const { discordUser } = useAppSelector((state) => state.system);
+  const dispatch = useAppDispatch();
 
   return (
     <Grid item xs={12} m={1}>
