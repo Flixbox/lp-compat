@@ -107,7 +107,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
                 <FontAwesomeIcon icon={faTimes} />
               </IconButton>
               <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                Edit app
+                Add or edit app
               </Typography>
               <Button autoFocus color="inherit" onClick={handleSave}>
                 save
