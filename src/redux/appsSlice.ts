@@ -47,6 +47,12 @@ export const getPlayStoreData = createAsyncThunk<any, { appId: string }>(
   async ({ appId }) => (await axiosInstance.get(`/playstore/get/${appId}`)).data
 );
 
+export const searchPlayStoreData = createAsyncThunk<any, { query: string }>(
+  "playstore/search",
+  async ({ query }) =>
+    (await axiosInstance.get(`/playstore/search/${query}`)).data
+);
+
 // Define the initial state using that type
 const initialState: App[] = [];
 

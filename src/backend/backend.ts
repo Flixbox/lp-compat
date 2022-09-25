@@ -16,6 +16,7 @@ import generatedDocs from "../../swagger-output.json";
 import { getDiscord } from "../discord/util";
 import editApp from "../db/editApp";
 import getPlayStoreData from "../db/getPlayStoreData";
+import gplay from "google-play-scraper";
 
 const MongoDBStore = mongo(session);
 
@@ -126,8 +127,12 @@ app.post("/apps/edit/", async (req, res) => {
   res.send(await editApp(app, res));
 });
 
-app.post("/playstore/get/:appId", async (req, res) => {
+app.get("/playstore/get/:appId", async (req, res) => {
   res.send(await getPlayStoreData(req.params.appId));
+});
+
+app.get("/playstore/search/:title", async (req, res) => {
+  res.send(await gplay.search({ term: req.params.title, num: 10 }));
 });
 
 app.listen(port, hostname, () => {

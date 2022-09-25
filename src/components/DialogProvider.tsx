@@ -65,7 +65,10 @@ const EditAppDialog = ({ open, appId = "" }) => {
   console.log("editState", editState);
 
   dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
-    console.log(res)
+    console.log("getPlayStoreData", res)
+  );
+  dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
+    console.log("searchPlayStoreData", res)
   );
 
   const handleChange = (part, value) => {
