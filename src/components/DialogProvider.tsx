@@ -215,7 +215,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
             )}
           />
           <Box m={1} />
-          {searchPlayStoreResult.length > 0 && (
+          {searchPlayStoreResult?.length > 0 && (
             <>
               <Typography>Search results:</Typography>
               <Box display="flex" flexDirection="column">
