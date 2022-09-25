@@ -483,7 +483,7 @@ const AppTile = ({ app }: { app: App }) => {
           {discordUser?.username && (
             <IconButton
               onClick={() =>
-                openDialog({ dialog: "EDIT_APP", data: { appId } })
+                dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }))
               }
             >
               <FontAwesomeIcon icon={faPen} />
