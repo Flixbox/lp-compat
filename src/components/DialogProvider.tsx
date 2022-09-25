@@ -165,6 +165,9 @@ const EditAppDialog = ({ open, appId = "" }) => {
             editState={editState}
             handleChange={handleChange}
           />
+          <Typography>
+            You can also use this title field to search for apps.
+          </Typography>
           <Box m={1} />
           <Typography>
             You can select various pre-defined features from the list or add
