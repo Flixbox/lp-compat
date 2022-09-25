@@ -220,8 +220,8 @@ const EditAppDialog = ({ open, appId = "" }) => {
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResult.map((result) => (
                   <>
-                    <Typography>`ID: ${result.appId}`</Typography>
-                    <Typography>`Title: ${result.title}`</Typography>
+                    <Typography>ID: {result.appId}</Typography>
+                    <Typography>Title: {result.title}</Typography>
                     <Box m={1} />
                   </>
                 ))}
