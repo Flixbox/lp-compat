@@ -57,7 +57,7 @@ export const processFeatures = async (
   return featuresArray;
 };
 
-export const getDiscord = async (code) => {
+export const getDiscord = async (code, req) => {
   const client = await new Client({
     clientID: "1021002998069067777",
     clientSecret: discordToken,
@@ -65,9 +65,16 @@ export const getDiscord = async (code) => {
     redirectURI: "https://flixbox.github.io/lp-compat/",
   });
 
-  const tokenData = await client.getAccessToken(code);
-  console.log("tokenData", tokenData);
-  const user = await client.getUser(tokenData.accessToken);
-  const guilds = await client.getGuilds(tokenData.accessToken);
+  let accessToken;
+  if (req.session.discordAccessToken) {
+    accessToken = req.session.discordAccessToken;
+    console.log("Grabbed access token from session!", accessToken);
+  } else {
+    const tokenData = await client.getAccessToken(code);
+    console.log("tokenData", tokenData);
+  }
+
+  const user = await client.getUser(accessToken);
+  const guilds = await client.getGuilds(accessToken);
   return { user, guilds };
 };
