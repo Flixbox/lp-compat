@@ -226,7 +226,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
                       <Button
                         onClick={() => {
                           handleChange("appId", result.appId);
-                          handleChange("appId", result.title);
+                          handleChange("title", result.title);
                         }}
                       >
                         Use this app
