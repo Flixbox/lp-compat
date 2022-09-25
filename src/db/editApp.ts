@@ -20,6 +20,8 @@ export default async (app: App, res?: Response) => {
       ...app,
     };
 
+    delete newApp._id;
+
     const result = await appsCollection.findOneAndReplace(
       { appId: app.appId },
       {
