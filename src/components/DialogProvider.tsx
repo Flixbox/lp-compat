@@ -77,8 +77,8 @@ const EditAppDialog = ({ open, appId = "" }) => {
   }, [open]);
 
   const handleSave = async () => {
-    console.log(await dispatch(addApp({ app: editState })));
-    handleClose();
+    const result = await dispatch(addApp({ app: editState }));
+    if (result) handleClose();
   };
 
   return (
