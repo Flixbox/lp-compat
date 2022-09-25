@@ -83,7 +83,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
 
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>
-      {open && (
+      {open && Object.keys(editState).length !== 0 && (
         <>
           <AppBar sx={{ position: "relative" }}>
             <Toolbar>
