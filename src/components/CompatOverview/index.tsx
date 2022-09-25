@@ -55,6 +55,8 @@ import { Provider } from "react-redux";
 import { store } from "../../redux";
 import { clearState, fetchDiscord } from "@site/src/redux/systemSlice";
 import { clear } from "redux-localstorage-simple";
+import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
+
 import { App } from "@site/src/types";
 
 const Root = () => {
@@ -197,7 +199,11 @@ const CompatOverview = () => {
     (state) => state.system
   );
 
-  const code = new URLSearchParams(window.location.search).get("code");
+  let code;
+  if (ExecutionEnvironment.canUseDOM) {
+    code = new URLSearchParams(window.location.search).get("code");
+  }
+
   console.log(code);
   useEffect(() => {
     dispatch(fetchAppCount()).then((res) => {
