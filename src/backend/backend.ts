@@ -79,14 +79,7 @@ app.get("/discord/get/:code", async (req, res) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
-  console.log("req.params.code", req.params.code);
   res.end(JSON.stringify(await getDiscord(req.params.code, req)));
-
-  // Cookies that have not been signed
-  console.log("Cookies: ", req.cookies);
-
-  // Cookies that have been signed
-  console.log("Signed Cookies: ", req.signedCookies);
 });
 
 app.get("/apps/count", async (req, res) => {

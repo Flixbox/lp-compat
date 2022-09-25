@@ -67,17 +67,14 @@ export const getDiscord = async (code, req) => {
 
   let accessToken;
   if (req.session.discordRefreshToken) {
-    console.log("refresh token in session!", req.session.discordRefreshToken);
     const refreshToken = req.session.discordRefreshToken;
     const tokenData = await client.refreshToken(refreshToken);
     accessToken = tokenData.accessToken;
     req.session.discordRefreshToken = tokenData.refreshToken;
-    console.log("Grabbed refresh token from session!", tokenData);
   } else {
     const tokenData = await client.getAccessToken(code);
     accessToken = tokenData.accessToken;
     req.session.discordRefreshToken = tokenData.refreshToken;
-    console.log("tokenData", tokenData);
   }
 
   const user = await client.getUser(accessToken);
