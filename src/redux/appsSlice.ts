@@ -60,6 +60,22 @@ export const appsSlice = createSlice({
       if (index < 0) state.push(action.payload);
       state[index] = action.payload;
     });
+    builder.addCase(addApp.fulfilled, (state, action) => {
+      console.log("addapp result", action.payload);
+      const index = state.findIndex(
+        (app) => action.payload.appId === app.appId
+      );
+      if (index < 0) state.push(action.payload.value);
+      state[index] = action.payload.value;
+    });
+    builder.addCase(editApp.fulfilled, (state, action) => {
+      console.log("editApp result", action.payload);
+      const index = state.findIndex(
+        (app) => action.payload.appId === app.appId
+      );
+      if (index < 0) state.push(action.payload.value);
+      state[index] = action.payload.value;
+    });
     builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
       action.payload.forEach(
         (app) =>
