@@ -67,6 +67,6 @@ export const getDiscord = async (code) => {
 
   const token = (await client.getAccessToken(code)).accessToken;
   const user = await client.getUser(token);
-  const guilds = client.getGuilds(token);
+  const guilds = await client.getGuilds(token);
   return { user, guilds };
 };
