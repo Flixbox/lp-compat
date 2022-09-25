@@ -30,6 +30,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/discord/get/:code", async (req, res) => {
+  console.log("req.params.code", req.params.code)
   res.send(await getDiscord(req.params.code));
 });
 

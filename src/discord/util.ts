@@ -58,6 +58,7 @@ export const processFeatures = async (
 };
 
 export const getDiscord = async (code) => {
+  console.log("code", code);
   const client = await new Client({
     clientID: "1021002998069067777",
     clientSecret: discordToken,
