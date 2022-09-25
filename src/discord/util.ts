@@ -63,7 +63,7 @@ export const getDiscord = async (code) => {
     clientID: "1021002998069067777",
     clientSecret: discordToken,
     scopes: ["identify", "guilds"],
-    redirectURI: "https://flixbox.github.io/lp-compat/login",
+    redirectURI: "https://flixbox.github.io/lp-compat/",
   });
 
   const token = (await client.getAccessToken(code)).accessToken;
