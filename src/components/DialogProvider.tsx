@@ -156,7 +156,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
           <Box m={1} />
           <Typography>{appId}</Typography>
           <Box m={1} />
-          {getPlayStoreResult.title && (
+          {getPlayStoreResult?.title && (
             <Typography>{`Searched app ID ${editState.appId} and found app in play store with title ${getPlayStoreResult.title}`}</Typography>
           )}
           <Box m={1} />
