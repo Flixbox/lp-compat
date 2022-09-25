@@ -58,6 +58,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   const [editState, setEditState] = useState<App>({ ...initialAppData } as App);
   const theme = useTheme();
   const features = featureMap(theme);
+
   console.log("editState", editState);
 
   const handleChange = (part, value) => {
@@ -109,6 +110,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
         id="tags-filled"
         options={Object.keys(features).map((key) => key)}
         freeSolo
+        value={editState.features}
+        onChange={(event: any, newValue) => {
+          console.log("onChange", newValue);
+          handleChange("features", newValue);
+        }}
         renderTags={(value: readonly string[], getTagProps) =>
           value.map((option: string, index: number) => (
             <Chip
