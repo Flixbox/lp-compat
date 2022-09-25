@@ -32,6 +32,11 @@ export const fetchAppCount = createAsyncThunk(
   async () => (await axiosInstance.get(`apps/count`)).data
 );
 
+export const addApp = createAsyncThunk<any, { app: App }>(
+  "apps/add",
+  async ({ app }) => (await axiosInstance.post(`apps/add/`, app)).data
+);
+
 // Define the initial state using that type
 const initialState: App[] = [];
 
