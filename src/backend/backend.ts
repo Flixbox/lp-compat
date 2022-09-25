@@ -28,7 +28,7 @@ app.use(cors());
 app.use(
   session({
     name: "session",
-    keys: [process.env.SESSION_KEY_1, process.env.SESSION_KEY_2]
+    keys: [process.env.SESSION_KEY_1, process.env.SESSION_KEY_2],
   })
 );
 
@@ -38,7 +38,7 @@ app.get("/", async (req, res) => {
 
 app.get("/discord/get/:code", async (req, res) => {
   console.log("req.params.code", req.params.code);
-  res.send(await getDiscord(req.params.code, req));
+  res.end(await getDiscord(req.params.code, req));
 });
 
 app.get("/apps/count", async (req, res) => {
