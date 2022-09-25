@@ -3,14 +3,16 @@ import appsReducer from "./appsSlice";
 import systemReducer from "./systemSlice";
 import { save, load } from "redux-localstorage-simple";
 
+const stateToSave = { namespace: "flixbox", states: ["apps"] };
+
 export const store = configureStore({
   reducer: {
     apps: appsReducer,
     system: systemReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(save({ states: ["apps"] })),
-  preloadedState: load(),
+    getDefaultMiddleware().concat(save(stateToSave)),
+  preloadedState: load(stateToSave),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

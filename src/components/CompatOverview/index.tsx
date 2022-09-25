@@ -196,9 +196,9 @@ const CompatOverview = () => {
   const dispatch = useAppDispatch();
   const [appTitleFilter, setAppTitleFilter] = usePersistentState(
     "",
-    "appTitleFilter"
+    "appsTitleFilter"
   );
-  const [sorting, setSorting] = usePersistentState("installs-asc", "sorting");
+  const [sorting, setSorting] = usePersistentState("installs-asc", "apps-sorting");
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
