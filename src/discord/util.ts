@@ -65,8 +65,9 @@ export const getDiscord = async (code) => {
     redirectURI: "https://flixbox.github.io/lp-compat/",
   });
 
-  const token = (await client.getAccessToken(code)).accessToken;
-  const user = await client.getUser(token);
-  const guilds = await client.getGuilds(token);
+  const tokenData = await client.getAccessToken(code);
+  console.log("tokenData", tokenData);
+  const user = await client.getUser(tokenData.accessToken);
+  const guilds = await client.getGuilds(tokenData.accessToken);
   return { user, guilds };
 };
