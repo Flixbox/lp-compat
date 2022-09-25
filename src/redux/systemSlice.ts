@@ -46,10 +46,10 @@ const systemSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(clearState, (state, action) => initialState);
-    builder.addCase(
-      fetchDiscord.fulfilled,
-      (state, action) => (state.discordUser = action.payload)
-    );
+    builder.addCase(fetchDiscord.fulfilled, (state, action) => {
+      console.log("got to reducer with ", action.payload);
+      state.discordUser = action.payload;
+    });
   },
 });
 
