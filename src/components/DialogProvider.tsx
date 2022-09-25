@@ -224,11 +224,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
                 {searchPlayStoreResult.map((result) => (
                   <>
                     <img src={result.icon} />
-                    <Typography>
-                      ID: {result.appId}{" "}
-                      {result.price && "Price: " + result.price}
-                    </Typography>
+                    <Typography>ID: {result.appId} </Typography>
                     <Typography>Title: {result.title}</Typography>
+                    {result.price && (
+                      <Typography>Price: {result.price}</Typography>
+                    )}
                     <Box m={1} />
                   </>
                 ))}
