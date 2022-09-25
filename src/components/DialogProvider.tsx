@@ -73,12 +73,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
 
   const handleChange = (part, value) => {
     setEditState({ ...editState, [part]: value });
-    dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
-      setGetPlayStoreResult(res.payload)
-    );
-    dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
-      setSearchPlayStoreResult(res.payload)
-    );
+    
   };
 
   const handleClose = () => {
@@ -90,6 +85,15 @@ const EditAppDialog = ({ open, appId = "" }) => {
   useEffect(() => {
     if (open) setEditState({ ...initialAppData } as App);
   }, [open]);
+
+  useEffect(() => {
+    dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
+      setGetPlayStoreResult(res.payload)
+    );
+    dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
+      setSearchPlayStoreResult(res.payload)
+    );
+  }, [editState.appId, editState.title])
 
   const handleSave = async () => {
     let result = await dispatch(addApp({ app: editState }));
