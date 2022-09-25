@@ -9,6 +9,7 @@ import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
 import session from "express-session";
 import mongo from "connect-mongodb-session";
+import cookieParser from "cookie-parser";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
@@ -45,20 +46,20 @@ app.use(express.json());
 app.use(cors());
 app.use(
   session({
+    name: "session",
     secret: process.env.SESSION_KEY_1,
+    resave: true,
+    saveUninitialized: true,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      path: "/",
+      maxAge: 1000 * 60 * 60 * 2, // 2 hrs
       secure: true,
       sameSite: "none",
     },
     store: store,
-    // Boilerplate options, see:
-    // * https://www.npmjs.com/package/express-session#resave
-    // * https://www.npmjs.com/package/express-session#saveuninitialized
-    resave: true,
-    saveUninitialized: true,
   })
 );
+app.use(cookieParser());
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");
@@ -67,6 +68,12 @@ app.get("/", async (req, res) => {
 app.get("/discord/get/:code", async (req, res) => {
   console.log("req.params.code", req.params.code);
   res.end(JSON.stringify(await getDiscord(req.params.code, req)));
+
+  // Cookies that have not been signed
+  console.log("Cookies: ", req.cookies);
+
+  // Cookies that have been signed
+  console.log("Signed Cookies: ", req.signedCookies);
 });
 
 app.get("/apps/count", async (req, res) => {
