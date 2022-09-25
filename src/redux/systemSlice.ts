@@ -30,7 +30,12 @@ export const clearState = createAction("clear");
 
 export const fetchDiscord = createAsyncThunk<any, { code: string }>(
   "/discord/get",
-  async ({ code }) => (await axiosInstance.get(`discord/get/${code}`)).data
+  async ({ code }) => {
+    console.log("going into request");
+    const res = await axiosInstance.get(`discord/get/${code}`);
+    console.log("request complete with ", res);
+    return res.data;
+  }
 );
 
 const systemSlice = createSlice({
