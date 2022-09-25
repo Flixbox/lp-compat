@@ -9,6 +9,7 @@ const axiosInstance = axios.create({
     "Content-Type": "application/json",
     "Access-Control-Max-Age": 600,
   },
+  withCredentials: true,
 });
 
 export default axiosInstance;

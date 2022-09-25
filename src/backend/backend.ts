@@ -55,6 +55,7 @@ app.use(
       maxAge: 1000 * 60 * 60 * 2, // 2 hrs
       secure: true,
       sameSite: "none",
+      httpOnly: false,
     },
     store: store,
   })
@@ -66,6 +67,12 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/discord/get/:code", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
   console.log("req.params.code", req.params.code);
   res.end(JSON.stringify(await getDiscord(req.params.code, req)));
 
