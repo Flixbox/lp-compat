@@ -38,9 +38,7 @@ import { App } from "../types";
 const DialogProvider = () => {
   const { dialogs } = useAppSelector((state) => state.system);
   return (
-    <>
-      <EditAppDialog {...dialogs?.EDIT_APP} />
-    </>
+    <>{dialogs?.EDIT_APP.open && <EditAppDialog {...dialogs?.EDIT_APP} />}</>
   );
 };
 
@@ -64,20 +62,23 @@ const EditAppDialog = ({ open, appId = "" }) => {
   console.log("initialAppData", initialAppData);
   const [editState, setEditState] = useState<App>({ ...initialAppData } as App);
   const [error, setError] = useState(false);
+  const [getPlayStoreResult, setGetPlayStoreResult] = useState<App>({} as App);
+  const [searchPlayStoreResult, setSearchPlayStoreResult] = useState<App[]>(
+    [] as App[]
+  );
   const theme = useTheme();
   const features = featureMap(theme);
 
   console.log("editState", editState);
 
-  dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
-    console.log("getPlayStoreData", res)
-  );
-  dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
-    console.log("searchPlayStoreData", res)
-  );
-
   const handleChange = (part, value) => {
     setEditState({ ...editState, [part]: value });
+    dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
+      setGetPlayStoreResult(res.payload)
+    );
+    dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
+      setSearchPlayStoreResult(res.payload)
+    );
   };
 
   const handleClose = () => {
@@ -139,6 +140,13 @@ const EditAppDialog = ({ open, appId = "" }) => {
               Does the app {editState.appId} exist on the Play Store?
             </Alert>
           )}
+          {!getPlayStoreResult.title && (
+            <Alert severity="info">
+              Could not find an app with this ID.
+              <br />
+              Does the app {editState.appId} exist on the Play Store?
+            </Alert>
+          )}
           <Box m={1} />
           <AppTextField
             field="appId"
@@ -147,6 +155,10 @@ const EditAppDialog = ({ open, appId = "" }) => {
           />
           <Box m={1} />
           <Typography>{appId}</Typography>
+          <Box m={1} />
+          {getPlayStoreResult.title && (
+            <Typography>{`Searched app ID ${editState.appId} and found app in play store with title ${getPlayStoreResult.title}`}</Typography>
+          )}
           <Box m={1} />
           <AppTextField
             field="title"
@@ -198,6 +210,21 @@ const EditAppDialog = ({ open, appId = "" }) => {
               </Box>
             )}
           />
+          <Box m={1} />
+          {searchPlayStoreResult.length > 0 && (
+            <>
+              <Typography>Search results:</Typography>
+              <Box display="flex" flexDirection="column">
+                {searchPlayStoreResult.map((result) => (
+                  <>
+                    <Typography>`ID: ${result.appId}`</Typography>
+                    <Typography>`Title: ${result.title}`</Typography>
+                    <Box m={1} />
+                  </>
+                ))}
+              </Box>
+            </>
+          )}
         </>
       )}
     </Dialog>
