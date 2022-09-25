@@ -78,7 +78,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
 
   const handleSave = async () => {
     const result = await dispatch(addApp({ app: editState }));
-    if (result) handleClose();
+    if (result.meta.requestStatus === "fulfilled") handleClose();
   };
 
   return (
