@@ -11,7 +11,6 @@ import { readFileSync } from "fs";
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 const discordToken = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 
-
 export const isStaff = (interaction) =>
   interaction.member.roles.cache.has("670375841523433472") ||
   interaction.member.id === interaction.guild.ownerId;
@@ -70,7 +69,7 @@ export const getDiscord = async (code, req) => {
   if (req.session.discordRefreshToken) {
     console.log("refresh token in session!", req.session.discordRefreshToken);
     const refreshToken = req.session.discordRefreshToken;
-    const tokenData = client.refreshToken(refreshToken);
+    const tokenData = await client.refreshToken(refreshToken);
     accessToken = tokenData.accessToken;
     req.session.discordRefreshToken = tokenData.refreshToken;
     console.log("Grabbed refresh token from session!", tokenData);
