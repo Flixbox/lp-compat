@@ -28,6 +28,7 @@ import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
+  faAdd,
   faBan,
   faCaretDown,
   faCommentsDollar,
@@ -309,6 +310,15 @@ const CompatOverview = () => {
         <Box m={8} />
         <Box className="row" display="flex" flexDirection="column">
           <Grid container>
+            {discordUser?.username && (
+              <IconButton
+                onClick={() => {
+                  dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
+                }}
+              >
+                <FontAwesomeIcon icon={faAdd} /> New app
+              </IconButton>
+            )}
             <Typography variant="h3">Filter apps</Typography>
             <Box flexGrow={1} />
             <Select
