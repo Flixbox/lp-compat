@@ -131,6 +131,10 @@ const EditAppDialog = ({ open, appId = "" }) => {
             </Toolbar>
           </AppBar>
           <Box m={1} />
+          <Typography>
+            After patching you may have to refresh the data (hit the refresh
+            button under the filter section).
+          </Typography>
           {error && (
             <Alert
               severity="error"
