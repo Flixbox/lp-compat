@@ -29,6 +29,7 @@ app.use(
   session({
     name: "session",
     keys: [process.env.SESSION_KEY_1, process.env.SESSION_KEY_2],
+    secure: true,
   })
 );
 
