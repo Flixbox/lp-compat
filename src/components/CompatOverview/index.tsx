@@ -297,7 +297,7 @@ const CompatOverview = () => {
 
   // Attempt to finish loading
   useEffect(() => loadMore(), [apps, loading, appCount]);
-  console.log(loading);
+
   return (
     <section className={styles.features}>
       <div className="container">
