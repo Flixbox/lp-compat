@@ -482,7 +482,7 @@ const AppTile = ({ app }: { app: App }) => {
               )}
             </CardContent>
           </a>
-          {discordUser?.username && (
+          {!discordUser?.username && (
             <IconButton
               onClick={() => {
                 dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }));
