@@ -73,7 +73,6 @@ const EditAppDialog = ({ open, appId = "" }) => {
 
   const handleChange = (part, value) => {
     setEditState({ ...editState, [part]: value });
-    
   };
 
   const handleClose = () => {
@@ -93,7 +92,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
     dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
       setSearchPlayStoreResult(res.payload)
     );
-  }, [editState.appId, editState.title])
+  }, [editState.appId, editState.title]);
 
   const handleSave = async () => {
     let result = await dispatch(addApp({ app: editState }));
@@ -224,8 +223,10 @@ const EditAppDialog = ({ open, appId = "" }) => {
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResult.map((result) => (
                   <>
+                    <img src={result.icon} />
                     <Typography>
-                      ID: {result.appId} ({result.priceText})
+                      ID: {result.appId}{" "}
+                      {result.price && "Price: " + result.price}
                     </Typography>
                     <Typography>Title: {result.title}</Typography>
                     <Box m={1} />
