@@ -128,6 +128,12 @@ const EditAppDialog = ({ open, appId = "" }) => {
             </Alert>
           )}
           <Box m={1} />
+          <AppTextField
+            field="appId"
+            editState={editState}
+            handleChange={handleChange}
+          />
+          <Box m={1} />
           <Typography>{appId}</Typography>
           <Box m={1} />
           <AppTextField

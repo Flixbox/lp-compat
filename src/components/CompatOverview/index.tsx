@@ -311,13 +311,13 @@ const CompatOverview = () => {
         <Box className="row" display="flex" flexDirection="column">
           <Grid container>
             {discordUser?.username && (
-              <IconButton
+              <Button
                 onClick={() => {
                   dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
                 }}
               >
                 <FontAwesomeIcon icon={faAdd} /> New app
-              </IconButton>
+              </Button>
             )}
             <Typography variant="h3">Filter apps</Typography>
             <Box flexGrow={1} />
