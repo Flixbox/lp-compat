@@ -76,7 +76,7 @@ const config = {
             type: "html",
             position: "right",
             value: `
-            <a id="discord-login" href="https://discord.com/api/oauth2/authorize?client_id=1021002998069067777&redirect_uri=https%3A%2F%2Fflixbox.github.io%2Flp-compat%2F&response_type=code&scope=identify%20guilds">
+            <a id="discord-login" href="https://discord.com/api/oauth2/authorize?client_id=1021002998069067777&redirect_uri=https%3A%2F%2Fflixbox.github.io%2Flp-compat%2F&response_type=code&scope=identify%20guilds%20guilds.members.read">
               Login
             </a>`,
           },
