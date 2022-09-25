@@ -93,6 +93,17 @@ const EditAppDialog = ({ open, appId = "" }) => {
         editState={editState}
         handleChange={handleChange}
       />
+      <Box m={1} />
+      <Typography>
+        You can select various pre-defined features from the list or add your
+        own. <br /> Please try to always at least choose one of iap, unclear-iap
+        or no-iap so that users can filter the list. <br />
+        You can add custom features by prefixing them with :: <br />
+        Examples: <br />
+        ::Works with version 1.2.3 from APKPure <br />
+        warning::Does not work with Android 12
+      </Typography>
+      <Box m={1} />
       <Autocomplete
         multiple
         id="tags-filled"
@@ -111,9 +122,15 @@ const EditAppDialog = ({ open, appId = "" }) => {
           <TextField
             {...params}
             variant="filled"
-            label="freeSolo"
-            placeholder="Favorites"
+            label="Features"
+            placeholder="Features"
           />
+        )}
+        renderOption={(props, option) => (
+          <Box component="li" flexDirection="column" {...props}>
+            <Typography>{features[option].label}</Typography>
+            <Typography variant="caption">{option}</Typography>
+          </Box>
         )}
       />
     </Dialog>
