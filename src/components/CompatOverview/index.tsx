@@ -195,13 +195,17 @@ const CompatOverview = () => {
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector((state) => state.apps);
-  const { appsListUpdated, appsListPage } = useAppSelector(
+  const { appsListUpdated, appsListPage, discordUser } = useAppSelector(
     (state) => state.system
   );
 
   let code;
   if (ExecutionEnvironment.canUseDOM) {
     code = new URLSearchParams(window.location.search).get("code");
+  }
+  if (discordUser) {
+    const loginButton = document.getElementById("discord-login");
+    loginButton.innerHTML = discordUser.username;
   }
 
   console.log(code);
@@ -210,9 +214,7 @@ const CompatOverview = () => {
       setAppCount(res.payload);
     });
 
-    dispatch(fetchDiscord({ code })).then((res) => {
-      console.log(res);
-    });
+    dispatch(fetchDiscord({ code }));
   }, []);
 
   const visibilitySettings = [
