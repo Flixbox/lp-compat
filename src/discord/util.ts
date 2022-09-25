@@ -58,7 +58,6 @@ export const processFeatures = async (
 };
 
 export const getDiscord = async (code) => {
-  console.log("code", code);
   const client = await new Client({
     clientID: "1021002998069067777",
     clientSecret: discordToken,
@@ -66,9 +65,7 @@ export const getDiscord = async (code) => {
     redirectURI: "https://flixbox.github.io/lp-compat/",
   });
 
-  console.log("got to request", client);
   const token = (await client.getAccessToken(code)).accessToken;
-  console.log("token", token);
   return await client.getUser(token);
   // client.getGuilds(accessToken)
 };

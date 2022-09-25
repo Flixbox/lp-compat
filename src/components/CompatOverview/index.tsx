@@ -206,7 +206,6 @@ const CompatOverview = () => {
   if (discordUser) {
     const loginButton = document.getElementById("discord-login");
     loginButton.innerHTML = discordUser.username;
-    console.log(discordUser.username);
   }
 
   console.log(code);
