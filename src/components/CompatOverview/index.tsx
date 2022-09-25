@@ -413,8 +413,8 @@ const AppTile = ({ app }: { app: App }) => {
   return (
     <Grid item xs={12} m={1}>
       <RenderIfVisible defaultHeight={800} stayRendered>
-        <a href={url}>
-          <Card style={{ maxWidth: "100%" }}>
+        <Card style={{ maxWidth: "100%" }}>
+          <a href={url}>
             <CardContent sx={{ padding: "8px" }}>
               <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
                 {screenshots.map((image) => (
@@ -478,18 +478,18 @@ const AppTile = ({ app }: { app: App }) => {
               {!free && (
                 <Typography variant="subtitle2">{priceText}</Typography>
               )}
-              {discordUser?.username && (
-                <IconButton
-                  onClick={() =>
-                    openDialog({ dialog: "EDIT_APP", data: { appId } })
-                  }
-                >
-                  <FontAwesomeIcon icon={faPen} />
-                </IconButton>
-              )}
             </CardContent>
-          </Card>
-        </a>
+          </a>
+          {discordUser?.username && (
+            <IconButton
+              onClick={() =>
+                openDialog({ dialog: "EDIT_APP", data: { appId } })
+              }
+            >
+              <FontAwesomeIcon icon={faPen} />
+            </IconButton>
+          )}
+        </Card>
       </RenderIfVisible>
     </Grid>
   );

@@ -7,6 +7,7 @@ import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
+import session from "express-session";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
@@ -24,13 +25,19 @@ const hostname = process.env.HOSTNAME || "localhost";
 app.use(helmet());
 app.use(express.json());
 app.use(cors());
+app.use(
+  session({
+    secret: process.env.DISCORD_TOKEN,
+    cookie: { secure: true },
+  })
+);
 
 app.get("/", async (req, res) => {
   res.send("Hello World!");
 });
 
 app.get("/discord/get/:code", async (req, res) => {
-  console.log("req.params.code", req.params.code)
+  console.log("req.params.code", req.params.code);
   res.send(await getDiscord(req.params.code));
 });
 
