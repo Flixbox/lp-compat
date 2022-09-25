@@ -7,15 +7,33 @@ import getAllAppIds from "../db/getAllAppIds";
 import getAllApps from "../db/getAllApps";
 import getApp from "../db/getApp";
 import swaggerUi from "swagger-ui-express";
-import session from "cookie-session";
+import session from "express-session";
+import mongo from "connect-mongodb-session";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
 import { getDiscord } from "../discord/util";
 
+const MongoDBStore = mongo(session);
+
 const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
+const uri = process.env.MONGO_URL;
+
+app.set("trust proxy", 1); // trust first proxy
+
+const store = new MongoDBStore(
+  {
+    uri,
+    databaseName: "sessionStorage",
+    collection: "sessions",
+  },
+  function (error) {
+    // Should have gotten an error
+    console.error(error);
+  }
+);
 
 // app.use(
 //   "/api-docs",
@@ -27,9 +45,16 @@ app.use(express.json());
 app.use(cors());
 app.use(
   session({
-    name: "session",
-    keys: [process.env.SESSION_KEY_1, process.env.SESSION_KEY_2],
-    secure: true,
+    secret: process.env.SESSION_KEY_1,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+    },
+    store: store,
+    // Boilerplate options, see:
+    // * https://www.npmjs.com/package/express-session#resave
+    // * https://www.npmjs.com/package/express-session#saveuninitialized
+    resave: true,
+    saveUninitialized: true,
   })
 );
 

@@ -11,6 +11,7 @@ import { readFileSync } from "fs";
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 const discordToken = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
 
+
 export const isStaff = (interaction) =>
   interaction.member.roles.cache.has("670375841523433472") ||
   interaction.member.id === interaction.guild.ownerId;
