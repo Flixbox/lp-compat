@@ -34,6 +34,7 @@ import {
   faEye,
   faEyeSlash,
   faListCheck,
+  faPen,
   faRectangleAd,
   faRefresh,
   faStore,
@@ -53,11 +54,16 @@ import {
 } from "@site/src/redux/appsSlice";
 import { Provider } from "react-redux";
 import { store } from "../../redux";
-import { clearState, fetchDiscord } from "@site/src/redux/systemSlice";
+import {
+  clearState,
+  fetchDiscord,
+  openDialog,
+} from "@site/src/redux/systemSlice";
 import { clear } from "redux-localstorage-simple";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
 import { App } from "@site/src/types";
+import DialogProvider from "../DialogProvider";
 
 const Root = () => {
   const { colorMode } = useColorMode();
@@ -72,6 +78,7 @@ const Root = () => {
           })}
         >
           <CompatOverview />
+          <DialogProvider />
         </ThemeProvider>
       </Provider>
     </>
@@ -208,7 +215,6 @@ const CompatOverview = () => {
     loginButton.innerHTML = discordUser.username;
   }
 
-  console.log(code);
   useEffect(() => {
     dispatch(fetchAppCount()).then((res) => {
       setAppCount(res.payload);
@@ -394,6 +400,7 @@ const AppTile = ({ app }: { app: App }) => {
     free,
     priceText,
   } = app;
+  const { discordUser } = useAppSelector((state) => state.system);
 
   return (
     <Grid item xs={12} m={1}>
@@ -462,6 +469,15 @@ const AppTile = ({ app }: { app: App }) => {
               </Box>
               {!free && (
                 <Typography variant="subtitle2">{priceText}</Typography>
+              )}
+              {discordUser.username && (
+                <IconButton
+                  onClick={() =>
+                    openDialog({ dialog: "EDIT_APP", data: { appId } })
+                  }
+                >
+                  <FontAwesomeIcon icon={faPen} />
+                </IconButton>
               )}
             </CardContent>
           </Card>

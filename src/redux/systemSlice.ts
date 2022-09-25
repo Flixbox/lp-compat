@@ -1,6 +1,7 @@
 import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import axiosInstance from "./axios";
+import { App } from "../types";
 
 interface DiscordUser {
   MFAEnabled: boolean;
@@ -14,11 +15,16 @@ interface DiscordUser {
   username: string;
 }
 
+interface Dialogs {
+  EDIT_APP: { open: boolean; appId?: App["appId"] };
+}
+
 interface SystemState {
   appsListUpdated: number;
   appsListPage: number;
   discordUser?: DiscordUser;
   discordGuilds?: [];
+  dialogs: Dialogs;
 }
 
 const initialState = {
@@ -26,6 +32,9 @@ const initialState = {
   appsListPage: 0,
   discordUser: undefined,
   discordGuilds: [],
+  dialogs: {
+    EDIT_APP: { open: false },
+  },
 } as SystemState;
 
 export const clearState = createAction("clear");
@@ -48,6 +57,20 @@ const systemSlice = createSlice({
     setAppsListPage(state, action: PayloadAction<number>) {
       state.appsListPage = action.payload;
     },
+    openDialog(
+      state,
+      action: PayloadAction<{ dialog: keyof Dialogs; data: any }>
+    ) {
+      state.dialogs[action.payload.dialog] = {
+        open: true,
+        ...action.payload.data,
+      };
+    },
+    closeDialog(state, action: PayloadAction<{ dialog: keyof Dialogs }>) {
+      state.dialogs[action.payload.dialog] = {
+        open: false,
+      };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(clearState, (state, action) => initialState);
@@ -58,5 +81,5 @@ const systemSlice = createSlice({
   },
 });
 
-export const { setAppsListUpdated, setAppsListPage } = systemSlice.actions;
+export const { setAppsListUpdated, setAppsListPage, openDialog, closeDialog } = systemSlice.actions;
 export default systemSlice.reducer;
