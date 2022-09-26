@@ -29,6 +29,7 @@ export const appProjection = {
   screenshots: 1,
   free: 1,
   priceText: 1,
+  editedBy: 1,
 };
 
 export const getUserDetails = (userName, userId) => ({
