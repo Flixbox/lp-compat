@@ -132,7 +132,7 @@ app.get("/playstore/get/:appId", async (req, res) => {
 });
 
 app.get("/playstore/search/:title", async (req, res) => {
-  res.send(await gplay.search({ term: req.params.title, num: 10 }));
+  res.send(await gplay.search({ term: req.params.title, num: 6 }));
 });
 
 app.listen(port, hostname, () => {

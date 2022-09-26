@@ -54,6 +54,28 @@ const AppTextField = ({ editState, field, handleChange }) => {
   );
 };
 
+const SearchResult = ({ result, handleChange }) => {
+  return (
+    <>
+      <Box display="flex">
+        <img src={result.icon} width="100" height="100" />
+        <Button
+          onClick={() => {
+            handleChange("appId", result.appId);
+            handleChange("title", result.title);
+          }}
+        >
+          Use this app
+        </Button>
+      </Box>
+      <Typography>ID: {result.appId} </Typography>
+      <Typography>Title: {result.title}</Typography>
+      {+result.price && <Typography>Price: {result.price}</Typography>}
+      <Box m={1} />
+    </>
+  );
+};
+
 const EditAppDialog = ({ open, appId = "" }) => {
   const dispatch = useAppDispatch();
   const initialAppData = useAppSelector((state) =>
@@ -63,9 +85,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
   const [editState, setEditState] = useState<App>({ ...initialAppData } as App);
   const [error, setError] = useState(false);
   const [getPlayStoreResult, setGetPlayStoreResult] = useState<App>({} as App);
-  const [searchPlayStoreResult, setSearchPlayStoreResult] = useState<App[]>(
-    [] as App[]
-  );
+  const [searchPlayStoreResultByTitle, setSearchPlayStoreResultByTitle] =
+    useState<App[]>([] as App[]);
+  const [searchPlayStoreResultById, setSearchPlayStoreResultById] = useState<
+    App[]
+  >([] as App[]);
   const theme = useTheme();
   const features = featureMap(theme);
 
@@ -90,7 +114,10 @@ const EditAppDialog = ({ open, appId = "" }) => {
       setGetPlayStoreResult(res.payload)
     );
     dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
-      setSearchPlayStoreResult(res.payload)
+      setSearchPlayStoreResultByTitle(res.payload)
+    );
+    dispatch(searchPlayStoreData({ query: editState.appId })).then((res) =>
+      setSearchPlayStoreResultById(res.payload)
     );
   }, [editState.appId, editState.title]);
 
@@ -219,32 +246,27 @@ const EditAppDialog = ({ open, appId = "" }) => {
             )}
           />
           <Box m={1} />
-          {searchPlayStoreResult?.length > 0 && (
+          {searchPlayStoreResultByTitle?.length > 0 && (
             <>
-              <Typography>Search results:</Typography>
+              <Typography>Search results by title:</Typography>
               <Box display="flex" flexDirection="column">
-                {searchPlayStoreResult.map((result) => (
-                  <>
-                    <Box display="flex">
-                      <img src={result.icon} width="100" height="100" />
-                      <Button
-                        onClick={() => {
-                          handleChange("appId", result.appId);
-                          handleChange("title", result.title);
-                        }}
-                      >
-                        Use this app
-                      </Button>
-                    </Box>
-                    <Typography>ID: {result.appId} </Typography>
-                    <Typography>Title: {result.title}</Typography>
-                    {+result.price && (
-                      <Typography>Price: {result.price}</Typography>
-                    )}
-                    <Box m={1} />
-                  </>
+                {searchPlayStoreResultByTitle.map((result) => (
+                  <SearchResult result={result} handleChange={handleChange} />
                 ))}
               </Box>
+
+            </>
+          )}
+          <Box m={1} />
+          {searchPlayStoreResultById?.length > 0 && (
+            <>
+              <Typography>Search results by ID:</Typography>
+              <Box display="flex" flexDirection="column">
+                {searchPlayStoreResultById.map((result) => (
+                  <SearchResult result={result} handleChange={handleChange} />
+                ))}
+              </Box>
+
             </>
           )}
         </>
