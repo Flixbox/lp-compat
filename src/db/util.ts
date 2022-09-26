@@ -31,3 +31,9 @@ export const appProjection = {
   priceText: 1,
 };
 
+export const getUserDetails = (req) => ({
+  editedBy: {
+    name: req.session.userName,
+    id: req.session.userId,
+  },
+});

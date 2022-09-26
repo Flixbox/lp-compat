@@ -127,12 +127,12 @@ app.post("/apps/add/", async (req, res) => {
       } 
   */
   const app = req.body;
-  res.send(await addApp(app, res));
+  res.send(await addApp(app, req, res));
 });
 
 app.post("/apps/edit/", async (req, res) => {
   const app = req.body;
-  res.send(await editApp(app, res));
+  res.send(await editApp(app, req, res));
 });
 
 app.get("/playstore/get/:appId", async (req, res) => {

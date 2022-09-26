@@ -82,5 +82,9 @@ export const getDiscord = async (code, req) => {
 
   const user = await client.getUser(accessToken);
   const guilds = await client.getGuilds(accessToken);
-  return { user, guilds };
+  const userDetails = { user, guilds };
+  req.session.userName = user.username;
+  req.session.userId = user.id;
+
+  return userDetails;
 };

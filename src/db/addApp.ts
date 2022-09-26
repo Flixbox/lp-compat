@@ -1,11 +1,11 @@
 import { Response } from "express";
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
-import { executeAppsQuery } from "./util";
+import { executeAppsQuery, getUserDetails } from "./util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
-export default async (app: App, res?: Response) => {
+export default async (app: App, req, res?: Response) => {
   console.log(app);
   return await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
@@ -65,6 +65,7 @@ export default async (app: App, res?: Response) => {
       version,
       recentChanges,
       url,
+      ...getUserDetails(req)
     });
 
     const result = await appsCollection.findOne({ appId: app.appId });
