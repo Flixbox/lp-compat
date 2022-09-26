@@ -27,7 +27,7 @@ export default async (app: App, req, res?: Response) => {
       {
         ...newApp,
         dateModified: Date.now(),
-        ...getUserDetails(req),
+        ...getUserDetails(req.session.userName, req.session.userId),
       }
     );
 
