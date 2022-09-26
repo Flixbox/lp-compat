@@ -419,6 +419,7 @@ const AppTile = ({ app }: { app: App }) => {
     screenshots,
     free,
     priceText,
+    editedBy,
   } = app;
   const { discordUser } = useAppSelector((state) => state.system);
   const dispatch = useAppDispatch();
@@ -484,8 +485,12 @@ const AppTile = ({ app }: { app: App }) => {
                 <Typography variant="subtitle2">{genre}</Typography>
                 {dateModified && (
                   <Typography variant="subtitle2" whiteSpace="nowrap">
-                    Entry last modified:{" "}
-                    {new Date(dateModified).toLocaleString()}
+                    Entry last edited: {new Date(dateModified).toLocaleString()}
+                  </Typography>
+                )}
+                {editedBy && (
+                  <Typography variant="subtitle2" whiteSpace="nowrap">
+                    Modified by: {editedBy.userName} ({editedBy.userId})
                   </Typography>
                 )}
               </Box>
