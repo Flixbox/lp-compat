@@ -74,18 +74,18 @@ export const appsSlice = createSlice({
     builder.addCase(addApp.fulfilled, (state, action) => {
       console.log("addapp result", action.payload);
       const index = state.findIndex(
-        (app) => action.payload.value.appId === app.appId
+        (app) => action.payload.appId === app.appId
       );
       if (index < 0) state.push(action.payload.value);
-      state[index] = action.payload.value;
+      state[index] = action.payload;
     });
     builder.addCase(editApp.fulfilled, (state, action) => {
       console.log("editApp result", action.payload);
       const index = state.findIndex(
-        (app) => action.payload.value.appId === app.appId
+        (app) => action.payload.appId === app.appId
       );
       if (index < 0) state.push(action.payload.value);
-      state[index] = action.payload.value;
+      state[index] = action.payload;
     });
     builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
       action.payload.forEach(
