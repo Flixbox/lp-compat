@@ -124,10 +124,12 @@ const EditAppDialog = ({ open, appId = "" }) => {
   const handleSave = async () => {
     let result = await dispatch(addApp({ app: editState }));
     if (result.meta.requestStatus === "fulfilled") {
+      console.log("addApp fulfilled");
       handleClose();
     } else {
       result = await dispatch(editApp({ app: editState }));
       if (result.meta.requestStatus === "fulfilled") {
+        console.log("editApp fulfilled");
         handleClose();
       } else {
         setError(true);
@@ -254,7 +256,6 @@ const EditAppDialog = ({ open, appId = "" }) => {
                   <SearchResult result={result} handleChange={handleChange} />
                 ))}
               </Box>
-
             </>
           )}
           <Box m={1} />
@@ -266,7 +267,6 @@ const EditAppDialog = ({ open, appId = "" }) => {
                   <SearchResult result={result} handleChange={handleChange} />
                 ))}
               </Box>
-
             </>
           )}
         </>

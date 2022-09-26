@@ -39,6 +39,9 @@ const store = new MongoDBStore(
   }
 );
 
+var whitelist = ["https://flixbox.github.io", "http://localhost:3000"];
+var corsOptions = {};
+
 // app.use(
 //   "/api-docs",
 //   swaggerUi.serve,
@@ -48,7 +51,13 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://flixbox.github.io",
+    origin: (origin, callback) => {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
     credentials: true,
   })
@@ -81,7 +90,7 @@ app.get("/discord/get/:code", async (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
+  // res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
   res.end(JSON.stringify(await getDiscord(req.params.code, req)));
 });
 
