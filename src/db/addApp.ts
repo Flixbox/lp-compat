@@ -39,7 +39,7 @@ export default async (app: App, res?: Response) => {
       url,
     } = playStoreData;
     console.info(`adding ${app.appId}`);
-    const result = await appsCollection.insertOne({
+    await appsCollection.insertOne({
       dateModified: Date.now(),
       ...app,
       title,
@@ -66,6 +66,8 @@ export default async (app: App, res?: Response) => {
       recentChanges,
       url,
     });
+
+    const result = await appsCollection.findOne({ appId: app.appId });
 
     console.info(`added ${app.appId}`);
 
