@@ -72,7 +72,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   console.log("editState", editState);
 
   const handleChange = (part, value) => {
-    setEditState({ ...editState, [part]: value });
+    setEditState((prevEditState) => ({ ...prevEditState, [part]: value }));
   };
 
   const handleClose = () => {
