@@ -27,6 +27,13 @@ const uri = process.env.MONGO_URL;
 
 app.set("trust proxy", 1); // trust first proxy
 
+declare module "express-session" {
+  interface SessionData {
+    userId: string;
+    userName: string;
+  }
+}
+
 const store = new MongoDBStore(
   {
     uri,
@@ -127,7 +134,7 @@ app.post("/apps/add/", async (req, res) => {
       } 
   */
   const app = req.body;
-  res.send(await addApp(app, req, res));
+  res.send(await addApp(app, req.session.userName, req.session.userId, res));
 });
 
 app.post("/apps/edit/", async (req, res) => {

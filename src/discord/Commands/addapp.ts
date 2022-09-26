@@ -70,7 +70,7 @@ module.exports = {
     }
 
     try  {
-      await addApp({ appId, features } as App);
+      await addApp({ appId, features } as App, interaction.user.tag, interaction.user.id);
     } catch(e) {
       return await error(
         "Your app package is probably already on the list! Check /help as well."

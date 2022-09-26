@@ -5,7 +5,7 @@ import { executeAppsQuery, getUserDetails } from "./util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
-export default async (app: App, req, res?: Response) => {
+export default async (app: App, userName, userId, res?: Response) => {
   console.log(app);
   return await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
@@ -65,7 +65,7 @@ export default async (app: App, req, res?: Response) => {
       version,
       recentChanges,
       url,
-      ...getUserDetails(req)
+      ...getUserDetails(userName, userId),
     });
 
     const result = await appsCollection.findOne({ appId: app.appId });
