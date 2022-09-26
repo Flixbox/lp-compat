@@ -22,13 +22,15 @@ export default async (app: App, res?: Response) => {
 
     delete newApp._id;
 
-    const result = await appsCollection.findOneAndReplace(
+    await appsCollection.findOneAndReplace(
       { appId: app.appId },
       {
         ...newApp,
         dateModified: Date.now(),
       }
     );
+
+    const result = await appsCollection.findOne({ appId: app.appId });
 
     console.info(`set ${app.appId} with data`, newApp);
 

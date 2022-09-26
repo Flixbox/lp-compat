@@ -66,6 +66,8 @@ import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 import { App } from "@site/src/types";
 import DialogProvider from "../DialogProvider";
 
+// TODO Move that login button to main component so it works on mobile or update it every second
+
 const Root = () => {
   const { colorMode } = useColorMode();
   return (

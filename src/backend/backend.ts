@@ -40,7 +40,6 @@ const store = new MongoDBStore(
 );
 
 var whitelist = ["https://flixbox.github.io", "http://localhost:3000"];
-var corsOptions = {};
 
 // app.use(
 //   "/api-docs",
