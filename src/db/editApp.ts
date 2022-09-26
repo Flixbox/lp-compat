@@ -22,6 +22,12 @@ export default async (app: App, req, res?: Response) => {
 
     delete newApp._id;
 
+    console.log(
+      "getUserDetails",
+      getUserDetails(req.session.userName, req.session.userId)
+    );
+    console.log("session", req.session);
+
     await appsCollection.findOneAndReplace(
       { appId: app.appId },
       {
