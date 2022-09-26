@@ -57,13 +57,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://flixbox.github.io",
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
     credentials: true,
   })
@@ -96,7 +90,7 @@ app.get("/discord/get/:code", async (req, res) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  // res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
+  res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
   res.end(JSON.stringify(await getDiscord(req.params.code, req)));
 });
 
