@@ -207,7 +207,7 @@ const CompatOverview = () => {
   );
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
-  const apps = useAppSelector((state) => state.apps);
+  const apps = useAppSelector<App[]>((state) => state.apps);
   const { appsListUpdated, appsListPage, discordUser } = useAppSelector(
     (state) => state.system
   );
@@ -233,19 +233,20 @@ const CompatOverview = () => {
     {
       id: "compatible",
       title: "Compatible apps",
-      onlyRenderIf: (app: App) => app.features.indexOf("iap") > -1,
+      onlyRenderIf: (app: App) => app && app.features.indexOf("iap") > -1,
     },
     {
       id: "unclear-iap",
       title: "Uncategorized",
       onlyRenderIf: (app: App) =>
+        app &&
         app.features.indexOf("iap") === -1 &&
         app.features.indexOf("no-iap") === -1,
     },
     {
       id: "incompatible",
       title: "Incompatible apps",
-      onlyRenderIf: (app: App) => app.features.indexOf("no-iap") > -1,
+      onlyRenderIf: (app: App) => app && app.features.indexOf("no-iap") > -1,
     },
   ];
 
@@ -261,17 +262,17 @@ const CompatOverview = () => {
     "name-asc": {
       title: "Sort by name",
       getSortedApps: () =>
-        [...apps].sort((a, b) => a.title.localeCompare(b.title)),
+        [...apps].sort((a, b) => a && b && a.title.localeCompare(b.title)),
     },
     "installs-asc": {
       title: "Sort by downloads",
       getSortedApps: () =>
-        [...apps].sort((a, b) => b.minInstalls - a.minInstalls),
+        [...apps].sort((a, b) => a && b && b.minInstalls - a.minInstalls),
     },
     "date-modified": {
       title: "Sort by last modified",
       getSortedApps: () =>
-        [...apps].sort((a, b) => b.dateModified - a.dateModified),
+        [...apps].sort((a, b) => a && b && b.dateModified - a.dateModified),
     },
   };
 
