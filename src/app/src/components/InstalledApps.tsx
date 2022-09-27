@@ -58,7 +58,7 @@ const InstalledApps = () => {
               <Avatar
                 size="48px"
                 source={{
-                  uri: '',
+                  uri: `data:image/png;base64,${item.icon}`,
                 }}
               />
               <VStack>
