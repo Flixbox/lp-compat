@@ -6218,6 +6218,11 @@ react-is@^16.13.1, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-android-installed-apps-unblocking@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-android-installed-apps-unblocking/-/react-native-android-installed-apps-unblocking-1.0.3.tgz#4fa54c18b79dd303367e03e151474cbd660cc205"
+  integrity sha512-Au7giSzklgYM0bCDMyzVb/A5a3QiOHduJ6NjFGPCYJNICAIDSM9hyg61SKaQy5TDRoEtbbspd1yp9B8QROOWyg==
+
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.6.tgz#b3173faa879cf71bfade8d030f9c4698388f6909"

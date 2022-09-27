@@ -22,6 +22,7 @@ import {
   Box,
 } from 'native-base'
 import NativeBaseIcon from './src/components/NativeBaseIcon'
+import InstalledApps from './src/components/InstalledApps'
 
 // Color Switch Component
 function ToggleDarkMode() {
@@ -52,14 +53,12 @@ const App = () => {
         <VStack space={5} alignItems="center">
           <NativeBaseIcon />
           <Heading size="lg">Welcome to NativeBase</Heading>
-          <HStack space={2} alignItems="center">
-            <Text>Shorna ist die Beste! ❤</Text>
-          </HStack>
           <Link href="https://docs.nativebase.io" isExternal>
             <Text color="primary.500" underline fontSize={'xl'}>
-              Learn NativeBase
+              Learn NativeBasexxx
             </Text>
           </Link>
+          <InstalledApps />
           <ToggleDarkMode />
         </VStack>
       </Center>

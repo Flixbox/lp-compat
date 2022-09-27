@@ -1,3 +1,5 @@
 rootProject.name = 'lpcompat'
+include ':react-native-android-installed-apps-unblocking'
+project(':react-native-android-installed-apps-unblocking').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-android-installed-apps-unblocking/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
