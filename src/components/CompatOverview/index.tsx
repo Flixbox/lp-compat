@@ -380,6 +380,7 @@ const CompatOverview = () => {
         </Typography>
 
         {sortedApps.map((app) => {
+          if (!app || !app.appId) return;
           if (
             app.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
             app.appId.toLowerCase().indexOf(appTitleFilter) === -1
@@ -406,6 +407,7 @@ const CompatOverview = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme();
+  if (!app || !app.appId) return;
   const {
     appId,
     features,

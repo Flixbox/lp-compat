@@ -26,4 +26,8 @@ export interface App {
   version: string;
   recentChanges: string;
   url: string;
+  editedBy: {
+    userName: string
+    userId: string
+  }
 }
