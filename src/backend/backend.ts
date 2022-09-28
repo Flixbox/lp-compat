@@ -46,7 +46,11 @@ const store = new MongoDBStore(
   }
 );
 
-var whitelist = ["https://flixbox.github.io", "http://localhost:3000"];
+var whitelist = [
+  "https://flixbox.github.io",
+  "http://localhost:3000",
+  "https://luck.up.railway.app",
+];
 
 // app.use(
 //   "/api-docs",
