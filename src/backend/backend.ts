@@ -91,6 +91,10 @@ app.use(
 app.use(cookieParser());
 
 app.get("/", async (req, res) => {
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   res.send("Hello World!");
 });
 
