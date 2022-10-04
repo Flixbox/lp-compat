@@ -38,10 +38,8 @@ const InstalledApps = () => {
 
   return (
     <Box>
-      <Heading fontSize="xl" p="4" pb="3">
-        Inbox
-      </Heading>
       <FlatList
+        h="70%"
         data={installedApps}
         renderItem={({ item }) => (
           <Box

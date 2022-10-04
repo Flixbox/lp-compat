@@ -10,10 +10,14 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
+    "@react-navigation/drawer": "^6.5.0",
+    "@react-navigation/native": "^6.0.13",
     "native-base": "3.4.0",
     "react": "17.0.1",
     "react-native": "0.64.1",
     "react-native-android-installed-apps-unblocking": "^1.0.3",
+    "react-native-reanimated": "^2.10.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-svg": "^12.1.1"
   },

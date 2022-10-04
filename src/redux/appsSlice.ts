@@ -76,7 +76,7 @@ export const appsSlice = createSlice({
       const index = state.findIndex(
         (app) => action.payload.appId === app.appId
       );
-      if (index < 0) state.push(action.payload.value);
+      if (index < 0) state.push(action.payload);
       state[index] = action.payload;
     });
     builder.addCase(editApp.fulfilled, (state, action) => {
@@ -84,7 +84,7 @@ export const appsSlice = createSlice({
       const index = state.findIndex(
         (app) => action.payload.appId === app.appId
       );
-      if (index < 0) state.push(action.payload.value);
+      if (index < 0) state.push(action.payload);
       state[index] = action.payload;
     });
     builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
