@@ -135,7 +135,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.info.main,
   },
   "root-patch-iap": {
-    label: "Patch app with root to make IAP work!",
+    label: "App requires root to make IAP patch work!",
     color: theme.palette.info.main,
   },
   "no-root-patch-iap": {
