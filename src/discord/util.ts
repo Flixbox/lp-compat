@@ -42,7 +42,6 @@ export const processFeatures = async (
   interaction: Interaction
 ) => {
   const featuresArray = features.split("|");
-  featuresArray.push(`::Added to list by ${interaction.user.tag}`);
 
   // Some degree of validation for the features
   try {
