@@ -46,7 +46,7 @@ You can get a full list of predefined features using the \`features\` command.
 
 **/features**
 
-Use the command to get a full list of available features.
+See here: http://localhost:3000/lp-compat/docs/Discordbot/Features
 
     `);
   },

@@ -1,0 +1,36 @@
+import { featureMap } from "../../src/featureMap";
+
+export const Features = () => {
+  const features = featureMap();
+  return (
+    <>
+      {Object.keys(features).map((feature) => (
+        <p>
+          <b>{feature}</b>: {features[feature].label}
+        </p>
+      ))}
+    </>
+  );
+};
+
+Examples:
+
+`/addapp games.onebutton.golfbattle no-iap`
+
+`/addapp com.gramgames.mergedragons iap|::Works with version 1.2.3 from APKPure`
+
+Try to add add either `iap` or `no-iap` to the start of your features list.
+
+---
+
+<Features />
+
+---
+
+You can also create custom features using this syntax:
+
+`::Download version 1.2.3 on APKPure; then patch`
+
+`warning::Don't click the fake ads - Please use AdGuard`
+
+`success::IAP work with some minor restrictions`
