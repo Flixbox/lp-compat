@@ -46,7 +46,7 @@ You can get a full list of predefined features using the \`features\` command.
 
 **/features**
 
-See here: http://localhost:3000/lp-compat/docs/Discordbot/Features
+See here: https://flixbox.github.io/lp-compat/docs/Discordbot/Features
 
     `);
   },
