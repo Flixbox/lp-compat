@@ -7,6 +7,7 @@ const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
 export default async (app: App, userName, userId, res?: Response) => {
   console.log(app);
+  if (!app.features) throw new Error("No features found!");
   return await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
       res && res.status(409).send();
