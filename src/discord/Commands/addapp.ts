@@ -8,7 +8,7 @@ import {
 } from "../util";
 import addApp from "../../db/addApp";
 import { App } from "../../types";
-import getPlaystoreData from "@site/src/backend/getPlaystoreData";
+import getPlaystoreData from "../../backend/getPlaystoreData";
 
 module.exports = {
   data: new SlashCommandBuilder()
