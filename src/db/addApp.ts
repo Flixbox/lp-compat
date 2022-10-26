@@ -11,9 +11,16 @@ export default async (app: App, userName, userId, res?: Response) => {
   return await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
       res && res.status(409).send();
+      console.error(`App ${app.appId} already exists!`);
       throw new Error(`App ${app.appId} already exists!`);
     }
-    const playStoreData = await getPlaystoreData(app.appId);
+    let playStoreData;
+    try {
+      playStoreData = await getPlaystoreData(app.appId);
+    } catch (e) {
+      console.error(`App ${app.appId} - Play Store data not found!`);
+      throw e;
+    }
     const {
       title,
       summary,
