@@ -5,6 +5,7 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 ## Patchable apps that vanished from the Play Store
 
 - Asdivine Hearts 2
+- Soul Calibur
 - Racing Heroes 
 - Racing Clash Club: Car Game
 - Table Top Racing
