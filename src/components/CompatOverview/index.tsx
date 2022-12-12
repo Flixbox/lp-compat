@@ -233,8 +233,7 @@ const CompatOverview = () => {
     {
       id: "compatible",
       title: "Compatible apps",
-      onlyRenderIf: (app: App) => app && app.features?.indexOf("iap") > -1 &&
-      app.features?.indexOf("ads") > -1,
+      onlyRenderIf: (app: App) => app && app.features?.indexOf("iap") > -1,
     },
     {
       id: "unclear-iap",
@@ -242,8 +241,7 @@ const CompatOverview = () => {
       onlyRenderIf: (app: App) =>
         app &&
         app.features?.indexOf("iap") === -1 &&
-        app.features?.indexOf("no-iap") === -1 &&
-        app.features?.indexOf("ads") === -1,
+        app.features?.indexOf("no-iap") === -1,
     },
     {
       id: "incompatible",
