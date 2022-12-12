@@ -5,6 +5,10 @@ export const featureMap = (theme = createTheme()) => ({
     label: "IAP patch works!",
     color: theme.palette.success.main,
   },
+    ads: {
+    label: "Remove ads patch works",
+    color: theme.palette.success.main,
+  },
   "partial-iap": {
     label: "IAP partially compatible",
     color: theme.palette.warning.main,
