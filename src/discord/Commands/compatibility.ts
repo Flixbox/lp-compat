@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("compatibility")
     .setDescription(
-      "Provides information about which apps are compatible with Lucky Patcher, and provides a link to a website that contains more details about the compatibility of specific apps."
+      "Gives info on compatible apps for Lucky Patcher, with link to more detailed compatibility info."
     ),
   execute: async (interaction, client) => {
     return await interaction.followUp(`

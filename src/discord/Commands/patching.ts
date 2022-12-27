@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("patching")
-    .setDescription("Provides instructions on how to patch an app, along with a link to a website with more information about the process."),
+    .setDescription("Instructions for patching an app, with link to more info on the process."),
   execute: async (interaction, client) => {
     return await interaction.followUp(`
     Before you start modifying your apps, it's important to understand what Lucky Patcher is capable of and what it can't do. To do this, you can read the information available at the following link:'

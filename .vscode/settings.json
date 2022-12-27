@@ -1,5 +1,7 @@
 {
   "[json]": {
     "editor.formatOnSave": false
-  }
+  },
+  "editor.tabCompletion": "on",
+  "diffEditor.codeLens": true
 }
