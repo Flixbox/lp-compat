@@ -18,7 +18,7 @@ module.exports = {
       option
         .setName("package")
         .setDescription(
-          "/help - Use the app's package name (e.g. com.gramgames.mergedragons) or the URL to the app on the play store."
+          "/help - Use the app's package name (e.g. com.gramgames.mergedragons) or the URL to the app."
         )
         .setRequired(true)
     )
