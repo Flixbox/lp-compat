@@ -45,7 +45,7 @@ To add a new app to the list, you will need to edit the "apps.json" file located
 ```
 3. Save the file and close the text editor.
 4. If the app you added is completely new (i.e. its data has not yet been scraped from the Play Store), the page may crash when you try to view it. You can either wait for the continuous integration (CI) process to scrape the data for you (if you have checked in your changes), or you can run the following command to scrape the data manually:
-   1. - ``npm run scrape``
+   1. ``npm run scrape``
 5. To add custom features to the app, use the following syntax: 
    1. ``<color>::<feature text>``. 
      - For example:
