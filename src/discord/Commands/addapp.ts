@@ -18,7 +18,7 @@ module.exports = {
       option
         .setName("package")
         .setDescription(
-          "/help - Example: com.gramgames.mergedragons or play store URL"
+          "/help - Use the app's package name (e.g. com.gramgames.mergedragons) or the URL to the app on the play store."
         )
         .setRequired(true)
     )
@@ -26,7 +26,7 @@ module.exports = {
       option
         .setName("features")
         .setDescription(
-          "/help - Example: iap|::Works with version 1.2.3 from APKPure"
+          "/help - Use the predefined features or create custom ones using the format ::<custom feature>."
         )
         .setRequired(true)
     ),
@@ -38,7 +38,7 @@ module.exports = {
     const response = (content, ephemeral = false) =>
       interaction.editReply({ content, ephemeral });
     const error = (
-      e = "Something isn't right. Try again with different parameters."
+      e = "Something isn't right. Please try again with different parameters."
     ) => response(e, true);
 
     /*
@@ -57,7 +57,7 @@ module.exports = {
       features = await processFeatures(featuresString, interaction);
     } catch (e) {
       return await error(
-        "Your feature list isn't right! Check /help for a guide."
+        "There is an issue with the list of features you provided. Please refer to the `/help` command for guidance."
       );
     }
 
@@ -66,14 +66,14 @@ module.exports = {
       if (!features || !appId) throw new Error();
     } catch (e) {
       return await error(
-        "Your app package isn't right! Maybe it's not written properly? Try putting in the play store URL to the app! Check /help as well."
+        "There is an issue with the app package you provided. Make sure it is written correctly, or try using the URL to the app on the play store. You can also refer to the `/help` command for assistance."
       );
     }
 
     try {
       await getPlaystoreData(appId);
     } catch (e) {
-      return await error("Your app can't be found in this play store region!");
+      return await error("The app you provided cannot be found in the specified play store region. Please try again with a different app or region.");
     }
 
     try {
@@ -84,7 +84,7 @@ module.exports = {
       );
     } catch (e) {
       return await error(
-        "Your app package is probably already on the list! Check /help as well."
+        "The app package you provided is already on the list. Please try again with a different app or check the `/help` command for more information."
       );
     }
 

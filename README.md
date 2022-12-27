@@ -24,7 +24,7 @@ To get started with this project, you will need to install two pieces of softwar
 4. Run the following command to install the necessary dependencies for the project:
    1. ``yarn``
 5. Run the following command to start the development server:
-   1. npm run start
+   1. ``npm run start``
 
 That's it! The project should now be set up and running on your local development environment.
 
@@ -53,7 +53,7 @@ To add a new app to the list, you will need to edit the "apps.json" file located
 6. To check that the app is being shown correctly, run the following command:
    1. ``npm run start``
 
-Alternatively, you can use the Discord bot to add the app to the list without having to edit the code directly.
+Alternatively, you can use the Discord bot to add the app to the list without having to edit the code directly:
 
 ![discord-bot](https://img.shields.io/static/v1?label=Discord%20bot%20on&message=Railway&color=blueviolet&style=flat&logo=railway)
 
