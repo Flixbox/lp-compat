@@ -1,5 +1,9 @@
 # Favourites
 
+All of these apps are patchable by Lucky Patcher, allowing you to get all or most in-app purchases for free. 
+
+Multiplayer purchases usually break though. 
+
 - [King of Defense 2](https://play.google.com/store/apps/details?id=com.Gcenter.KingofDefense2.epic.towerdefense&hl=en&gl=us)
 - [Plague Inc](https://play.google.com/store/apps/details?id=com.miniclip.plagueinc&hl=en&gl=us)
 - [Jetpack Joyride](https://play.google.com/store/apps/details?id=com.halfbrick.jetpackjoyride&hl=en&gl=us)
