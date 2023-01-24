@@ -29,20 +29,19 @@ export default async (app: App, req, res?: Response) => {
     );
     console.log("session", req.session);
 
-    await appsCollection.findOneAndReplace(
-      { appId: app.appId },
-      {
-        ...newApp,
-        dateModified: Date.now(),
-        ...getUserDetails(req.session.userName, req.session.userId),
-      }
-    );
+    const newDataset = {
+      ...newApp,
+      dateModified: Date.now(),
+      ...getUserDetails(req.session.userName, req.session.userId),
+    };
+
+    await appsCollection.findOneAndReplace({ appId: app.appId }, newDataset);
 
     const result = await appsCollection.findOne({ appId: app.appId });
 
     console.info(`set ${app.appId} with data`, newApp);
 
-    await sendDiscordUpdate({ ...newApp }, "modified");
+    await sendDiscordUpdate(newDataset, "modified");
 
     console.log("Discord update sent! " + app.appId);
 

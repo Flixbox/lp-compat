@@ -22,6 +22,7 @@ export default async (app: App, change = "added") => {
     screenshots,
     free,
     priceText,
+    editedBy,
   } = app;
 
   let featuresString = "\nCompatibility:";
@@ -41,8 +42,8 @@ export default async (app: App, change = "added") => {
     .setAuthor({
       name:
         change === "added"
-          ? "App added on Compatibility List"
-          : "App changed on Compatibility List",
+          ? `App added on Compatibility List by ${editedBy.userName}`
+          : `App changed on Compatibility List by ${editedBy.userName}`,
       url: "https://flixbox.github.io/lp-compat/",
     })
     .setDescription(featuresString)

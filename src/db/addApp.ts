@@ -47,7 +47,7 @@ export default async (app: App, userName, userId, res?: Response) => {
       url,
     } = playStoreData;
     console.info(`adding ${app.appId}`);
-    await appsCollection.insertOne({
+    const dataset = {
       dateModified: Date.now(),
       ...app,
       title,
@@ -74,13 +74,15 @@ export default async (app: App, userName, userId, res?: Response) => {
       recentChanges,
       url,
       ...getUserDetails(userName, userId),
-    });
+    }
+
+    await appsCollection.insertOne(dataset);
 
     const result = await appsCollection.findOne({ appId: app.appId });
 
     console.info(`added ${app.appId}`);
 
-    await sendDiscordUpdate({ ...app, ...playStoreData });
+    await sendDiscordUpdate({ ...dataset, ...playStoreData });
 
     console.log("Discord update sent! " + app.appId);
 
