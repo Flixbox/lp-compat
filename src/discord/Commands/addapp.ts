@@ -53,17 +53,23 @@ module.exports = {
 
     let features;
     let appId;
+
+    const featuresError = async () =>
+      error(
+        "There is an issue with the list of features you provided. Please refer to the `/help` command for guidance."
+      );
+
     try {
       features = await processFeatures(featuresString, interaction);
     } catch (e) {
-      return await error(
-        "There is an issue with the list of features you provided. Please refer to the `/help` command for guidance."
-      );
+      return await featuresError();
     }
+
+    if (!features) return await featuresError();
 
     try {
       appId = await processPackage(packageParam);
-      if (!features || !appId) throw new Error();
+      if (!appId) throw new Error();
     } catch (e) {
       return await error(
         "There is an issue with the app package you provided. Make sure it is written correctly, or try using the URL to the app on the play store. You can also refer to the `/help` command for assistance."
@@ -73,7 +79,9 @@ module.exports = {
     try {
       await getPlaystoreData(appId);
     } catch (e) {
-      return await error("The app you provided cannot be found in the specified play store region. Please try again with a different app or region.");
+      return await error(
+        "The app you provided cannot be found in the specified play store region. Please try again with a different app or region."
+      );
     }
 
     try {
