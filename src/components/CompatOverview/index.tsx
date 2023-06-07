@@ -40,6 +40,7 @@ import {
   faRefresh,
   faStore,
   faTrophy,
+  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import { xor } from "lodash";
 import { usePersistentState } from "react-persistent-state";
@@ -324,6 +325,35 @@ const CompatOverview = () => {
             )}
             <Typography variant="h3">Filter apps</Typography>
             <Box flexGrow={1} />
+            <Button
+              variant="outlined"
+              onClick={async () => {
+                const response = await fetch(
+                  "https://luck.up.railway.app/apps/all"
+                );
+                const json = await response.json();
+                const formattedJson = JSON.stringify(json, null, 2);
+                const blob = new Blob([formattedJson], {
+                  type: "application/json",
+                });
+                const href = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = href;
+                link.download = "lucky-patcher-app-compatibility.json";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              style={{ marginRight: 4 }}
+            >
+              <FontAwesomeIcon
+                icon={faDownload}
+                size="lg"
+                opacity={0.9}
+                style={{ marginRight: 8 }}
+              />
+              JSON
+            </Button>
             <Select
               value={sorting}
               onChange={(e) => setSorting(e.target.value)}
