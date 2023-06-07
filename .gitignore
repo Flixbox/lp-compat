@@ -22,3 +22,4 @@ yarn-error.log*
 .dccache
 /.nixpacks
 swagger-output.json
+debug.log
