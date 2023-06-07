@@ -12,7 +12,6 @@ Multiplayer purchases usually break though.
 - [Rick and Morty: Pocket Mortys](https://play.google.com/store/apps/details?id=com.turner.pocketmorties&hl=en&gl=us)
 - [Kingdom Rush TD](https://play.google.com/store/apps/details?id=com.ironhidegames.android.kingdomrush&hl=en&gl=us) (The others are compatible too)
 - [Summoner's Greed TD](https://play.google.com/store/apps/details?id=com.pixio.google.mtd&hl=en&gl=us)
-- [City Island 5](https://play.google.com/store/apps/details?id=com.sparklingsociety.cityisland5&hl=en&gl=us)
 - [Townsmen](https://play.google.com/store/apps/details?id=com.hg.townsmen7free&hl=en&gl=us)
 - [Vampire's Fall](https://play.google.com/store/apps/details?id=com.earlymorningstudio.vampiresfall2&hl=en&gl=us)
 - [Nexomon Extinction](https://play.google.com/store/apps/details?id=com.vewointeractive.nexomon.extinction&hl=en&gl=US)
