@@ -147,7 +147,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.info.main,
   },
   "apk-platinmods": {
-    label: "Patched APK download available on Mobilism",
+    label: "Patched APK download available on Platinmods",
     color: theme.palette.info.main,
   },
   "apk-mobilism": {
