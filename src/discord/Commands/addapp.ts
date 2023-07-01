@@ -60,7 +60,7 @@ module.exports = {
       );
 
     try {
-      features = await processFeatures(featuresString, interaction);
+      features = processFeatures(featuresString);
     } catch (e) {
       return await featuresError();
     }

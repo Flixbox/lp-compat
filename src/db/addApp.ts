@@ -2,12 +2,15 @@ import { Response } from "express";
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
 import { executeAppsQuery, getUserDetails } from "./util";
+import { processFeatures } from "../discord/util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
 export default async (app: App, userName, userId, res?: Response) => {
   console.log(app);
   if (!app.features) throw new Error("No features found!");
+  if (!processFeatures(app.features.join("|")))
+    throw new Error("Invalid features array!");
   return await executeAppsQuery(async (appsCollection) => {
     if (await appsCollection.findOne({ appId: app.appId })) {
       res && res.status(409).send();
@@ -74,7 +77,7 @@ export default async (app: App, userName, userId, res?: Response) => {
       recentChanges,
       url,
       ...getUserDetails(userName, userId),
-    }
+    };
 
     await appsCollection.insertOne(dataset);
 
