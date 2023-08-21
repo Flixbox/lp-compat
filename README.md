@@ -84,6 +84,6 @@ Example: ```git clone https://github.com/**rarelygoeshere**/lp-compat.git```<br>
 9. Press "Add repository"<br><br>
 10. Once the process is completed, press "Show in Explorer", or the hotkey ```Ctrl + Shift + D``` to view the files of your repository in Explorer<br><br>
 11. Select the files you want to change and open with the editor of your choice normally([Notepad++](https://notepad-plus-plus.org/) is a good recommentation)<br><br>
-12. Once you saved the changes you made, Github Desktop will display the changes on its window for you to review. If you found everything to be satisfactory, then press commit to main<br><br>
-13. 
+12. Once you saved the changes you made, Github Desktop will display the changes on its window for you to review. If you found everything to be satisfactory, then press "commit to main"<br><br>
+13. Afterward, if you are satisfied with what you've changed, press "Push Origin"
 The project maintainers will review your PR and provide feedback or merge it if it meets the project's standards.
