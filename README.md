@@ -86,4 +86,6 @@ Example: ```git clone https://github.com/**rarelygoeshere**/lp-compat.git```<br>
 11. Select the files you want to change and open with the editor of your choice normally([Notepad++](https://notepad-plus-plus.org/) is a good recommentation)<br><br>
 12. Once you saved the changes you made, Github Desktop will display the changes on its window for you to review. If you found everything to be satisfactory, then press "commit to main"<br><br>
 13. Afterward, if you are satisfied with what you've changed, press "Push Origin"
+14. Nagivate to the forked repo in your account, and press "Contribute", then press "Open pull request"
+15.
 The project maintainers will review your PR and provide feedback or merge it if it meets the project's standards.
