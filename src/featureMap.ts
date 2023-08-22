@@ -154,6 +154,10 @@ export const featureMap = (theme = createTheme()) => ({
     label: "Patched APK download available on Mobilism",
     color: theme.palette.info.main,
   },
+  "apk-iosgods": {
+    label: "Patched APK download available on iOSGods",
+    color: theme.palette.info.main,
+  },
   "apk-apkpure": {
     label: "Download APK from APKPure, then patch",
     color: theme.palette.info.main,
