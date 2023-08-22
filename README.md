@@ -89,6 +89,7 @@ If you want to contribute code or other changes to this project, you can submit 
 - Add the local repo to Github Desktop. You can start by either clicking "Add an existing Repository from your hard drive" or navigate to the File button at the top leftmost, then click it to open a drop-down list, then choose "Add local repository...". Moreover, you can quickly use the hotkey `Ctrl + O` to open the Add local repository window
 - Press "choose..." to start locating your repo folder manually, or copypaste the address of the repo folder to the local path textbox
 - Press "Add repository"
+<br><br><br>
 - Once the process is completed, press "Show in Explorer", or the hotkey `Ctrl + Shift + D` to view the files of your repository in Explorer
 - Select the files you want to change and open with the editor of your choice normally([Notepad++](https://notepad-plus-plus.org/) is a good recommentation)
 - Once you saved the changes you made, Github Desktop will display the changes on its window for you to review. If you found everything to be satisfactory, then press "commit to main"
