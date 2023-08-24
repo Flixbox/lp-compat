@@ -487,16 +487,17 @@ const AppTile = ({ app }: { app: App }) => {
                   key={feature}
                   mt={0.5}
                 >
-                  <Typography
-                    color={theme.palette.getContrastText(
-                      getFeature(feature, theme).color
-                    )}
-                  >
+                  <Typography>
                     <MarkdownPreview
                       skipHtml
                       wrapperElement={{
                         "data-color-mode": "light",
-                        styles: 'background: "none"',
+                        style: `
+                          background-color: transparent; 
+                          color: ${theme.palette.getContrastText(
+                            getFeature(feature, theme).color
+                          )}
+                        `,
                       }}
                       source={getFeature(feature, theme).label}
                     />
