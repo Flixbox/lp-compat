@@ -32,6 +32,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Build output to publish to the `gh-pages` branch:
           publish_dir: ./build
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: CI - Add scraped play store data
