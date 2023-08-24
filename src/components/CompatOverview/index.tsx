@@ -67,6 +67,8 @@ import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 import { App } from "@site/src/types";
 import DialogProvider from "../DialogProvider";
 
+import MarkdownPreview from "@uiw/react-markdown-preview";
+
 // TODO Move that login button to main component so it works on mobile or update it every second
 
 const Root = () => {
@@ -491,7 +493,13 @@ const AppTile = ({ app }: { app: App }) => {
                         getFeature(feature, theme).color
                       )}
                     >
-                      {getFeature(feature, theme).label}
+                      <MarkdownPreview
+                        skipHtml
+                        wrapperElement={{
+                          "data-color-mode": "light",
+                        }}
+                        source={getFeature(feature, theme).label}
+                      />
                     </Typography>
                   </Paper>
                 ))}

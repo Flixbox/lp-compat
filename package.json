@@ -34,6 +34,7 @@
     "@mui/material": "^5.10.2",
     "@reduxjs/toolkit": "^1.8.5",
     "@types/express": "^4.17.14",
+    "@uiw/react-markdown-preview": "^4.1.15",
     "axios": "^0.27.2",
     "cli-progress": "^3.11.2",
     "clsx": "^1.2.1",
