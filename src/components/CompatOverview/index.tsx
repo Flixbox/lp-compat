@@ -496,9 +496,7 @@ const AppTile = ({ app }: { app: App }) => {
                       skipHtml
                       wrapperElement={{
                         "data-color-mode": "light",
-                        styles: {
-                          background: "none",
-                        },
+                        styles: 'background: "none"',
                       }}
                       source={getFeature(feature, theme).label}
                     />
