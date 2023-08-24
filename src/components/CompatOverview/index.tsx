@@ -492,13 +492,13 @@ const AppTile = ({ app }: { app: App }) => {
                       skipHtml
                       wrapperElement={{
                         "data-color-mode": "light",
-                        style: `
+                      }}
+                      style={`
                           background-color: transparent; 
                           color: ${theme.palette.getContrastText(
                             getFeature(feature, theme).color
                           )}
-                        `,
-                      }}
+                        `}
                       source={getFeature(feature, theme).label}
                     />
                   </Typography>
