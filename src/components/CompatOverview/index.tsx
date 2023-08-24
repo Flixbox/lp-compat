@@ -23,6 +23,7 @@ import {
   Select,
   MenuItem,
   IconButton,
+  styled,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,8 +69,30 @@ import { App } from "@site/src/types";
 import DialogProvider from "../DialogProvider";
 
 import MarkdownPreview from "@uiw/react-markdown-preview";
+import LinkSolid from "../../../static/img/link-solid.svg";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
+
+const StyledMarkdown = styled(MarkdownPreview)(
+  ({ theme, backgroundColor }) => `
+  && {
+    background-color: transparent;
+    color: ${theme.palette.getContrastText(backgroundColor)};
+    && a {
+      color: ${theme.palette.getContrastText(backgroundColor)};
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        opacity: 0.6;
+        margin: 4px 4px 0px 4px;
+        background: url(/lp-compat/img/link-solid.svg) center no-repeat;
+      }
+    }
+  }
+`
+);
 
 const Root = () => {
   const { colorMode } = useColorMode();
@@ -489,16 +512,11 @@ const AppTile = ({ app }: { app: App }) => {
                   mt={0.5}
                 >
                   <Typography>
-                    <MarkdownPreview
+                    <StyledMarkdown
                       skipHtml
+                      backgroundColor={getFeature(feature, theme).color}
                       wrapperElement={{
                         "data-color-mode": "light",
-                      }}
-                      style={{
-                        backgroundColor: "transparent",
-                        color: `${theme.palette.getContrastText(
-                          getFeature(feature, theme).color
-                        )}`,
                       }}
                       source={getFeature(feature, theme).label}
                     />
