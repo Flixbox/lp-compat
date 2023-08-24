@@ -464,45 +464,48 @@ const AppTile = ({ app }: { app: App }) => {
     <Grid item xs={12} m={1}>
       <RenderIfVisible defaultHeight={800} stayRendered>
         <Card style={{ maxWidth: "100%" }}>
-          <a href={url}>
-            <CardContent sx={{ padding: "8px" }}>
-              <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
-                {screenshots.map((image) => (
-                  <img
-                    src={image}
-                    alt="App screenshot"
-                    loading="lazy"
-                    key={image}
-                  />
-                ))}
-              </ImageScroller>
-              {features &&
-                features.map((feature) => (
-                  <Paper
-                    component={Box}
-                    elevation={0}
-                    padding={0.5}
-                    sx={{
-                      backgroundColor: getFeature(feature, theme).color,
-                    }}
-                    key={feature}
-                    mt={0.5}
+          <CardContent sx={{ padding: "8px" }}>
+            <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
+              {screenshots.map((image) => (
+                <img
+                  src={image}
+                  alt="App screenshot"
+                  loading="lazy"
+                  key={image}
+                />
+              ))}
+            </ImageScroller>
+            {features &&
+              features.map((feature) => (
+                <Paper
+                  component={Box}
+                  elevation={0}
+                  padding={0.5}
+                  sx={{
+                    backgroundColor: getFeature(feature, theme).color,
+                  }}
+                  key={feature}
+                  mt={0.5}
+                >
+                  <Typography
+                    color={theme.palette.getContrastText(
+                      getFeature(feature, theme).color
+                    )}
                   >
-                    <Typography
-                      color={theme.palette.getContrastText(
-                        getFeature(feature, theme).color
-                      )}
-                    >
-                      <MarkdownPreview
-                        skipHtml
-                        wrapperElement={{
-                          "data-color-mode": "light",
-                        }}
-                        source={getFeature(feature, theme).label}
-                      />
-                    </Typography>
-                  </Paper>
-                ))}
+                    <MarkdownPreview
+                      skipHtml
+                      wrapperElement={{
+                        "data-color-mode": "light",
+                        styles: {
+                          background: "none",
+                        },
+                      }}
+                      source={getFeature(feature, theme).label}
+                    />
+                  </Typography>
+                </Paper>
+              ))}
+            <a href={url}>
               <Box display="flex" mt={1}>
                 <Avatar
                   src={icon}
@@ -514,32 +517,26 @@ const AppTile = ({ app }: { app: App }) => {
                   <Typography variant="subtitle2">{appId}</Typography>
                 </Box>
               </Box>
-              <Box display="flex" justifyContent="space-between">
-                <Typography variant="subtitle2">⭐{scoreText}</Typography>
-                <Typography variant="subtitle2">📩 {installs}</Typography>
-              </Box>
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                flexWrap="wrap"
-              >
-                <Typography variant="subtitle2">{genre}</Typography>
-                {dateModified && (
-                  <Typography variant="subtitle2" whiteSpace="nowrap">
-                    Entry last edited: {new Date(dateModified).toLocaleString()}
-                  </Typography>
-                )}
-                {editedBy && (
-                  <Typography variant="subtitle2" whiteSpace="nowrap">
-                    Modified by: {editedBy.userName} ({editedBy.userId})
-                  </Typography>
-                )}
-              </Box>
-              {!free && (
-                <Typography variant="subtitle2">{priceText}</Typography>
+            </a>
+            <Box display="flex" justifyContent="space-between">
+              <Typography variant="subtitle2">⭐{scoreText}</Typography>
+              <Typography variant="subtitle2">📩 {installs}</Typography>
+            </Box>
+            <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+              <Typography variant="subtitle2">{genre}</Typography>
+              {dateModified && (
+                <Typography variant="subtitle2" whiteSpace="nowrap">
+                  Entry last edited: {new Date(dateModified).toLocaleString()}
+                </Typography>
               )}
-            </CardContent>
-          </a>
+              {editedBy && (
+                <Typography variant="subtitle2" whiteSpace="nowrap">
+                  Modified by: {editedBy.userName} ({editedBy.userId})
+                </Typography>
+              )}
+            </Box>
+            {!free && <Typography variant="subtitle2">{priceText}</Typography>}
+          </CardContent>
           {discordUser?.username && (
             <IconButton
               onClick={() => {
