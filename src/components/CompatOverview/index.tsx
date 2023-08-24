@@ -208,6 +208,7 @@ const CompatOverview = () => {
     "installs-asc",
     "apps-sorting"
   );
+  const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector<App[]>((state) => state.apps);
@@ -493,12 +494,12 @@ const AppTile = ({ app }: { app: App }) => {
                       wrapperElement={{
                         "data-color-mode": "light",
                       }}
-                      style={`
-                          background-color: transparent; 
-                          color: ${theme.palette.getContrastText(
-                            getFeature(feature, theme).color
-                          )}
-                        `}
+                      style={{
+                        backgroundColor: "transparent",
+                        color: `${theme.palette.getContrastText(
+                          getFeature(feature, theme).color
+                        )}`,
+                      }}
                       source={getFeature(feature, theme).label}
                     />
                   </Typography>
