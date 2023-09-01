@@ -208,9 +208,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
             your own. <br /> Please try to always at least choose one of iap,
             unclear-iap or no-iap so that users can filter the list. <br />
             You can add custom features by prefixing them with :: <br />
+            However, it must be added after a pre-defined feature is added first. <br /> 
             Examples: <br />
-            ::Works with version 1.2.3 from APKPure <br />
-            warning::Does not work with Android 12
+            iap ::Works with version 1.2.3 from APKPure <br />
+            If you did it right, the result should look like this:
+             
           </Typography>
           <Box m={1} />
           <Autocomplete
