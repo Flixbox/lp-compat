@@ -209,11 +209,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
             unclear-iap or no-iap so that users can filter the list. <br />
             You can add custom features by prefixing them with :: <br />
             However, it must be added after a pre-defined feature is added first. <br /> 
-            Examples: <br />
-            iap ::Works with version 1.2.3 from APKPure <br />
+
             If you did it right, the result should look like this:
-             
           </Typography>
+          <Box m={1} />
+          <img src="/lp-compat/img/Custom_features_Example.png" />
           <Box m={1} />
           <Autocomplete
             multiple
