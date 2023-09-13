@@ -428,11 +428,9 @@ const CompatOverview = () => {
           {`Loaded ${apps.length} out of ${appCount} apps!`}
           {loading && ` Loading more...`}
           <br />
-          {!loading && appsListComplete && (
-            <IconButton onClick={() => refreshApps()}>
-              <FontAwesomeIcon icon={faRefresh} />
-            </IconButton>
-          )}
+          <IconButton onClick={() => refreshApps()}>
+            <FontAwesomeIcon icon={faRefresh} />
+          </IconButton>
           {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
