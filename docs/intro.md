@@ -38,7 +38,7 @@ Apply some patches.
 
 If you're facing troubles with some in-app purchases, apply the _Signature verification killer_ patch as well. It helps sometimes.
 
-Finally, install the modified APK file by tapping the "Go to file" button and then the "Reinstall" button.
+Finally, install the modified APK file by tapping the "Go to file" button and then the "Uninstall and install" button.
 
 ## Reinstall the app
 
