@@ -484,7 +484,7 @@ const AppTile = ({ app }: { app: App }) => {
 
   return (
     <Grid item xs={12} m={1}>
-      <RenderIfVisible defaultHeight={800}>
+      <RenderIfVisible defaultHeight={0}>
         <Card style={{ maxWidth: "100%" }}>
           <CardContent sx={{ padding: "8px" }}>
             <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
