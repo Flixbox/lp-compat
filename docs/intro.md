@@ -40,6 +40,10 @@ If you're facing troubles with some in-app purchases, apply the _Signature verif
 
 Finally, install the modified APK file by tapping the "Go to file" button and then the "Uninstall and install" button.
 
+![](/img/LP_App_patching_step_5.jpg)
+
+![](/img/LP_App_patching_step_6.jpg)
+
 ## Reinstall the app
 
 When you reinstall (uninstall the original app and install the patched one) you will no longer be able to use Google features like Google Play sign-in in that app anymore. However, some patchable apps like Merge Dragons and City Island 5 feature Facebook sign-in, which will usually work.
