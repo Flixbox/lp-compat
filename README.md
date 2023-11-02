@@ -92,4 +92,14 @@ If you want to contribute code or other changes to this project, you can submit 
 - Nagivate to your browser and click the forked repo in your account, and press **Contribute**, then press **Open pull request**.
 - Add a title and/or description to your pull request, then press **Create pull request**.
 
+## Method 3
+- Choose the repo you want to make a PR for
+- Click on the page you want to edit
+- Select the edit button (the pencil icon button) and make your changes
+- Select **Fork this repository** and begin making your changes<
+- Select **Commit changes...** once you are finished
+- Select **Propose changes** (The commit message and extended description are optional)
+- Select **Create pull request** on the next page
+- Select **Create pull request** again on the next page to create a PR
+
 The project maintainers will review your PR and provide feedback or merge it if it meets the project's standards.
