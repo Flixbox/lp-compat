@@ -50,9 +50,28 @@ If you encounter a problem while using this project, or if you have an idea for 
 
 ## Submitting Pull Requests
 
-If you want to contribute code or other changes to this project, you can submit a pull request (PR) for review and potential inclusion in the project. To do this, follow the steps in either of the following methods below:
+If you want to contribute code or other changes to this project, you can submit a pull request (PR) for review and potential inclusion in the project. To do this, follow the steps in either of the following methods below.
 
-### Method 1: github.dev web editor
+The project maintainers will review your PR and provide feedback or merge it if it meets the project's standards.
+
+### Easy method
+
+- Choose the repo you want to make a PR for
+- Click on the page you want to edit
+- Select the edit button (the pencil icon button) and make your changes
+
+![](static/img/github_file_edit_button.png)
+
+- Select **Fork this repository** and begin making your changes
+
+![](static/img/github_fork_repo_button.png)
+
+- Select **Commit changes...** once you are finished
+- Select **Propose changes** (The commit message and extended description are optional)
+- Select **Create pull request** on the next page
+- Select **Create pull request** again on the next page to create a PR
+
+### Method 2: github.dev web editor
 
 - Choose the repo you want to make a PR for
 - On the same browser tab, you can open the [github.dev](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) in the following ways:<br>
@@ -72,7 +91,7 @@ If you want to contribute code or other changes to this project, you can submit 
 - If this line doesn't appear, you can navigate to your branch by pressing **(number) branches** which is next to the "**main**" dropdown menu button to move to another page in the same tab that displays all your branches, to which then you may press **New pull request**
 - This will take you to another page on the same tab where it will begin comparing changes to see whether the base repository and the head repository - that being your fork - can be merged. If they are able to merge, you can now press **Create Pull Request**
 
-### Method 2: Traditional
+### Method 3: Traditional
 
 - Choose the repo you want to make a PR for
 - [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repo to your own account
@@ -91,15 +110,3 @@ If you want to contribute code or other changes to this project, you can submit 
 - Afterward, if you are satisfied with what you've changed, press **Push Origin**
 - Nagivate to your browser and click the forked repo in your account, and press **Contribute**, then press **Open pull request**.
 - Add a title and/or description to your pull request, then press **Create pull request**.
-
-## Method 3
-- Choose the repo you want to make a PR for
-- Click on the page you want to edit
-- Select the edit button (the pencil icon button) and make your changes
-- Select **Fork this repository** and begin making your changes<
-- Select **Commit changes...** once you are finished
-- Select **Propose changes** (The commit message and extended description are optional)
-- Select **Create pull request** on the next page
-- Select **Create pull request** again on the next page to create a PR
-
-The project maintainers will review your PR and provide feedback or merge it if it meets the project's standards.
