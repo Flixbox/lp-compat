@@ -23,7 +23,7 @@ export const featureMap = (theme = createTheme()) => ({
   },
   "custom-patch" {
     label: "Custom patch required", 
-    color: theme.palette.error.main,
+    color: theme.palette.success.main,
   },
   subscription: {
     label: "Subscription redeemable!",
