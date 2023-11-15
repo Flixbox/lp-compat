@@ -5,7 +5,7 @@ export const featureMap = (theme = createTheme()) => ({
     label: "IAP patch works!",
     color: theme.palette.success.main,
   },
-    ads: {
+  ads: {
     label: "Remove ads patch works",
     color: theme.palette.success.main,
   },
@@ -21,8 +21,8 @@ export const featureMap = (theme = createTheme()) => ({
     label: "IAP incompatible",
     color: theme.palette.error.main,
   },
-  "custom-patch" {
-    label: "Custom patch required", 
+  "custom-patch": {
+    label: "Custom patch required",
     color: theme.palette.success.main,
   },
   subscription: {
