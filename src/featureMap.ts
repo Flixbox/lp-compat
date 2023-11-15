@@ -21,6 +21,10 @@ export const featureMap = (theme = createTheme()) => ({
     label: "IAP incompatible",
     color: theme.palette.error.main,
   },
+  "custom-patch" {
+    label: "Custom patch required", 
+    color: theme.palette.error.main,
+  },
   subscription: {
     label: "Subscription redeemable!",
     color: theme.palette.success.main,
