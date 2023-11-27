@@ -2,28 +2,36 @@ import { createTheme } from "@mui/material";
 
 export const featureMap = (theme = createTheme()) => ({
   iap: {
-    label: "IAP patch works!",
+    label: "In App Purchases patch works!",
     color: theme.palette.success.main,
   },
   ads: {
     label: "Remove ads patch works",
     color: theme.palette.success.main,
   },
+  "no-ads": {
+    label: "Remove ads patch does not work",
+    color: theme.palette.error.main,
+  },
   "partial-iap": {
-    label: "IAP partially compatible",
+    label: "In App Purchases partially compatible",
     color: theme.palette.warning.main,
   },
   "unclear-iap": {
-    label: "IAP need verification - Try it out and post in Discord!",
+    label: "In App Purchases need verification - Try it out and post in Discord!",
     color: theme.palette.warning.main,
   },
   "no-iap": {
-    label: "IAP incompatible",
+    label: "In App Purchases incompatible",
     color: theme.palette.error.main,
   },
   "custom-patch": {
     label: "Custom patch required",
     color: theme.palette.success.main,
+  },
+  "dont-custom-patch": {
+    label: "Custom patch is not working",
+    color: theme.palette.error.main,
   },
   subscription: {
     label: "Subscription redeemable!",
@@ -34,7 +42,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.warning.main,
   },
   repurchase: {
-    label: "Some IAPs need to be redeemed after every restart",
+    label: "Some In App Purchasess need to be redeemed after every restart",
     color: theme.palette.warning.main,
   },
   "account-login": {
@@ -66,11 +74,11 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.info.main,
   },
   multiplayer: {
-    label: "Full Multiplayer; IAP compatible",
+    label: "Full Multiplayer; In App Purchases compatible",
     color: theme.palette.primary.main,
   },
   "partial-multiplayer": {
-    label: "App has some multiplayer features; IAP compatible",
+    label: "App has some multiplayer features; In App Purchases compatible",
     color: theme.palette.primary.main,
   },
   "no-multiplayer": {
@@ -78,7 +86,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.warning.main,
   },
   "no-multiplayer-iap": {
-    label: "Multiplayer IAP broken",
+    label: "Multiplayer In App Purchases broken",
     color: theme.palette.warning.main,
   },
   "slightly-broken": {
@@ -86,20 +94,20 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.warning.main,
   },
   "too-many-iap-break": {
-    label: "Buying too many IAP will break the app!",
+    label: "Buying too many In App Purchases will break the app!",
     color: theme.palette.warning.main,
   },
   "disable-data-on-lp-popup": {
     label:
-      "Disable data connection when the LP purchase popup shows to get IAP",
+      "Disable data connection when the LP purchase popup shows to get In App Purchases",
     color: theme.palette.info.main,
   },
   "restore-purchase": {
-    label: "IAP can be redeemed by restoring purchase and restarting the app",
+    label: "In App Purchases can be redeemed by restoring purchase and restarting the app",
     color: theme.palette.info.main,
   },
   "iap-before-load": {
-    label: "Purchase IAP before the app is fully loaded. Play anonymously.",
+    label: "Purchase In App Purchases before the app is fully loaded. Play anonymously.",
     color: theme.palette.info.main,
   },
   "subscription-restore-purchase": {
@@ -135,7 +143,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.info.main,
   },
   "root-iap": {
-    label: "IAP patch works with rooted device",
+    label: "In App Purchases patch works only with rooted device",
     color: theme.palette.info.main,
   },
   "root-patch": {
@@ -143,11 +151,11 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.info.main,
   },
   "root-patch-iap": {
-    label: "App requires root to make IAP patch work!",
+    label: "App requires root to make In App Purchases patch work!",
     color: theme.palette.info.main,
   },
   "no-root-patch-iap": {
-    label: "Root patch doesn't make IAP available",
+    label: "Root patch doesn't make In App Purchases available",
     color: theme.palette.info.main,
   },
   "apk-platinmods": {
