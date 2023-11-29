@@ -8,7 +8,7 @@
 ![tech-debt](https://img.shields.io/codeclimate/tech-debt/Flixbox/lp-compat?style=flat&logo=code%20climate)
 ](https://codeclimate.com/github/Flixbox/lp-compat)
 
-This repository contains a website and Discord bot that help users determine which apps can be patched with Lucky Patcher. The website, which can be accessed at https://flixbox.github.io/lp-compat/, displays a list of compatible apps. The Discord bot allows users to add apps to the list without editing the code directly.
+This repository contains a website and Discord bot that help users determine which apps can be patched with Lucky Patcher. The website, which can be accessed at https://flixbox.github.io/lp-compat/, displays a list of compatible apps. The list can be added to on the Discord server below using a bot or on edited on the website (requires logging on with Discord). 
 
 If you have any questions or want to discuss the project with others, you can use the unofficial subreddit and Discord server. These platforms are not affiliated with the developer of Lucky Patcher (ChelpuS), but they provide a space for users to share information and ideas. To access the subreddit or Discord server, click on the following buttons:
 
@@ -33,7 +33,7 @@ That's it! The project should now be set up and running on your local developmen
 
 You can use the ![discord-bot](https://img.shields.io/static/v1?label=Discord%20bot%20on&message=Railway&color=blueviolet&style=flat&logo=railway) to add the app to the list. [![discuss-discord](https://img.shields.io/static/v1?label=Discuss&message=on%20Discord&color=7289DA&style=flat&logo=discord)](https://discord.gg/RS5ddYf7mw)
 
-Alternatively, you can log in on the website to add an app. After logging in, an "add app" button will appear. Additionally, you can edit apps while logged in.
+Alternatively, you can log in with Discord on the website to add an app. After logging in, options to add and edit apps will be shown.
 
 # Handling Issues and Pull Requests
 
@@ -43,7 +43,7 @@ This project uses GitHub's issue tracker and pull request feature to track and r
 
 If you encounter a problem while using this project, or if you have an idea for a new feature or improvement, you can open a new issue to let us know. To do this, follow these steps:
 
-1. Navigate to the issue tracker for this project.
+1. Navigate to the [issue tracker](https://github.com/Flixbox/lp-compat/issues) for this project.
 2. Click on the "New issue" button.
 3. Fill out the form with a clear and concise description of the issue or suggestion. Be sure to include any relevant details, such as error messages or steps to reproduce the issue.
 4. Click on the "Submit new issue" button to open the issue.
