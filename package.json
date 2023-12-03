@@ -49,7 +49,7 @@
     "docusaurus-plugin-sass": "^0.2.2",
     "express": "5.0.0-beta.1",
     "express-session": "^1.17.3",
-    "google-play-scraper": "^9.1.1",
+    "google-play-scraper": "^9.2.0",
     "helmet": "^6.0.0",
     "insert-line": "^1.1.0",
     "lodash": "^4.17.21",

@@ -4287,7 +4287,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2.6.9, debug@^2.2.0, debug@^2.6.0:
+debug@2.6.9, debug@^2.6.0:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
@@ -4301,7 +4301,7 @@ debug@3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@3.2.7:
+debug@3.2.7, debug@^3.1.0:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
@@ -5453,21 +5453,21 @@ globby@^13.1.1:
     merge2 "^1.4.1"
     slash "^4.0.0"
 
-google-play-scraper@^9.1.1:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/google-play-scraper/-/google-play-scraper-9.1.1.tgz#ea27f551306e63f435dd8d707add460269fe9522"
-  integrity sha512-feolKsEk9lEVOpDVbxftoA6t3oG5xt9GgvkMDrC20yY9YYQt2r7blT1KRptW79hW63x746k21dE07QB0yf+MZw==
+google-play-scraper@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/google-play-scraper/-/google-play-scraper-9.2.0.tgz#1da125282d5f496ad01db3b9726ef733ed139bfe"
+  integrity sha512-LpXaaSxwmWBqvmfYVIXCkD97BLAmWhxP9QBriVwtz7ypgCizKv01HKLbmhFcUpjPpET1WQZekoYi4gxmDg0cXw==
   dependencies:
     cheerio "^1.0.0-rc.10"
-    debug "^2.2.0"
-    got "^11.8.3"
+    debug "^3.1.0"
+    got "^11.8.6"
     memoizee "^0.4.11"
     ramda "^0.21.0"
 
-got@^11.8.3:
-  version "11.8.5"
-  resolved "https://registry.yarnpkg.com/got/-/got-11.8.5.tgz#ce77d045136de56e8f024bebb82ea349bc730046"
-  integrity sha512-o0Je4NvQObAuZPHLFoRSkdG2lTgtcynqymzg2Vupdx6PorhaT5MCbIyXG6d4D94kk8ZG57QeosgdiqfJWhEhlQ==
+got@^11.8.6:
+  version "11.8.6"
+  resolved "https://registry.yarnpkg.com/got/-/got-11.8.6.tgz#276e827ead8772eddbcfc97170590b841823233a"
+  integrity sha512-6tfZ91bOr7bOXnK7PRDCGBLa1H4U080YHNaAQ2KsMGlLEzRbk44nsZF2E1IeRc3vtJHPVbKCYgdFbaGO2ljd8g==
   dependencies:
     "@sindresorhus/is" "^4.0.0"
     "@szmarczak/http-timer" "^4.0.5"
