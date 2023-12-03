@@ -255,7 +255,7 @@ const CompatOverview = () => {
       setAppCount(res.payload);
     });
 
-    dispatch(fetchDiscord({ code }));
+    if (code) dispatch(fetchDiscord({ code }));
   }, []);
 
   const visibilitySettings = [

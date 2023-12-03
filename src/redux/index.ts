@@ -2,11 +2,14 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import appsReducer from "./appsSlice";
 import systemReducer from "./systemSlice";
 import { persistReducer, persistStore } from "redux-persist";
+
 import storage from "redux-persist-indexeddb-storage";
+import autoMergeLevel2 from "redux-persist/es/stateReconciler/autoMergeLevel2";
 
 const persistConfig = {
   key: "lp_compat_persist_key",
   storage: storage("lp_compat_persist_db"),
+  stateReconciler: autoMergeLevel2
 };
 
 const stateToSave = {
