@@ -5,6 +5,8 @@ import ImageScroller from "react-image-scroller";
 import { useIsVisible } from "react-is-visible";
 import RenderIfVisible from "react-render-if-visible";
 import InfiniteScroll from "react-infinite-scroller";
+import { persistor, store } from "../../redux";
+import { PersistGate } from "redux-persist/integration/react";
 import {
   Card,
   Typography,
@@ -56,13 +58,11 @@ import {
   pageSize,
 } from "@site/src/redux/appsSlice";
 import { Provider, useStore } from "react-redux";
-import { store } from "../../redux";
 import {
   clearState,
   fetchDiscord,
   openDialog,
 } from "@site/src/redux/systemSlice";
-import { clear } from "redux-localstorage-simple";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
 import { App } from "@site/src/types";
@@ -99,16 +99,18 @@ const Root = () => {
   return (
     <>
       <Provider store={store}>
-        <ThemeProvider
-          theme={createTheme({
-            palette: {
-              mode: colorMode,
-            },
-          })}
-        >
-          <CompatOverview />
-          <DialogProvider />
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider
+            theme={createTheme({
+              palette: {
+                mode: colorMode,
+              },
+            })}
+          >
+            <CompatOverview />
+            <DialogProvider />
+          </ThemeProvider>
+        </PersistGate>
       </Provider>
     </>
   );

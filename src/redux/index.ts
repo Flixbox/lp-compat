@@ -1,7 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import appsReducer from "./appsSlice";
 import systemReducer from "./systemSlice";
-import { save, load } from "redux-localstorage-simple";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist-indexeddb-storage";
+
+const persistConfig = {
+  key: "lp_compat_persist_key",
+  storage: storage("lp_compat_persist_db"),
+};
 
 const stateToSave = {
   namespace: "flixbox",
@@ -13,15 +19,19 @@ const stateToSave = {
   ],
 };
 
+const configs = { throttleTime: 500, deleteCount: 2 };
+
 export const store = configureStore({
-  reducer: {
-    apps: appsReducer,
-    system: systemReducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(save(stateToSave)),
-  preloadedState: load(stateToSave),
+  reducer: persistReducer(
+    persistConfig,
+    combineReducers({
+      apps: appsReducer,
+      system: systemReducer,
+    })
+  ),
 });
+
+export const persistor = persistStore(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
