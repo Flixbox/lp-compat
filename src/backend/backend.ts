@@ -52,6 +52,8 @@ var whitelist = [
   "https://luck.up.railway.app",
 ];
 
+console.log("MONGO_URI", MONGO_URI);
+
 // app.use(
 //   "/api-docs",
 //   swaggerUi.serve,
