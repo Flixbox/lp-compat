@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
 
-export const MONGO_URI = process.env.MONGO_URL;
+export const MONGO_URI = `${process.env.MONGO_URL}?retryWrites=true&w=majority`;
 
 console.log("MONGO_URI", MONGO_URI);
 
