@@ -17,13 +17,13 @@ import { getDiscord } from "../discord/util";
 import editApp from "../db/editApp";
 import getPlayStoreData from "../db/getPlayStoreData";
 import gplay from "google-play-scraper";
+import { MONGO_URI } from "../db/util";
 
 const MongoDBStore = mongo(session);
 
 const app = express();
 const port = +process.env.PORT || 5000;
 const hostname = process.env.HOSTNAME || "localhost";
-const uri = process.env.MONGO_URL;
 
 app.set("trust proxy", 1); // trust first proxy
 
@@ -36,7 +36,7 @@ declare module "express-session" {
 
 const store = new MongoDBStore(
   {
-    uri,
+    MONGO_URI,
     databaseName: "sessionStorage",
     collection: "sessions",
   },

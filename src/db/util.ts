@@ -1,9 +1,9 @@
 const { MongoClient } = require("mongodb");
 
-const uri = process.env.MONGO_URL;
+export const MONGO_URI = process.env.MONGO_PRIVATE_URL;
 
 export const executeAppsQuery = async (operation: Function) => {
-  const client = new MongoClient(uri);
+  const client = new MongoClient(MONGO_URI);
   const database = client.db("test");
   const appsCollection = database.collection("apps");
 
