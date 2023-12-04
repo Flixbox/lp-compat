@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
 
-export const MONGO_URI = `${process.env.MONGO_URL}?retryWrites=true&w=majority`;
+export const MONGO_URI = process.env.MONGO_URL;
 
 export const executeAppsQuery = async (operation: Function) => {
   const run = async () => {
