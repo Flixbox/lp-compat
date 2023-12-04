@@ -19,7 +19,7 @@ import getPlayStoreData from "../db/getPlayStoreData";
 import gplay from "google-play-scraper";
 import { MONGO_URI } from "../db/util";
 
-const MongoDBStore = mongo(session);
+// const MongoDBStore = mongo(session);
 
 const app = express();
 const port = +process.env.PORT || 5000;
@@ -34,25 +34,23 @@ declare module "express-session" {
   }
 }
 
-const store = new MongoDBStore(
-  {
-    MONGO_URI,
-    databaseName: "sessionStorage",
-    collection: "sessions",
-  },
-  function (error) {
-    // Should have gotten an error
-    console.error(error);
-  }
-);
+// const store = new MongoDBStore(
+//   {
+//     MONGO_URI,
+//     databaseName: "sessionStorage",
+//     collection: "sessions",
+//   },
+//   function (error) {
+//     // Should have gotten an error
+//     console.error(error);
+//   }
+// );
 
 var whitelist = [
   "https://flixbox.github.io",
   "http://localhost:3000",
   "https://luck.up.railway.app",
 ];
-
-console.log("MONGO_URI", MONGO_URI);
 
 // app.use(
 //   "/api-docs",
@@ -87,7 +85,7 @@ app.use(
       sameSite: "none",
       httpOnly: true,
     },
-    store: store,
+    // store: store,
   })
 );
 app.use(cookieParser());
