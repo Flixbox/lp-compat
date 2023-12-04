@@ -23,6 +23,8 @@ import {
   MenuItem,
   IconButton,
   styled,
+  CircularProgress,
+  Container,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -96,7 +98,21 @@ const Root = () => {
   return (
     <>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+        <PersistGate
+          loading={
+            <Box
+              mt={5}
+              width="100%"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <CircularProgress disableShrink size={70} thickness={3} />
+            </Box>
+          }
+          persistor={persistor}
+        >
           <ThemeProvider
             theme={createTheme({
               palette: {
