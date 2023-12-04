@@ -2,9 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import ImageScroller from "react-image-scroller";
-import { useIsVisible } from "react-is-visible";
-import RenderIfVisible from "react-render-if-visible";
-import InfiniteScroll from "react-infinite-scroller";
 import { persistor, store } from "../../redux";
 import { PersistGate } from "redux-persist/integration/react";
 import {
@@ -331,6 +328,28 @@ const CompatOverview = () => {
   // Attempt to finish loading
   useEffect(() => loadMore(), [apps, loading, appCount]);
 
+  const renderedApps = sortedApps.filter((app) => {
+    if (!app || !app.appId) return;
+    if (
+      app.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
+      app.appId.toLowerCase().indexOf(appTitleFilter) === -1
+    )
+      return;
+
+    let shouldRenderApp = false;
+    onlyShowTheseCategories.forEach((category) => {
+      if (
+        visibilitySettings
+          .find((setting) => setting.id === category)
+          .onlyRenderIf(app)
+      )
+        shouldRenderApp = true;
+    });
+    if (!shouldRenderApp) return;
+
+    return app;
+  });
+
   return (
     <section className={styles.features}>
       <div className="container">
@@ -436,27 +455,9 @@ const CompatOverview = () => {
           {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
-        {sortedApps.map((app) => {
-          if (!app || !app.appId) return;
-          if (
-            app.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
-            app.appId.toLowerCase().indexOf(appTitleFilter) === -1
-          )
-            return;
-
-          let shouldRenderApp = false;
-          onlyShowTheseCategories.forEach((category) => {
-            if (
-              visibilitySettings
-                .find((setting) => setting.id === category)
-                .onlyRenderIf(app)
-            )
-              shouldRenderApp = true;
-          });
-          if (!shouldRenderApp) return;
-
-          return <AppTile app={app} key={app.appId} />;
-        })}
+        {renderedApps.map((app) => (
+          <AppTile app={app} key={app.appId} />
+        ))}
       </div>
     </section>
   );
@@ -486,86 +487,74 @@ const AppTile = ({ app }: { app: App }) => {
 
   return (
     <Grid item xs={12} m={1}>
-      <RenderIfVisible defaultHeight={0}>
-        <Card style={{ maxWidth: "100%" }}>
-          <CardContent sx={{ padding: "8px" }}>
-            <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
-              {screenshots.map((image) => (
-                <img
-                  src={image}
-                  alt="App screenshot"
-                  loading="lazy"
-                  key={image}
-                />
-              ))}
-            </ImageScroller>
-            {features &&
-              features.map((feature) => (
-                <Paper
-                  component={Box}
-                  elevation={0}
-                  padding={0.5}
-                  sx={{
-                    backgroundColor: getFeature(feature, theme).color,
-                  }}
-                  key={feature}
-                  mt={0.5}
-                >
-                  <Typography>
-                    <StyledMarkdown
-                      skipHtml
-                      backgroundColor={getFeature(feature, theme).color}
-                      wrapperElement={{
-                        "data-color-mode": "light",
-                      }}
-                      source={getFeature(feature, theme).label}
-                    />
-                  </Typography>
-                </Paper>
-              ))}
-            <a href={url}>
-              <Box display="flex" mt={1}>
-                <Avatar
-                  src={icon}
-                  variant="square"
-                  sx={{ marginRight: 1 }}
-                ></Avatar>
-                <Box display="flex" flexDirection="column">
-                  <Typography>{title}</Typography>
-                  <Typography variant="subtitle2">{appId}</Typography>
-                </Box>
+      <Card style={{ maxWidth: "100%" }}>
+        <CardContent sx={{ padding: "8px" }}>
+          <a href={url}>
+            <Box display="flex" mt={1}>
+              <Avatar
+                src={icon}
+                variant="square"
+                sx={{ marginRight: 1 }}
+              ></Avatar>
+              <Box display="flex" flexDirection="column">
+                <Typography>{title}</Typography>
+                <Typography variant="subtitle2">{appId}</Typography>
               </Box>
-            </a>
-            <Box display="flex" justifyContent="space-between">
-              <Typography variant="subtitle2">⭐{scoreText}</Typography>
-              <Typography variant="subtitle2">📩 {installs}</Typography>
             </Box>
-            <Box display="flex" justifyContent="space-between" flexWrap="wrap">
-              <Typography variant="subtitle2">{genre}</Typography>
-              {dateModified && (
-                <Typography variant="subtitle2" whiteSpace="nowrap">
-                  Entry last edited: {new Date(dateModified).toLocaleString()}
+          </a>
+          <Box display="flex" justifyContent="space-between">
+            <Typography variant="subtitle2">⭐{scoreText}</Typography>
+            <Typography variant="subtitle2">📩 {installs}</Typography>
+          </Box>
+          <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+            <Typography variant="subtitle2">{genre}</Typography>
+            {dateModified && (
+              <Typography variant="subtitle2" whiteSpace="nowrap">
+                Entry last edited: {new Date(dateModified).toLocaleString()}
+              </Typography>
+            )}
+            {editedBy && (
+              <Typography variant="subtitle2" whiteSpace="nowrap">
+                Modified by: {editedBy.userName} ({editedBy.userId})
+              </Typography>
+            )}
+          </Box>
+          {!free && <Typography variant="subtitle2">{priceText}</Typography>}
+          {features &&
+            features.map((feature) => (
+              <Paper
+                component={Box}
+                elevation={0}
+                padding={0.5}
+                sx={{
+                  backgroundColor: getFeature(feature, theme).color,
+                }}
+                key={feature}
+                mt={0.5}
+              >
+                <Typography>
+                  <StyledMarkdown
+                    skipHtml
+                    backgroundColor={getFeature(feature, theme).color}
+                    wrapperElement={{
+                      "data-color-mode": "light",
+                    }}
+                    source={getFeature(feature, theme).label}
+                  />
                 </Typography>
-              )}
-              {editedBy && (
-                <Typography variant="subtitle2" whiteSpace="nowrap">
-                  Modified by: {editedBy.userName} ({editedBy.userId})
-                </Typography>
-              )}
-            </Box>
-            {!free && <Typography variant="subtitle2">{priceText}</Typography>}
-          </CardContent>
-          {discordUser?.username && (
-            <IconButton
-              onClick={() => {
-                dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }));
-              }}
-            >
-              <FontAwesomeIcon icon={faPen} />
-            </IconButton>
-          )}
-        </Card>
-      </RenderIfVisible>
+              </Paper>
+            ))}
+        </CardContent>
+        {discordUser?.username && (
+          <IconButton
+            onClick={() => {
+              dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }));
+            }}
+          >
+            <FontAwesomeIcon icon={faPen} />
+          </IconButton>
+        )}
+      </Card>
     </Grid>
   );
 };
