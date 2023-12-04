@@ -5,10 +5,13 @@ export const MONGO_URI = process.env.MONGO_URL;
 console.log("MONGO_URI", MONGO_URI);
 
 export const executeAppsQuery = async (operation: Function) => {
-  const client = new MongoClient(MONGO_URI);
-  console.log("client", client);
+  const client = new MongoClient(MONGO_URI, { monitorCommands: true });
+
+  client.on("commandStarted", (event) => console.debug(event));
+  client.on("commandSucceeded", (event) => console.debug(event));
+  client.on("commandFailed", (event) => console.debug(event));
+
   const database = client.db("test");
-  console.log("database", database);
   const appsCollection = database.collection("apps");
 
   let result;
