@@ -1,11 +1,10 @@
-const { Logger, MongoClient } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 export const MONGO_URI = process.env.MONGO_URL;
 
 console.log("MONGO_URI", MONGO_URI);
 
 export const executeAppsQuery = async (operation: Function) => {
-  Logger.setLevel("debug");
   const client = new MongoClient(MONGO_URI);
   console.log("client", client);
   const database = client.db("test");
