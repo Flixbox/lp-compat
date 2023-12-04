@@ -489,16 +489,6 @@ const AppTile = ({ app }: { app: App }) => {
       <RenderIfVisible defaultHeight={0}>
         <Card style={{ maxWidth: "100%" }}>
           <CardContent sx={{ padding: "8px" }}>
-            <ImageScroller hideScrollbar={false} style={{ height: "200px" }}>
-              {screenshots.map((image) => (
-                <img
-                  src={image}
-                  alt="App screenshot"
-                  loading="lazy"
-                  key={image}
-                />
-              ))}
-            </ImageScroller>
             {features &&
               features.map((feature) => (
                 <Paper
