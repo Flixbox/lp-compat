@@ -6,12 +6,16 @@ console.log("MONGO_URI", MONGO_URI);
 
 export const executeAppsQuery = async (operation: Function) => {
   const client = new MongoClient(MONGO_URI);
+  console.log("client", client);
   const database = client.db("test");
+  console.log("database", database);
   const appsCollection = database.collection("apps");
 
   let result;
   try {
     result = await operation(appsCollection);
+  } catch (e) {
+    console.log("Error during mongodb operation on apps", e);
   } finally {
     await client.close();
   }
