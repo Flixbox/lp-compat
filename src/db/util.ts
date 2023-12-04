@@ -2,24 +2,14 @@ const { MongoClient } = require("mongodb");
 
 export const MONGO_URI = process.env.MONGO_URL;
 
-console.log("MONGO_URI", MONGO_URI);
-
 export const executeAppsQuery = async (operation: Function) => {
-  console.log("executeAppsQuery");
+  const client = new MongoClient(MONGO_URI);
+  const database = client.db("test");
+  const appsCollection = database.collection("apps");
+
   let result;
-  let client;
   try {
-    client = new MongoClient(MONGO_URI, { monitorCommands: true });
-
-    client.on("commandStarted", (event) => console.debug(event));
-    client.on("commandSucceeded", (event) => console.debug(event));
-    client.on("commandFailed", (event) => console.debug(event));
-
-    const database = client.db("test");
-    const appsCollection = database.collection("apps");
     result = await operation(appsCollection);
-  } catch (e) {
-    console.log("Error during mongodb operation on apps", e);
   } finally {
     await client.close();
   }
