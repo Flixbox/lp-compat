@@ -17,7 +17,7 @@ export const executeAppsQuery = async (operation: Function) => {
     return result;
   };
 
-  return run().catch(console.dir);
+  return await run().catch(console.dir);
 };
 
 export const appProjection = {
