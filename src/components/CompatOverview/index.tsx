@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
-import ImageScroller from "react-image-scroller";
 import { useIsVisible } from "react-is-visible";
 import RenderIfVisible from "react-render-if-visible";
 import InfiniteScroll from "react-infinite-scroller";
