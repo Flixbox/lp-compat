@@ -5,17 +5,21 @@ export const MONGO_URI = `${process.env.MONGO_URL}?retryWrites=true&w=majority`;
 console.log("MONGO_URI", MONGO_URI);
 
 export const executeAppsQuery = async (operation: Function) => {
-  const client = new MongoClient(MONGO_URI);
-  const database = client.db("test");
-  const appsCollection = database.collection("apps");
+  const run = async () => {
+    const client = new MongoClient(MONGO_URI);
+    const database = client.db("test");
+    const appsCollection = database.collection("apps");
 
-  let result;
-  try {
-    result = await operation(appsCollection);
-  } finally {
-    await client.close();
-  }
-  return result;
+    let result;
+    try {
+      result = await operation(appsCollection);
+    } finally {
+      await client.close();
+    }
+    return result;
+  };
+
+  run().catch(console.dir);
 };
 
 export const appProjection = {
