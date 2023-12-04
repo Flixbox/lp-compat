@@ -5,6 +5,7 @@ export const MONGO_URI = process.env.MONGO_URL;
 console.log("MONGO_URI", MONGO_URI);
 
 export const executeAppsQuery = async (operation: Function) => {
+  console.log("executeAppsQuery");
   let result;
   let client;
   try {
