@@ -24,6 +24,10 @@ export const featureMap = (theme = createTheme()) => ({
   "no-iap": {
     label: "In App Purchases incompatible",
     color: theme.palette.error.main,
+  },  
+    "anti-cheat": {
+    label: "Anti-cheat in app",
+    color: theme.palette.error.main,
   },
   "custom-patch": {
     label: "Custom patch required",
