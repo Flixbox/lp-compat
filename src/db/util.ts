@@ -30,7 +30,6 @@ export const appProjection = {
   scoreText: 1,
   url: 1,
   genre: 1,
-  screenshots: 1,
   free: 1,
   priceText: 1,
   editedBy: 1,
