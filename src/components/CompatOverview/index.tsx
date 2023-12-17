@@ -108,6 +108,7 @@ const Root = () => {
               justifyContent="center"
               alignItems="center"
             >
+              <Typography>Loading...</Typography>
               <CircularProgress disableShrink size={70} thickness={3} />
             </Box>
           }
