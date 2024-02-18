@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import ImageScroller from "react-image-scroller";
-import { persistor, store } from "../../redux";
-import { PersistGate } from "redux-persist/integration/react";
+import { store } from "../../redux";
 import {
   Card,
   Typography,
@@ -98,33 +97,16 @@ const Root = () => {
   return (
     <>
       <Provider store={store}>
-        <PersistGate
-          loading={
-            <Box
-              mt={5}
-              width="100%"
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Typography>Loading...</Typography>
-              <CircularProgress disableShrink size={70} thickness={3} />
-            </Box>
-          }
-          persistor={persistor}
+        <ThemeProvider
+          theme={createTheme({
+            palette: {
+              mode: colorMode,
+            },
+          })}
         >
-          <ThemeProvider
-            theme={createTheme({
-              palette: {
-                mode: colorMode,
-              },
-            })}
-          >
-            <CompatOverview />
-            <DialogProvider />
-          </ThemeProvider>
-        </PersistGate>
+          <CompatOverview />
+          <DialogProvider />
+        </ThemeProvider>
       </Provider>
     </>
   );
