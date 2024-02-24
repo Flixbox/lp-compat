@@ -233,7 +233,7 @@ const CompatOverview = () => {
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector<App[]>((state) => state.apps);
-  const { appsListUpdated, appsListPage, discordUser } = useAppSelector(
+  const { appsListUpdated, discordUser } = useAppSelector(
     (state) => state.system
   );
 
@@ -308,8 +308,7 @@ const CompatOverview = () => {
 
   const sortedApps = sortOptions[sorting].getSortedApps();
 
-  const appsListComplete =
-    appsListPage * pageSize >= appCount || apps.length >= appCount;
+  const appsListComplete = apps.length >= appCount;
 
   const loadMore = () => {
     if (loading) return;
@@ -318,8 +317,7 @@ const CompatOverview = () => {
       return;
     }
     !loading && setLoading(true);
-    console.log("appsListPage", appsListPage);
-    dispatch(fetchAppsByPage({ page: appsListPage })).then(() => {
+    dispatch(fetchApps()).then(() => {
       setLoading(false);
     });
   };

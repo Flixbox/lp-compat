@@ -5,7 +5,7 @@ import axiosInstance from "./axios";
 import { clearState, setAppsListPage } from "./systemSlice";
 import { App } from "../types";
 
-export const pageSize = 200;
+export const pageSize = 5000;
 
 export const fetchApps = createAsyncThunk(
   "apps/all",
