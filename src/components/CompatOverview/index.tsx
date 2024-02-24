@@ -452,6 +452,8 @@ const CompatOverview = () => {
           {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
+        {loading && <CircularProgress />}
+
         {renderedApps.map((app) => (
           <AppTile app={app} key={app.appId} />
         ))}
