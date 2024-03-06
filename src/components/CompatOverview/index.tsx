@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
-import ImageScroller from "react-image-scroller";
+import { Virtuoso } from "react-virtuoso";
 import { store } from "../../redux";
 import {
   Card,
@@ -454,9 +454,11 @@ const CompatOverview = () => {
 
         {loading && <CircularProgress />}
 
-        {renderedApps.map((app) => (
-          <AppTile app={app} key={app.appId} />
-        ))}
+        <Virtuoso
+          style={{ height: "600px" }}
+          totalCount={renderedApps.length}
+          itemContent={(index) => <AppTile app={renderedApps[index]} />}
+        />
       </div>
     </section>
   );
