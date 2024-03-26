@@ -138,6 +138,10 @@ export const featureMap = (theme = createTheme()) => ({
     label: "Select patch option: Signature verification killer",
     color: theme.palette.info.main,
   },
+  "special-patch-fake-modified-apk": {
+    label: "Select patch option: Fake a modified APK archive from the original",
+    color: theme.palette.info.main,
+  },
   "special-patch-lvl": {
     label: "Select patch option: Support patch for LVL and Inapp emulation",
     color: theme.palette.info.main,
