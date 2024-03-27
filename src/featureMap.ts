@@ -139,7 +139,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.info.main,
   },
   "special-patch-fake-modified-apk": {
-    label: "Select patch option: Fake a modified APK archive from the original (This patch must always be applied to the original unmodified APK. If you want to patch it multiple times you must apply the patch every time you modify it)",
+    label: "Select patch option: Fake a modified APK archive from the original",
     color: theme.palette.info.main,
   },
   "special-patch-lvl": {
