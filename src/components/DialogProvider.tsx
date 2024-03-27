@@ -215,6 +215,8 @@ const EditAppDialog = ({ open, appId = "" }) => {
           <Box m={1} />
           <img src="/lp-compat/img/Custom_features_Example.png" />
           <Box m={1} />
+          Notes for special patch features: <br />
+          special-patch-fake-modified-apk: This patch must always be applied to the original unmodified APK. If you want to patch it multiple times you must apply the patch every time you modify it
           <Autocomplete
             multiple
             id="tags-filled"
