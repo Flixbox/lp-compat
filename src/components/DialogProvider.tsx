@@ -208,15 +208,19 @@ const EditAppDialog = ({ open, appId = "" }) => {
             your own. <br /> Please try to always at least choose one of iap,
             unclear-iap or no-iap so that users can filter the list. <br />
             You can add custom features by prefixing them with :: <br />
-            However, it must be added after a pre-defined feature is added first. <br /> 
-
+            However, it must be added after a pre-defined feature is added
+            first. <br />
             If you did it right, the result should look like this:
           </Typography>
           <Box m={1} />
-          <img src="/lp-compat/img/Custom_features_Example.png" />
+          <Box m={1}>
+            <img src="/lp-compat/img/Custom_features_Example.png" />
+          </Box>
           <Box m={1} />
           Notes for special patch features: <br />
-          special-patch-fake-modified-apk: This patch must always be applied to the original unmodified APK. If you want to patch it multiple times you must apply the patch every time you modify it
+          special-patch-fake-modified-apk: This patch must always be applied to
+          the original unmodified APK. If you want to patch it multiple times
+          you must apply the patch every time you modify it
           <Autocomplete
             multiple
             id="tags-filled"
