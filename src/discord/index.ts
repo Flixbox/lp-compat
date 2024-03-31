@@ -1,5 +1,10 @@
-import { REST } from "@discordjs/rest";
-import { Routes, Client, GatewayIntentBits, Collection } from "discord.js";
+import {
+  Routes,
+  Client,
+  GatewayIntentBits,
+  Collection,
+  Events,
+} from "discord.js";
 import importDir from "directory-import";
 
 // TODO command to edit an app
@@ -22,19 +27,17 @@ importDir(
   }
 );
 
-console.info(commands);
+// console.info(commands);
 
-console.info("clientCommands", clientCommands);
+// console.info("clientCommands", clientCommands);
 
-const rest = new REST({ version: "10" }).setToken(token);
-
-client.once("ready", async () => {
+client.once(Events.ClientReady, async (readyClient) => {
   // Register slash commands.
 
   try {
     console.log("Started refreshing application (/) commands.");
 
-    await rest.put(Routes.applicationCommands(clientId), {
+    await readyClient.rest.put(Routes.applicationCommands(clientId), {
       body: commands,
     });
 
