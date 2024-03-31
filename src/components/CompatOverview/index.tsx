@@ -57,11 +57,7 @@ import {
   pageSize,
 } from "@site/src/redux/appsSlice";
 import { Provider, useStore } from "react-redux";
-import {
-  clearState,
-  fetchDiscord,
-  openDialog,
-} from "@site/src/redux/systemSlice";
+import { clearState, openDialog } from "@site/src/redux/systemSlice";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
 import { App } from "@site/src/types";
@@ -250,11 +246,10 @@ const CompatOverview = () => {
   );
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
+  const [discordUser, setDiscordUser] = useState(null);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector<App[]>((state) => state.apps);
-  const { appsListUpdated, discordUser } = useAppSelector(
-    (state) => state.system
-  );
+  const { appsListUpdated } = useAppSelector((state) => state.system);
 
   let code;
   if (ExecutionEnvironment.canUseDOM) {
@@ -270,7 +265,10 @@ const CompatOverview = () => {
       setAppCount(res.payload);
     });
 
-    if (code) oauth.getUser(code).then(console.log);
+    if (code)
+      oauth.getUser(code).then((user) => {
+        setDiscordUser(user);
+      });
   }, []);
 
   const visibilitySettings = [

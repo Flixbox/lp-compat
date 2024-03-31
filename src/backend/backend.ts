@@ -13,7 +13,6 @@ import cookieParser from "cookie-parser";
 import getAppsByPage from "../db/getAppsByPage";
 import getAppCount from "../db/getAppCount";
 import generatedDocs from "../../swagger-output.json";
-import { getDiscord } from "../discord/util";
 import editApp from "../db/editApp";
 import getPlayStoreData from "../db/getPlayStoreData";
 import getStaff from "../db/getStaff";

@@ -39,14 +39,6 @@ const initialState = {
 
 export const clearState = createAction("clear");
 
-export const fetchDiscord = createAsyncThunk<any, { code: string }>(
-  "/discord/get",
-  async ({ code }) => {
-    const res = await axiosInstance.get(`discord/get/${code}`);
-    return res.data;
-  }
-);
-
 const systemSlice = createSlice({
   name: "system",
   initialState,
@@ -74,10 +66,6 @@ const systemSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(clearState, (state, action) => initialState);
-    builder.addCase(fetchDiscord.fulfilled, (state, action) => {
-      state.discordUser = action.payload.user;
-      state.discordGuilds = action.payload.guilds;
-    });
   },
 });
 
