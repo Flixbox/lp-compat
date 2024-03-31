@@ -5564,6 +5564,11 @@ discord-oauth2-api@^1.1.2:
   dependencies:
     node-fetch "^2.6.0"
 
+discord-oauth2@^2.12.1:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/discord-oauth2/-/discord-oauth2-2.12.1.tgz#fe5c1bc4d4eebc214419139c777fae536b6d1f00"
+  integrity sha512-/Um39bRxVjcGHUu1YaTLangZvZveXjsX4BNsa1Iyd6OQG0jL972IBQGKD0mYqQswxC3bT+hqWSouabfI2RdaZA==
+
 discord.js@^14.14.1:
   version "14.14.1"
   resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.14.1.tgz#9a2bea23bba13819705ab87612837610abce9ee3"

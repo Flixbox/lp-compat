@@ -70,10 +70,12 @@ import DialogProvider from "../DialogProvider";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
 import axiosInstance from "@site/src/redux/axios";
+import DiscordOauth2 from "discord-oauth2";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
 const queryClient = new QueryClient();
+const oauth = new DiscordOauth2();
 
 const StyledMarkdown = styled(MarkdownPreview)(
   ({ theme, backgroundColor }) => `
@@ -268,7 +270,7 @@ const CompatOverview = () => {
       setAppCount(res.payload);
     });
 
-    if (code) dispatch(fetchDiscord({ code }));
+    if (code) oauth.getUser(code).then(console.log);
   }, []);
 
   const visibilitySettings = [
