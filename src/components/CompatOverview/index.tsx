@@ -226,7 +226,7 @@ function Feature({ icon, description }: FeatureItem) {
 const useStaff = () => {
   const { data: staff } = useQuery(
     "staff",
-    async () => (await axiosInstance.get("/apps/all")).data
+    async () => (await axiosInstance.get("/staff/all")).data
   );
 
   console.log("staff", staff);
