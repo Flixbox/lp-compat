@@ -1,7 +1,6 @@
 {
   "name": "lp-compat",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",

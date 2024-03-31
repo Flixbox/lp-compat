@@ -1,4 +1,3 @@
-import { featureMap } from "../../featureMap";
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
