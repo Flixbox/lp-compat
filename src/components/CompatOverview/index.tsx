@@ -229,6 +229,8 @@ const useStaff = () => {
     async () => (await axiosInstance.get("/apps/all")).data
   );
 
+  console.log("staff", staff);
+
   const isStaff = (id) => staff && staff.find((member) => member.id === id);
 
   return { staff, isStaff };
