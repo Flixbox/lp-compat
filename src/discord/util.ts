@@ -1,5 +1,4 @@
-import { Interaction } from "discord.js";
-import Client from "discord-oauth2-api";
+import { Client, GatewayIntentBits, Interaction } from "discord.js";
 import axios from "axios";
 import getFeature from "../featureMap";
 import { v4 as uuidv4 } from "uuid";
@@ -7,6 +6,7 @@ import util from "util";
 const exec = util.promisify(require("child_process").exec);
 import insertLine from "insert-line";
 import { readFileSync } from "fs";
+import { request } from "undici";
 
 const pat = process.env.GH_TOKEN; // Token from Railway Env Variable.
 const discordToken = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
@@ -53,7 +53,8 @@ export const processFeatures = (features: string) => {
   return featuresArray;
 };
 
-export const getDiscord = async (code, req) => {
+/*
+export const getDiscord = async (accessCode, req) => {
   const client = await new Client({
     clientID: "1021002998069067777",
     clientSecret: discordToken,
@@ -83,4 +84,34 @@ export const getDiscord = async (code, req) => {
   req.session.userId = user.id;
 
   return userDetails;
+};
+*/
+
+export const getDiscord = async (accessCode: string, req: any) => {
+  try {
+    const tokenResponseData = await request(
+      "https://discord.com/api/oauth2/token",
+      {
+        method: "POST",
+        body: new URLSearchParams({
+          client_id: "1021002998069067777",
+          client_secret: discordToken,
+          accessCode,
+          grant_type: "authorization_code",
+          redirect_uri: "https://flixbox.github.io/lp-compat/",
+          scope: "identify",
+        }).toString(),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+
+    const oauthData = await tokenResponseData.body.json();
+    console.log(oauthData);
+  } catch (error) {
+    // NOTE: An unauthorized token will not throw an error
+    // tokenResponseData.statusCode will be 401
+    console.error(error);
+  }
 };

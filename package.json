@@ -76,6 +76,7 @@
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.5.0",
     "ts-node": "^10.9.1",
+    "undici": "^6.10.2",
     "uuid": "^9.0.0",
     "webhook-discord": "^3.7.8"
   },

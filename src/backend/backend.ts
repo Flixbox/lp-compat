@@ -118,7 +118,6 @@ app.get("/apps/get/:appId", async (req, res) => {
 
 app.get("/apps/all", async (req, res) => {
   const allApps = await getAllApps();
-  console.log(JSON.stringify(allApps).length);
   res.send(allApps);
 });
 
@@ -129,7 +128,6 @@ app.get("/apps/page/:page/:pagesize", async (req, res) => {
 
 app.get("/apps/all/ids", async (req, res) => {
   const allApps = await getAllAppIds();
-  console.log(JSON.stringify(allApps).length);
   res.send(allApps);
 });
 
