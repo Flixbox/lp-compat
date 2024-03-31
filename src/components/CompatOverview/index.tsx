@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import { Virtuoso } from "react-virtuoso";
@@ -68,8 +69,11 @@ import DialogProvider from "../DialogProvider";
 
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
+import axiosInstance from "@site/src/redux/axios";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
+
+const queryClient = new QueryClient();
 
 const StyledMarkdown = styled(MarkdownPreview)(
   ({ theme, backgroundColor }) => `
@@ -95,7 +99,7 @@ const StyledMarkdown = styled(MarkdownPreview)(
 const Root = () => {
   const { colorMode } = useColorMode();
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <ThemeProvider
           theme={createTheme({
@@ -108,7 +112,7 @@ const Root = () => {
           <DialogProvider />
         </ThemeProvider>
       </Provider>
-    </>
+    </QueryClientProvider>
   );
 };
 
@@ -218,6 +222,17 @@ function Feature({ icon, description }: FeatureItem) {
     </div>
   );
 }
+
+const useStaff = () => {
+  const { data: staff } = useQuery(
+    "staff",
+    async () => (await axiosInstance.get("/apps/all")).data
+  );
+
+  const isStaff = (id) => staff.find((member) => member.id === id);
+
+  return { staff, isStaff };
+};
 
 const CompatOverview = () => {
   const dispatch = useAppDispatch();
@@ -485,6 +500,7 @@ const AppTile = ({ app }: { app: App }) => {
   const { discordUser } = useAppSelector((state) => state.system);
   const dispatch = useAppDispatch();
   const store = useStore();
+  const { isStaff } = useStaff();
 
   return (
     <Grid item xs={12} m={1}>
@@ -516,7 +532,8 @@ const AppTile = ({ app }: { app: App }) => {
             )}
             {editedBy && (
               <Typography variant="subtitle2" whiteSpace="nowrap">
-                Modified by: {editedBy.userName} ({editedBy.userId})
+                {isStaff(editedBy.userId) && "🛡️"} Modified by:{" "}
+                {editedBy.userName} ({editedBy.userId})
               </Typography>
             )}
           </Box>

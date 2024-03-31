@@ -61,8 +61,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-persistent-state": "^1.1.7",
-    "react-virtuoso": "^4.7.1",
+    "react-query": "^3.39.3",
     "react-redux": "^8.0.2",
+    "react-virtuoso": "^4.7.1",
     "sass": "^1.54.9",
     "snoowrap": "^1.23.0",
     "swagger-autogen": "^2.22.0",
@@ -93,6 +94,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=18"
   }
 }
