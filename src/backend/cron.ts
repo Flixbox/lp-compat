@@ -1,4 +1,5 @@
 import { Client, GatewayIntentBits } from "discord.js";
+import setStaff from "../db/setStaff";
 
 const SERVER_ID = "631562721611218955";
 const ADMIN_ROLE_ID = "631565243302019091";
@@ -25,8 +26,10 @@ client.once("ready", async () => {
 
   console.info(
     "Staff members:",
-    staff.map((member) => member.user.tag)
+    staff.map((member) => `${member.user.tag} ${member.user.id}`)
   );
+
+  setStaff(staff);
 });
 
 client.login(process.env.DISCORD_TOKEN);

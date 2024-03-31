@@ -2,15 +2,19 @@ const { MongoClient } = require("mongodb");
 
 export const MONGO_URI = process.env.MONGO_URL;
 
-export const executeAppsQuery = async (operation: Function) => {
+const executeGenericQuery = async (
+  operation: Function,
+  db: string,
+  collection: string
+) => {
   const run = async () => {
     const client = new MongoClient(MONGO_URI);
-    const database = client.db("test");
-    const appsCollection = database.collection("apps");
+    const database = client.db(db);
+    const collectionObject = database.collection(collection);
 
     let result;
     try {
-      result = await operation(appsCollection);
+      result = await operation(collectionObject);
     } finally {
       await client.close();
     }
@@ -19,6 +23,12 @@ export const executeAppsQuery = async (operation: Function) => {
 
   return await run().catch(console.dir);
 };
+
+export const executeAppsQuery = async (operation: Function) =>
+  executeGenericQuery(operation, "test", "apps");
+
+export const executeStaffQuery = async (operation: Function) =>
+  executeGenericQuery(operation, "guild", "staff");
 
 export const appProjection = {
   appId: 1,
