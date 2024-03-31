@@ -17,7 +17,6 @@ import { getDiscord } from "../discord/util";
 import editApp from "../db/editApp";
 import getPlayStoreData from "../db/getPlayStoreData";
 import getStaff from "../db/getStaff";
-import gplay from "google-play-scraper";
 import { MONGO_URI } from "../db/util";
 
 // const MongoDBStore = mongo(session);
@@ -156,7 +155,8 @@ app.get("/playstore/get/:appId", async (req, res) => {
 });
 
 app.get("/playstore/search/:title", async (req, res) => {
-  res.send(await gplay.search({ term: req.params.title, num: 6 }));
+  const { search } = await import("google-play-scraper");
+  res.send(await search({ term: req.params.title, num: 6 }));
 });
 
 app.get("/staff/all", async (req, res) => {
