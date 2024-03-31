@@ -3,9 +3,17 @@
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
-    "module": "NodeNext",
+    "module": "ESNext",
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "checkJs": false,
+    "strict": false,
+    "moduleResolution": "Bundler",
+    "paths": {
+      "*": ["src/*"]
+    }
   }
 }

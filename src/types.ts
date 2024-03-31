@@ -12,7 +12,7 @@ export interface App {
   score: number;
   scoreText: string;
   priceText: string;
-  androidVersion: number;
+  androidVersion: string;
   androidVersionText: string;
   developer: string;
   developerId: string;
@@ -27,7 +27,7 @@ export interface App {
   recentChanges: string;
   url: string;
   editedBy: {
-    userName: string
-    userId: string
-  }
+    userName: string;
+    userId: string;
+  };
 }

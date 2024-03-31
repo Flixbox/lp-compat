@@ -3,8 +3,8 @@ import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
 import { executeAppsQuery, getUserDetails } from "./util";
 import { processFeatures } from "../discord/util";
-
-const getPlaystoreData = require("../backend/getPlaystoreData").default;
+import getPlaystoreData from "../backend/getPlaystoreData";
+import { IAppItemFullDetail } from "google-play-scraper";
 
 export default async (app: App, userName, userId, res?: Response) => {
   console.log(app);
@@ -17,7 +17,7 @@ export default async (app: App, userName, userId, res?: Response) => {
       console.error(`App ${app.appId} already exists!`);
       throw new Error(`App ${app.appId} already exists!`);
     }
-    let playStoreData;
+    let playStoreData: IAppItemFullDetail;
     try {
       playStoreData = await getPlaystoreData(app.appId);
     } catch (e) {
