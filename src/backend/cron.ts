@@ -6,7 +6,9 @@ const HELPER_ROLE_ID = "650110437073092640";
 const EDITOR_ROLE_ID = "1022941047476731964";
 const STAFF_ROLE_IDS = [ADMIN_ROLE_ID, HELPER_ROLE_ID, EDITOR_ROLE_ID];
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+});
 
 client.once("ready", async () => {
   console.info("Bot is ready!");
