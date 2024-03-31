@@ -4,11 +4,10 @@ import {
   Client,
   GatewayIntentBits,
   Collection,
-  SlashCommandBuilder,
 } from "discord.js";
 import importDir from "directory-import";
 
-// TODO staff only command to edit an app
+// TODO command to edit an app
 
 type Command = { data: any; execute: (interaction, client) => any };
 
