@@ -1,10 +1,5 @@
 import { REST } from "@discordjs/rest";
-import {
-  Routes,
-  Client,
-  GatewayIntentBits,
-  Collection,
-} from "discord.js";
+import { Routes, Client, GatewayIntentBits, Collection } from "discord.js";
 import importDir from "directory-import";
 
 // TODO command to edit an app
@@ -14,6 +9,7 @@ type Command = { data: any; execute: (interaction, client) => any };
 let setUpComplete = false;
 const commands = []; // Where the bot (slash) commands will be stored.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
+console.info(token);
 const clientId = "1021002998069067777";
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const clientCommands = new Collection<string, Command>(); // Client commands contain the logic that is executed on the client
