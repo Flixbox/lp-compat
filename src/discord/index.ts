@@ -9,7 +9,6 @@ type Command = { data: any; execute: (interaction, client) => any };
 let setUpComplete = false;
 const commands = []; // Where the bot (slash) commands will be stored.
 const token = process.env.DISCORD_TOKEN; // Token from Railway Env Variable.
-console.info(token);
 const clientId = "1021002998069067777";
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const clientCommands = new Collection<string, Command>(); // Client commands contain the logic that is executed on the client
@@ -29,8 +28,9 @@ console.info("clientCommands", clientCommands);
 
 const rest = new REST({ version: "10" }).setToken(token);
 
-// Register slash commands.
-(async () => {
+client.once("ready", async () => {
+  // Register slash commands.
+
   try {
     console.log("Started refreshing application (/) commands.");
 
@@ -45,7 +45,7 @@ const rest = new REST({ version: "10" }).setToken(token);
 
   console.log("Set up complete and ready for commands!");
   setUpComplete = true;
-})();
+});
 
 client.on("interactionCreate", async (interaction: any) => {
   if (!interaction.isCommand()) return;
