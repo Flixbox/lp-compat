@@ -99,11 +99,11 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/discord/get/:code", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
+  // res.setHeader(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin, X-Requested-With, Content-Type, Accept"
+  // );
   // res.setHeader("Access-Control-Allow-Origin", "https://flixbox.github.io");
   res.end(JSON.stringify(await getDiscord(req.params.code, req)));
 });
