@@ -124,12 +124,12 @@ const EditAppDialog = ({ open, appId = "" }) => {
   }, [editState.appId, editState.title]);
 
   const handleSave = async () => {
-    let result = await dispatch(addApp({ app: editState }));
+    let result = await dispatch(addApp({ app: editState, discordUser }));
     if (result.meta.requestStatus === "fulfilled") {
       console.log("addApp fulfilled");
       handleClose();
     } else {
-      result = await dispatch(editApp({ app: editState }));
+      result = await dispatch(editApp({ app: editState, discordUser }));
       if (result.meta.requestStatus === "fulfilled") {
         console.log("editApp fulfilled");
         handleClose();
