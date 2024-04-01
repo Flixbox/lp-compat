@@ -105,6 +105,15 @@ const Root = () => {
             palette: {
               mode: colorMode,
             },
+            components: {
+              MuiChip: {
+                styleOverrides: {
+                  labelSmall: {
+                    paddingTop: "3px",
+                  },
+                },
+              },
+            },
           })}
         >
           <CompatOverview />
