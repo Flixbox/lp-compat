@@ -25,6 +25,7 @@ import {
   styled,
   CircularProgress,
   Container,
+  Icon,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,6 +44,7 @@ import {
   faStore,
   faTrophy,
   faDownload,
+  faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 import { xor } from "lodash";
 import { usePersistentState } from "react-persistent-state";
@@ -528,7 +530,11 @@ const AppTile = ({ app }: { app: App }) => {
                 {isStaff(editedBy.userId) && (
                   <Chip
                     size="small"
-                    avatar={<Avatar>🛡️</Avatar>}
+                    avatar={
+                      <Avatar>
+                        <FontAwesomeIcon icon={faShieldHalved} />
+                      </Avatar>
+                    }
                     label="Staff"
                   />
                 )}{" "}
