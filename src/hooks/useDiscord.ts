@@ -14,9 +14,11 @@ export type DiscordUserAuth = {
 
 // TODO Clean URL bar and move token to persistent state if available
 export const useDiscord = () => {
-  const [storedDiscordUserAuth, setStoredDiscordUserAuth] = usePersistentState<
-    DiscordUserAuth | undefined
-  >(undefined, { storageKey: "discordUserAuth" });
+  const [storedDiscordUserAuth, setStoredDiscordUserAuth] =
+    usePersistentState<DiscordUserAuth>(
+      { accessToken: "", tokenType: "" },
+      { storageKey: "discordUserAuth" }
+    );
 
   if (ExecutionEnvironment.canUseDOM) {
     let accessToken;
