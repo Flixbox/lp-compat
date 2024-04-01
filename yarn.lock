@@ -4539,13 +4539,6 @@ broadcast-channel@^3.4.1:
     rimraf "3.0.2"
     unload "2.2.0"
 
-browserify-zlib@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/browserify-zlib/-/browserify-zlib-0.2.0.tgz#2869459d9aa3be245fe8fe2ca1f46e2e7f54d73f"
-  integrity sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==
-  dependencies:
-    pako "~1.0.5"
-
 browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.6, browserslist@^4.18.1, browserslist@^4.20.3, browserslist@^4.21.3:
   version "4.21.4"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.21.4.tgz#e7496bbc67b9e39dd0f98565feccdcb0d4ff6987"
@@ -5570,11 +5563,6 @@ discord-oauth2-api@^1.1.2:
   integrity sha512-lhy8/kFIpximmibkQYTCBw5dfcc3Nym4StWGOqi/UXTxBrSZP0DHLgCFqacdpim2RHfSrM4+CEuLsk8cZ4xvqw==
   dependencies:
     node-fetch "^2.6.0"
-
-discord-oauth2@^2.12.1:
-  version "2.12.1"
-  resolved "https://registry.yarnpkg.com/discord-oauth2/-/discord-oauth2-2.12.1.tgz#fe5c1bc4d4eebc214419139c777fae536b6d1f00"
-  integrity sha512-/Um39bRxVjcGHUu1YaTLangZvZveXjsX4BNsa1Iyd6OQG0jL972IBQGKD0mYqQswxC3bT+hqWSouabfI2RdaZA==
 
 discord.js@^14.14.1:
   version "14.14.1"
@@ -6999,16 +6987,6 @@ http2-wrapper@^1.0.0-beta.5.2:
   dependencies:
     quick-lru "^5.1.1"
     resolve-alpn "^1.0.0"
-
-https-browserify@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
-  integrity sha512-J+FkSdyD+0mA0N+81tMotaRMfSL9SGi+xpD3T6YApKsc3bGSXJlfXri3VyFOeYkfLRQisDk1W+jIFFKBeUBbBg==
-
-https@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/https/-/https-1.0.0.tgz#3c37c7ae1a8eeb966904a2ad1e975a194b7ed3a4"
-  integrity sha512-4EC57ddXrkaF0x83Oj8sM6SLQHAWXw90Skqu2M4AEWENZ3F02dFJE/GARA8igO79tcgYqGrD7ae4f5L3um2lgg==
 
 human-signals@^2.1.0:
   version "2.1.0"
@@ -8739,11 +8717,6 @@ package-json@^6.3.0:
     registry-auth-token "^4.0.0"
     registry-url "^5.0.0"
     semver "^6.2.0"
-
-pako@~1.0.5:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
-  integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
 
 param-case@^3.0.4:
   version "3.0.4"

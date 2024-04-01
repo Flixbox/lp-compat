@@ -142,7 +142,7 @@ app.get("/playstore/get/:appId", async (req, res) => {
 });
 
 app.get("/playstore/search/:title", async (req, res) => {
-  const { search } = await import("google-play-scraper");
+  const { search } = ((await import("google-play-scraper")) as any).default;
   res.send(await search({ term: req.params.title, num: 6 }));
 });
 
