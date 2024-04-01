@@ -34,7 +34,12 @@ export const useDiscord = () => {
       setStoredDiscordUserAccessToken(accessToken);
       setStoredDiscordUserTokenType(tokenType);
 
-      if (storedDiscordUserAccessToken && storedDiscordUserTokenType) {
+      if (
+        storedDiscordUserAccessToken &&
+        storedDiscordUserTokenType &&
+        localStorage.getItem("storedDiscordUserAccessToken") !== '""' &&
+        localStorage.getItem("storedDiscordUserTokenType") !== '""'
+      ) {
         // Clear sensitive token from address bar
         const newUrl = window.location.href.split("#")[0];
         location.replace(newUrl);
