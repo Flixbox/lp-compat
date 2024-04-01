@@ -7,20 +7,19 @@ export type DiscordUser = {
   id: string;
 };
 
-export type DiscordUserAuth = {
-  accessToken: string;
-  tokenType: string;
-};
-
 // TODO Clean URL bar and move token to persistent state if available
 export const useDiscord = () => {
-  const [storedDiscordUserAuth, setStoredDiscordUserAuth] =
-    usePersistentState<DiscordUserAuth>(
-      { accessToken: "", tokenType: "" },
-      { storageKey: "discordUserAuth" }
-    );
+  const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
+    usePersistentState<string>("", {
+      storageKey: "storedDiscordUserAccessToken",
+    });
+  const [storedDiscordUserTokenType, setStoredDiscordUserTokenType] =
+    usePersistentState<string>("", {
+      storageKey: "storedDiscordUserTokenType",
+    });
 
-  console.log("storedDiscordUserAuth", storedDiscordUserAuth);
+  console.log("storedDiscordUserAccessToken", storedDiscordUserAccessToken);
+  console.log("storedDiscordUserTokenType", storedDiscordUserTokenType);
 
   if (ExecutionEnvironment.canUseDOM) {
     let accessToken;
@@ -32,25 +31,23 @@ export const useDiscord = () => {
     ];
     if (accessToken && tokenType) {
       console.log("Setting stored auth ", { accessToken, tokenType });
-      setStoredDiscordUserAuth({ accessToken, tokenType });
+      setStoredDiscordUserAccessToken(accessToken);
+      setStoredDiscordUserTokenType(tokenType);
 
-      if (
-        storedDiscordUserAuth &&
-        storedDiscordUserAuth.accessToken &&
-        storedDiscordUserAuth.tokenType
-      ) {
+      if (storedDiscordUserAccessToken && storedDiscordUserTokenType) {
         // Clear sensitive token from address bar
         const newUrl = window.location.href.split("#")[0];
         location.replace(newUrl);
       }
     }
   }
+
   const { data: discordUser } = useQuery<DiscordUser>("discord", async () =>
     (
       await fetch("https://discord.com/api/v9/users/@me", {
         method: "GET",
         headers: {
-          authorization: `${storedDiscordUserAuth.tokenType} ${storedDiscordUserAuth.accessToken}`,
+          authorization: `${storedDiscordUserTokenType} ${storedDiscordUserAccessToken}`,
         },
       })
     ).json()
