@@ -1,4 +1,5 @@
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
+import { usePersistentState } from "react-persistent-state";
 import { useQuery } from "react-query";
 
 export type DiscordUser = {
@@ -8,6 +9,10 @@ export type DiscordUser = {
 
 // TODO Clean URL bar and move token to persistent state if available
 export const useDiscord = () => {
+  const [storedDiscordUser, setStoredDiscordUser] = usePersistentState<
+    DiscordUser | undefined
+  >(undefined, { storageKey: "discordUser" });
+
   let accessToken;
   let tokenType;
   if (ExecutionEnvironment.canUseDOM) {

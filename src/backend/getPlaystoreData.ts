@@ -2,6 +2,14 @@
 
 export default async (appId: string): Promise<any> => {
   const { app } = ((await import("google-play-scraper")) as any).default;
-  // if (playstore[appId]) return playstore[appId];
-  return await app({ appId });
+
+  const foundApp = await app({ appId });
+  console.info(`App ID ${appId} successfully retrieved! App:`);
+  console.info(app);
+
+  if (!foundApp.installs) foundApp.installs = foundApp.minInstalls;
+  if (!foundApp.scoreText)
+    foundApp.scoreText = String(foundApp.score.toFixed(1));
+
+  return foundApp;
 };
