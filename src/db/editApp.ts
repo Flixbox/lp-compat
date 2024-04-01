@@ -25,8 +25,7 @@ export default async (app: App, username, id, res?: Response) => {
       playStoreData = await getPlaystoreData(app.appId);
       // Update existing app with play store data
       for (let propertyName in foundApp)
-        foundApp[propertyName] &&
-          (foundApp[propertyName] = playStoreData[propertyName]);
+        foundApp[propertyName] = playStoreData[propertyName];
     } catch (e) {
       console.error(
         `Editing App ${app.appId} - Play Store data not found! - User ${username}, ID ${id}`
