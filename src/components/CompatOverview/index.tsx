@@ -524,7 +524,14 @@ const AppTile = ({ app }: { app: App }) => {
             )}
             {editedBy && (
               <Typography variant="subtitle2" whiteSpace="nowrap">
-                Modified by: {isStaff(editedBy.userId) && "[🛡️ STAFF] "}
+                Modified by:{" "}
+                {isStaff(editedBy.userId) && (
+                  <Chip
+                    size="small"
+                    avatar={<Avatar>🛡️</Avatar>}
+                    label="Staff"
+                  />
+                )}{" "}
                 {editedBy.userName} ({editedBy.userId})
               </Typography>
             )}

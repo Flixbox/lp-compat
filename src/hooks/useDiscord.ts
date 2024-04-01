@@ -8,7 +8,6 @@ export type DiscordUser = {
   id: string;
 };
 
-// TODO Clean URL bar and move token to persistent state if available
 export const useDiscord = () => {
   const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
     useLocalStorage<string>("storedDiscordUserAccessToken", "");
