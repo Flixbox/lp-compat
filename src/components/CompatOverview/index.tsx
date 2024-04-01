@@ -234,14 +234,19 @@ const useStaff = () => {
 
 const useDiscord = () => {
   let accessToken;
+  let tokenType;
   if (ExecutionEnvironment.canUseDOM) {
-    accessToken = new URLSearchParams(window.location.search).get("code");
+    const fragment = new URLSearchParams(window.location.hash.slice(1));
+    [accessToken, tokenType] = [
+      fragment.get("access_token"),
+      fragment.get("token_type"),
+    ];
   }
   const { data: discordUser } = useQuery("discord", async () =>
     (
       await fetch("https://discord.com/api/v9/users/@me", {
         method: "GET",
-        headers: { Authorization: `Bearer ${accessToken}` },
+        headers: { authorization: `${tokenType} ${accessToken}` },
       })
     ).json()
   );
