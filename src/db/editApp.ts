@@ -4,6 +4,7 @@ import { App } from "../types";
 import { executeAppsQuery, getUserDetails } from "./util";
 import { processFeatures } from "../discord/util";
 
+// TODO Re-fetch app details to update its info
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
 export default async (app: App, username, id, res?: Response) => {
@@ -18,6 +19,20 @@ export default async (app: App, username, id, res?: Response) => {
       throw new Error(`App ${app.appId} doesn't exist!`);
     }
     console.info(`setting ${app.appId}`);
+
+    let playStoreData: any;
+    try {
+      playStoreData = await getPlaystoreData(app.appId);
+      // Update existing app with play store data
+      for (let propertyName in foundApp)
+        foundApp[propertyName] &&
+          (foundApp[propertyName] = playStoreData[propertyName]);
+    } catch (e) {
+      console.error(
+        `Editing App ${app.appId} - Play Store data not found! - User ${username}, ID ${id}`
+      );
+      // Ignore error. App might be old and no longer in play store
+    }
 
     const newApp = {
       ...foundApp,
