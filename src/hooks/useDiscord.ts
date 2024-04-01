@@ -20,6 +20,8 @@ export const useDiscord = () => {
       { storageKey: "discordUserAuth" }
     );
 
+  console.log("storedDiscordUserAuth", storedDiscordUserAuth);
+
   if (ExecutionEnvironment.canUseDOM) {
     let accessToken;
     let tokenType;
