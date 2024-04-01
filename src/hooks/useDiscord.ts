@@ -1,6 +1,6 @@
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
-import { usePersistentState } from "react-persistent-state";
 import { useQuery } from "react-query";
+import { useLocalStorageValue } from "react-hookz";
 
 export type DiscordUser = {
   username: string;
@@ -10,13 +10,9 @@ export type DiscordUser = {
 // TODO Clean URL bar and move token to persistent state if available
 export const useDiscord = () => {
   const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
-    usePersistentState<string>("", {
-      storageKey: "storedDiscordUserAccessToken",
-    });
+    useLocalStorageValue<string>("", "storedDiscordUserAccessToken");
   const [storedDiscordUserTokenType, setStoredDiscordUserTokenType] =
-    usePersistentState<string>("", {
-      storageKey: "storedDiscordUserTokenType",
-    });
+    useLocalStorageValue<string>("", "storedDiscordUserTokenType");
 
   console.log("storedDiscordUserAccessToken", storedDiscordUserAccessToken);
   console.log("storedDiscordUserTokenType", storedDiscordUserTokenType);

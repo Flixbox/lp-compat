@@ -65,6 +65,7 @@
     "prism-react-renderer": "^1.3.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hookz": "^1.0.12",
     "react-loadable": "^5.5.0",
     "react-persistent-state": "^1.1.7",
     "react-query": "^3.39.3",
