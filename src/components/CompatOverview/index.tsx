@@ -512,7 +512,7 @@ const AppTile = ({ app }: { app: App }) => {
     priceText,
     editedBy,
   } = app;
-  const { discordUser } = useAppSelector((state) => state.system);
+  const { discordUser } = useDiscord();
   const dispatch = useAppDispatch();
   const store = useStore();
   const { isStaff } = useStaff();
