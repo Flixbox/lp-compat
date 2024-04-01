@@ -34,6 +34,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
+import { useDiscord } from "../hooks/useDiscord";
 
 const DialogProvider = () => {
   const { dialogs } = useAppSelector((state) => state.system);
@@ -92,6 +93,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   >([] as App[]);
   const theme = useTheme();
   const features = featureMap(theme);
+  const { discordUser } = useDiscord();
 
   console.log("editState", editState);
 

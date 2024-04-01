@@ -17,6 +17,8 @@ import editApp from "../db/editApp";
 import getPlayStoreData from "../db/getPlayStoreData";
 import getStaff from "../db/getStaff";
 import { MONGO_URI } from "../db/util";
+import { App } from "../types";
+import { DiscordUser } from "../hooks/useDiscord";
 
 // const MongoDBStore = mongo(session);
 
@@ -128,13 +130,19 @@ app.post("/apps/add/", async (req, res) => {
                 schema: { $ref: "#/definitions/AppCompatData" }
       } 
   */
-  const app = req.body;
-  res.send(await addApp(app, req.session.userName, req.session.userId, res));
+  const { app, discordUser } = req.body as {
+    app: App;
+    discordUser: DiscordUser;
+  };
+  res.send(await addApp(app, discordUser.username, discordUser.id, res));
 });
 
 app.post("/apps/edit/", async (req, res) => {
-  const app = req.body;
-  res.send(await editApp(app, req, res));
+  const { app, discordUser } = req.body as {
+    app: App;
+    discordUser: DiscordUser;
+  };
+  res.send(await editApp(app, discordUser.username, discordUser.id, res));
 });
 
 app.get("/playstore/get/:appId", async (req, res) => {

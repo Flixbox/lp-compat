@@ -66,6 +66,7 @@ import DialogProvider from "../DialogProvider";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
 import axiosInstance from "@site/src/redux/axios";
+import { useDiscord } from "@site/src/hooks/useDiscord";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
@@ -230,30 +231,6 @@ const useStaff = () => {
   const isStaff = (id) => staff && staff.find((member) => member.id === id);
 
   return { staff, isStaff };
-};
-
-const useDiscord = () => {
-  let accessToken;
-  let tokenType;
-  if (ExecutionEnvironment.canUseDOM) {
-    const fragment = new URLSearchParams(window.location.hash.slice(1));
-    [accessToken, tokenType] = [
-      fragment.get("access_token"),
-      fragment.get("token_type"),
-    ];
-  }
-  const { data: discordUser } = useQuery("discord", async () =>
-    (
-      await fetch("https://discord.com/api/v9/users/@me", {
-        method: "GET",
-        headers: { authorization: `${tokenType} ${accessToken}` },
-      })
-    ).json()
-  );
-
-  console.log("discordUser", discordUser);
-
-  return { discordUser };
 };
 
 const CompatOverview = () => {

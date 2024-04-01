@@ -4,6 +4,7 @@ import type { RootState } from ".";
 import axiosInstance from "./axios";
 import { clearState, setAppsListPage } from "./systemSlice";
 import { App } from "../types";
+import { DiscordUser } from "../hooks/useDiscord";
 
 export const pageSize = 5000;
 
@@ -32,14 +33,22 @@ export const fetchAppCount = createAsyncThunk(
   async () => (await axiosInstance.get(`apps/count`)).data
 );
 
-export const addApp = createAsyncThunk<any, { app: App }>(
+export const addApp = createAsyncThunk<
+  any,
+  { app: App; discordUser: DiscordUser }
+>(
   "apps/add",
-  async ({ app }) => (await axiosInstance.post(`apps/add/`, app)).data
+  async ({ app, discordUser }) =>
+    (await axiosInstance.post(`apps/add/`, { app, discordUser })).data
 );
 
-export const editApp = createAsyncThunk<any, { app: App }>(
+export const editApp = createAsyncThunk<
+  any,
+  { app: App; discordUser: DiscordUser }
+>(
   "apps/edit",
-  async ({ app }) => (await axiosInstance.post(`apps/edit/`, app)).data
+  async ({ app, discordUser }) =>
+    (await axiosInstance.post(`apps/edit/`, { app, discordUser })).data
 );
 
 export const getPlayStoreData = createAsyncThunk<any, { appId: string }>(

@@ -6,7 +6,7 @@ import { processFeatures } from "../discord/util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
-export default async (app: App, req, res?: Response) => {
+export default async (app: App, username, id, res?: Response) => {
   console.log(app);
   if (!app.features) throw new Error("No features found!");
   if (!processFeatures(app.features.join("|")))
@@ -26,16 +26,12 @@ export default async (app: App, req, res?: Response) => {
 
     delete newApp._id;
 
-    console.log(
-      "getUserDetails",
-      getUserDetails(req.session.userName, req.session.userId)
-    );
-    console.log("session", req.session);
+    console.log("getUserDetails", getUserDetails(username, id));
 
     const newDataset = {
       ...newApp,
       dateModified: Date.now(),
-      ...getUserDetails(req.session.userName, req.session.userId),
+      ...getUserDetails(username, id),
     };
 
     await appsCollection.findOneAndReplace({ appId: app.appId }, newDataset);
