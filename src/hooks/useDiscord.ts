@@ -27,11 +27,18 @@ export const useDiscord = () => {
       fragment.get("token_type"),
     ];
     if (accessToken && tokenType) {
+      console.log("Setting stored auth ", { accessToken, tokenType });
       setStoredDiscordUserAuth({ accessToken, tokenType });
 
-      // Clear sensitive token from address bar
-      const newUrl = window.location.href.split("#")[0];
-      location.replace(newUrl);
+      if (
+        storedDiscordUserAuth &&
+        storedDiscordUserAuth.accessToken &&
+        storedDiscordUserAuth.tokenType
+      ) {
+        // Clear sensitive token from address bar
+        const newUrl = window.location.href.split("#")[0];
+        location.replace(newUrl);
+      }
     }
   }
   const { data: discordUser } = useQuery<DiscordUser>("discord", async () =>
