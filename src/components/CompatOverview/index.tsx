@@ -540,9 +540,10 @@ const AppTile = ({ app }: { app: App }) => {
                   <Chip
                     size="small"
                     avatar={
-                      <Avatar>
-                        <FontAwesomeIcon icon={faShieldHalved} />
-                      </Avatar>
+                      <FontAwesomeIcon
+                        icon={faShieldHalved}
+                        style={{ color: "#7289da" }}
+                      />
                     }
                     label="Staff"
                   />
