@@ -88,20 +88,7 @@ const config = {
       },
     }),
 
-  plugins: [
-    "docusaurus-plugin-sass",
-    (context, options) => ({
-      name: "custom-webpack",
-      configureWebpack: (config, isServer, utils) => ({
-        resolve: {
-          fallback: {
-            https: require.resolve("https-browserify"),
-            zlib: require.resolve("browserify-zlib"),
-          },
-        },
-      }),
-    }),
-  ],
+  plugins: ["docusaurus-plugin-sass"],
 };
 
 module.exports = config;

@@ -66,12 +66,10 @@ import DialogProvider from "../DialogProvider";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
 import axiosInstance from "@site/src/redux/axios";
-import DiscordOauth2 from "discord-oauth2";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
 const queryClient = new QueryClient();
-const oauth = new DiscordOauth2();
 
 const StyledMarkdown = styled(MarkdownPreview)(
   ({ theme, backgroundColor }) => `
@@ -234,6 +232,25 @@ const useStaff = () => {
   return { staff, isStaff };
 };
 
+const useDiscord = () => {
+  let accessToken;
+  if (ExecutionEnvironment.canUseDOM) {
+    accessToken = new URLSearchParams(window.location.search).get("code");
+  }
+  const { data: discordUser } = useQuery("discord", async () =>
+    (
+      await fetch("https://discord.com/api/v9/users/@me", {
+        method: "GET",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      })
+    ).json()
+  );
+
+  console.log("discordUser", discordUser);
+
+  return { discordUser };
+};
+
 const CompatOverview = () => {
   const dispatch = useAppDispatch();
   const [appTitleFilter, setAppTitleFilter] = usePersistentState(
@@ -246,15 +263,11 @@ const CompatOverview = () => {
   );
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
-  const [discordUser, setDiscordUser] = useState(null);
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector<App[]>((state) => state.apps);
   const { appsListUpdated } = useAppSelector((state) => state.system);
+  const { discordUser } = useDiscord();
 
-  let code;
-  if (ExecutionEnvironment.canUseDOM) {
-    code = new URLSearchParams(window.location.search).get("code");
-  }
   if (discordUser) {
     const loginButton = document.getElementById("discord-login");
     loginButton.innerHTML = discordUser.username;
@@ -264,11 +277,6 @@ const CompatOverview = () => {
     dispatch(fetchAppCount()).then((res) => {
       setAppCount(res.payload);
     });
-
-    if (code)
-      oauth.getUser(code).then((user) => {
-        setDiscordUser(user);
-      });
   }, []);
 
   const visibilitySettings = [
