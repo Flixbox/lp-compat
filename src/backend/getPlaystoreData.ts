@@ -5,7 +5,7 @@ export default async (appId: string): Promise<any> => {
 
   const foundApp = await app({ appId });
   console.info(`App ID ${appId} successfully retrieved! App:`);
-  console.info(app);
+  console.info(foundApp);
 
   if (!foundApp.installs) foundApp.installs = foundApp.minInstalls;
   if (!foundApp.scoreText)

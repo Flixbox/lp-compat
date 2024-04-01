@@ -49,6 +49,8 @@ export default async (app: App, username, id, res?: Response) => {
       ...getUserDetails(username, id),
     };
 
+    console.info("Replacing app in DB with new dataset ", newDataset);
+
     await appsCollection.findOneAndReplace({ appId: app.appId }, newDataset);
 
     const result = await appsCollection.findOne({ appId: app.appId });
