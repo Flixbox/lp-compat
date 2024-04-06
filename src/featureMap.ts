@@ -141,6 +141,11 @@ export const featureMap = (theme = createTheme()) => ({
     label: "Select patch option: Signature verification killer",
     color: theme.palette.info.main,
   },
+  "special-patch-integrity-signature": {
+    label:
+      "Select patch option: Removes integrity check and signature verification",
+    color: theme.palette.info.main,
+  },
   "special-patch-fake-modified-apk": {
     label: "Select patch option: Fake a modified APK archive from the original",
     color: theme.palette.info.main,
