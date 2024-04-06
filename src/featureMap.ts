@@ -30,7 +30,7 @@ export const featureMap = (theme = createTheme()) => ({
     color: theme.palette.error.main,
   },
   "custom-patch": {
-    label: "Custom patch required",
+    label: "Custom patch available",
     color: theme.palette.success.main,
   },
   "dont-custom-patch": {
