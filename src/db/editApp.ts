@@ -13,8 +13,8 @@ export default async (app: App, username, id, res?: Response) => {
   if (!processFeatures(app.features.join("|")))
     throw new Error("Invalid features array!");
   return await executeAppsQuery(async (appsCollection) => {
-    const foundApp = await appsCollection.findOne({ appId: app.appId });
-    if (!foundApp) {
+    const oldApp = await appsCollection.findOne({ appId: app.appId });
+    if (!oldApp) {
       res && res.status(409).send();
       throw new Error(`App ${app.appId} doesn't exist!`);
     }
@@ -24,11 +24,14 @@ export default async (app: App, username, id, res?: Response) => {
     try {
       playStoreData = await getPlaystoreData(app.appId);
       // Update existing app with play store data
-      for (let propertyName in foundApp)
+      // Only if property exists in the play store dataset
+      for (let propertyName in oldApp)
         playStoreData[propertyName] &&
-          (foundApp[propertyName] = playStoreData[propertyName]);
+          (oldApp[propertyName] = playStoreData[propertyName]);
       for (let propertyName in app)
-        foundApp[propertyName] && (app[propertyName] = foundApp[propertyName]);
+        playStoreData[propertyName] &&
+          oldApp[propertyName] &&
+          (app[propertyName] = oldApp[propertyName]);
     } catch (e) {
       console.error(
         `Editing App ${app.appId} - Play Store data not found! - User ${username}, ID ${id}`
@@ -37,7 +40,7 @@ export default async (app: App, username, id, res?: Response) => {
     }
 
     const newApp = {
-      ...foundApp,
+      ...oldApp,
       ...app,
     };
 
