@@ -8,6 +8,19 @@ export type DiscordUser = {
   id: string;
 };
 
+export type DiscordUserQueryResult = {
+  /** Only available if request succeeds (i. e. user is authorized) */
+  username?: string;
+  /** Only available if request succeeds (i. e. user is authorized) */
+  id?: string;
+  /** Only available if request fails (i. e. user is unauthorized) */
+  code?: number;
+  /** Only available if request fails (i. e. user is unauthorized) */
+  message?: string;
+};
+
+const UNAUTHORIZED_MESSAGE = "401: Unauthorized";
+
 export const useDiscord = () => {
   const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
     useLocalStorage<string>("storedDiscordUserAccessToken", "");
@@ -16,6 +29,11 @@ export const useDiscord = () => {
 
   console.log("storedDiscordUserAccessToken", storedDiscordUserAccessToken);
   console.log("storedDiscordUserTokenType", storedDiscordUserTokenType);
+
+  const resetTokens = () => {
+    setStoredDiscordUserAccessToken("");
+    setStoredDiscordUserTokenType("");
+  };
 
   useEffect(() => {
     if (ExecutionEnvironment.canUseDOM) {
@@ -46,16 +64,23 @@ export const useDiscord = () => {
     }
   }, [storedDiscordUserAccessToken, storedDiscordUserTokenType]);
 
-  const { data: discordUser } = useQuery<DiscordUser>("discord", async () =>
-    (
-      await fetch("https://discord.com/api/v9/users/@me", {
-        method: "GET",
-        headers: {
-          authorization: `${storedDiscordUserTokenType} ${storedDiscordUserAccessToken}`,
-        },
-      })
-    ).json()
+  const { data: discordUser } = useQuery<DiscordUserQueryResult>(
+    "discord",
+    async () =>
+      (
+        await fetch("https://discord.com/api/v9/users/@me", {
+          method: "GET",
+          headers: {
+            authorization: `${storedDiscordUserTokenType} ${storedDiscordUserAccessToken}`,
+          },
+        })
+      ).json()
   );
+
+  useEffect(() => {
+    // If the request is unauthorized, the user needs to log in again.
+    if (discordUser.message === UNAUTHORIZED_MESSAGE) resetTokens();
+  }, [discordUser.message]);
 
   console.log("discordUser", discordUser);
 
