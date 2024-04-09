@@ -79,12 +79,12 @@ export const useDiscord = () => {
 
   useEffect(() => {
     // If the request is unauthorized, the user needs to log in again.
-    if (discordUser.message === UNAUTHORIZED_MESSAGE) resetTokens();
-  }, [discordUser.message]);
+    if (discordUser?.message === UNAUTHORIZED_MESSAGE) resetTokens();
+  }, [discordUser?.message]);
 
   console.log("discordUser", discordUser);
 
-  const isLoggedIn = Boolean(discordUser.username && discordUser.id);
+  const isLoggedIn = Boolean(discordUser?.username && discordUser?.id);
 
   return { discordUser, isLoggedIn };
 };
