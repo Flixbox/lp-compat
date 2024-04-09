@@ -259,9 +259,9 @@ const CompatOverview = () => {
   const [appCount, setAppCount] = useState(0);
   const apps = useAppSelector<App[]>((state) => state.apps);
   const { appsListUpdated } = useAppSelector((state) => state.system);
-  const { discordUser } = useDiscord();
+  const { discordUser, isLoggedIn } = useDiscord();
 
-  if (discordUser) {
+  if (isLoggedIn) {
     const loginButton = document.getElementById("discord-login");
     loginButton.innerHTML = discordUser.username;
   }
@@ -376,7 +376,7 @@ const CompatOverview = () => {
         <Box m={8} />
         <Box className="row" display="flex" flexDirection="column">
           <Grid container>
-            {discordUser?.username && (
+            {isLoggedIn && (
               <Button
                 onClick={() => {
                   dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
@@ -500,7 +500,7 @@ const AppTile = ({ app }: { app: App }) => {
     priceText,
     editedBy,
   } = app;
-  const { discordUser } = useDiscord();
+  const { isLoggedIn } = useDiscord();
   const dispatch = useAppDispatch();
   const store = useStore();
   const { isStaff } = useStaff();
@@ -578,7 +578,7 @@ const AppTile = ({ app }: { app: App }) => {
               </Paper>
             ))}
         </CardContent>
-        {discordUser?.username && (
+        {isLoggedIn && (
           <IconButton
             onClick={() => {
               dispatch(openDialog({ dialog: "EDIT_APP", data: { appId } }));

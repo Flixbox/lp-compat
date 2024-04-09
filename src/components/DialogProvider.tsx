@@ -34,7 +34,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
-import { useDiscord } from "../hooks/useDiscord";
+import { DiscordUser, useDiscord } from "../hooks/useDiscord";
 
 const DialogProvider = () => {
   const { dialogs } = useAppSelector((state) => state.system);
@@ -93,7 +93,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   >([] as App[]);
   const theme = useTheme();
   const features = featureMap(theme);
-  const { discordUser } = useDiscord();
+  const { discordUser, isLoggedIn } = useDiscord();
 
   console.log("editState", editState);
 
@@ -124,12 +124,14 @@ const EditAppDialog = ({ open, appId = "" }) => {
   }, [editState.appId, editState.title]);
 
   const handleSave = async () => {
-    let result = await dispatch(addApp({ app: editState, discordUser }));
+    // If the user wasn't logged in, the dialog would close.
+    const user = discordUser as DiscordUser;
+    let result = await dispatch(addApp({ app: editState, discordUser: user }));
     if (result.meta.requestStatus === "fulfilled") {
       console.log("addApp fulfilled");
       handleClose();
     } else {
-      result = await dispatch(editApp({ app: editState, discordUser }));
+      result = await dispatch(editApp({ app: editState, discordUser: user }));
       if (result.meta.requestStatus === "fulfilled") {
         console.log("editApp fulfilled");
         handleClose();
@@ -138,6 +140,11 @@ const EditAppDialog = ({ open, appId = "" }) => {
       }
     }
   };
+
+  if (open && !isLoggedIn) {
+    alert("You're not logged in!");
+    closeDialog();
+  }
 
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>

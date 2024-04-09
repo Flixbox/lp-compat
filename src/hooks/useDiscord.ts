@@ -84,5 +84,7 @@ export const useDiscord = () => {
 
   console.log("discordUser", discordUser);
 
-  return { discordUser };
+  const isLoggedIn = Boolean(discordUser.username && discordUser.id);
+
+  return { discordUser, isLoggedIn };
 };
