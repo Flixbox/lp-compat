@@ -1,5 +1,4 @@
-import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
-import { useLocalStorage } from "usehooks-ts";
+import { useIsClient, useLocalStorage } from "usehooks-ts";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
 
@@ -22,6 +21,7 @@ export type DiscordUserQueryResult = {
 const UNAUTHORIZED_MESSAGE = "401: Unauthorized";
 
 export const useDiscord = () => {
+  const isClient = useIsClient();
   const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
     useLocalStorage<string>("storedDiscordUserAccessToken", "");
   const [storedDiscordUserTokenType, setStoredDiscordUserTokenType] =
@@ -33,7 +33,7 @@ export const useDiscord = () => {
   };
 
   useEffect(() => {
-    if (ExecutionEnvironment.canUseDOM) {
+    if (isClient) {
       let accessToken;
       let tokenType;
       const fragment = new URLSearchParams(window.location.hash.slice(1));
