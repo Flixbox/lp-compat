@@ -27,9 +27,6 @@ export const useDiscord = () => {
   const [storedDiscordUserTokenType, setStoredDiscordUserTokenType] =
     useLocalStorage<string>("storedDiscordUserTokenType", "");
 
-  console.log("storedDiscordUserAccessToken", storedDiscordUserAccessToken);
-  console.log("storedDiscordUserTokenType", storedDiscordUserTokenType);
-
   const resetTokens = () => {
     setStoredDiscordUserAccessToken("");
     setStoredDiscordUserTokenType("");
@@ -46,7 +43,6 @@ export const useDiscord = () => {
       ];
 
       if (accessToken && tokenType) {
-        console.log("Setting stored auth ", { accessToken, tokenType });
         setStoredDiscordUserAccessToken(accessToken);
         setStoredDiscordUserTokenType(tokenType);
 
@@ -81,8 +77,6 @@ export const useDiscord = () => {
     // If the request is unauthorized, the user needs to log in again.
     if (discordUser?.message === UNAUTHORIZED_MESSAGE) resetTokens();
   }, [discordUser?.message]);
-
-  console.log("discordUser", discordUser);
 
   const isLoggedIn = Boolean(discordUser?.username && discordUser?.id);
 
