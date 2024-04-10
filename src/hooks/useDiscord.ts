@@ -1,6 +1,7 @@
 import { useLocalStorage } from "usehooks-ts";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
+export { getDiscordLoginUrl } from "./utils";
 
 export type DiscordUser = {
   username: string;
@@ -19,11 +20,6 @@ export type DiscordUserQueryResult = {
 };
 
 const UNAUTHORIZED_MESSAGE = "401: Unauthorized";
-
-export const getDiscordLoginUrl = (client_id: string, redirect_uri: string) =>
-  `https://discord.com/api/oauth2/authorize?client_id=${client_id}&redirect_uri=${encodeURI(
-    redirect_uri
-  )}&response_type=token&scope=identify%20guilds%20guilds.members.read`;
 
 export const useDiscord = () => {
   const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
