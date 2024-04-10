@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-import { getDiscordLoginUrl } from "./src/hooks/useDiscord";
+const { getDiscordLoginUrl } = require("./src/hooks/useDiscord");
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
