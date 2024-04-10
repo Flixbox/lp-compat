@@ -389,7 +389,8 @@ const CompatOverview = () => {
                     dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
                   }}
                 >
-                  <FontAwesomeIcon icon={faAdd} /> New app
+                  <FontAwesomeIcon icon={faAdd} style={{ marginRight: 8 }} />
+                  New app
                 </Button>
               ) : (
                 <Button
