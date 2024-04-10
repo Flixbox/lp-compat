@@ -11,15 +11,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { usePersistentState } from "react-persistent-state";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useLocalStorage } from "usehooks-ts";
 
 const AddApp = () => {
-  const [appPackages, setAppPackages] = usePersistentState([], "appPackages");
-  const [enteredPackage, setEnteredPackage] = usePersistentState(
-    "",
-    "enteredPackage"
+  const [appPackages, setAppPackages] = useLocalStorage("appPackages", []);
+  const [enteredPackage, setEnteredPackage] = useLocalStorage(
+    "enteredPackage",
+    ""
   );
 
   let codeBlock = "";

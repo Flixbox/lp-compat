@@ -47,7 +47,6 @@ import {
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 import { xor } from "lodash";
-import { usePersistentState } from "react-persistent-state";
 import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -69,6 +68,7 @@ import MarkdownPreview from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
 import axiosInstance from "@site/src/redux/axios";
 import { getDiscordLoginUrl, useDiscord } from "@site/src/hooks/useDiscord";
+import { useLocalStorage } from "usehooks-ts";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
@@ -244,14 +244,11 @@ const useStaff = () => {
 
 const CompatOverview = () => {
   const dispatch = useAppDispatch();
-  const [appTitleFilter, setAppTitleFilter] = usePersistentState(
-    "",
-    "appsTitleFilter"
+  const [appTitleFilter, setAppTitleFilter] = useLocalStorage(
+    "appsTitleFilter",
+    ""
   );
-  const [sorting, setSorting] = usePersistentState(
-    "installs-asc",
-    "apps-sorting"
-  );
+  const [sorting, setSorting] = useLocalStorage("apps-sorting", "installs-asc");
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
   const [appCount, setAppCount] = useState(0);
@@ -291,11 +288,10 @@ const CompatOverview = () => {
     },
   ];
 
-  const [onlyShowTheseCategories, setOnlyShowTheseCategories] =
-    usePersistentState(
-      visibilitySettings.map((category) => category.id),
-      "onlyShowTheseVisibilitySettings"
-    );
+  const [onlyShowTheseCategories, setOnlyShowTheseCategories] = useLocalStorage(
+    "onlyShowTheseVisibilitySettings",
+    visibilitySettings.map((category) => category.id)
+  );
 
   if (!sorting) setSorting("installs-asc");
 

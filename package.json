@@ -66,7 +66,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loadable": "^5.5.0",
-    "react-persistent-state": "^1.1.7",
     "react-query": "^3.39.3",
     "react-redux": "^8.0.2",
     "react-virtuoso": "^4.7.1",
