@@ -376,11 +376,15 @@ const CompatOverview = () => {
           <Grid container>
             <Typography variant="h3">Filter apps</Typography>
             <Box flexGrow={1} />
-            <Box>
+            <Box
+              display="flex"
+              maxWidth="100%"
+              style={{ flexFlow: "row wrap" }}
+            >
               {isLoggedIn ? (
                 <Button
                   variant="outlined"
-                  style={{ marginRight: 4, height: "100%" }}
+                  style={{ marginRight: 4, height: "50px", minWidth: "120px" }}
                   onClick={() => {
                     dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
                   }}
@@ -390,7 +394,7 @@ const CompatOverview = () => {
               ) : (
                 <Button
                   variant="outlined"
-                  style={{ marginRight: 4, height: "100%" }}
+                  style={{ marginRight: 4, height: "50px", minWidth: "120px" }}
                   href={getDiscordLoginUrl(
                     "1021002998069067777",
                     "https://flixbox.github.io/lp-compat/"
@@ -422,7 +426,7 @@ const CompatOverview = () => {
                   link.click();
                   document.body.removeChild(link);
                 }}
-                style={{ marginRight: 4, height: "100%" }}
+                style={{ marginRight: 4, height: "50px", minWidth: "120px" }}
               >
                 <FontAwesomeIcon
                   icon={faDownload}
@@ -436,6 +440,7 @@ const CompatOverview = () => {
               <Select
                 value={sorting}
                 onChange={(e) => setSorting(e.target.value)}
+                style={{ height: "50px" }}
               >
                 {Object.entries(sortOptions).map((element) => (
                   <MenuItem value={element[0]} key={element[0]}>
