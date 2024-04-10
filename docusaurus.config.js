@@ -1,6 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+import { getDiscordLoginUrl } from "./src/hooks/useDiscord";
+
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -76,7 +78,10 @@ const config = {
             type: "html",
             position: "right",
             value: `
-            <a id="discord-login" href="https://discord.com/api/oauth2/authorize?client_id=1021002998069067777&redirect_uri=https%3A%2F%2Fflixbox.github.io%2Flp-compat%2F&response_type=token&scope=identify%20guilds%20guilds.members.read">
+            <a id="discord-login" href="${getDiscordLoginUrl(
+              "1021002998069067777",
+              "https://flixbox.github.io/lp-compat/"
+            )}">
               Login
             </a>`,
           },

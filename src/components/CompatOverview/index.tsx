@@ -68,7 +68,7 @@ import DialogProvider from "../DialogProvider";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
 import axiosInstance from "@site/src/redux/axios";
-import { useDiscord } from "@site/src/hooks/useDiscord";
+import { getDiscordLoginUrl, useDiscord } from "@site/src/hooks/useDiscord";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
@@ -237,8 +237,6 @@ const useStaff = () => {
     async () => (await axiosInstance.get("/staff/all")).data
   );
 
-  console.log("staff", staff);
-
   const isStaff = (id) => staff && staff.find((member) => member.id === id);
 
   return { staff, isStaff };
@@ -376,56 +374,76 @@ const CompatOverview = () => {
         <Box m={8} />
         <Box className="row" display="flex" flexDirection="column">
           <Grid container>
-            {isLoggedIn && (
-              <Button
-                onClick={() => {
-                  dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
-                }}
-              >
-                <FontAwesomeIcon icon={faAdd} /> New app
-              </Button>
-            )}
             <Typography variant="h3">Filter apps</Typography>
             <Box flexGrow={1} />
-            <Button
-              variant="outlined"
-              onClick={async () => {
-                const response = await fetch(
-                  "https://luck.up.railway.app/apps/all"
-                );
-                const json = await response.json();
-                const formattedJson = JSON.stringify(json, null, 2);
-                const blob = new Blob([formattedJson], {
-                  type: "application/json",
-                });
-                const href = URL.createObjectURL(blob);
-                const link = document.createElement("a");
-                link.href = href;
-                link.download = "lucky-patcher-app-compatibility.json";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-              style={{ marginRight: 4 }}
-            >
-              <FontAwesomeIcon
-                icon={faDownload}
-                size="lg"
-                opacity={0.9}
-                style={{ marginRight: 8 }}
-              />
-              JSON
-            </Button>
-            <Select
-              value={sorting}
-              onChange={(e) => setSorting(e.target.value)}
-            >
-              {Object.entries(sortOptions).map((element) => (
-                <MenuItem value={element[0]} key={element[0]}>
-                  {element[1].title}
-                </MenuItem>
-              ))}
-            </Select>
+            <Box>
+              {isLoggedIn ? (
+                <Button
+                  variant="outlined"
+                  style={{ marginRight: 4, height: "100%" }}
+                  onClick={() => {
+                    dispatch(openDialog({ dialog: "EDIT_APP", data: {} }));
+                  }}
+                >
+                  <FontAwesomeIcon icon={faAdd} /> New app
+                </Button>
+              ) : (
+                <Button
+                  variant="outlined"
+                  style={{ marginRight: 4, height: "100%" }}
+                  href={getDiscordLoginUrl(
+                    "1021002998069067777",
+                    "https://flixbox.github.io/lp-compat/"
+                  )}
+                >
+                  <FontAwesomeIcon
+                    icon={faDiscord}
+                    style={{ marginRight: 5 }}
+                  />
+                  Login
+                </Button>
+              )}
+              <Button
+                variant="outlined"
+                onClick={async () => {
+                  const response = await fetch(
+                    "https://luck.up.railway.app/apps/all"
+                  );
+                  const json = await response.json();
+                  const formattedJson = JSON.stringify(json, null, 2);
+                  const blob = new Blob([formattedJson], {
+                    type: "application/json",
+                  });
+                  const href = URL.createObjectURL(blob);
+                  const link = document.createElement("a");
+                  link.href = href;
+                  link.download = "lucky-patcher-app-compatibility.json";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                style={{ marginRight: 4, height: "100%" }}
+              >
+                <FontAwesomeIcon
+                  icon={faDownload}
+                  size="lg"
+                  opacity={0.9}
+                  style={{ marginRight: 8 }}
+                />
+                JSON
+              </Button>
+
+              <Select
+                value={sorting}
+                onChange={(e) => setSorting(e.target.value)}
+              >
+                {Object.entries(sortOptions).map((element) => (
+                  <MenuItem value={element[0]} key={element[0]}>
+                    {element[1].title}
+                  </MenuItem>
+                ))}
+              </Select>
+            </Box>
           </Grid>
 
           <Input

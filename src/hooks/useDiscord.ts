@@ -1,4 +1,4 @@
-import { useIsClient, useLocalStorage } from "usehooks-ts";
+import { useLocalStorage } from "usehooks-ts";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
 
@@ -20,8 +20,12 @@ export type DiscordUserQueryResult = {
 
 const UNAUTHORIZED_MESSAGE = "401: Unauthorized";
 
+export const getDiscordLoginUrl = (client_id: string, redirect_uri: string) =>
+  `https://discord.com/api/oauth2/authorize?client_id=${client_id}&redirect_uri=${encodeURI(
+    redirect_uri
+  )}&response_type=token&scope=identify%20guilds%20guilds.members.read`;
+
 export const useDiscord = () => {
-  const isClient = useIsClient();
   const [storedDiscordUserAccessToken, setStoredDiscordUserAccessToken] =
     useLocalStorage<string>("storedDiscordUserAccessToken", "");
   const [storedDiscordUserTokenType, setStoredDiscordUserTokenType] =
@@ -33,29 +37,27 @@ export const useDiscord = () => {
   };
 
   useEffect(() => {
-    if (isClient) {
-      let accessToken;
-      let tokenType;
-      const fragment = new URLSearchParams(window.location.hash.slice(1));
-      [accessToken, tokenType] = [
-        fragment.get("access_token"),
-        fragment.get("token_type"),
-      ];
+    let accessToken;
+    let tokenType;
+    const fragment = new URLSearchParams(window.location.hash.slice(1));
+    [accessToken, tokenType] = [
+      fragment.get("access_token"),
+      fragment.get("token_type"),
+    ];
 
-      if (accessToken && tokenType) {
-        setStoredDiscordUserAccessToken(accessToken);
-        setStoredDiscordUserTokenType(tokenType);
+    if (accessToken && tokenType) {
+      setStoredDiscordUserAccessToken(accessToken);
+      setStoredDiscordUserTokenType(tokenType);
 
-        if (
-          storedDiscordUserAccessToken &&
-          storedDiscordUserTokenType &&
-          localStorage.getItem("storedDiscordUserAccessToken") !== '""' &&
-          localStorage.getItem("storedDiscordUserTokenType") !== '""'
-        ) {
-          // Clear sensitive token from address bar
-          const newUrl = window.location.href.split("#")[0];
-          location.replace(newUrl);
-        }
+      if (
+        storedDiscordUserAccessToken &&
+        storedDiscordUserTokenType &&
+        localStorage.getItem("storedDiscordUserAccessToken") !== '""' &&
+        localStorage.getItem("storedDiscordUserTokenType") !== '""'
+      ) {
+        // Clear sensitive token from address bar
+        const newUrl = window.location.href.split("#")[0];
+        location.replace(newUrl);
       }
     }
   }, [storedDiscordUserAccessToken, storedDiscordUserTokenType]);
