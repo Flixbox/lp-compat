@@ -314,6 +314,7 @@ const CompatOverview = () => {
   };
 
   const refreshApps = () => {
+    localStorage.clear();
     dispatch(clearState());
     clear();
   };
