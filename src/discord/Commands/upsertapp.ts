@@ -9,6 +9,7 @@ import {
 import addApp from "../../db/addApp";
 import { App } from "../../types";
 import getPlaystoreData from "../../backend/getPlaystoreData";
+import editApp from "@site/src/db/editApp";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -51,7 +52,7 @@ module.exports = {
     if (!packageParam) return await error();
     if (!featuresString) return await error();
 
-    let features;
+    let features: ReturnType<typeof processFeatures>;
     let appId;
 
     const featuresError = async () =>
@@ -91,9 +92,21 @@ module.exports = {
         interaction.user.id
       );
     } catch (e) {
-      return await error(
-        "The app package you provided is already on the list. Please try again with a different app or check the `/help` command for more information."
-      );
+      // The app is probably already on the list. Let's try to update it.
+      try {
+        await editApp(
+          { appId, features } as App,
+          interaction.user.tag,
+          interaction.user.id
+        );
+      } catch (e) {
+        return await error(
+          `
+          The app package ${appId} could not be updated. 
+          Provided features: ${features.toString()}
+          `
+        );
+      }
     }
 
     let textResponse = `Added app ${appId}!\nThanks ${interaction.user.tag}!`;

@@ -37,7 +37,7 @@ export const processPackage = async (packageParam: string) => {
   return false;
 };
 
-export const processFeatures = (features: string) => {
+export const processFeatures = (features: string): string[] | false => {
   const featuresArray = features.split("|");
 
   // Some degree of validation for the features
@@ -52,4 +52,3 @@ export const processFeatures = (features: string) => {
 
   return featuresArray;
 };
-
