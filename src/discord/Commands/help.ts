@@ -13,16 +13,17 @@ module.exports = {
     **/addapp** - *Allows you to add an app to the compatibility list. After the app is verified, it will be added to the database.*
     \`\`\`
     Syntax: 
-    /addapp <package>  <feature>|<feature>|...
+    /upsertapp <package>  <feature>|<feature>|...
       package: You can either use the package name or the URL to the app on the play store. The package name can be found by tapping "App info" in Lucky Patcher.
       features: This is a list of notes on the app, separated by a pipe symbol (|). Do not use pipes in the feature description, and use "::" to prefix any custom notes. You can get a full list of predefined features using the "features" command.
       
     Examples: 
-    /addapp com.gramgames.mergedragons iap|::Works with version 1.2.3 from APKPure /addapp games.onebutton.golfbattle no-iap 
-    /addapp https://play.google.com/store/apps/details?id=com.gramgames.mergedragons iap|facebook-login
+    /upsertapp com.gramgames.mergedragons iap|::Works with version 1.2.3 from APKPure 
+    /upsertapp games.onebutton.golfbattle no-iap 
+    /upsertapp https://play.google.com/store/apps/details?id=com.gramgames.mergedragons iap|facebook-login
     \`\`\`
 
-    **/features** - *Displays a list of predefined features that can be used with the "addapp" command.*
+    **/features** - *Displays a list of predefined features that can be used with the "upsertapp" command.*
 
     __To use these commands, make sure to use Slash Commands by typing "/" into the chat bar and selecting the desired command. Simply typing the command without the slash (e.g. "addapp") will not work.__
     `);

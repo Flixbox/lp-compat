@@ -17,7 +17,7 @@ module.exports = {
     We have already compiled a list of many compatible games here: 
     <https://flixbox.github.io/lp-compat/>
     
-    If you would like to add your own games to the list, you can use the \`/addapp\` slash command. To use this command, simply type "/" into the chat and click the black 😉 emoji.
+    If you would like to add your own games to the list, you can use the \`/upsertapp\` slash command. To use this command, simply type "/" into the chat and click the black 😉 emoji.
     `);
   },
 };

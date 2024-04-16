@@ -12,8 +12,8 @@ import getPlaystoreData from "../../backend/getPlaystoreData";
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("addapp")
-    .setDescription("Add a new app to the list!")
+    .setName("upsertapp")
+    .setDescription("Add a new app to the list or update it!")
     .addStringOption((option) =>
       option
         .setName("package")
@@ -26,7 +26,7 @@ module.exports = {
       option
         .setName("features")
         .setDescription(
-          "/help - Use the predefined features or create custom ones using the format ::<custom feature>."
+          "/help - Use the predefined /features or create custom ones using the format ::<custom feature>."
         )
         .setRequired(true)
     ),
@@ -91,6 +91,9 @@ module.exports = {
         interaction.user.id
       );
     } catch (e) {
+      console.error(
+        "The app package you provided is already on the list. Please try again with a different app or check the `/help` command for more information."
+      );
       return await error(
         "The app package you provided is already on the list. Please try again with a different app or check the `/help` command for more information."
       );
