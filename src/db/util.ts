@@ -15,6 +15,8 @@ const executeGenericQuery = async (
     let result;
     try {
       result = await operation(collectionObject);
+    } catch (e) {
+      throw e;
     } finally {
       await client.close();
     }

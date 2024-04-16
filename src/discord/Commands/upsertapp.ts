@@ -91,9 +91,6 @@ module.exports = {
         interaction.user.id
       );
     } catch (e) {
-      console.error(
-        "The app package you provided is already on the list. Please try again with a different app or check the `/help` command for more information."
-      );
       return await error(
         "The app package you provided is already on the list. Please try again with a different app or check the `/help` command for more information."
       );
