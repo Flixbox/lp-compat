@@ -7,9 +7,9 @@ import {
   validatePackage,
 } from "../util";
 import addApp from "../../db/addApp";
+import editApp from "../../db/editApp";
 import { App } from "../../types";
 import getPlaystoreData from "../../backend/getPlaystoreData";
-import editApp from "@site/src/db/editApp";
 
 module.exports = {
   data: new SlashCommandBuilder()
