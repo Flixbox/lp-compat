@@ -14,7 +14,7 @@ import getPlaystoreData from "../../backend/getPlaystoreData";
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("upsertapp")
-    .setDescription("Add a new app to the list or update it!")
+    .setDescription("Upsert (update or insert) a new app to the list!")
     .addStringOption((option) =>
       option
         .setName("package")
@@ -109,7 +109,7 @@ module.exports = {
       }
     }
 
-    let textResponse = `Added app ${appId}!\nThanks ${interaction.user.tag}!`;
+    let textResponse = `Upserted (updated/inserted) app ${appId}!\nThanks ${interaction.user.tag}!`;
     // if (isStaff(interaction))
     //   textResponse = `${textResponse}\nPR was automatically merged.`;
 
