@@ -23,7 +23,10 @@ const executeGenericQuery = async (
     return result;
   };
 
-  return await run().catch(console.dir);
+  return await run().catch((e) => {
+    console.dir(e);
+    throw e;
+  });
 };
 
 export const executeAppsQuery = async (operation: Function) =>

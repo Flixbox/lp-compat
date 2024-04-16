@@ -4,7 +4,6 @@ import { App } from "../types";
 import { executeAppsQuery, getUserDetails } from "./util";
 import { processFeatures } from "../discord/util";
 
-// TODO Re-fetch app details to update its info
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
 
 export default async (app: App, username, id, res?: Response) => {
