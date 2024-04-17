@@ -53,7 +53,6 @@ If you are able to get in-app purchases for free in Kingdom Rush TD, this means 
 To start patching your app:<br>
 - [Check if it's reported as incompatible](<https://flixbox.github.io/lp-compat/>)
 - [Download Lucky Patcher](<http://chelpus.com/luckypatcher/LuckyPatcherInstaller.apk>)
-- [Start reading the documentation](<https://flixbox.github.io/lp-compat/docs/lp-info>)
       `,
       components: [row],
     });
