@@ -50,7 +50,7 @@ If you are able to get in-app purchases for free in Kingdom Rush TD, this means 
 
     return await interaction.followUp({
       content: `
-To start patching your app:<br>
+To start patching your app:
 - [Check if it's reported as incompatible](<https://flixbox.github.io/lp-compat/>)
 - [Download Lucky Patcher](<http://chelpus.com/luckypatcher/LuckyPatcherInstaller.apk>)
       `,
