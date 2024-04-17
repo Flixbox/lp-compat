@@ -13,7 +13,6 @@ module.exports = {
       .setStyle(ButtonStyle.Primary);
 
     const docLink = new ButtonBuilder()
-      .setCustomId("docLink")
       .setLabel("Documentation")
       .setStyle(ButtonStyle.Link)
       .setURL("https://flixbox.github.io/lp-compat/docs/lp-info");
