@@ -1,8 +1,9 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
+import { BUTTON_ID_UPSERT_MODAL_OPEN } from "..";
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const BUTTON_ID_SHOW_MORE = "patchingShowMore"
+const BUTTON_ID_SHOW_MORE = "patchingShowMore";
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,17 +15,25 @@ module.exports = {
       .setLabel("Show more")
       .setStyle(ButtonStyle.Primary);
 
+    const addApp = new ButtonBuilder()
+      .setCustomId(BUTTON_ID_UPSERT_MODAL_OPEN)
+      .setLabel("Upsert an app for the list")
+      .setStyle(ButtonStyle.Primary);
+
     const docLink = new ButtonBuilder()
       .setLabel("Documentation")
       .setStyle(ButtonStyle.Link)
       .setURL("https://flixbox.github.io/lp-compat/docs/lp-info");
 
-    const row = new ActionRowBuilder().addComponents(showMore, docLink);
+    const row = new ActionRowBuilder().addComponents(showMore, addApp, docLink);
 
     // Listen for interaction events
     client.on("interactionCreate", async (interaction) => {
       // Check if the interaction is a button click and the custom ID matches
-      if (interaction.isButton() && interaction.customId === BUTTON_ID_SHOW_MORE) {
+      if (
+        interaction.isButton() &&
+        interaction.customId === BUTTON_ID_SHOW_MORE
+      ) {
         // Send an ephemeral message to the user who clicked the button
         await interaction.reply({
           content: `

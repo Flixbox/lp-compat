@@ -6,8 +6,9 @@ import {
   Events,
 } from "discord.js";
 import importDir from "directory-import";
+import { upsertAppModal } from "./modals/upsertAppModal";
 
-// TODO command to edit an app
+export const BUTTON_ID_UPSERT_MODAL_OPEN = "upsertModalOpen";
 
 type Command = { data: any; execute: (interaction, client) => any };
 
@@ -19,7 +20,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const clientCommands = new Collection<string, Command>(); // Client commands contain the logic that is executed on the client
 
 importDir(
-  { directoryPath: "./Commands" },
+  { directoryPath: "./commands" },
   (moduleName, modulePath, command: Command) => {
     console.info({ moduleName, modulePath, command });
     commands.push(command.data.toJSON()); // Push the command data to an array (for sending to the API).
@@ -51,6 +52,15 @@ client.once(Events.ClientReady, async (readyClient) => {
 });
 
 client.on("interactionCreate", async (interaction: any) => {
+  // Check if the interaction is a button click and the custom ID matches
+  if (
+    interaction.isButton() &&
+    interaction.customId === BUTTON_ID_UPSERT_MODAL_OPEN
+  ) {
+    await interaction.showModal(upsertAppModal());
+  }
+
+  // Manage command events
   if (!interaction.isCommand()) return;
   await interaction.deferReply();
   if (!setUpComplete)
