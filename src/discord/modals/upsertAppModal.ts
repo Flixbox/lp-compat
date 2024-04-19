@@ -39,4 +39,6 @@ export const upsertAppModal = () => {
 
   // Add inputs to the modal
   modal.addComponents(firstActionRow, secondActionRow);
+
+  return modal;
 };
