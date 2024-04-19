@@ -159,6 +159,11 @@ export const featureMap = (theme = createTheme()) => ({
       "Select patch option: Support patch for Inapp emulation (Reassembly Dex)",
     color: theme.palette.info.main,
   },
+  "special-patch-revanced": {
+    label:
+      "You can use [ReVanced Manager](https://revanced.app/download) to patch this app",
+    color: theme.palette.info.main,
+  },
   "may-require-root": {
     label: "This app may require a root-level patch to work",
     color: theme.palette.info.main,
