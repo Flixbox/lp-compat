@@ -17,7 +17,7 @@ module.exports = {
 
     const addApp = new ButtonBuilder()
       .setCustomId(BUTTON_ID_UPSERT_MODAL_OPEN)
-      .setLabel("Upsert an app for the list")
+      .setLabel("Upsert an app for the list (WIP)")
       .setStyle(ButtonStyle.Primary);
 
     const docLink = new ButtonBuilder()
