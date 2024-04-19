@@ -1,15 +1,15 @@
-
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const BUTTON_ID_SHOW_MORE = "cseShowMore"
-
+const BUTTON_ID_SHOW_MORE = "cseShowMore";
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("cse")
-    .setDescription("Explain the CSE (Custom Search Engine) for modded APKs and how to use it."),
+    .setDescription(
+      "Explain the CSE (Custom Search Engine) for modded APKs and how to use it."
+    ),
   execute: async (interaction, client) => {
     const showMore = new ButtonBuilder()
       .setCustomId(BUTTON_ID_SHOW_MORE)
@@ -19,14 +19,19 @@ module.exports = {
     const docLink = new ButtonBuilder()
       .setLabel("FMHY Android APKs")
       .setStyle(ButtonStyle.Link)
-      .setURL("https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/android/#wiki_.25BA_android_apks");
+      .setURL(
+        "https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/android/#wiki_.25BA_android_apks"
+      );
 
     const row = new ActionRowBuilder().addComponents(showMore, docLink);
 
     // Listen for interaction events
     client.on("interactionCreate", async (interaction) => {
       // Check if the interaction is a button click and the custom ID matches
-      if (interaction.isButton() && interaction.customId === BUTTON_ID_SHOW_MORE) {
+      if (
+        interaction.isButton() &&
+        interaction.customId === BUTTON_ID_SHOW_MORE
+      ) {
         // Send an ephemeral message to the user who clicked the button
         await interaction.reply({
           content: `
@@ -49,7 +54,7 @@ If you can't find the app in the CSE:
       content: `
 Many apps are incompatible with Lucky Patcher.
 - [FMHY is a decent resource for modded apps](<https://fmhy.pages.dev/android-iosguide#modded-apks>)
-- [Private servers like nulls.gg are required for many server-side apps](<https://nulls.gg/>)
+- [Private servers like nulls.gg are required for many server-based apps](<https://nulls.gg/>)
       `,
       components: [row],
     });
