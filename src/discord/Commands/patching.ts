@@ -2,13 +2,15 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
+const BUTTON_ID_SHOW_MORE = "patchingShowMore"
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("patching")
     .setDescription("Instructions for patching an app."),
   execute: async (interaction, client) => {
     const showMore = new ButtonBuilder()
-      .setCustomId("showMore")
+      .setCustomId(BUTTON_ID_SHOW_MORE)
       .setLabel("Show more")
       .setStyle(ButtonStyle.Primary);
 
@@ -22,7 +24,7 @@ module.exports = {
     // Listen for interaction events
     client.on("interactionCreate", async (interaction) => {
       // Check if the interaction is a button click and the custom ID matches
-      if (interaction.isButton() && interaction.customId === "showMore") {
+      if (interaction.isButton() && interaction.customId === BUTTON_ID_SHOW_MORE) {
         // Send an ephemeral message to the user who clicked the button
         await interaction.reply({
           content: `
