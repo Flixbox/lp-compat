@@ -10,7 +10,7 @@ module.exports = {
     The Lucky Patcher community bot has the following commands available:
     **/help** - *Displays this guide.*
     **/patching** - *Explains how to patch an app and links to the site.*
-    **/addapp** - *Allows you to add an app to the compatibility list. After the app is verified, it will be added to the database.*
+    **/upsertapp** - *Allows you to add an app to the compatibility list. After the app is verified, it will be added to the database.*
     \`\`\`
     Syntax: 
     /upsertapp <package>  <feature>|<feature>|...
