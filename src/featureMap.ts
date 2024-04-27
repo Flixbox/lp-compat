@@ -209,6 +209,11 @@ export const featureMap = (theme = createTheme()) => ({
       "The content in this app is likely available via [Aniyomi](https://aniyomi.org/). To make Manga, Manhwa and Webcomics available you can [add this repository](https://keiyoushi.github.io/docs/guides/getting-started#adding-the-extension-repo) to Aniyomi",
     color: theme.palette.success.main,
   },
+  "fmhy": {
+    label:
+      "The content in this app is likely available via [freemediaheckyeah](https://fmhy.pages.dev/)",
+    color: theme.palette.success.main,
+  },
 });
 
 const getFeature = (featureString: string, theme = createTheme()) => {
