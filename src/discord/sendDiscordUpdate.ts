@@ -50,7 +50,7 @@ export default async (app: App, change = "added") => {
     .setThumbnail(icon)
     .setTimestamp()
     .setFooter({
-      text: "Got more compatible apps? Post them on this Discord and ping @Flixbox!",
+      text: "Got more compatible apps? Log in on the [compat list site](https://flixbox.github.io/lp-compat/) and add them!",
     });
 
   console.log("Sending embed for " + title);
