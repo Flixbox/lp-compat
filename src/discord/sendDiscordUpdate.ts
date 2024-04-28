@@ -46,12 +46,11 @@ export default async (app: App, change = "added") => {
           : `App changed on Compatibility List by ${editedBy.userName}`,
       url: "https://flixbox.github.io/lp-compat/",
     })
-    .setDescription(featuresString)
+    .setDescription(
+      `${featuresString}\n------------------------\nGot more compatible apps? Log in on the [compat list site](https://flixbox.github.io/lp-compat/) and add them!`
+    )
     .setThumbnail(icon)
-    .setTimestamp()
-    .setFooter({
-      text: "Got more compatible apps? Log in on the [compat list site](https://flixbox.github.io/lp-compat/) and add them!",
-    });
+    .setTimestamp();
 
   console.log("Sending embed for " + title);
   hook.send({ embeds: [myEmbed] }).catch((e) => console.error(e));
