@@ -193,9 +193,9 @@ const FeatureList: FeatureItem[] = [
     icon: <FontAwesomeIcon icon={faListCheck} color="#607d8b" />,
     description: (
       <Typography>
-        Many apps work with LP, even if they're not on the list.
+        Apps not on the list can work with LP, and many might work with specific patches. The list's entries can also be inaccurate.
         <br />
-        Please try them yourself and report back!
+        Feel free to try patching apps and update the list!
       </Typography>
     ),
   },
