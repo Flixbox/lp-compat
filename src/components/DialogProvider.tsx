@@ -226,6 +226,8 @@ const EditAppDialog = ({ open, appId = "" }) => {
             <img src="/lp-compat/img/Custom_features_Example.png" />
           </Box>
           <Box m={1} />
+          If this page isn't showing you any results when you search for app titles, just try again in an hour or so, as there's likely been too many requests made at the time.
+          <Box m={1} />
           Notes for special patch features: <br />
           special-patch-fake-modified-apk: This patch must always be applied to
           the original unmodified APK. If you want to patch it multiple times
