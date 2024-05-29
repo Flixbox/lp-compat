@@ -14,7 +14,7 @@ import { Box } from "@mui/material";
 
 :::caution
 
-The download link on the official Lucky Patcher website frequently breaks and spams you with pop-ups in the browser. Use an adblocker - [uBlock Origin](https://ublockorigin.com) for desktop and [AdGuard DNS](https://adguard-dns.io/en/public-dns.html) for Android - if you plan to visit the website.
+The download link on the official Lucky Patcher website frequently breaks and spams you with pop-ups in the browser. Use an adblocker - [uBlock Origin](https://ublockorigin.com) for desktop browsers and [AdGuard DNS](https://adguard-dns.io/en/public-dns.html) for Android - if you plan to visit the website.
 
 Alternatively, you can use a direct download link from the [developer's website](http://chelpus.com/luckypatcher/LuckyPatcherInstaller.apk) or [the #resources channel on the unofficial Lucky Patcher Discord server](https://discord.gg/RS5ddYf7mw) (the former is sometimes down).
 
@@ -24,7 +24,7 @@ Alternatively, you can use a direct download link from the [developer's website]
 
 Read the [important info about LP](/docs/lp-info.md) section.
 
-Follow the tutorial on the official website. Make sure to give LP the "Draw over other apps" or "Display pop-up windows" permission.
+Follow the tutorial on the official website. For patching inapp purchases, make sure to give LP the "Draw over other apps" or "Display pop-up windows" permission. This permission is needed because LP replaces the Google Play purchase popup window that normally shows when you try to purchase something in an app with its own popup containing some settings that can help in getting the item for free.
 
 This special permission can be found in the app's settings. The app settings can be found by long pressing the app in your phone's app drawer. The location of this permission depends on your firmware.
 
@@ -40,7 +40,7 @@ Follow these screenshots to create your modified APK file. Read any pop-ups you 
 
 First, open Lucky Patcher and tap the app you'd like to modify.
 
-On this screen, tap the "APK with multi patch" option. We'd like to apply two patch categories: The ad-free and the IAP patches.
+On this screen, tap the "APK with multi patch" option. The two most useful patches are the ad-free and IAP (InApp Purchase) patches.
 
 <img src={LP_App_patching_step_1} style={{ height: 700 }} />
 
@@ -56,7 +56,7 @@ Apply some patches.
 
 <img src={LP_App_patching_step_4} style={{ height: 700 }} />
 
-If you're facing troubles with in-app purchases, apply the _Removes integrity check and signature verification_ and _Fake a modified APK archive from the original_ patch as well. This helps sometimes.
+If the patched app crashes or shows an error when you open it, try applying the _Removes integrity check and signature verification_ and _Fake a modified APK archive from the original_ patches as well. This helps sometimes.
 
 Finally, install the modified APK file by tapping the "Go to file" button and then the "Uninstall and install" button.
 
@@ -68,7 +68,7 @@ Finally, install the modified APK file by tapping the "Go to file" button and th
 
 ## Reinstall the app
 
-When you reinstall (uninstall the original app and install the patched one) you will no longer be able to use Google features like Google Play sign-in in that app anymore. However, some patchable apps like Merge Dragons and City Island 5 feature Facebook sign-in, which usually works. However, if you have the Facebook app installed on your device you have to uninstall/disable it to be able to sign in to apps with Facebook.
+When you reinstall (uninstall the original app and install the patched one) you will no longer be able to use Google features like Google Play sign-in in that app anymore. However, some patchable apps like Merge Dragons and City Island 5 allow signing in via Facebook, which usually works. However, if you have the Facebook app installed on your device you have to uninstall/disable it to be able to sign in to apps with Facebook.
 
 Whenever APKs for Android are modified in any way, the APK must be signed before it can be installed. The signature of a Play Store app will always be different and cannot be spoofed. Android does not allow updating an app using an APK with a different signature. As a result, you will have to uninstall the unmodified app before installing the patched one. However, if you already patched an app with LP, and are patching over the patched version again, you can update it as the signatures will match.
 
