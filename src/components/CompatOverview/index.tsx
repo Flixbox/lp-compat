@@ -26,6 +26,7 @@ import {
   CircularProgress,
   Container,
   Icon,
+  TextField,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,7 +65,9 @@ import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 import { App } from "@site/src/types";
 import DialogProvider from "../DialogProvider";
 
-import MarkdownPreview from "@uiw/react-markdown-preview";
+import MarkdownPreview, {
+  MarkdownPreviewProps,
+} from "@uiw/react-markdown-preview";
 import LinkSolid from "../../../static/img/link-solid.svg";
 import axiosInstance from "@site/src/redux/axios";
 import { getDiscordLoginUrl, useDiscord } from "@site/src/hooks/useDiscord";
@@ -74,7 +77,9 @@ import { useLocalStorage } from "usehooks-ts";
 
 const queryClient = new QueryClient();
 
-const StyledMarkdown = styled(MarkdownPreview)(
+const StyledMarkdown = styled(MarkdownPreview)<
+  MarkdownPreviewProps & { backgroundColor: string }
+>(
   ({ theme, backgroundColor }) => `
   && {
     background-color: transparent;
@@ -111,6 +116,11 @@ const Root = () => {
                   labelSmall: {
                     paddingTop: "3px",
                   },
+                },
+              },
+              MuiTextField: {
+                defaultProps: {
+                  variant: "outlined",
                 },
               },
             },
@@ -193,7 +203,8 @@ const FeatureList: FeatureItem[] = [
     icon: <FontAwesomeIcon icon={faListCheck} color="#607d8b" />,
     description: (
       <Typography>
-        Apps not on the list can work with LP, and many might work with specific patches. The list's entries can also be inaccurate.
+        Apps not on the list can work with LP, and many might work with specific
+        patches. The list's entries can also be inaccurate.
         <br />
         Feel free to try patching apps and update the list!
       </Typography>
@@ -316,7 +327,6 @@ const CompatOverview = () => {
   const refreshApps = () => {
     localStorage.clear();
     dispatch(clearState());
-    clear();
   };
 
   const sortedApps = sortOptions[sorting].getSortedApps();
@@ -449,7 +459,9 @@ const CompatOverview = () => {
             </Box>
           </Grid>
 
-          <Input
+          <Box m={0.4} />
+
+          <TextField
             placeholder="Filter app title or ID"
             value={appTitleFilter}
             onChange={(e) =>
