@@ -8,7 +8,7 @@
 ![tech-debt](https://img.shields.io/codeclimate/tech-debt/Flixbox/lp-compat?style=flat&logo=code%20climate)
 ](https://codeclimate.com/github/Flixbox/lp-compat)
 
-This repository contains a website and Discord bot that help users determine which apps can be patched with Lucky Patcher. The website, which can be accessed at https://flixbox.github.io/lp-compat/, displays a list of compatible apps. The list can be added to on the Discord server below using a bot or on edited on the website (requires logging on with Discord). 
+This repository contains a website and Discord bot that help users determine which apps can be patched with Lucky Patcher. The website, which can be accessed at https://flixbox.github.io/lp-compat/, displays a list of compatible apps. The list can be added to on the Discord server below using a bot or on edited on the website (requires logging on with Discord).
 
 If you have any questions or want to discuss the project with others, you can use the unofficial subreddit and Discord server. These platforms are not affiliated with the developer of Lucky Patcher (ChelpuS), but they provide a space for users to share information and ideas. To access the subreddit or Discord server, click on the following buttons:
 
@@ -17,13 +17,13 @@ If you have any questions or want to discuss the project with others, you can us
 
 ## Setting up the project
 
-To get started with this project, you will need to install two pieces of software on your computer: _Node.js_ and _yarn_.
+To get started with this project, you will need to install two pieces of software on your computer: _Node.js_ and _pnpm_.
 
 1. Visit the [Node.js](https://nodejs.org/) website and click on the "Download" button. Follow the prompts to install _Node.js_ on your computer.
-2. Once _Node.js_ is installed, visit the [yarn](https://yarnpkg.com/) website and follow the instructions to install _yarn_ on your computer.
-3. Now that you have both _Node.js_ and _yarn_ installed, open a terminal or command prompt window and navigate to the root directory of this project.
+2. Once _Node.js_ is installed, install _pnpm_ on your computer.
+3. Open a terminal or command prompt window and navigate to the root directory of this project.
 4. Run the following command to install the necessary dependencies for the project:
-   1. `yarn`
+   1. `pnpm i`
 5. Run the following command to start the development server:
    1. `npm run start`
 

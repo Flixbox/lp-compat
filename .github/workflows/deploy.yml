@@ -19,8 +19,14 @@ jobs:
         with:
           node-version: 18
           cache: npm
-      - name: Install dependencies
-        run: yarn
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
       - name: Build website
         run: npm run build
 

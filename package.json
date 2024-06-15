@@ -2,6 +2,7 @@
   "name": "lp-compat",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@9.3.0",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -14,7 +15,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "discord:bot": "npx ts-node ./src/discord/index.ts",
-    "backend:run": "yarn run backend:codegen && npx ts-node ./src/backend/backend.ts",
+    "backend:run": "npm run backend:codegen && npx ts-node ./src/backend/backend.ts",
     "backend:codegen": "npx ts-node ./src/backend/swaggerCodegen.ts",
     "backend:cron": "npx ts-node ./src/backend/cron.ts",
     "reddit": "npx ts-node ./src/createUpdatePost.ts"
@@ -26,6 +27,7 @@
     "@discordjs/rest": "^1.1.0",
     "@docusaurus/core": "2.0.1",
     "@docusaurus/preset-classic": "2.0.1",
+    "@docusaurus/theme-common": "2.0.1",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -35,6 +37,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mdx-js/react": "^1.6.22",
     "@mui/material": "^5.10.2",
+    "@mui/system": "^5.10.2",
     "@reduxjs/toolkit": "^1.8.5",
     "@types/express": "^4.17.14",
     "@types/node": "^20.12.2",
