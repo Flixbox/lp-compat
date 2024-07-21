@@ -53,7 +53,6 @@ export default async (app: App, userName, userId, res?: Response) => {
     console.info(`adding ${app.appId}`);
     const dataset = {
       dateModified: Date.now(),
-      ...app,
       title,
       summary,
       installs,
@@ -78,6 +77,7 @@ export default async (app: App, userName, userId, res?: Response) => {
       version,
       recentChanges,
       url,
+      ...app,
       ...getUserDetails(userName, userId),
     };
 

@@ -64,6 +64,7 @@ const SearchResult = ({ result, handleChange }) => {
           onClick={() => {
             handleChange("appId", result.appId);
             handleChange("title", result.title);
+            handleChange("icon", result.icon);
           }}
         >
           Use this app
