@@ -212,6 +212,15 @@ const EditAppDialog = ({ open, appId = "" }) => {
             You can also use this title field to search for apps.
           </Typography>
           <Box m={1} />
+          <AppTextField
+            field="icon"
+            editState={editState}
+            handleChange={handleChange}
+          />
+          <Typography>
+            The icon URL can be obtained by going to <a href={editState.url} target="_blank">the app's Google Play page</a> and copying the icon image address.
+          </Typography>
+          <Box m={1} />
           <Typography>
             You can select various pre-defined features from the list or add
             your own. <br /> Please try to always at least choose one of iap,
