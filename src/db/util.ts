@@ -68,7 +68,7 @@ export const generateBlankPlayStoreData = ({appId, features}: {appId: string, fe
       score: 1,
       scoreText: null,
       genre: "",
-      icon: "",
+      icon: "https://placebear.com/100/100",
       screenshots: [],
       url: `https://play.google.com/store/apps/details?id=${appId}`,
 })
