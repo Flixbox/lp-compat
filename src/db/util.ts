@@ -57,3 +57,18 @@ export const getUserDetails = (userName, userId) => ({
     userId,
   },
 });
+
+export const generateBlankPlayStoreData = ({appId, features}: {appId: string, features: string[]}) => ({
+      title: appId,
+      summary: "",
+      installs: null,
+      minInstalls: null,
+      free: false,
+      priceText: "Free",
+      score: 1,
+      scoreText: null,
+      genre: "",
+      icon: "",
+      screenshots: [],
+      url: `https://play.google.com/store/apps/details?id=${appId}`,
+})

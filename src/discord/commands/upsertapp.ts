@@ -36,6 +36,8 @@ module.exports = {
     let packageParam: string = interaction.options.getString("package");
     let featuresString: string = interaction.options.getString("features");
 
+    let appFilledWithPlayStoreData = 1
+
     const response = (content, ephemeral = false) =>
       interaction.editReply({ content, ephemeral });
     const error = (
@@ -80,9 +82,10 @@ module.exports = {
     try {
       await getPlaystoreData(appId);
     } catch (e) {
-      return await error(
-        "The app you provided cannot be found in the specified play store region. Please try again with a different app or region."
-      );
+      appFilledWithPlayStoreData = 0
+      // return await error(
+      //   "The app you provided cannot be found in the specified play store region. Please try again with a different app or region."
+      // );
     }
 
     try {
@@ -110,6 +113,8 @@ module.exports = {
     }
 
     let textResponse = `Upserted (updated/inserted) app ${appId}!\nThanks ${interaction.user.tag}!`;
+    if(!appFilledWithPlayStoreData)
+      textResponse = `${textResponse}\nThe app was not found on the Play Store. The app's details must be filled in manually. (This is not possible yet)`;
     // if (isStaff(interaction))
     //   textResponse = `${textResponse}\nPR was automatically merged.`;
 

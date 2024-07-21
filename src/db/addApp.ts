@@ -1,7 +1,7 @@
 import { Response } from "express";
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
-import { executeAppsQuery, getUserDetails } from "./util";
+import { executeAppsQuery, generateBlankPlayStoreData, getUserDetails } from "./util";
 import { processFeatures } from "../discord/util";
 import getPlaystoreData from "../backend/getPlaystoreData";
 
@@ -16,12 +16,13 @@ export default async (app: App, userName, userId, res?: Response) => {
       console.error(`App ${app.appId} already exists!`);
       throw new Error(`App ${app.appId} already exists!`);
     }
-    let playStoreData: any;
+    let playStoreData;
     try {
       playStoreData = await getPlaystoreData(app.appId);
     } catch (e) {
-      console.error(`App ${app.appId} - Play Store data not found!`);
-      throw e;
+      playStoreData = generateBlankPlayStoreData(app)
+      // console.error(`App ${app.appId} - Play Store data not found!`);
+      // throw e;
     }
     const {
       title,
