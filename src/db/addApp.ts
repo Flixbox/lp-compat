@@ -85,7 +85,7 @@ export default async (app: App, userName, userId, res?: Response) => {
 
     const result = await appsCollection.findOne({ appId: app.appId });
 
-    console.info(`added ${app.appId}`);
+    console.info(`added ${app.appId} `);
 
     await sendDiscordUpdate({ ...dataset, ...playStoreData });
 
