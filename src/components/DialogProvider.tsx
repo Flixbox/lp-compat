@@ -64,6 +64,7 @@ const SearchResult = ({ result, handleChange }) => {
           onClick={() => {
             handleChange("appId", result.appId);
             handleChange("title", result.title);
+            handleChange("icon", result.icon);
           }}
         >
           Use this app
@@ -210,6 +211,15 @@ const EditAppDialog = ({ open, appId = "" }) => {
           />
           <Typography>
             You can also use this title field to search for apps.
+          </Typography>
+          <Box m={1} />
+          <AppTextField
+            field="icon"
+            editState={editState}
+            handleChange={handleChange}
+          />
+          <Typography>
+            The icon URL can be obtained by going to <a href={editState.url} target="_blank">the app's Google Play page</a> and copying the icon image address.
           </Typography>
           <Box m={1} />
           <Typography>

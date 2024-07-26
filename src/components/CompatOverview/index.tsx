@@ -556,8 +556,8 @@ const AppTile = ({ app }: { app: App }) => {
             </Box>
           </a>
           <Box display="flex" justifyContent="space-between">
-            <Typography variant="subtitle2">⭐{scoreText}</Typography>
-            <Typography variant="subtitle2">📩 {installs}</Typography>
+            {scoreText && <Typography variant="subtitle2">⭐{scoreText}</Typography>}
+            {installs && <Typography variant="subtitle2">📩 {installs}</Typography>}
           </Box>
           <Box display="flex" justifyContent="space-between" flexWrap="wrap">
             <Typography variant="subtitle2">{genre}</Typography>
