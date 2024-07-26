@@ -533,6 +533,7 @@ const AppTile = ({ app }: { app: App }) => {
     priceText,
     editedBy,
     adSupported,
+    offersIAP,
     IAPRange
   } = app;
   const { isLoggedIn } = useDiscord();
@@ -560,6 +561,7 @@ const AppTile = ({ app }: { app: App }) => {
           <Box display="flex" justifyContent="space-between">
             {scoreText && <Typography variant="subtitle2">⭐{scoreText}</Typography>}
             {installs && <Typography variant="subtitle2">📩 {installs}</Typography>}
+            {offersIAP === false && <Typography variant="subtitle2">💸🚫 No IAP</Typography>}
             {IAPRange && <Typography variant="subtitle2">💸 {IAPRange}</Typography>}
             {adSupported === true && <Typography variant="subtitle2">🎥 Contains ads</Typography>}
             {adSupported === false && <Typography variant="subtitle2">🎥🚫 No ads</Typography>}
