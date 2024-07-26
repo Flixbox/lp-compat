@@ -1,12 +1,14 @@
 # Dependencies
-/node_modules
+**/node_modules**
 
 # Production
-/build
+**/build**
+**/dist**
 
 # Generated files
 .docusaurus
 .cache-loader
+**.astro/**
 
 # Misc
 .DS_Store
