@@ -26,6 +26,7 @@ export interface App {
   version: string;
   recentChanges: string;
   url: string;
+  IAPRange?: string;
   editedBy: {
     userName: string;
     userId: string;
