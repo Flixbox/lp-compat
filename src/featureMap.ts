@@ -54,6 +54,10 @@ export const featureMap = (theme = createTheme()) => ({
     label: "Account login works!",
     color: theme.palette.info.main,
   },
+    "3rd-party-login-broken": {
+    label: "3rd-Party-Login systems (Meta, X, E-Mail) dysfunctional after patch",
+    color: theme.palette.warning.main,
+   },  
   "facebook-login": {
     label: "Facebook login works!",
     color: theme.palette.info.main,
@@ -93,6 +97,10 @@ export const featureMap = (theme = createTheme()) => ({
   "no-multiplayer-iap": {
     label: "Multiplayer in-app purchases broken",
     color: theme.palette.warning.main,
+  },
+      "app-broken": {
+    label: "App becomes dysfunctional after patch",
+    color: theme.palette.error.main,
   },
   "slightly-broken": {
     label: "Slightly broken, but playable",
