@@ -49,6 +49,8 @@ export default async (app: App, userName, userId, res?: Response) => {
       version,
       recentChanges,
       url,
+      offersIAP,
+      IAPRange,
     } = playStoreData;
     console.info(`adding ${app.appId}`);
     const dataset = {
@@ -77,6 +79,8 @@ export default async (app: App, userName, userId, res?: Response) => {
       version,
       recentChanges,
       url,
+      offersIAP,
+      IAPRange,
       ...app,
       ...getUserDetails(userName, userId),
     };
