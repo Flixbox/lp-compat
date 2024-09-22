@@ -90,7 +90,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(express.json()); // Middleware to parse JSON bodies
 
 app.get("/", async (req, res) => {
   res.setHeader(
