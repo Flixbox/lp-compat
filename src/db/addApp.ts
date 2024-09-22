@@ -1,7 +1,7 @@
 import { Response } from "express";
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
-import { executeAppsQuery, generateBlankPlayStoreData, getUserDetails } from "./util";
+import { appProjection, executeAppsQuery, generateBlankPlayStoreData, getUserDetails } from "./util";
 import { processFeatures } from "../discord/util";
 import getPlaystoreData from "../backend/getPlaystoreData";
 
@@ -87,7 +87,9 @@ export default async (app: App, userName, userId, res?: Response) => {
 
     await appsCollection.insertOne(dataset);
 
-    const result = await appsCollection.findOne({ appId: app.appId });
+    const result = await appsCollection.findOne({ appId: app.appId }, {
+      projection: appProjection,
+    });
 
     console.info(`added ${app.appId} `);
 

@@ -99,6 +99,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   console.log("editState", editState);
 
   const handleChange = (part, value) => {
+    // The internal mongodb ID is not necessary for anything we're doing, neither the editing nor the adding
     setEditState((prevEditState) => ({ ...prevEditState, [part]: value, _id: undefined }));
   };
 

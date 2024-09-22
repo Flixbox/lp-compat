@@ -1,7 +1,7 @@
 import { Response } from "express";
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
-import { executeAppsQuery, getUserDetails } from "./util";
+import { appProjection, executeAppsQuery, getUserDetails } from "./util";
 import { processFeatures } from "../discord/util";
 
 const getPlaystoreData = require("../backend/getPlaystoreData").default;
@@ -57,7 +57,9 @@ export default async (app: App, username, id, res?: Response) => {
 
     await appsCollection.findOneAndReplace({ appId: app.appId }, newDataset);
 
-    const result = await appsCollection.findOne({ appId: app.appId });
+    const result = await appsCollection.findOne({ appId: app.appId }, {
+      projection: appProjection,
+    });
 
     console.info(`set ${app.appId} with data`, newApp);
 
