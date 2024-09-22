@@ -114,6 +114,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   }, [open]);
 
   useEffect(() => {
+    if(!editState.appId && !editState.title) return;  // Don't search if there's nothing to search for
     dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
       setGetPlayStoreResult(res.payload)
     );
