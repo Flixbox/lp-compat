@@ -138,17 +138,11 @@ app.post("/apps/add/", async (req, res) => {
 });
 
 app.post("/apps/edit/", async (req, res) => {
-  try {
-    const { app, discordUser } = req.body as {
-      app: App;
-      discordUser: DiscordUser;
-    };
-    const result = await editApp(app, discordUser.username, discordUser.id, res);
-    res.send(result);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: `Internal Server Error: ${JSON.stringify(error)}` });
-  }
+  const { app, discordUser } = req.body as {
+    app: App;
+    discordUser: DiscordUser;
+  };
+  res.send(await editApp(app, discordUser.username, discordUser.id, res));
 });
 
 app.get("/playstore/get/:appId", async (req, res) => {
