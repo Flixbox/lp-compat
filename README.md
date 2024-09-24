@@ -111,6 +111,12 @@ The project maintainers will review your PR and provide feedback or merge it if 
 - Nagivate to your browser and click the forked repo in your account, and press **Contribute**, then press **Open pull request**.
 - Add a title and/or description to your pull request, then press **Create pull request**.
 
-- ## Star History
+## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date)](https://star-history.com/#Flixbox/lp-compat&Date)
+<a href="https://star-history.com/#Flixbox/lp-compat&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?reposFlixbox/lp-compat&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date" />
+  </picture>
+</a>
