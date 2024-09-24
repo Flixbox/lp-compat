@@ -110,3 +110,7 @@ The project maintainers will review your PR and provide feedback or merge it if 
 - Afterward, if you are satisfied with what you've changed, press **Push Origin**
 - Nagivate to your browser and click the forked repo in your account, and press **Contribute**, then press **Open pull request**.
 - Add a title and/or description to your pull request, then press **Create pull request**.
+
+- ## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date)](https://star-history.com/#Flixbox/lp-compat&Date)
