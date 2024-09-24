@@ -115,7 +115,7 @@ The project maintainers will review your PR and provide feedback or merge it if 
 
 <a href="https://star-history.com/#Flixbox/lp-compat&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?reposFlixbox/lp-compat&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date&theme=dark" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date" />
     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Flixbox/lp-compat&type=Date" />
   </picture>
