@@ -15,7 +15,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "discord:bot": "npx ts-node ./src/discord/index.ts",
-    "backend:run": "npm run backend:codegen && npx ts-node ./src/backend/backend.ts",
+    "backend:run": "pnpm run backend:codegen && pnpm ts-node ./src/backend/backend.ts",
     "backend:codegen": "npx ts-node ./src/backend/swaggerCodegen.ts",
     "backend:cron": "npx ts-node ./src/backend/cron.ts",
     "reddit": "npx ts-node ./src/createUpdatePost.ts"
