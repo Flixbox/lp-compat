@@ -25,7 +25,7 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <FontAwesomeIcon icon={faFaceSmileWink} size="4x" />
+        <FontAwesomeIcon icon={faFaceSmileWink} size="4x" aria-hidden="true" />
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <Box className={styles.buttons} flex="1" flexDirection="column">
@@ -48,11 +48,11 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
+  const pageTitle = `${siteConfig.title}`;
+  const pageDescription = "A full overview of Lucky Patcher Compatibility with various apps.";
+
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="A full overview of Lucky Patcher Compatibility with various apps."
-    >
+    <Layout title={pageTitle} description={pageDescription}>
       <HomepageHeader />
       <main>
         <CompatOverview />
