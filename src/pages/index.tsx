@@ -13,6 +13,13 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 
 config.autoAddCss = false;
 
+const LINKS = [
+  { to: "/docs/lp-info", text: "Important info about LP 💡" },
+  { to: "/docs/intro", text: "How to install & patch an app 📖" },
+  { to: "/docs/favourites", text: "Community Favourites ⭐" },
+  { to: "#apps", text: "To the list 🚀" },
+];
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -22,27 +29,17 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <Box className={styles.buttons} flex="1" flexDirection="column">
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/lp-info"
-          >
-            Important info about LP 💡
-          </Link>
-          <Box m={1} />
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro"
-          >
-            How to install & patch an app 📖
-          </Link>
-          <Box m={1} />
-          <Link className="button button--secondary button--lg" to="/docs/favourites">
-            Community Favourites ⭐
-          </Link>
-          <Box m={1} />
-          <Link className="button button--secondary button--lg" to="#apps">
-            To the list 🚀
-          </Link>
+          {LINKS.map((link, index) => (
+            <React.Fragment key={link.to}>
+              <Link
+                className="button button--secondary button--lg"
+                to={link.to}
+              >
+                {link.text}
+              </Link>
+              {index < LINKS.length - 1 && <Box m={1} />}
+            </React.Fragment>
+          ))}
         </Box>
       </div>
     </header>
