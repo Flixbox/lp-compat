@@ -503,7 +503,8 @@ const CompatOverview = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme();
-  if (!app || !app.appId) return;
+  if (!app?.appId) return null;
+
   const {
     appId,
     features,
@@ -514,7 +515,6 @@ const AppTile = ({ app }: { app: App }) => {
     scoreText,
     url,
     genre,
-    screenshots,
     free,
     priceText,
     editedBy,
