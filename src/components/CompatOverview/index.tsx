@@ -152,7 +152,8 @@ const FeatureList: FeatureItem[] = [
       </Typography>
     ),
   },
-  {
+  // ... other features
+];
     icon: (
       <Box flex="1">
         <Box className="fa-layers fa-fw" mr={4}>
