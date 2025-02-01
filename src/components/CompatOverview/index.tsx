@@ -228,12 +228,12 @@ function Feature({ icon, description }: FeatureItem) {
 }
 
 const useStaff = () => {
-  const { data: staff } = useQuery(
-    "staff",
-    async () => (await axiosInstance.get("/staff/all")).data
-  );
+  const { data: staff } = useQuery("staff", async () => {
+    const response = await axiosInstance.get("/staff/all");
+    return response.data;
+  });
 
-  const isStaff = (id) => staff && staff.find((member) => member.id === id);
+  const isStaff = (id: string) => staff?.some((member) => member.id === id);
 
   return { staff, isStaff };
 };
