@@ -240,10 +240,7 @@ const useStaff = () => {
 
 const CompatOverview = () => {
   const dispatch = useAppDispatch();
-  const [appTitleFilter, setAppTitleFilter] = useLocalStorage(
-    "appsTitleFilter",
-    ""
-  );
+  const [appTitleFilter, setAppTitleFilter] = useLocalStorage("appsTitleFilter", "");
   const [sorting, setSorting] = useLocalStorage("apps-sorting", "installs-asc");
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
@@ -252,10 +249,14 @@ const CompatOverview = () => {
   const { appsListUpdated } = useAppSelector((state) => state.system);
   const { discordUser, isLoggedIn } = useDiscord();
 
-  if (isLoggedIn) {
-    const loginButton = document.getElementById("discord-login");
-    loginButton.innerHTML = discordUser.username;
-  }
+  useEffect(() => {
+    if (isLoggedIn && discordUser) {
+      const loginButton = document.getElementById("discord-login");
+      if (loginButton) {
+        loginButton.textContent = discordUser.username;
+      }
+    }
+  }, [isLoggedIn, discordUser]);
 
   useEffect(() => {
     dispatch(fetchAppCount()).then((res) => {
