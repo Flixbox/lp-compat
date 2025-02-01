@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import clsx from "clsx";
 import styles from "./styles.module.css";
@@ -15,7 +15,6 @@ import {
   useTheme,
   Chip,
   ListItem,
-  Input,
   ThemeProvider,
   createTheme,
   Button,
@@ -24,8 +23,6 @@ import {
   IconButton,
   styled,
   CircularProgress,
-  Container,
-  Icon,
   TextField,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
@@ -34,7 +31,6 @@ import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
   faAdd,
   faBan,
-  faCaretDown,
   faCommentsDollar,
   faEye,
   faEyeSlash,
@@ -51,24 +47,12 @@ import { xor } from "lodash";
 import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import {
-  fetchApp,
-  fetchAppCount,
-  fetchApps,
-  fetchAppsByPage,
-  pageSize,
-} from "@site/src/redux/appsSlice";
-import { Provider, useStore } from "react-redux";
+import { fetchAppCount, fetchApps } from "@site/src/redux/appsSlice";
+import { Provider } from "react-redux";
 import { clearState, openDialog } from "@site/src/redux/systemSlice";
-import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
-
 import { App } from "@site/src/types";
 import DialogProvider from "../DialogProvider";
-
-import MarkdownPreview, {
-  MarkdownPreviewProps,
-} from "@uiw/react-markdown-preview";
-import LinkSolid from "../../../static/img/link-solid.svg";
+import MarkdownPreview, { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
 import axiosInstance from "@site/src/redux/axios";
 import { getDiscordLoginUrl, useDiscord } from "@site/src/hooks/useDiscord";
 import { useLocalStorage } from "usehooks-ts";
