@@ -224,7 +224,7 @@ export const featureMap = (theme = createTheme()) => ({
   },
   "patcher-gameguardian": {
     label:
-      "This app can be patched with [Game Guardian](https://gameguardian.net/download)",
+      "This app can be patched on rooted devices with [Game Guardian](https://gameguardian.net/download)",
     color: theme.palette.success.main,
   },
 });
