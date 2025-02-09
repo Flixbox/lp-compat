@@ -204,10 +204,6 @@ export const featureMap = (theme = createTheme()) => ({
     label: "Patched APK download available on iOSGods",
     color: theme.palette.info.main,
   },
-  "appstore-happymod": {
-    label: "Modded version on Happymod works",
-    color: theme.palette.info.main,
-  },
   "apk-apkpure": {
     label: "Download APK from APKPure, then patch",
     color: theme.palette.info.main,
@@ -217,9 +213,18 @@ export const featureMap = (theme = createTheme()) => ({
       "The content in this app is likely available via [Aniyomi](https://aniyomi.org/). To make Manga, Manhwa and Webcomics available you can [add this repository](https://keiyoushi.github.io/docs/guides/getting-started#adding-the-extension-repo) to Aniyomi",
     color: theme.palette.success.main,
   },
+  "appstore-happymod": {
+    label: "Modded version on Happymod works",
+    color: theme.palette.info.main,
+  },
   "fmhy": {
     label:
       "The content in this app is likely available via [freemediaheckyeah](https://fmhy.pages.dev/)",
+    color: theme.palette.success.main,
+  },
+  "patcher-gameguardian": {
+    label:
+      "This app can be patched with [Game Guardian](https://gameguardian.net/download)",
     color: theme.palette.success.main,
   },
 });
