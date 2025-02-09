@@ -152,8 +152,7 @@ const FeatureList: FeatureItem[] = [
       </Typography>
     ),
   },
-  // ... other features
-];
+  {
     icon: (
       <Box flex="1">
         <Box className="fa-layers fa-fw" mr={4}>
@@ -524,7 +523,6 @@ const AppTile = ({ app }: { app: App }) => {
   } = app;
   const { isLoggedIn } = useDiscord();
   const dispatch = useAppDispatch();
-  const store = useStore();
   const { isStaff } = useStaff();
 
   return (
