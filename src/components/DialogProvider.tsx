@@ -149,10 +149,10 @@ const [editState, setEditState] = useState<App>(initialAppData || { appId } as A
     }
   };
 
-  if (open && !isLoggedIn) {
-    alert("You're not logged in!");
-    closeDialog();
-  }
+if (open && !isLoggedIn) {
+  setError(true);
+  handleClose();
+}
 
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>
