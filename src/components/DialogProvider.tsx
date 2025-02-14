@@ -86,11 +86,10 @@ const SearchResult = ({ result, handleChange }) => {
 
 const EditAppDialog = ({ open, appId = "" }) => {
   const dispatch = useAppDispatch();
-  const initialAppData = useAppSelector((state) =>
-    state.apps.find((app) => app.appId === appId)
-  ) || { appId };
-  console.log("initialAppData", initialAppData);
-  const [editState, setEditState] = useState<App>({ ...initialAppData } as App);
+const initialAppData = useAppSelector((state) =>
+  state.apps.find((app) => app.appId === appId)
+);
+const [editState, setEditState] = useState<App>(initialAppData || { appId } as App);
   const [error, setError] = useState(false);
   const [getPlayStoreResult, setGetPlayStoreResult] = useState<App>({} as App);
   const [searchPlayStoreResultByTitle, setSearchPlayStoreResultByTitle] =
