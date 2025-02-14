@@ -205,6 +205,7 @@ if (open && !isLoggedIn) {
             </Alert>
           )}
           <Box m={1} />
+          
           <AppTextField
             field="appId"
             editState={editState}
@@ -215,20 +216,36 @@ if (open && !isLoggedIn) {
             <Typography>{`Searched app ID ${editState.appId} and found app in play store with title ${getPlayStoreResult.title}`}</Typography>
           )}
           <Box m={1} />
-          <AppTextField
-            field="title"
-            editState={editState}
-            handleChange={handleChange}
-          />
-          <Typography>
-            You can also use this title field to search for apps.
-          </Typography>
-          <Box m={1} />
-          <AppTextField
-            field="icon"
-            editState={editState}
-            handleChange={handleChange}
-          />
+const EditAppField = ({ field, label, editState, handleChange }) => (
+  <>
+    <AppTextField
+      field={field}
+      label={label}
+      editState={editState}
+      handleChange={handleChange}
+    />
+    <Box m={1} />
+  </>
+);
+
+<EditAppField
+  field="appId"
+  label="App ID"
+  editState={editState}
+  handleChange={handleChange}
+/>
+<EditAppField
+  field="title"
+  label="Title"
+  editState={editState}
+  handleChange={handleChange}
+/>
+<EditAppField
+  field="icon"
+  label="Icon URL"
+  editState={editState}
+  handleChange={handleChange}
+/>
           <Typography>
             The icon URL can be obtained by going to <a href={editState.url} target="_blank">the app's Google Play page</a> and copying the icon image address.
           </Typography>
