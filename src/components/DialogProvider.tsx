@@ -36,17 +36,25 @@ import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
 import { DiscordUser, useDiscord } from "../hooks/useDiscord";
 
-const DialogProvider = () => {
+// Hook to manage dialog state
+const useDialog = (dialogName: string) => {
   const { dialogs } = useAppSelector((state) => state.system);
-  return (
-    <>{dialogs?.EDIT_APP.open && <EditAppDialog {...dialogs?.EDIT_APP} />}</>
-  );
+  const dialog = dialogs?.[dialogName];
+  return dialog;
 };
 
-const AppTextField = ({ editState, field, handleChange }) => {
+// DialogProvider component made more generic
+const DialogProvider = () => {
+  const dialog = useDialogEDIT('_APP');
+  if (!dialog) return null;
+
+  return <EditAppDialog {...dialog} />;
+};
+
+const AppTextField = ({ editState, field, handleChange, label }) => {
   return (
     <TextField
-      label={field}
+      label={label || field}
       value={editState[field]}
       onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
         handleChange(field, event.target.value)
@@ -82,9 +90,8 @@ const EditAppDialog = ({ open, appId = "" }) => {
   const dispatch = useAppDispatch();
   const initialAppData = useAppSelector((state) =>
     state.apps.find((app) => app.appId === appId)
-  ) || { appId };
-  console.log("initialAppData", initialAppData);
-  const [editState, setEditState] = useState<App>({ ...initialAppData } as App);
+  );
+  const [editState, setEditState] = useState<App>(initialAppData || { appId } as App);
   const [error, setError] = useState(false);
   const [getPlayStoreResult, setGetPlayStoreResult] = useState<App>({} as App);
   const [searchPlayStoreResultByTitle, setSearchPlayStoreResultByTitle] =
@@ -96,10 +103,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
   const features = featureMap(theme);
   const { discordUser, isLoggedIn } = useDiscord();
 
-  console.log("editState", editState);
-
   const handleChange = (part, value) => {
-    // The internal mongodb ID is not necessary for anything we're doing, neither the editing nor the adding
     setEditState((prevEditState) => ({ ...prevEditState, [part]: value, _id: undefined }));
   };
 
@@ -108,26 +112,31 @@ const EditAppDialog = ({ open, appId = "" }) => {
     dispatch(closeDialog({ dialog: "EDIT_APP" }));
   };
 
-  // Populate edit fields when the dialog opens
   useEffect(() => {
-    if (open) setEditState({ ...initialAppData } as App);
-  }, [open]);
+    if (!isLoggedIn) {
+      setError(true);
+      handleClose();
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
-    if(!editState.appId && !editState.title) return;  // Don't search if there's nothing to search for
-    dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
-      setGetPlayStoreResult(res.payload)
-    );
-    dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
-      setSearchPlayStoreResultByTitle(res.payload)
-    );
-    dispatch(searchPlayStoreData({ query: editState.appId })).then((res) =>
-      setSearchPlayStoreResultById(res.payload)
-    );
+    const debounceTimeout = setTimeout(() => {
+      if (!editState.appId && !editState.title) return;
+      dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
+        setGetPlayStoreResult(res.payload)
+      );
+      dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
+        setSearchPlayStoreResultByTitle(res.payload)
+      );
+      dispatch(searchPlayStoreData({ query: editState.appId })).then((res) =>
+        setSearchPlayStoreResultById(res.payload)
+      );
+    }, 300);
+
+    return () => clearTimeout(debounceTimeout);
   }, [editState.appId, editState.title]);
 
   const handleSave = async () => {
-    // If the user wasn't logged in, the dialog would close.
     const user = discordUser as DiscordUser;
     let result = await dispatch(addApp({ app: editState, discordUser: user }));
     if (result.meta.requestStatus === "fulfilled") {
@@ -145,8 +154,8 @@ const EditAppDialog = ({ open, appId = "" }) => {
   };
 
   if (open && !isLoggedIn) {
-    alert("You're not logged in!");
-    closeDialog();
+    setError(true);
+    handleClose();
   }
 
   return (
@@ -200,6 +209,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
             field="appId"
             editState={editState}
             handleChange={handleChange}
+            label="App ID"
           />
           <Box m={1} />
           {getPlayStoreResult?.title && (
@@ -210,6 +220,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
             field="title"
             editState={editState}
             handleChange={handleChange}
+            label="Title"
           />
           <Typography>
             You can also use this title field to search for apps.
@@ -219,6 +230,7 @@ const EditAppDialog = ({ open, appId = "" }) => {
             field="icon"
             editState={editState}
             handleChange={handleChange}
+            label="Icon URL"
           />
           <Typography>
             The icon URL can be obtained by going to <a href={editState.url} target="_blank">the app's Google Play page</a> and copying the icon image address.
@@ -238,72 +250,21 @@ const EditAppDialog = ({ open, appId = "" }) => {
             <img src="/lp-compat/img/Custom_features_Example.png" />
           </Box>
           <Box m={1} />
-          If this page isn't showing you any results when you search for app titles, just try again in an hour or so, as there's likely been too many requests made at the time.
+          <Typography>
+            If this page isn't showing you any results when you search for app titles, just try again in an hour or so, as there's likely been too many requests made at the time.
+          </Typography>
           <Box m={1} />
-          Notes for special patch features: <br />
-          special-patch-fake-modified-apk: This patch must always be applied to
-          the original unmodified APK. If you want to patch it multiple times
-          you must apply the patch every time you modify it
+          <Typography>
+            Notes for special patch features: <br />
+            special-patch-fake-modified-apk: This patch must always be applied to
+            the original unmodified APK. If you want to patch it multiple times
+            you must apply the patch every time you modify it
+          </Typography>
           <Autocomplete
             multiple
             id="tags-filled"
-            options={Object.keys(features).map((key) => key)}
+            options={Object.keys(features)}
             freeSolo
             value={editState.features}
-            onChange={(event: any, newValue) => {
-              console.log("onChange", newValue);
-              handleChange("features", newValue);
-            }}
-            renderTags={(value: readonly string[], getTagProps) =>
-              value.map((option: string, index: number) => (
-                <Chip
-                  variant="outlined"
-                  label={option}
-                  {...getTagProps({ index })}
-                />
-              ))
-            }
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="filled"
-                label="Features"
-                placeholder="Features"
-              />
-            )}
-            renderOption={(props, option) => (
-              <Box component="li" flexDirection="column" {...props}>
-                <Typography>{features[option].label}</Typography>
-                <Typography variant="caption">{option}</Typography>
-              </Box>
-            )}
-          />
-          <Box m={1} />
-          {searchPlayStoreResultByTitle?.length > 0 && (
-            <>
-              <Typography>Search results by title:</Typography>
-              <Box display="flex" flexDirection="column">
-                {searchPlayStoreResultByTitle.map((result) => (
-                  <SearchResult result={result} handleChange={handleChange} />
-                ))}
-              </Box>
-            </>
-          )}
-          <Box m={1} />
-          {searchPlayStoreResultById?.length > 0 && (
-            <>
-              <Typography>Search results by ID:</Typography>
-              <Box display="flex" flexDirection="column">
-                {searchPlayStoreResultById.map((result) => (
-                  <SearchResult result={result} handleChange={handleChange} />
-                ))}
-              </Box>
-            </>
-          )}
-        </>
-      )}
-    </Dialog>
-  );
-};
-
-export default DialogProvider;
+            onChange={(event, newValue) => handleChange("features", newValue)}
+            renderTags={(value, get
