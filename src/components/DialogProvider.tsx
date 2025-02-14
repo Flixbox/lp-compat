@@ -270,40 +270,37 @@ const EditAppField = ({ field, label, editState, handleChange }) => (
           special-patch-fake-modified-apk: This patch must always be applied to
           the original unmodified APK. If you want to patch it multiple times
           you must apply the patch every time you modify it
-          <Autocomplete
-            multiple
-            id="tags-filled"
-            options={Object.keys(features).map((key) => key)}
-            freeSolo
-            value={editState.features}
-            onChange={(event: any, newValue) => {
-              console.log("onChange", newValue);
-              handleChange("features", newValue);
-            }}
-            renderTags={(value: readonly string[], getTagProps) =>
-              value.map((option: string, index: number) => (
-                <Chip
-                  variant="outlined"
-                  label={option}
-                  {...getTagProps({ index })}
-                />
-              ))
-            }
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                variant="filled"
-                label="Features"
-                placeholder="Features"
-              />
-            )}
-            renderOption={(props, option) => (
-              <Box component="li" flexDirection="column" {...props}>
-                <Typography>{features[option].label}</Typography>
-                <Typography variant="caption">{option}</Typography>
-              </Box>
-            )}
-          />
+<Autocomplete
+  multiple
+  id="tags-filled"
+  options={Object.keys(features)}
+  freeSolo
+  value={editState.features}
+  onChange={(event, newValue) => handleChange("features", newValue)}
+  renderTags={(value, getTagProps) =>
+    value.map((option, index) => (
+      <Chip
+        variant="outlined"
+        label={option}
+        {...getTagProps({ index })}
+      />
+    ))
+  }
+  renderInput={(params) => (
+    <TextField
+      {...params}
+      variant="filled"
+      label="Features"
+      placeholder="Features"
+    />
+  )}
+  renderOption={(props, option) => (
+    <Box component="li" flexDirection="column" {...props}>
+      <Typography>{features[option].label}</Typography>
+      <Typography variant="caption">{option}</Typography>
+    </Box>
+  )}
+/>
           <Box m={1} />
           {searchPlayStoreResultByTitle?.length > 0 && (
             <>
