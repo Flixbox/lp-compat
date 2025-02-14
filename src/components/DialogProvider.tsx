@@ -118,8 +118,9 @@ const [editState, setEditState] = useState<App>(initialAppData || { appId } as A
     if (open) setEditState({ ...initialAppData } as App);
   }, [open]);
 
-  useEffect(() => {
-    if(!editState.appId && !editState.title) return;  // Don't search if there's nothing to search for
+useEffect(() => {
+  const debounceTimeout = setTimeout(() => {
+    if (!editState.appId && !editState.title) return;
     dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
       setGetPlayStoreResult(res.payload)
     );
@@ -129,7 +130,10 @@ const [editState, setEditState] = useState<App>(initialAppData || { appId } as A
     dispatch(searchPlayStoreData({ query: editState.appId })).then((res) =>
       setSearchPlayStoreResultById(res.payload)
     );
-  }, [editState.appId, editState.title]);
+  }, 300);
+
+  return () => clearTimeout(debounceTimeout);
+}, [editState.appId, editState.title]);
 
   const handleSave = async () => {
     // If the user wasn't logged in, the dialog would close.
