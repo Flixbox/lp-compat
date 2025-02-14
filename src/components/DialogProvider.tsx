@@ -36,11 +36,17 @@ import { closeDialog } from "../redux/systemSlice";
 import { App } from "../types";
 import { DiscordUser, useDiscord } from "../hooks/useDiscord";
 
-const DialogProvider = () => {
+const useDialog = (dialogName: string) => {
   const { dialogs } = useAppSelector((state) => state.system);
-  return (
-    <>{dialogs?.EDIT_APP.open && <EditAppDialog {...dialogs?.EDIT_APP} />}</>
-  );
+  const dialog = dialogs?.[dialogName];
+  return dialog;
+};
+
+const DialogProvider = () => {
+  const dialog = useDialog('EDIT_APP');
+  if (!dialog) return null;
+
+  return <EditAppDialog {...dialog} />;
 };
 
 const AppTextField = ({ editState, field, handleChange }) => {
