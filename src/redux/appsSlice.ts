@@ -8,29 +8,50 @@ import { DiscordUser } from "../hooks/useDiscord";
 
 export const pageSize = 5000;
 
+// Lazy-load apps from the static JSON shipped with the site instead of the backend.
+// The file is expected to be available at /lp-compat/lucky-patcher-app-compatibility.json
+const STATIC_APPS_URL = "/lp-compat/lucky-patcher-app-compatibility.json";
+
 export const fetchApps = createAsyncThunk(
   "apps/all",
-  async () => (await axiosInstance.get("/apps/all")).data
+  async () => {
+    const response = await fetch(STATIC_APPS_URL);
+    if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
+    return (await response.json()) as App[];
+  }
 );
 
 export const fetchApp = createAsyncThunk<any, { appId: string }>(
   "apps/get",
-  async ({ appId }) => (await axiosInstance.get(`apps/get/${appId}`)).data
+  async ({ appId }) => {
+    const response = await fetch(STATIC_APPS_URL);
+    if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
+    const data = (await response.json()) as App[];
+    return data.find((a) => a.appId === appId);
+  }
 );
 
 export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   "apps/page",
   async ({ page }, thunkAPI) => {
-    const data = (await axiosInstance.get(`apps/page/${page}/${pageSize}`))
-      .data;
+    const response = await fetch(STATIC_APPS_URL);
+    if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
+    const data = (await response.json()) as App[];
+    const start = page * pageSize;
+    const pageSlice = data.slice(start, start + pageSize);
     thunkAPI.dispatch(setAppsListPage(page + 1));
-    return data;
+    return pageSlice;
   }
 );
 
 export const fetchAppCount = createAsyncThunk(
   "apps/count",
-  async () => (await axiosInstance.get(`apps/count`)).data
+  async () => {
+    const response = await fetch(STATIC_APPS_URL);
+    if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
+    const data = (await response.json()) as App[];
+    return data.length;
+  }
 );
 
 export const addApp = createAsyncThunk<

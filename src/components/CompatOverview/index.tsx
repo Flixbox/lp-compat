@@ -404,7 +404,7 @@ const CompatOverview = () => {
                 variant="outlined"
                 onClick={async () => {
                   const response = await fetch(
-                    "https://luck.up.railway.app/apps/all"
+                    "/lp-compat/lucky-patcher-app-compatibility.json"
                   );
                   const json = await response.json();
                   const formattedJson = JSON.stringify(json, null, 2);
