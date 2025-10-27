@@ -474,7 +474,7 @@ const CompatOverview = () => {
 
         {loading && <CircularProgress />}
 
-        <p>Notice: List frozen as migration to new architecture is performed. Back online on 2025-10-28</p>
+        <p>Notice: List frozen as of 2025-10-27 due to hosting costs. Modifications can still be created by editing the list on GitHub via PR. If you're interested in hosting the list (which would re-enable editing) feel free to notify us on Discord (linked in the toolbar)!</p>
 
         <Virtuoso
           style={{ height: "600px" }}
