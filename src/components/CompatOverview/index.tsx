@@ -505,6 +505,8 @@ const CompatOverview = () => {
 
         {loading && <CircularProgress />}
 
+        <p>Notice: List frozen as migration to new architecture is performed. Back online on 2025-10-28</p>
+
         <Virtuoso
           style={{ height: "600px" }}
           totalCount={renderedApps.length}
