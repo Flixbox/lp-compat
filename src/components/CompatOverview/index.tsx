@@ -381,6 +381,7 @@ const CompatOverview = () => {
                     "1021002998069067777",
                     "https://flixbox.github.io/lp-compat/"
                   )}
+                  disabled={!BACKEND_ENABLED}
                 >
                   <FontAwesomeIcon
                     icon={faDiscord}
