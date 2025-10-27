@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import clsx from "clsx";
 import styles from "./styles.module.css";
@@ -15,7 +15,6 @@ import {
   useTheme,
   Chip,
   ListItem,
-  Input,
   ThemeProvider,
   createTheme,
   Button,
@@ -24,8 +23,6 @@ import {
   IconButton,
   styled,
   CircularProgress,
-  Container,
-  Icon,
   TextField,
 } from "@mui/material";
 import Link from "@docusaurus/Link";
@@ -34,7 +31,6 @@ import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import {
   faAdd,
   faBan,
-  faCaretDown,
   faCommentsDollar,
   faEye,
   faEyeSlash,
@@ -51,24 +47,12 @@ import { xor } from "lodash";
 import getFeature from "../../featureMap";
 import { useColorMode } from "@docusaurus/theme-common";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import {
-  fetchApp,
-  fetchAppCount,
-  fetchApps,
-  fetchAppsByPage,
-  pageSize,
-} from "@site/src/redux/appsSlice";
-import { Provider, useStore } from "react-redux";
+import { fetchAppCount, fetchApps } from "@site/src/redux/appsSlice";
+import { Provider } from "react-redux";
 import { clearState, openDialog } from "@site/src/redux/systemSlice";
-import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
-
 import { App } from "@site/src/types";
 import DialogProvider from "../DialogProvider";
-
-import MarkdownPreview, {
-  MarkdownPreviewProps,
-} from "@uiw/react-markdown-preview";
-import LinkSolid from "../../../static/img/link-solid.svg";
+import MarkdownPreview, { MarkdownPreviewProps } from "@uiw/react-markdown-preview";
 import axiosInstance from "@site/src/redux/axios";
 import { getDiscordLoginUrl, useDiscord } from "@site/src/hooks/useDiscord";
 import { useLocalStorage } from "usehooks-ts";
@@ -243,22 +227,19 @@ function Feature({ icon, description }: FeatureItem) {
 }
 
 const useStaff = () => {
-  const { data: staff } = useQuery(
-    "staff",
-    async () => (await axiosInstance.get("/staff/all")).data
-  );
+  const { data: staff } = useQuery("staff", async () => {
+    const response = await axiosInstance.get("/staff/all");
+    return response.data;
+  });
 
-  const isStaff = (id) => staff && staff.find((member) => member.id === id);
+  const isStaff = (id: string) => staff?.some((member) => member.id === id);
 
   return { staff, isStaff };
 };
 
 const CompatOverview = () => {
   const dispatch = useAppDispatch();
-  const [appTitleFilter, setAppTitleFilter] = useLocalStorage(
-    "appsTitleFilter",
-    ""
-  );
+  const [appTitleFilter, setAppTitleFilter] = useLocalStorage("appsTitleFilter", "");
   const [sorting, setSorting] = useLocalStorage("apps-sorting", "installs-asc");
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
@@ -267,10 +248,14 @@ const CompatOverview = () => {
   const { appsListUpdated } = useAppSelector((state) => state.system);
   const { discordUser, isLoggedIn } = useDiscord();
 
-  if (isLoggedIn) {
-    const loginButton = document.getElementById("discord-login");
-    loginButton.innerHTML = discordUser.username;
-  }
+  useEffect(() => {
+    if (isLoggedIn && discordUser) {
+      const loginButton = document.getElementById("discord-login");
+      if (loginButton) {
+        loginButton.textContent = discordUser.username;
+      }
+    }
+  }, [isLoggedIn, discordUser]);
 
   useEffect(() => {
     dispatch(fetchAppCount()).then((res) => {
@@ -519,7 +504,8 @@ const CompatOverview = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme();
-  if (!app || !app.appId) return;
+  if (!app?.appId) return null;
+
   const {
     appId,
     features,
@@ -530,7 +516,6 @@ const AppTile = ({ app }: { app: App }) => {
     scoreText,
     url,
     genre,
-    screenshots,
     free,
     priceText,
     editedBy,
@@ -540,7 +525,6 @@ const AppTile = ({ app }: { app: App }) => {
   } = app;
   const { isLoggedIn } = useDiscord();
   const dispatch = useAppDispatch();
-  const store = useStore();
   const { isStaff } = useStaff();
 
   return (

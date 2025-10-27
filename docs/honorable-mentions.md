@@ -9,6 +9,7 @@ Apps that didn't make the list, but for some reason still deserve a spot on the 
 - Racing Heroes 
 - Racing Clash Club: Car Game
 - Table Top Racing
+- Cat Simulator
 
 ## Unpatchable games that vanished from the play store
 
