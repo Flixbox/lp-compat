@@ -242,8 +242,7 @@ const CompatOverview = () => {
   const [appTitleFilter, setAppTitleFilter] = useLocalStorage("appsTitleFilter", "");
   const [sorting, setSorting] = useLocalStorage("apps-sorting", "installs-asc");
   const theme = useTheme();
-  const [loading, setLoading] = useState(false);
-  const [appCount, setAppCount] = useState(0);
+  const [loading, setLoading] = useState(true);
   const apps = useAppSelector<App[]>((state) => state.apps);
   const { appsListUpdated } = useAppSelector((state) => state.system);
   const { discordUser, isLoggedIn } = useDiscord();
@@ -257,11 +256,11 @@ const CompatOverview = () => {
     }
   }, [isLoggedIn, discordUser]);
 
+  // Load the entire static JSON once on mount
   useEffect(() => {
-    dispatch(fetchAppCount()).then((res) => {
-      setAppCount(res.payload);
-    });
-  }, []);
+    setLoading(true);
+    dispatch(fetchApps()).finally(() => setLoading(false));
+  }, [dispatch]);
 
   const visibilitySettings = [
     {
@@ -312,26 +311,11 @@ const CompatOverview = () => {
   const refreshApps = () => {
     localStorage.clear();
     dispatch(clearState());
+    setLoading(true);
+    dispatch(fetchApps()).finally(() => setLoading(false));
   };
 
   const sortedApps = sortOptions[sorting].getSortedApps();
-
-  const appsListComplete = apps.length >= appCount;
-
-  const loadMore = () => {
-    if (loading) return;
-    if (appsListComplete) {
-      if (loading) setLoading(false);
-      return;
-    }
-    !loading && setLoading(true);
-    dispatch(fetchApps()).then(() => {
-      setLoading(false);
-    });
-  };
-
-  // Attempt to finish loading
-  useEffect(() => loadMore(), [apps, loading, appCount]);
 
   const renderedApps = sortedApps.filter((app) => {
     if (!app || !app.appId) return;
@@ -479,8 +463,8 @@ const CompatOverview = () => {
         </Box>
         <div id="apps"></div>
         <Typography>
-          {`Loaded ${apps.length} out of ${appCount} apps!`}
-          {loading && ` Loading more...`}
+          {`Loaded ${apps.length} apps!`}
+          {loading && ` Loading...`}
           <br />
           <IconButton onClick={() => refreshApps()}>
             <FontAwesomeIcon icon={faRefresh} />
