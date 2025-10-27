@@ -59,6 +59,8 @@ import { useLocalStorage } from "usehooks-ts";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
+const BACKEND_ENABLED = false;
+
 const queryClient = new QueryClient();
 
 const StyledMarkdown = styled(MarkdownPreview)<
@@ -248,12 +250,15 @@ const CompatOverview = () => {
   const { discordUser, isLoggedIn } = useDiscord();
 
   useEffect(() => {
+    const loginButton = document.getElementById("discord-login");
+
     if (isLoggedIn && discordUser) {
-      const loginButton = document.getElementById("discord-login");
       if (loginButton) {
         loginButton.textContent = discordUser.username;
       }
     }
+
+    if(!BACKEND_ENABLED) loginButton.textContent = "";
   }, [isLoggedIn, discordUser]);
 
   // Load the entire static JSON once on mount
@@ -357,7 +362,7 @@ const CompatOverview = () => {
               maxWidth="100%"
               style={{ flexFlow: "row wrap" }}
             >
-              {isLoggedIn ? (
+              {BACKEND_ENABLED && isLoggedIn ? (
                 <Button
                   variant="outlined"
                   style={{ marginRight: 4, height: "50px", minWidth: "120px" }}
