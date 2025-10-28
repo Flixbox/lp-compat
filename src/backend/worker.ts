@@ -2,9 +2,10 @@ import { App } from "../types";
 
 export interface Env {
   GITHUB_REPO: string;
-  GITHUB_FILE: string;
   GITHUB_TOKEN: string;
 }
+
+const filePath = "static/lucky-patcher-app-compatibility.json";
 
 function decodeBase64(input: string): string {
   // GitHub may include newlines in the content -- remove them first
@@ -31,7 +32,6 @@ function githubHeaders(env: Env, contentType?: string) {
 }
 
 async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
-  const filePath = env.GITHUB_FILE ?? "static/lucky-patcher-app-compatibility.json";
   const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
   const res = await fetch(url, { headers: githubHeaders(env) });
   if (!res.ok) {
@@ -57,7 +57,6 @@ async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
 }
 
 async function updateFile(env: Env, newContent: App[], sha: string, message: string) {
-  const filePath = env.GITHUB_FILE ?? "static/lucky-patcher-app-compatibility.json";
   const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
   const body = {
     message,
