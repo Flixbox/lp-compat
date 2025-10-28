@@ -1,0 +1,12 @@
+name = "json-crud-worker"
+main = "src/backend/worker.ts"
+compatibility_date = "2023-10-01"
+
+# Optional: specify account/project details
+account_id = "c2c4512ac73019c4af8f471455fc58a1"
+workers_dev = true
+
+[vars]
+# Non-sensitive defaults can go here
+GITHUB_REPO = "Flixbox/lp-compat"
+GITHUB_FILE = "/static/lucky-patcher-app-compatibility.json"
