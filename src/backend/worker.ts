@@ -40,8 +40,20 @@ async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
   }
   const json = await res.json();
   const raw = decodeBase64(json.content as string);
-  const content = JSON.parse(raw) as App[];
-  return { content, sha: json.sha };
+
+  // If the file on GitHub is empty, return an empty array instead of letting JSON.parse throw
+  if (!raw || !raw.trim()) {
+    console.error("GitHub content is empty, returning empty array");
+    return { content: [], sha: json.sha };
+  }
+
+  try {
+    const content = JSON.parse(raw) as App[];
+    return { content, sha: json.sha };
+  } catch (e) {
+    const preview = String(raw).slice(0, 200);
+    throw new Error(`Failed to parse JSON from GitHub content: ${(e as Error).message}. Raw preview: ${preview}`);
+  }
 }
 
 async function updateFile(env: Env, newContent: App[], sha: string, message: string) {
