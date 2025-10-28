@@ -9,4 +9,4 @@ workers_dev = true
 [vars]
 # Non-sensitive defaults can go here
 GITHUB_REPO = "Flixbox/lp-compat"
-GITHUB_FILE = "/static/lucky-patcher-app-compatibility.json"
+GITHUB_FILE = "static/lucky-patcher-app-compatibility.json"
