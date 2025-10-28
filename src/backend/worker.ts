@@ -19,15 +19,21 @@ function encodeBase64(input: string): string {
   return Buffer.from(input, "utf-8").toString("base64");
 }
 
+// Build standard headers for GitHub REST API requests
+function githubHeaders(env: Env, contentType?: string) {
+  const headers: Record<string, string> = {
+    Authorization: `token ${env.GITHUB_TOKEN}`,
+    Accept: "application/vnd.github.v3+json",
+    "User-Agent": "lp-compat-worker/1.0",
+  };
+  if (contentType) headers["Content-Type"] = contentType;
+  return headers;
+}
+
 async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
   const filePath = env.GITHUB_FILE ?? "static/lucky-patcher-app-compatibility.json";
   const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `token ${env.GITHUB_TOKEN}`,
-      Accept: "application/vnd.github.v3+json",
-    },
-  });
+  const res = await fetch(url, { headers: githubHeaders(env) });
   if (!res.ok) {
     const text = await res.text();
     throw new Error(`Failed to fetch file from GitHub: ${res.status} ${text}`);
@@ -48,11 +54,7 @@ async function updateFile(env: Env, newContent: App[], sha: string, message: str
   };
   const res = await fetch(url, {
     method: "PUT",
-    headers: {
-      Authorization: `token ${env.GITHUB_TOKEN}`,
-      "Content-Type": "application/json",
-      Accept: "application/vnd.github.v3+json",
-    },
+    headers: githubHeaders(env, "application/json"),
     body: JSON.stringify(body),
   });
   if (!res.ok) {
