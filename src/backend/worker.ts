@@ -39,6 +39,7 @@ async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
     throw new Error(`Failed to fetch file from GitHub: ${res.status} ${text}`);
   }
   const json = await res.json();
+  console.log("Fetched file from GitHub:", json);
   const raw = decodeBase64(json.content as string);
 
   // If the file on GitHub is empty, return an empty array instead of letting JSON.parse throw
