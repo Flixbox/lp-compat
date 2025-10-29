@@ -7,14 +7,6 @@ export interface Env {
 
 const filePath = "static/lucky-patcher-app-compatibility.json";
 
-function decodeBase64(input: string): string {
-  // GitHub may include newlines in the content -- remove them first
-  const cleaned = input.replace(/\n/g, "");
-  if (typeof atob === "function") return atob(cleaned);
-  // Node fallback
-  return Buffer.from(cleaned, "base64").toString("utf-8");
-}
-
 function encodeBase64(input: string): string {
   if (typeof btoa === "function") return btoa(input);
   return Buffer.from(input, "utf-8").toString("base64");
@@ -32,28 +24,38 @@ function githubHeaders(env: Env, contentType?: string) {
 }
 
 async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
-  const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
-  const res = await fetch(url, { headers: githubHeaders(env) });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Failed to fetch file from GitHub: ${res.status} ${text}`);
-  }
-  const json = await res.json();
-  console.log("Fetched file from GitHub:", json);
-  const raw = decodeBase64(json.content as string);
+  // Download raw JSON directly from raw.githubusercontent (hardcoded branch 'main')
+  const rawUrl = `https://raw.githubusercontent.com/${env.GITHUB_REPO}/main/${filePath}`;
+  const apiUrl = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
 
-  // If the file on GitHub is empty, return an empty array instead of letting JSON.parse throw
+  // Fetch raw file contents
+  const rawRes = await fetch(rawUrl);
+  if (!rawRes.ok && rawRes.status !== 404) {
+    const text = await rawRes.text();
+    throw new Error(`Failed to fetch raw file from GitHub: ${rawRes.status} ${text}`);
+  }
+  const raw = rawRes.ok ? await rawRes.text() : "";
+
+  // Fetch metadata to obtain the latest sha required for updates
+  const metaRes = await fetch(apiUrl, { headers: githubHeaders(env) });
+  if (!metaRes.ok) {
+    const text = await metaRes.text();
+    throw new Error(`Failed to fetch file metadata from GitHub: ${metaRes.status} ${text}`);
+  }
+  const metaJson = await metaRes.json();
+  const sha = metaJson.sha;
+
+  // If the file is empty or missing, return an empty array
   if (!raw || !raw.trim()) {
-    console.error("GitHub content is empty, returning empty array");
-    return { content: [], sha: json.sha };
+    return { content: [], sha };
   }
 
   try {
     const content = JSON.parse(raw) as App[];
-    return { content, sha: json.sha };
+    return { content, sha };
   } catch (e) {
     const preview = String(raw).slice(0, 200);
-    throw new Error(`Failed to parse JSON from GitHub content: ${(e as Error).message}. Raw preview: ${preview}`);
+    throw new Error(`Failed to parse JSON from GitHub raw content: ${(e as Error).message}. Raw preview: ${preview}`);
   }
 }
 
