@@ -1,6 +1,7 @@
 name = "lp-compat-backend"
 main = "src/backend/worker.ts"
 compatibility_date = "2023-10-01"
+compatibility_flags = ["nodejs_compat"]
 
 # Optional: specify account/project details
 account_id = "c2c4512ac73019c4af8f471455fc58a1"
