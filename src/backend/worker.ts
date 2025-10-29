@@ -95,9 +95,7 @@ export default {
         // Ensure an id exists. If not, generate one.
         const anyBody = body as any;
         if (!anyBody.id) {
-          anyBody.id = typeof crypto !== "undefined" && typeof (crypto as any).randomUUID === "function"
-            ? (crypto as any).randomUUID()
-            : Date.now().toString();
+          anyBody.id = Date.now().toString();
         }
         const newContent = [...content, body];
         await updateFile(env, newContent, sha, "Add new entry");
