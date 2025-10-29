@@ -11,8 +11,7 @@ export interface Env {
 const filePath = "static/lucky-patcher-app-compatibility.json";
 
 function encodeBase64(input: string): string {
-  if (typeof btoa === "function") return btoa(input);
-  return Buffer.from(input, "utf-8").toString("base64");
+  return Buffer.from(input, "utf8").toString("base64");
 }
 
 // Build standard headers for GitHub REST API requests
