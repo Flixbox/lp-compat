@@ -1,5 +1,6 @@
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
+import getPlaystoreData from "./getPlaystoreData";
 
 export interface Env {
   GITHUB_REPO: string;
@@ -80,6 +81,54 @@ async function updateFile(env: Env, newContent: App[], sha: string, message: str
   return res.json();
 }
 
+async function enrichWithPlayData(body: any, fallbackAppId?: string) {
+  const appId = body?.appId || fallbackAppId;
+  if (!appId) return body;
+  try {
+    const play = await getPlaystoreData(appId);
+    if (!play) return body;
+
+    const keys = [
+      "title",
+      "summary",
+      "installs",
+      "minInstalls",
+      "price",
+      "free",
+      "score",
+      "scoreText",
+      "priceText",
+      "androidVersion",
+      "androidVersionText",
+      "developer",
+      "developerId",
+      "genre",
+      "genreId",
+      "icon",
+      "headerImage",
+      "screenshots",
+      "adSupported",
+      "updated",
+      "version",
+      "recentChanges",
+      "url",
+      "offersIAP",
+      "IAPRange",
+      "appId",
+    ];
+
+    for (const key of keys) {
+      const hasValue = body[key] !== undefined && body[key] !== null && body[key] !== "";
+      if (!hasValue && play[key] !== undefined) {
+        body[key] = play[key];
+      }
+    }
+  } catch (e) {
+    console.error("Error fetching playstore data for", appId, e);
+  }
+  return body;
+}
+
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     try {
@@ -99,7 +148,11 @@ export default {
         if (!anyBody.id) {
           anyBody.id = Date.now().toString();
         }
-        const newContent = [...content, body];
+
+        // Enrich missing fields from Play Store if possible
+        await enrichWithPlayData(anyBody);
+
+        const newContent = [...content, anyBody];
         await updateFile(env, newContent, sha, "Add new entry");
 
         await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
@@ -114,7 +167,15 @@ export default {
         if (!anyBody.id) return new Response("Missing id", { status: 400 });
         const index = content.findIndex((x) => (x as any).id === anyBody.id);
         if (index === -1) return new Response("Not found", { status: 404 });
-        content[index] = body;
+
+        // Merge with existing entry so we don't lose fields not present in the update payload
+        const existing = content[index] as any;
+        const merged = { ...existing, ...anyBody };
+
+        // Enrich missing fields from Play Store using either provided appId or existing appId
+        await enrichWithPlayData(merged, existing?.appId);
+
+        content[index] = merged;
         await updateFile(env, content, sha, "Update entry");
 
         await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
