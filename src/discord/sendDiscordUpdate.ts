@@ -2,12 +2,9 @@ import { EmbedBuilder, WebhookClient } from "discord.js";
 import { App } from "../types";
 import getFeature from "../featureMap";
 
-const hook = new WebhookClient({
-  // url: process.env.DISCORD_WEBHOOK,
-  url: process.env.DISCORD_WEBHOOK || "",
-});
 
-export default async (app: App, change = "added") => {
+
+export default async (app: App, change = "added", webhookUrl?: string) => {
   if (!app || !app.appId || !app.features || !app.title) return;
 
   const {
@@ -24,6 +21,10 @@ export default async (app: App, change = "added") => {
     priceText,
     editedBy,
   } = app;
+
+  const hook = new WebhookClient({
+    url: webhookUrl || process.env.DISCORD_WEBHOOK || "",
+  });
 
   let featuresString = "\nCompatibility:";
   features.forEach(
@@ -42,8 +43,8 @@ export default async (app: App, change = "added") => {
     .setAuthor({
       name:
         change === "added"
-          ? `App added on Compatibility List by ${editedBy.userName}`
-          : `App changed on Compatibility List by ${editedBy.userName}`,
+          ? `App added on Compatibility List by ${editedBy?.userName}`
+          : `App changed on Compatibility List by ${editedBy?.userName}`,
       url: "https://flixbox.github.io/lp-compat/",
     })
     .setDescription(
@@ -53,5 +54,6 @@ export default async (app: App, change = "added") => {
     .setTimestamp();
 
   console.log("Sending embed for " + title);
+
   hook.send({ embeds: [myEmbed] }).catch((e) => console.error(e));
 };

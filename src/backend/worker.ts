@@ -1,8 +1,10 @@
+import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
 
 export interface Env {
   GITHUB_REPO: string;
   GITHUB_TOKEN: string;
+  DISCORD_WEBHOOK?: string;
 }
 
 const filePath = "static/lucky-patcher-app-compatibility.json";
@@ -99,6 +101,9 @@ export default {
         }
         const newContent = [...content, body];
         await updateFile(env, newContent, sha, "Add new entry");
+
+        await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
+
         return Response.json({ status: "created", id: anyBody.id });
       }
 
@@ -111,6 +116,9 @@ export default {
         if (index === -1) return new Response("Not found", { status: 404 });
         content[index] = body;
         await updateFile(env, content, sha, "Update entry");
+
+        await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
+
         return Response.json({ status: "updated" });
       }
 
