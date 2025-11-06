@@ -79,3 +79,5 @@ export default async function getPlaystoreData(appId: string): Promise<PlayStore
     return null;
   }
 }
+
+export { SCRAPER_BASE };

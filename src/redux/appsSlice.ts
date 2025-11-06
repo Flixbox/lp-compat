@@ -5,8 +5,12 @@ import axiosInstance from "./axios";
 import { clearState, setAppsListPage } from "./systemSlice";
 import { App } from "../types";
 import { DiscordUser } from "../hooks/useDiscord";
+import { SCRAPER_BASE } from "../backend/getPlaystoreData.js";
 
 export const pageSize = 5000;
+
+// All apps-related requests should go via the worker URL below.
+export const APPS_WORKER_URL = "https://lp-compat-backend.alone-king-poking.workers.dev";
 
 // Lazy-load apps from the static JSON shipped with the site instead of the backend.
 // The file is expected to be available at /lp-compat/lucky-patcher-app-compatibility.json
@@ -15,7 +19,7 @@ const STATIC_APPS_URL = "/lp-compat/lucky-patcher-app-compatibility.json";
 export const fetchApps = createAsyncThunk(
   "apps/all",
   async () => {
-    const response = await fetch(STATIC_APPS_URL);
+    const response = await fetch(`${APPS_WORKER_URL}/read`);
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
     return (await response.json()) as App[];
   }
@@ -24,7 +28,7 @@ export const fetchApps = createAsyncThunk(
 export const fetchApp = createAsyncThunk<any, { appId: string }>(
   "apps/get",
   async ({ appId }) => {
-    const response = await fetch(STATIC_APPS_URL);
+    const response = await fetch(`${APPS_WORKER_URL}/read`);
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
     const data = (await response.json()) as App[];
     return data.find((a) => a.appId === appId);
@@ -34,7 +38,7 @@ export const fetchApp = createAsyncThunk<any, { appId: string }>(
 export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   "apps/page",
   async ({ page }, thunkAPI) => {
-    const response = await fetch(STATIC_APPS_URL);
+    const response = await fetch(`${APPS_WORKER_URL}/read`);
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
     const data = (await response.json()) as App[];
     const start = page * pageSize;
@@ -47,7 +51,7 @@ export const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
 export const fetchAppCount = createAsyncThunk(
   "apps/count",
   async () => {
-    const response = await fetch(STATIC_APPS_URL);
+    const response = await fetch(`${APPS_WORKER_URL}/read`);
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`);
     const data = (await response.json()) as App[];
     return data.length;
@@ -59,8 +63,19 @@ export const addApp = createAsyncThunk<
   { app: App; discordUser: DiscordUser }
 >(
   "apps/add",
-  async ({ app, discordUser }) =>
-    (await axiosInstance.post(`apps/add/`, { app, discordUser })).data
+  async ({ app, discordUser }) => {
+    // The worker expects the App object and discordUser in the request body at /create.
+    const res = await fetch(`${APPS_WORKER_URL}/create`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ app, discordUser }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Failed to add app via worker: ${res.status} ${text}`);
+    }
+    return await res.json();
+  }
 );
 
 export const editApp = createAsyncThunk<
@@ -68,19 +83,51 @@ export const editApp = createAsyncThunk<
   { app: App; discordUser: DiscordUser }
 >(
   "apps/edit",
-  async ({ app, discordUser }) =>
-    (await axiosInstance.post(`apps/edit/`, { app, discordUser })).data
+  async ({ app, discordUser }) => {
+    // The worker expects the App object and discordUser in the request body at /update.
+    const res = await fetch(`${APPS_WORKER_URL}/update`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ app, discordUser }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Failed to edit app via worker: ${res.status} ${text}`);
+    }
+    return await res.json();
+  }
 );
 
 export const getPlayStoreData = createAsyncThunk<any, { appId: string }>(
   "playstore/get",
-  async ({ appId }) => (await axiosInstance.get(`/playstore/get/${appId}`)).data
+  async ({ appId }) => {
+    const res = await fetch(`${SCRAPER_BASE}/app`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ appId }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Failed to fetch playstore data from scraper: ${res.status} ${text}`);
+    }
+    return await res.json();
+  }
 );
 
 export const searchPlayStoreData = createAsyncThunk<any, { query: string }>(
   "playstore/search",
-  async ({ query }) =>
-    (await axiosInstance.get(`/playstore/search/${query}`)).data
+  async ({ query }) => {
+    const res = await fetch(`${SCRAPER_BASE}/search`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ term: query, num: 10 }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Failed to search playstore data from scraper: ${res.status} ${text}`);
+    }
+    return await res.json();
+  }
 );
 
 // Define the initial state using that type
