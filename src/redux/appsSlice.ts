@@ -5,7 +5,7 @@ import axiosInstance from "./axios";
 import { clearState, setAppsListPage } from "./systemSlice";
 import { App } from "../types";
 import { DiscordUser } from "../hooks/useDiscord";
-import { SCRAPER_BASE } from "../backend/getPlaystoreData.js";
+import { SCRAPER_BASE } from "../backend/getPlaystoreData";
 
 export const pageSize = 5000;
 
