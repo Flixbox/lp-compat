@@ -59,7 +59,7 @@ import { useLocalStorage } from "usehooks-ts";
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
-const BACKEND_ENABLED = false;
+const BACKEND_ENABLED = true;
 
 const queryClient = new QueryClient();
 
