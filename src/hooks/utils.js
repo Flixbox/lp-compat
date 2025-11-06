@@ -3,4 +3,4 @@ const getDiscordLoginUrl = (client_id, redirect_uri) =>
     redirect_uri
   )}&response_type=token&scope=identify%20guilds%20guilds.members.read`;
 
-module.exports = { getDiscordLoginUrl };
+export { getDiscordLoginUrl };

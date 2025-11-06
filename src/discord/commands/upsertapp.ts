@@ -11,7 +11,7 @@ import editApp from "../../db/editApp";
 import { App } from "../../types";
 import getPlaystoreData from "../../backend/getPlaystoreData";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("upsertapp")
     .setDescription("Upsert (update or insert) a new app to the list!")

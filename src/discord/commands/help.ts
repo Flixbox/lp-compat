@@ -1,7 +1,7 @@
 import { featureMap } from "../../featureMap";
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("help")
     .setDescription("A comprehensive guide to using the bot."),

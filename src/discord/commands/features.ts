@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("features")
     .setDescription("Show the features that you can add to an app"),

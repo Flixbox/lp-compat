@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 const BUTTON_ID_SHOW_MORE = "cseShowMore";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("cse")
     .setDescription(

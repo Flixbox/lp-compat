@@ -5,7 +5,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 
 const BUTTON_ID_SHOW_MORE = "patchingShowMore";
 
-module.exports = {
+export default {
   data: new SlashCommandBuilder()
     .setName("patching")
     .setDescription("Instructions for patching an app."),
