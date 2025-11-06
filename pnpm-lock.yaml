@@ -190,7 +190,7 @@ importers:
         specifier: ^1.0.5
         version: 1.0.7
       '@types/cookie-session':
-        specifier: ^2.0.44
+        specifier: ^2.0.49
         version: 2.0.49
       '@types/express':
         specifier: ^4.17.14
