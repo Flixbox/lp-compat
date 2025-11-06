@@ -1,6 +1,6 @@
 import sendDiscordUpdate from "../discord/sendDiscordUpdate";
 import { App } from "../types";
-import getPlaystoreData from "./getPlaystoreData";
+import getPlaystoreData from "./getPlaystoreData.js";
 
 export interface Env {
   GITHUB_REPO: string;
