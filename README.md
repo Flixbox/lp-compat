@@ -15,6 +15,10 @@ If you have any questions or want to discuss the project with others, you can us
 [![discuss-reddit](https://img.shields.io/static/v1?label=Discuss&message=on%20Reddit&color=FF4500&style=flat&logo=reddit)](https://www.reddit.com/r/luckypatcher/)
 [![discuss-discord](https://img.shields.io/static/v1?label=Discuss&message=on%20Discord&color=7289DA&style=flat&logo=discord)](https://discord.gg/RS5ddYf7mw)
 
+- Uses GitHub Pages to host the main site
+- Uses Cloudflare to host the main backend
+- Uses Vercel to host the play store scraper, since Cloudflare doesn't like Node.js
+
 ## Setting up the project
 
 To get started with this project, you will need to install two pieces of software on your computer: _Node.js_ and _pnpm_.
