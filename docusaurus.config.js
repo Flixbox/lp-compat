@@ -1,10 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const { getDiscordLoginUrl } = require("./src/hooks/utils.js");
-
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+import { getDiscordLoginUrl } from "./src/hooks/utils.js";
+import lightCodeTheme from "prism-react-renderer/themes/github";
+import darkCodeTheme from "prism-react-renderer/themes/dracula";
+import sidebarPath from "./sidebars.js";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -32,23 +32,21 @@ const config = {
   presets: [
     [
       "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/Flixbox/lp-compat/blob/main/",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: import("./src/css/custom.css"),
         },
       }),
     ],
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
         title: "LP-Compat",
