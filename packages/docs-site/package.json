@@ -10,12 +10,21 @@
     "astro": "astro --port 3001"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.36.2",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/material": "^5.10.2",
-    "@mui/system": "^5.10.2",
-    "astro": "^5.6.1",
-    "sharp": "^0.34.2"
+    "@astrojs/starlight": "0.36.2",
+    "@astrojs/react": "4.4.2",
+    "@astrojs/mdx": "4.3.10",
+    "@emotion/react": "11.10.0",
+    "@emotion/styled": "11.10.0",
+    "@mui/material": "5.10.2",
+    "@mui/system": "5.10.2",
+    "astro": "5.15.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "sharp": "0.34.2"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.28.5",
+    "babel-plugin-react-compiler": "1.0.0",
+    "esbuild-plugin-babel": "^0.2.3"
   }
 }

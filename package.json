@@ -15,9 +15,9 @@
     "postinstall": "touch tsconfig.json"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "@arthurrios/biome-config": "1.1.4",
-    "@biomejs/biome": "2.3.4"
+    "@biomejs/biome": "2.3.4",
+    "@types/bun": "latest"  
   },
   "dependencies": {
     "typescript": "5.9.3"
