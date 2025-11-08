@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+title: "Updating apps"
 ---
 
 # Update an existing app

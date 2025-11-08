@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+title: "Important Information"
 ---
 
 # Lucky Patcher - Important information

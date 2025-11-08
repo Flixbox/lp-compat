@@ -1,3 +1,7 @@
+---
+title: "AVD Setup and Rooting"
+---
+
 # AVD
 
 AVD lets you run a virtual Android device on your PC. This will even allow you to root this virtual device quite easily.
