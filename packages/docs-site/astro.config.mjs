@@ -12,7 +12,7 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Docs',
-					autogenerate: { directory: '.' },
+					autogenerate: { directory: 'reference' },
 				},
 			],
 		}),

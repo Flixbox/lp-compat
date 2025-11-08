@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --port 3001",
+    "start": "astro dev --port 3001",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview --port 3001",
+    "astro": "astro --port 3001"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.36.2",
