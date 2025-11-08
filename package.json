@@ -8,7 +8,8 @@
     "start": "bun run --filter '*' start",
     "format": "biome format --write .",
     "lint": "biome lint .",
-    "check": "biome check --apply ."
+    "check": "biome check --apply .",
+    "build": "bun run build --filter '*'"
   },
   "devDependencies": {
     "@types/bun": "latest",
