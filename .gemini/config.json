@@ -1,0 +1,14 @@
+{
+  "whitelist": [
+    "generate-tests",
+    "explain-code",
+    "optimize",
+    "summarize",
+    "delete-file",
+    "list-files",
+    "read-file",
+    "run-script",
+    "echo",
+    "format-code"
+  ]
+}

@@ -3,7 +3,8 @@
     "astro-build.astro-vscode",
     "oven.bun-vscode",
     "github.vscode-pull-request-github",
-    "pflannery.vscode-versionlens"
+    "pflannery.vscode-versionlens",
+    "biomejs.biome"
   ],
   "unwantedRecommendations": []
 }

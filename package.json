@@ -5,12 +5,17 @@
   "private": true,
   "workspaces": ["packages/*"],
   "scripts": {
-    "start": "bun run --filter '*' start"
+    "start": "bun run --filter '*' start",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check --apply ."
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@arthurrios/biome-config": "1.1.4",
+    "@biomejs/biome": "2.3.4"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "dependencies": {
+    "typescript": "5.9.3"
   }
 }

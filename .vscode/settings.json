@@ -1,8 +1,8 @@
 {
-  "[json]": {
-    "editor.formatOnSave": false
-  },
   "editor.tabCompletion": "on",
   "diffEditor.codeLens": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "editor.formatOnSave": true
 }
