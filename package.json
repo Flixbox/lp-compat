@@ -3,13 +3,16 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "start": "bun run --filter '*' start",
     "format": "biome format --write .",
     "lint": "biome lint .",
     "check": "biome check --apply .",
-    "build": "bun run build --filter '*'"
+    "build": "bun run build --filter '*'",
+    "postinstall": "touch tsconfig.json"
   },
   "devDependencies": {
     "@types/bun": "latest",
