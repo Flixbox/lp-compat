@@ -2,8 +2,6 @@
 title: "Important Information"
 ---
 
-# Lucky Patcher - Important information
-
 ## What is Lucky Patcher capable of?
 
 Lucky Patcher has the following capabilities:

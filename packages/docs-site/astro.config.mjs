@@ -4,14 +4,15 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	base: '/lp-compat',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'LP-Tools',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Flixbox/lp-compat' }],
 			sidebar: [
 				{
-					label: 'Guides',
-					autogenerate: { directory: 'guides' },
+					label: 'Docs',
+					autogenerate: { directory: 'docs' },
 				},
 			],
 		}),

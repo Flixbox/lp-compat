@@ -1,8 +1,6 @@
 ---
-title: "Updating apps"
+title: "Update an existing app"
 ---
-
-# Update an existing app
 
 When you reinstall a patched app, it will no longer be signed with its original signature.
 This means that the app can no longer be updated via Google Play.
