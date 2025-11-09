@@ -14,7 +14,7 @@
     "require-version": "error",
     "require-bugs": "error",
     "require-homepage": "error",
-    "require-keywords": "error",
+    
     "bin-type": "error",
     "config-type": "error",
     "description-type": "error",
@@ -42,12 +42,10 @@
     "no-file-dependencies": "error",
     "no-git-dependencies": "error",
     "no-tilde-version-dependencies": "error",
-    "prefer-absolute-version-dependencies": "error",
     "no-archive-devDependencies": "error",
     "no-caret-version-devDependencies": "error",
     "no-file-devDependencies": "error",
     "no-git-devDependencies": "error",
-    "no-tilde-version-devDependencies": "error",
-    "prefer-absolute-version-devDependencies": "error"
+    "no-tilde-version-devDependencies": "error"
   }
 }
