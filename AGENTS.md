@@ -14,7 +14,7 @@
 - TypeScript strict mode
 - Single quotes, no semicolons
 - Prefer `const func = () => {}` over `function func() {}`
-- You must document functions with JSDoc if you discover them (Use advanced features like @link)
+- You must document functions & anything exported (constants etc) with JSDoc if you discover them (Use advanced features like @link)
 - Default exports are banned, inline exports are banned
 
 ## Agent instructions
