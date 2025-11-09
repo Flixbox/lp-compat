@@ -1,14 +1,12 @@
-import React from 'react'
-import clsx from 'clsx'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import Layout from '@theme/Layout'
-import CompatOverview from '@site/src/components/CompatOverview'
-import styles from './index.module.scss'
+import { faFaceSmileWink } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Link } from '@mui/material'
-import { faFaceSmileWink } from '@fortawesome/free-solid-svg-icons'
+import clsx from 'clsx'
+import React from 'react'
+import styles from './index.module.scss'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
+import { CompatOverview } from './CompatOverview'
 
 config.autoAddCss = false
 
@@ -20,19 +18,17 @@ const LINKS = [
 ]
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext()
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <FontAwesomeIcon icon={faFaceSmileWink} size="4x" aria-hidden="true" />
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
         <Box className={styles.buttons} flex="1" flexDirection="column">
           {LINKS.map((link, index) => (
             <React.Fragment key={link.to}>
               <Link
                 className="button button--secondary button--lg"
-                to={link.to}
+                component="a"
+                href={link.to}
               >
                 {link.text}
               </Link>
@@ -46,18 +42,13 @@ function HomepageHeader() {
 }
 
 function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext()
-  const pageTitle = `${siteConfig.title}`
-  const pageDescription =
-    'A full overview of Lucky Patcher Compatibility with various apps.'
-
   return (
-    <Layout title={pageTitle} description={pageDescription}>
+    <>
       <HomepageHeader />
       <main>
         <CompatOverview />
       </main>
-    </Layout>
+    </>
   )
 }
 

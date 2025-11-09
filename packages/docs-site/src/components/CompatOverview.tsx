@@ -1,63 +1,63 @@
-import React, { useEffect, useState } from 'react'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import clsx from 'clsx'
-import styles from './styles.module.css'
-import { Virtuoso } from 'react-virtuoso'
-import { store } from '../../redux'
-import {
-  Card,
-  Typography,
-  CardContent,
-  Grid,
-  Avatar,
-  Box,
-  Paper,
-  useTheme,
-  Chip,
-  ListItem,
-  ThemeProvider,
-  createTheme,
-  Button,
-  Select,
-  MenuItem,
-  IconButton,
-  styled,
-  CircularProgress,
-  TextField,
-} from '@mui/material'
 import Link from '@docusaurus/Link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useColorMode } from '@docusaurus/theme-common'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import {
   faAdd,
   faBan,
   faCommentsDollar,
+  faDownload,
   faEye,
   faEyeSlash,
   faListCheck,
   faPen,
   faRectangleAd,
   faRefresh,
+  faShieldHalved,
   faStore,
   faTrophy,
-  faDownload,
-  faShieldHalved,
 } from '@fortawesome/free-solid-svg-icons'
-import { xor } from 'lodash'
-import getFeature from '../../featureMap'
-import { useColorMode } from '@docusaurus/theme-common'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Chip,
+  CircularProgress,
+  createTheme,
+  Grid,
+  IconButton,
+  ListItem,
+  MenuItem,
+  Paper,
+  Select,
+  styled,
+  TextField,
+  ThemeProvider,
+  Typography,
+  useTheme,
+} from '@mui/material'
+import { getDiscordLoginUrl, useDiscord } from '@site/src/hooks/useDiscord'
 import { fetchAppCount, fetchApps } from '@site/src/redux/appsSlice'
-import { Provider } from 'react-redux'
+import axiosInstance from '@site/src/redux/axios'
 import { clearState, openDialog } from '@site/src/redux/systemSlice'
 import { App } from '@site/src/types'
-import DialogProvider from '../DialogProvider'
 import MarkdownPreview, {
-  MarkdownPreviewProps,
+  type MarkdownPreviewProps,
 } from '@uiw/react-markdown-preview'
-import axiosInstance from '@site/src/redux/axios'
-import { getDiscordLoginUrl, useDiscord } from '@site/src/hooks/useDiscord'
+import clsx from 'clsx'
+import { xor } from 'lodash'
+import React, { useEffect, useState } from 'react'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { Provider } from 'react-redux'
+import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
+import getFeature from '../../featureMap'
+import { store } from '../../redux'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import DialogProvider from '../DialogProvider'
+import styles from './styles.module.css'
 
 // TODO Move that login button to main component so it works on mobile or update it every second
 
