@@ -1,4 +1,3 @@
-import Link from '@docusaurus/Link'
 import { useColorMode } from '@docusaurus/theme-common'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -28,6 +27,7 @@ import {
   createTheme,
   Grid,
   IconButton,
+  Link,
   ListItem,
   MenuItem,
   Paper,
@@ -39,17 +39,21 @@ import {
   useTheme,
 } from '@mui/material'
 import { getDiscordLoginUrl, useDiscord } from '@site/src/hooks/useDiscord'
-import { fetchAppCount, fetchApps } from '@site/src/redux/appsSlice'
+import { fetchApps } from '@site/src/redux/appsSlice'
 import axiosInstance from '@site/src/redux/axios'
 import { clearState, openDialog } from '@site/src/redux/systemSlice'
 import { App } from '@site/src/types'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
 import MarkdownPreview, {
   type MarkdownPreviewProps,
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
 import { xor } from 'lodash'
 import React, { useEffect, useState } from 'react'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import { Provider } from 'react-redux'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
@@ -504,6 +508,10 @@ const CompatComponent = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme()
+  const { isLoggedIn } = useDiscord()
+  const dispatch = useAppDispatch()
+  const { isStaff } = useStaff()
+
   if (!app?.appId) return null
 
   const {
@@ -523,9 +531,6 @@ const AppTile = ({ app }: { app: App }) => {
     offersIAP,
     IAPRange,
   } = app
-  const { isLoggedIn } = useDiscord()
-  const dispatch = useAppDispatch()
-  const { isStaff } = useStaff()
 
   return (
     <Grid item xs={12} m={1}>
