@@ -4,7 +4,7 @@
     "valid-values-author": ["error", ["Flixbox"]],
 
     "require-private": "error",
-    "valid-values-private": ["error", [false]],
+    "valid-values-private": ["error", [true]],
 
     "require-description": "error",
     "require-engines": "error",

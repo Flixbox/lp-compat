@@ -1,7 +1,7 @@
 {
   "name": "lp-compat",
   "author": "Flixbox",
-  "private": false,
+  "private": true,
   "type": "module",
   "description": "Monorepo to show Lucky Patcher community documentation",
   "license": "UNLICENSED",

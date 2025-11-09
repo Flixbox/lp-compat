@@ -1,7 +1,7 @@
 {
   "name": "@lp-compat/shared",
   "author": "Flixbox",
-  "private": false,
+  "private": true,
   "description": "Shared code for Lucky Patcher community documentation",
   "license": "UNLICENSED",
   "repository": {
@@ -17,8 +17,9 @@
     "bun": ">=1.3.2"
   },
   "type": "module",
+  "main": "src/index.ts",
   "exports": {
-    "./*": "./*"
+    ".": "./src/index.ts"
   },
   "dependencies": {
     "@mui/material": "5.10.2"
