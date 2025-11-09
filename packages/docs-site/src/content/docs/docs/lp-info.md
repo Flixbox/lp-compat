@@ -36,7 +36,7 @@ Lucky Patcher has the following capabilities:
 ## About root
 
 - LP usually works fine without root.
-- You can [set up AVD on your PC](/docs/avd.md) if you'd like to have a rooted device on your PC.
+- You can [set up AVD on your PC](/docs/avd) if you'd like to have a rooted device on your PC.
 - If you decide to root your device, be aware that you might be unable to use some apps on the device.
 - There is no "catch-all" root guide. A good starting point is [XDA Forums](https://xdaforums.com/) and Telegram groups that specialize in rooting specific phone models.
 - With root you'll be able to patch the Android system and Google Play, which means that you usually won't have to patch individual apps.
