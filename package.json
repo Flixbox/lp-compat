@@ -9,15 +9,19 @@
   "scripts": {
     "start": "bun run --filter '*' start",
     "format": "biome format --write .",
-    "lint": "biome lint .",
+    "lint": "bunx npm-run-all --continue-on-error \"lint:*\"",
+    "lint:common": "biome lint .",
+    "lint:pkgjson": "bunx npm-package-json-lint .",
     "check": "biome check --apply .",
     "build": "bun run build --filter '*'",
+    "prepare": "husky install",
     "postinstall": "touch tsconfig.json"
   },
   "devDependencies": {
     "@arthurrios/biome-config": "1.1.4",
     "@biomejs/biome": "2.3.4",
-    "@types/bun": "latest"  
+    "@types/bun": "latest",
+    "npm-package-json-lint": "9.0.0"
   },
   "dependencies": {
     "typescript": "5.9.3"
