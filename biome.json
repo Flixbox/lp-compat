@@ -16,5 +16,12 @@
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noDefaultExport": "error"
+      }
+    }
   }
 }
