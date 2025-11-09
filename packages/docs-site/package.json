@@ -23,6 +23,7 @@
     "@lp-compat/shared": "workspace:*",
     "@mui/material": "5.10.2",
     "@mui/system": "5.10.2",
+    "@reduxjs/toolkit": "1.8.5",
     "@uiw/react-markdown-preview": "4.1.15",
     "@tanstack/react-query": "4.42.0",
     "astro": "5.15.4",
@@ -30,6 +31,7 @@
     "lodash": "4.17.21",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-redux": "8.0.2",
     "react-virtuoso": "4.7.1",
     "sharp": "0.34.2",
     "usehooks-ts": "3.0.2"

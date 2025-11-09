@@ -1,12 +1,22 @@
 {
+  // General editor behavior
   "editor.tabCompletion": "on",
   "diffEditor.codeLens": true,
-  "[javascript][javascriptreact][typescript][typescriptreact]": {
+
+  // Default formatters per language
+  "[javascript][javascriptreact][typescript][typescriptreact][json]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+
+  // Format and lint on save
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit",
     "source.fixAll.biome": "explicit"
+  },
+
+  // Associate JSON files explicitly
+  "files.associations": {
+    "*.json": "jsonc"
   }
 }
