@@ -15,6 +15,7 @@
     "@astrojs/mdx": "4.3.10",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
+    "@lp-compat/shared": "workspace:*",
     "@mui/material": "5.10.2",
     "@mui/system": "5.10.2",
     "astro": "5.15.4",

@@ -1,3 +1,10 @@
 {
-    "name": "@lp-compat/shared"
+    "name": "@lp-compat/shared",
+    "type": "module",
+    "exports": {
+      "./*": "./*"
+    },
+    "dependencies": {
+        "@mui/material": "5.10.2"
+    }
 }
