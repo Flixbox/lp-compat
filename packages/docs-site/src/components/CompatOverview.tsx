@@ -1,4 +1,3 @@
-import { useColorMode } from '@docusaurus/theme-common'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import {
   faAdd,
@@ -36,13 +35,7 @@ import {
   TextField,
   ThemeProvider,
   Typography,
-  useTheme,
 } from '@mui/material'
-import { getDiscordLoginUrl, useDiscord } from '@site/src/hooks/useDiscord'
-import { fetchApps } from '@site/src/redux/appsSlice'
-import axiosInstance from '@site/src/redux/axios'
-import { clearState, openDialog } from '@site/src/redux/systemSlice'
-import { App } from '@site/src/types'
 import {
   QueryClient,
   QueryClientProvider,
@@ -57,6 +50,11 @@ import React, { useEffect, useState } from 'react'
 import { Provider } from 'react-redux'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
+import { getDiscordLoginUrl, useDiscord } from '@/hooks/useDiscord'
+import { useTheme } from '@/hooks/useTheme'
+import { fetchApps } from '@/redux/appsSlice'
+import axiosInstance from '@/redux/axios'
+import { clearState, openDialog } from '@/redux/systemSlice'
 import getFeature from '../../featureMap'
 import { store } from '../../redux'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
@@ -93,7 +91,7 @@ const StyledMarkdown = styled(MarkdownPreview)<
 )
 
 const CompatOverview = () => {
-  const { colorMode } = useColorMode()
+  const { colorMode } = useTheme()
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
