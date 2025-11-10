@@ -30,11 +30,11 @@
     "@astrojs/mdx": "4.3.10",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
-    "@fortawesome/fontawesome-svg-core": "6.1.2",
-    "@fortawesome/free-brands-svg-icons": "6.1.2",
-    "@fortawesome/free-regular-svg-icons": "6.1.2",
-    "@fortawesome/free-solid-svg-icons": "6.1.2",
-    "@fortawesome/react-fontawesome": "0.2.0",
+    "@fortawesome/fontawesome-svg-core": "6.5.2",
+    "@fortawesome/free-brands-svg-icons": "6.5.2",
+    "@fortawesome/free-regular-svg-icons": "6.5.2",
+    "@fortawesome/free-solid-svg-icons": "6.5.2",
+    "@fortawesome/react-fontawesome": "0.2.2",
     "@lp-compat/shared": "workspace:*",
     "@mui/material": "5.10.2",
     "@mui/system": "5.10.2",
@@ -56,8 +56,6 @@
     "@babel/preset-react": "7.28.5",
     "@types/lodash": "4.14.184",
     "@types/react": "18.2.73",
-    "babel-plugin-react-compiler": "1.0.0",
-    "esbuild-plugin-babel": "0.2.3",
     "sass-embedded": "^1.93.3"
   }
 }
