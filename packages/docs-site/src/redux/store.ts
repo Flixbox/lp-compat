@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { appsSlice } from './appsSlice'
-import { systemSlice } from './systemSlice'
+import { appsSlice } from '@/redux/appsSlice'
+import { systemSlice } from '@/redux/systemSlice'
 
 export const store = configureStore({
   reducer: combineReducers({

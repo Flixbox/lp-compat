@@ -1,7 +1,7 @@
 import { type App, SCRAPER_BASE } from '@lp-compat/shared'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { DiscordUser } from '@/hooks'
-import { clearState, setAppsListPage } from './systemSlice'
+import { clearState, setAppsListPage } from '@/redux/systemSlice'
 
 const pageSize = 5000
 

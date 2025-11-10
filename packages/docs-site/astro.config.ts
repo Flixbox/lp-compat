@@ -1,9 +1,9 @@
-import { defineConfig } from 'astro/config'
-import starlight from '@astrojs/starlight'
-import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
+import react from '@astrojs/react'
+import starlight from '@astrojs/starlight'
+import { type Root, visit } from '@astrojs/starlight/expressive-code/hast'
+import { defineConfig } from 'astro/config'
 import babel from 'esbuild-plugin-babel'
-import { visit, type Root } from '@astrojs/starlight/expressive-code/hast'
 
 const BASE_PATH = '/lp-compat/'
 

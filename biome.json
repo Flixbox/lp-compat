@@ -23,5 +23,17 @@
         "noDefaultExport": "error"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
 }
