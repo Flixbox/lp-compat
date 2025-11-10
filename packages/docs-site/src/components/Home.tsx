@@ -6,7 +6,7 @@ import React from 'react'
 import styles from './index.module.scss'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
-import { CompatOverview } from './CompatOverview'
+import { CompatOverview } from '@/components/CompatOverview'
 
 config.autoAddCss = false
 

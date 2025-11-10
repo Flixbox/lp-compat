@@ -1,16 +1,16 @@
-import { type App, SCRAPER_BASE } from '@lp-compat/shared'
+import {
+  APPS_WORKER_BASE_URL,
+  type App,
+  SCRAPER_BASE_URL,
+} from '@lp-compat/shared'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { DiscordUser } from '@/hooks'
 import { clearState, setAppsListPage } from '@/redux/systemSlice'
 
 const pageSize = 5000
 
-// All apps-related requests should go via the worker URL below.
-const APPS_WORKER_URL =
-  'https://lp-compat-backend.alone-king-poking.workers.dev'
-
 const fetchApps = createAsyncThunk('apps/all', async () => {
-  const response = await fetch(`${APPS_WORKER_URL}/read`)
+  const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
   if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`)
   return (await response.json()) as App[]
 })
@@ -18,7 +18,7 @@ const fetchApps = createAsyncThunk('apps/all', async () => {
 const fetchApp = createAsyncThunk<any, { appId: string }>(
   'apps/get',
   async ({ appId }) => {
-    const response = await fetch(`${APPS_WORKER_URL}/read`)
+    const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`)
     const data = (await response.json()) as App[]
     return data.find((a) => a.appId === appId)
@@ -28,7 +28,7 @@ const fetchApp = createAsyncThunk<any, { appId: string }>(
 const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   'apps/page',
   async ({ page }, thunkAPI) => {
-    const response = await fetch(`${APPS_WORKER_URL}/read`)
+    const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`)
     const data = (await response.json()) as App[]
     const start = page * pageSize
@@ -39,7 +39,7 @@ const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
 )
 
 const fetchAppCount = createAsyncThunk('apps/count', async () => {
-  const response = await fetch(`${APPS_WORKER_URL}/read`)
+  const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
   if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`)
   const data = (await response.json()) as App[]
   return data.length
@@ -49,7 +49,7 @@ const addApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
   'apps/add',
   async ({ app, discordUser }) => {
     // The worker expects the App object and discordUser in the request body at /create.
-    const res = await fetch(`${APPS_WORKER_URL}/create`, {
+    const res = await fetch(`${APPS_WORKER_BASE_URL}/create`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ app, discordUser }),
@@ -66,7 +66,7 @@ const editApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
   'apps/edit',
   async ({ app, discordUser }) => {
     // The worker expects the App object and discordUser in the request body at /update.
-    const res = await fetch(`${APPS_WORKER_URL}/update`, {
+    const res = await fetch(`${APPS_WORKER_BASE_URL}/update`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ app, discordUser }),
@@ -82,7 +82,7 @@ const editApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
 const getPlayStoreData = createAsyncThunk<any, { appId: string }>(
   'playstore/get',
   async ({ appId }) => {
-    const res = await fetch(`${SCRAPER_BASE}/app`, {
+    const res = await fetch(`${SCRAPER_BASE_URL}/app`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ const getPlayStoreData = createAsyncThunk<any, { appId: string }>(
 const searchPlayStoreData = createAsyncThunk<any, { query: string }>(
   'playstore/search',
   async ({ query }) => {
-    const res = await fetch(`${SCRAPER_BASE}/search`, {
+    const res = await fetch(`${SCRAPER_BASE_URL}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

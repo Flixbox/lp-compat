@@ -15,6 +15,7 @@ import {
   faTrophy,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { getFeature } from '@lp-compat/shared'
 import {
   Avatar,
   Box,
@@ -50,15 +51,16 @@ import React, { useEffect, useState } from 'react'
 import { Provider } from 'react-redux'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
-import { getDiscordLoginUrl, useDiscord } from '@/hooks/useDiscord'
-import { useTheme } from '@/hooks/useTheme'
-import { fetchApps } from '@/redux/appsSlice'
-import axiosInstance from '@/redux/axios'
+import { DialogProvider } from '@/components/DialogProvider'
+import { getDiscordLoginUrl, useDiscord, useTheme } from '@/hooks'
+import {
+  axiosInstance,
+  fetchApps,
+  store,
+  useAppDispatch,
+  useAppSelector,
+} from '@/redux'
 import { clearState, openDialog } from '@/redux/systemSlice'
-import getFeature from '../../featureMap'
-import { store } from '../../redux'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import DialogProvider from '../DialogProvider'
 import styles from './styles.module.css'
 
 // TODO Move that login button to main component so it works on mobile or update it every second

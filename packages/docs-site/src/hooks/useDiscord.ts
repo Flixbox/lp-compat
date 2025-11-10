@@ -85,4 +85,4 @@ const useDiscord = () => {
   return { discordUser, isLoggedIn }
 }
 
-export type { useDiscord, getDiscordLoginUrl, DiscordUser }
+export { useDiscord, getDiscordLoginUrl, type DiscordUser }
