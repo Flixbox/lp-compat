@@ -54,6 +54,7 @@
     },
     "packages/shared": {
       "name": "@lp-compat/shared",
+      "version": "0.0.1",
       "dependencies": {
         "@mui/material": "5.10.2",
       },
