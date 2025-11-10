@@ -36,9 +36,9 @@
         "@tanstack/react-query": "4.42.0",
         "@uiw/react-markdown-preview": "4.1.15",
         "astro": "5.15.4",
-        "axios": "^0.27.2",
+        "axios": "0.27.2",
         "clsx": "1.2.1",
-        "esbuild-plugin-babel": "^0.2.3",
+        "esbuild-plugin-babel": "0.2.3",
         "lodash": "4.17.21",
         "react": "19.2.0",
         "react-dom": "19.2.0",
@@ -50,7 +50,8 @@
         "@babel/preset-react": "7.28.5",
         "@types/lodash": "4.14.184",
         "@types/react": "18.2.73",
-        "sass-embedded": "^1.93.3",
+        "babel-plugin-react-compiler": "1.0.0",
+        "sass-embedded": "1.93.3",
       },
     },
     "packages/shared": {
@@ -615,6 +616,8 @@
     "axobject-query": ["axobject-query@4.1.0", "", {}, "sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ=="],
 
     "babel-plugin-macros": ["babel-plugin-macros@3.1.0", "", { "dependencies": { "@babel/runtime": "^7.12.5", "cosmiconfig": "^7.0.0", "resolve": "^1.19.0" } }, "sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg=="],
+
+    "babel-plugin-react-compiler": ["babel-plugin-react-compiler@1.0.0", "", { "dependencies": { "@babel/types": "^7.26.0" } }, "sha512-Ixm8tFfoKKIPYdCCKYTsqv+Fd4IJ0DQqMyEimo+pxUOMUR9cVPlwTrFt9Avu+3cb6Zp3mAzl+t1MrG2fxxKsxw=="],
 
     "bail": ["bail@2.0.2", "", {}, "sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw=="],
 
