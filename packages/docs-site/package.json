@@ -57,6 +57,7 @@
     "@types/lodash": "4.14.184",
     "@types/react": "18.2.73",
     "babel-plugin-react-compiler": "1.0.0",
-    "esbuild-plugin-babel": "0.2.3"
+    "esbuild-plugin-babel": "0.2.3",
+    "sass-embedded": "^1.93.3"
   }
 }
