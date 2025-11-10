@@ -15,7 +15,7 @@ import {
   faTrophy,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { getFeature } from '@lp-compat/shared'
+import { type App, getFeature } from '@lp-compat/shared'
 import {
   Avatar,
   Box,
@@ -93,7 +93,7 @@ const StyledMarkdown = styled(MarkdownPreview)<
 )
 
 const CompatOverview = () => {
-  const { colorMode } = useTheme()
+  const colorMode = useTheme()
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
@@ -458,7 +458,9 @@ const CompatComponent = () => {
               <Chip
                 label={title}
                 onClick={() =>
-                  setOnlyShowTheseCategories(_.xor(onlyShowTheseCategories, [id]))
+                  setOnlyShowTheseCategories(
+                    _.xor(onlyShowTheseCategories, [id]),
+                  )
                 }
                 icon={
                   <FontAwesomeIcon
