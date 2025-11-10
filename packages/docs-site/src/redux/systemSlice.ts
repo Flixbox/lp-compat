@@ -1,6 +1,8 @@
 import type { App } from '@lp-compat/shared'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { createAction, createSlice } from '@reduxjs/toolkit'
+import reduxToolkit from '@reduxjs/toolkit'
+
+const { createSlice, createAction } = reduxToolkit
 
 interface DiscordUser {
   MFAEnabled: boolean
@@ -36,7 +38,7 @@ const initialState = {
   },
 } as SystemState
 
-export const clearState = createAction('clear')
+const clearState = createAction('clear')
 
 const systemSlice = createSlice({
   name: 'system',
@@ -70,4 +72,4 @@ const systemSlice = createSlice({
 
 export const { setAppsListUpdated, setAppsListPage, openDialog, closeDialog } =
   systemSlice.actions
-export { systemSlice }
+export { systemSlice, clearState }
