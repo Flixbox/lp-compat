@@ -4,6 +4,7 @@
     "interface": true,
     "type": true
   },
+  "ignoreDependencies": ["sass-embedded"],
   "tags": [
     "-lintignore"
   ],
