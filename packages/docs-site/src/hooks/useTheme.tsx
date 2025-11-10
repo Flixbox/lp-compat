@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function useTheme(): "light" | "dark" {
-  const [theme, setTheme] = useState<string | null>(null);
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     // Initial theme
@@ -20,7 +20,7 @@ function useTheme(): "light" | "dark" {
     };
   }, []);
 
-  return theme as "light" | "dark";
+  return theme;
 }
 
 export { useTheme };
