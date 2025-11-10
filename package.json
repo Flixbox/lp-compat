@@ -26,6 +26,7 @@
     "lint": "bunx npm-run-all --continue-on-error \"lint:*\"",
     "lint:common": "biome lint .",
     "lint:pkgjson": "bunx npm-package-json-lint .",
+    "lint:knip": "knip",
     "check": "biome check --apply .",
     "build": "bun run build --filter '*'",
     "postinstall": "touch tsconfig.json"
@@ -34,6 +35,8 @@
     "@arthurrios/biome-config": "1.1.4",
     "@biomejs/biome": "2.3.4",
     "@types/bun": "latest",
+    "@types/node": "24.10.0",
+    "knip": "5.68.0",
     "npm-package-json-lint": "9.0.0"
   },
   "dependencies": {
