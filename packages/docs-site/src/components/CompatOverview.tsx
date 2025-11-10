@@ -46,7 +46,7 @@ import MarkdownPreview, {
   type MarkdownPreviewProps,
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
-import { xor } from 'lodash'
+import _ from 'lodash'
 import React, { useEffect, useState } from 'react'
 import { Provider } from 'react-redux'
 import { Virtuoso } from 'react-virtuoso'
@@ -458,7 +458,7 @@ const CompatComponent = () => {
               <Chip
                 label={title}
                 onClick={() =>
-                  setOnlyShowTheseCategories(xor(onlyShowTheseCategories, [id]))
+                  setOnlyShowTheseCategories(_.xor(onlyShowTheseCategories, [id]))
                 }
                 icon={
                   <FontAwesomeIcon
