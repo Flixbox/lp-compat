@@ -36,6 +36,7 @@ import {
   TextField,
   ThemeProvider,
   Typography,
+  useTheme,
 } from '@mui/material'
 import {
   QueryClient,
@@ -52,7 +53,7 @@ import { Provider } from 'react-redux'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
 import { DialogProvider } from '@/components/DialogProvider'
-import { getDiscordLoginUrl, useDiscord, useTheme } from '@/hooks'
+import { getDiscordLoginUrl, useColorMode, useDiscord } from '@/hooks'
 import {
   axiosInstance,
   fetchApps,
@@ -93,7 +94,7 @@ const StyledMarkdown = styled(MarkdownPreview)<
 )
 
 const CompatOverview = () => {
-  const colorMode = useTheme()
+  const colorMode = useColorMode()
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
@@ -252,7 +253,6 @@ const CompatComponent = () => {
     '',
   )
   const [sorting, setSorting] = useLocalStorage('apps-sorting', 'installs-asc')
-  const theme = useTheme()
   const [loading, setLoading] = useState(true)
   const apps = useAppSelector<App[]>((state) => state.apps)
   const { appsListUpdated } = useAppSelector((state) => state.system)
