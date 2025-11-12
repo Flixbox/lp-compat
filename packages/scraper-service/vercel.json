@@ -6,7 +6,7 @@
   "outputDirectory": null, 
   "functions": {
     "src/scraper.js": {
-      "runtime": "edge"
+      "runtime": "bun@1.3.2"
     }
   },
   "rewrites": [
