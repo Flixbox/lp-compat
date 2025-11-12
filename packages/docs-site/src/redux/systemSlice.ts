@@ -1,8 +1,6 @@
 import type { App } from '@lp-compat/shared'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import reduxToolkit from '@reduxjs/toolkit'
-
-const { createSlice, createAction } = reduxToolkit
+import { createAction, createSlice } from '@reduxjs/toolkit'
 
 interface DiscordUser {
   MFAEnabled: boolean
