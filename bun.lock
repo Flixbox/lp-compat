@@ -16,6 +16,13 @@
         "npm-package-json-lint": "9.0.0",
       },
     },
+    "packages/app-list-service": {
+      "name": "@lp-compat/app-list-service",
+      "version": "0.0.1",
+      "dependencies": {
+        "@lp-compat/shared": "workspace:*",
+      },
+    },
     "packages/docs-site": {
       "name": "@lp-compat/docs-site",
       "version": "0.0.1",
@@ -320,6 +327,8 @@
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "", {}, "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="],
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
+
+    "@lp-compat/app-list-service": ["@lp-compat/app-list-service@workspace:packages/app-list-service"],
 
     "@lp-compat/docs-site": ["@lp-compat/docs-site@workspace:packages/docs-site"],
 

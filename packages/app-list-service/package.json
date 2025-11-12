@@ -1,0 +1,27 @@
+{
+  "name": "@lp-compat/app-list-service",
+  "author": "Flixbox",
+  "private": true,
+  "description": "A worker that manages the app list for Lucky Patcher community documentation",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flixbox/lp-compat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Flixbox/lp-compat/issues"
+  },
+  "homepage": "https://github.com/Flixbox/lp-compat#readme",
+  "version": "0.0.1",
+  "engines": {
+    "bun": ">=1.3.2"
+  },
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@lp-compat/shared": "workspace:*"
+  }
+}
