@@ -10,6 +10,6 @@
     }
   },
   "rewrites": [
-    { "source": "/(.*)", "destination": "src/scraper.js" }
+    { "source": "/(.*)", "destination": "api/scraper.js" }
   ]
 }

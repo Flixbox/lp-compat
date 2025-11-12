@@ -17,9 +17,9 @@
     "bun": ">=1.3.2"
   },
   "type": "module",
-  "main": "src/index.ts",
+  "main": "api/scraper.js",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./api/scraper.js"
   },
   "dependencies": {
     "@lp-compat/shared": "workspace:*",
