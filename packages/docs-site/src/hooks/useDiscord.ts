@@ -63,7 +63,7 @@ const useDiscord = () => {
   }, [storedDiscordUserAccessToken, storedDiscordUserTokenType])
 
   const { data: discordUser } = useQuery<DiscordUserQueryResult>(
-    'discord',
+    ['discord'],
     async () =>
       (
         await fetch('https://discord.com/api/v9/users/@me', {

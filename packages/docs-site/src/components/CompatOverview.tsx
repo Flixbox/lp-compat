@@ -48,7 +48,7 @@ import MarkdownPreview, {
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
 import _ from 'lodash'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useEffectEvent } from 'react'
 import { Provider } from 'react-redux'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
@@ -270,11 +270,14 @@ const CompatComponent = () => {
     if (!BACKEND_ENABLED) loginButton.textContent = ''
   }, [isLoggedIn, discordUser])
 
-  // Load the entire static JSON once on mount
-  useEffect(() => {
+  const loadApps = useEffectEvent(() => {
     setLoading(true)
     dispatch(fetchApps()).finally(() => setLoading(false))
-  }, [dispatch])
+  })
+
+  useEffect(() => {
+    loadApps()
+  }, [])
 
   const visibilitySettings = [
     {

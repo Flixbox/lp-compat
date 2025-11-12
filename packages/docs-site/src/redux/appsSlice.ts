@@ -3,11 +3,9 @@ import {
   type App,
   SCRAPER_BASE_URL,
 } from '@lp-compat/shared'
-import reduxToolkit from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { DiscordUser } from '@/hooks'
 import { clearState, setAppsListPage } from '@/redux/systemSlice'
-
-const { createSlice, createAsyncThunk } = reduxToolkit
 
 const pageSize = 5000
 
