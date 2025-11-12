@@ -6,7 +6,7 @@
   "outputDirectory": null, 
   "functions": {
     "api/scraper.js": {
-      "runtime": "bun@1.3.2"
+      "runtime": "bun@1.0.0"
     }
   },
   "rewrites": [
