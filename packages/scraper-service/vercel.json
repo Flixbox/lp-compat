@@ -3,12 +3,7 @@
   "version": 2,
   "bunVersion": "1.x",
   "buildCommand": "",
-  "outputDirectory": null, 
-  "functions": {
-    "api/scraper.js": {
-      "runtime": "bun@1.0.0"
-    }
-  },
+  "outputDirectory": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "api/scraper.js" }
   ]
