@@ -10,6 +10,30 @@ export interface Env {
 
 const filePath = "/packages/shared/static/lucky-patcher-app-compatibility.json";
 
+function corsHeaders(origin: string) {
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  };
+}
+
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return false;
+  // Allow localhost (any port)
+  if (
+    origin.startsWith("http://localhost") ||
+    origin.startsWith("http://127.0.0.1")
+  ) {
+    return true;
+  }
+  // Allow GitHub Pages domains (*.github.io)
+  if (/^https:\/\/[a-zA-Z0-9-]+\.github\.io/.test(origin)) {
+    return true;
+  }
+  return false;
+}
+
 function encodeBase64(input: string): string {
   return Buffer.from(input, "utf8").toString("base64");
 }
@@ -142,13 +166,29 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
+    const origin = req.headers.get("Origin") || "";
+
+    const commonHeaders = { headers: corsHeaders(origin) };
+
+    // Handle preflight requests
+    if (req.method === "OPTIONS") {
+      if (isAllowedOrigin(origin)) {
+        return new Response(null, commonHeaders);
+      }
+      return new Response("Forbidden", { status: 403 });
+    }
+
+    if (!isAllowedOrigin(origin)) {
+      return new Response("Forbidden", { status: 403 });
+    }
+
     try {
       const url = new URL(req.url);
       const { content, sha } = await fetchFile(env);
 
       // Read all entries
       if (url.pathname === "/read" && req.method === "GET") {
-        return Response.json(content);
+        return Response.json(content, commonHeaders);
       }
 
       // Create a new entry
@@ -168,16 +208,21 @@ export default {
 
         await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
 
-        return Response.json({ status: "created", id: anyBody.id });
+        return Response.json(
+          { status: "created", id: anyBody.id },
+          commonHeaders,
+        );
       }
 
       // Update existing entry
       if (url.pathname === "/update" && req.method === "PUT") {
         const body = (await req.json()) as App;
         const anyBody = body as any;
-        if (!anyBody.id) return new Response("Missing id", { status: 400 });
+        if (!anyBody.id)
+          return new Response("Missing id", { ...commonHeaders, status: 400 });
         const index = content.findIndex((x) => (x as any).id === anyBody.id);
-        if (index === -1) return new Response("Not found", { status: 404 });
+        if (index === -1)
+          return new Response("Not found", { ...commonHeaders, status: 404 });
 
         // Merge with existing entry so we don't lose fields not present in the update payload
         const existing = content[index] as any;
@@ -191,12 +236,15 @@ export default {
 
         await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
 
-        return Response.json({ status: "updated" });
+        return Response.json({ status: "updated" }, commonHeaders);
       }
 
-      return new Response("Not found", { status: 404 });
+      return new Response("Not found", { ...commonHeaders, status: 404 });
     } catch (err: any) {
-      return new Response(err?.message ?? String(err), { status: 500 });
+      return new Response(err?.message ?? String(err), {
+        ...commonHeaders,
+        status: 500,
+      });
     }
   },
 };
