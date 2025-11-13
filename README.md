@@ -19,6 +19,12 @@ If you have any questions or want to discuss the project with others, you can us
 - Uses Cloudflare to host the main backend
 - Uses Vercel to host the play store scraper, since Cloudflare doesn't like Node.js
 
+Worker setup (If you wanna run the cloudflare worker locally):
+
+`cd .\packages\app-list-service\`
+
+`bunx wrangler secret put GITHUB_TOKEN`
+
 ## Setting up the project
 
 To get started with this project, you will need to install two pieces of software on your computer: _Node.js_ and _pnpm_.

@@ -22,6 +22,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
+    "prestart": "bunx kill-port 8787",
     "start": "bunx wrangler@latest dev --remote --env=local --show-interactive-dev-session=false"
   },
   "dependencies": {
