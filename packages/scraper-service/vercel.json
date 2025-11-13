@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "bunVersion": "1.x",
+  "buildCommand": "",
+  "outputDirectory": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "api/scraper.js" }
+  ]
+}

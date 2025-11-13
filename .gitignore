@@ -25,3 +25,4 @@ yarn-error.log*
 /.nixpacks
 swagger-output.json
 debug.log
+.wrangler/

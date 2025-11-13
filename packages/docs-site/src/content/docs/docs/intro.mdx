@@ -1,0 +1,87 @@
+---
+title: "Intro"
+---
+
+import LP_App_patching_step_1 from "../../../assets/img/create_modified_apk.jpg";
+import LP_App_patching_step_2 from "../../../assets/img/rebuild_categories_selection.jpg";
+import LP_App_patching_step_3 from "../../../assets/img/ad_patches.jpg";
+import LP_App_patching_step_4 from "../../../assets/img/iap_patches.jpg";
+import LP_App_patching_step_5 from "../../../assets/img/LP_App_patching_step_5.jpg";
+import LP_App_patching_step_6 from "../../../assets/img/LP_App_patching_step_6.jpg";
+import LP_App_battery_saver from "../../../assets/img/battery.png";
+import { Box } from "@mui/material";
+
+# Patching an app
+
+:::caution
+
+The download link on the official Lucky Patcher website frequently breaks and spams you with pop-ups in the browser. Use an adblocker - [uBlock Origin](https://ublockorigin.com) for desktop browsers and [AdGuard DNS](https://adguard-dns.io/en/public-dns.html) for Android - if you plan to visit the website.
+
+Alternatively, you can use a direct download link from the [developer's website](http://chelpus.com/luckypatcher/LuckyPatcherInstaller.apk) or [the #downloads channel on the unofficial Lucky Patcher Discord server](https://discord.gg/RS5ddYf7mw) (the former is sometimes down).
+
+:::
+
+## Set up Lucky Patcher
+
+Read the [important info about LP](/docs/lp-info) section.
+
+Refer to the tutorial in the app. To patch in-app purchases, ensure that LP has the “Draw over other apps” or “Display pop-up windows” permission. This permission is essential because LP substitutes the Google Play purchase popup with its own, which includes settings that may assist in obtaining the item for free.
+
+This special permission can be found in the app's settings. The app settings can be found by long pressing the app in your phone's app drawer. The location of this permission depends on your firmware.
+
+Examples:
+
+`App info > scroll down to Advanced > Display over other apps`
+
+`App info > Other permissions`
+
+Make sure that LP has unrestricted battery access. If you're still running into trouble (for example if the LP popup doesn't show) you can follow [these instructions](https://dontkillmyapp.com/).
+
+<img src={LP_App_battery_saver.src} style={{ height: "700px" }} />
+
+## Create the modified APK file
+
+Follow these screenshots to create your modified APK file. Read any pop-ups you may come across and try to follow their advice, but don't worry too much about them.
+
+Here are the following steps to patch an app:
+1. Open Lucky Patcher and tap the app you'd like to modify.
+2. Press "Menu of Patches"
+3. On "Create Modified APK File:" screen, tap the "Apk with Multi-patch" option. The two most useful patches are the ad-free (APK without Google Ads/Remove Ads) and InApp Purchase (APK rebuilt for InApp and LVL emulation/Support patch for InApp and LVL emulation) patches.
+
+<img src={LP_App_patching_step_1.src} style={{ height: "700px" }} />
+
+<Box m={2} display="inline" />
+
+<img src={LP_App_patching_step_2.src} style={{ height: "700px" }} />
+
+4. You can leave those checkboxes as-is, but applying these patches would be good.
+
+<img src={LP_App_patching_step_3.src} style={{ height: "700px" }} />
+
+<Box m={2} display="inline" />
+
+<img src={LP_App_patching_step_4.src} style={{ height: "700px" }} />
+
+5. Finally, install the modified APK file by tapping the "Go to file" button and then the "Uninstall and install" button. Afterward, press "Yes", then "Ok", then finally "Install".
+
+<img src={LP_App_patching_step_5.src} style={{ height: "700px" }} />
+
+<Box m={2} display="inline" />
+
+<img src={LP_App_patching_step_6.src} style={{ height: "700px" }} />
+
+If the patched app crashes or shows an error when you open it, you can attempt the following patches:
+1. Applying the _Removes integrity check and signature verification_ and _Fake a modified APK archive from the original_ patches alongside the other patches.
+2. Instead of _Support patch for InApp emulation (Reassembly Dex)_, try both _Support patch for LVL and Inapp emulation_ and _Support patch for Inapp emulation (Proxy server)_.
+
+## Reinstall the app
+
+When you reinstall (uninstall the original app and install the patched one) you will no longer be able to use Google features like Google Play sign-in in that app anymore. However, some patchable apps like Merge Dragons and City Island 5 allow signing in via Facebook, which usually works. However, if you have the Facebook app installed on your device you have to uninstall/disable it to be able to sign in to apps with Facebook.
+
+Whenever APKs for Android are modified in any way, the APK must be signed before it can be installed. The signature of a Play Store app will always be different and cannot be spoofed. Android does not allow updating an app using an APK with a different signature. As a result, you will have to uninstall the unmodified app before installing the patched one. However, if you already patched an app with LP, and are patching over the patched version again, you can update it as the signatures will match.
+
+## Cleanup
+
+You'll also be able to find the patched APK files in LP under the "Rebuild & Install" option in the menu. If you'd like to clean up some storage, remove these APK files manually. This menu only allows deleting one file at a time. You can clean up all of your patched APK files at once by opening the settings of Lucky Patcher, selecting "Change Directory" and enabling "Move data to a new location". 
+
+Now go to the folder you selected and you can delete everything inside the `Modified` folder. It only contains your patched APKs and some metadata.

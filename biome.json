@@ -1,0 +1,39 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.4/schema.json",
+  "extends": ["@arthurrios/biome-config/node"],
+  "files": {
+    "includes": [
+      "**/*",
+      "!**/node_modules",
+      "!dist",
+      "!build",
+      "!coverage",
+      "!**/*.min.js",
+      "!**/.astro"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noDefaultExport": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*config.{js,ts}", "**/*worker.{js,ts}", "**/*scraper.{js,ts}"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
+}

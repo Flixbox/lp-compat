@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "src/scraper/scraper.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "src/scraper/scraper.js" }
-  ]
-}

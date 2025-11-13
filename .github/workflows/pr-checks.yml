@@ -1,0 +1,16 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - '**'
+
+jobs:
+  call-checks:
+    name: Run checks
+    uses: ./.github/workflows/checks.yml
+
+  call-preview:
+    name: Build preview
+    uses: ./.github/workflows/preview.yml

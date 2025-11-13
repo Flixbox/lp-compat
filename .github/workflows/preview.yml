@@ -1,0 +1,29 @@
+name: Preview Build
+
+on:
+  workflow_call:
+
+jobs:
+  build-preview:
+    name: Build site preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install --frozen
+
+      - name: Build site
+        run: bun run build
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: ./packages/docs-site/dist   # adjust to your build output folder

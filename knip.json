@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreExportsUsedInFile": {
+    "interface": true,
+    "type": true
+  },
+  "ignoreDependencies": ["sass-embedded"],
+  "tags": [
+    "-lintignore"
+  ],
+  "workspaces": {
+    ".": {}
+  }
+}
