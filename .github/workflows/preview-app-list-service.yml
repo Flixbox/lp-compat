@@ -9,6 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Verify required variables
+        run: |
+          : "${CF_API_TOKEN:?CF_API_TOKEN is not set or empty}"
+          : "${CF_ACCOUNT_ID:?CF_ACCOUNT_ID is not set or empty}"
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
 
