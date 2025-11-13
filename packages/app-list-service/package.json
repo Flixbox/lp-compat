@@ -21,6 +21,9 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "start": "bunx wrangler@latest dev --remote --env=local --show-interactive-dev-session=false"
+  },
   "dependencies": {
     "@lp-compat/shared": "workspace:*"
   }
