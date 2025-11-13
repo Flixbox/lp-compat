@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install --frozen
+
       - uses: shidil/cloudflare-workers-preview@v1
         with:
           cf_token: ${{ secrets.CF_API_TOKEN }}
@@ -18,7 +25,6 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            bun i
             bun run build
       - name: Get the preview_url
         run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
