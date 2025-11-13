@@ -21,7 +21,7 @@ jobs:
           cf_account: ${{ secrets.CF_ACCOUNT_ID }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           domain: lp-compat-backend.alone-king-poking.workers.dev
-          project_path: ./packages/app-list-service
+          project_path: packages/app-list-service
           failOnError: true
           teardown: 'true'
           build: |
