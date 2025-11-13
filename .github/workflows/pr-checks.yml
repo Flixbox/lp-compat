@@ -2,6 +2,7 @@ name: PR Checks
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
@@ -13,3 +14,7 @@ jobs:
   call-preview:
     name: Build preview
     uses: ./.github/workflows/preview.yml
+
+  call-preview-app-list-service:
+    name: Deploy preview for app list service
+    uses: ./.github/workflows/preview-app-list-service.yml

@@ -1,0 +1,24 @@
+name: Workers PR Preview
+
+on:
+  workflow_call:
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shidil/cloudflare-workers-preview@v1
+        with:
+          cf_token: ${{ secrets.CF_API_TOKEN }}
+          cf_account: ${{ secrets.CF_ACCOUNT_ID }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          domain: lp-compat-backend.alone-king-poking.workers.dev
+          project_path: ./packages/app-list-service
+          failOnError: true
+          teardown: 'true'
+          build: |
+            bun i
+            bun run build
+      - name: Get the preview_url
+        run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
