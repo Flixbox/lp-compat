@@ -2,6 +2,13 @@ name: Workers PR Preview
 
 on:
   workflow_call:
+    secrets:
+      CF_API_TOKEN:
+        required: true
+      CF_ACCOUNT_ID:
+        required: true
+      GITHUB_TOKEN:
+        required: true
 
 jobs:
   preview:
