@@ -26,6 +26,6 @@ jobs:
           failOnError: true
           teardown: 'true'
           build: |
-            bun run build
+            echo "No build necessary"
       - name: Get the preview_url
         run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
