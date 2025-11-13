@@ -11,9 +11,9 @@ import { CompatOverview } from '@/components/CompatOverview'
 config.autoAddCss = false
 
 const LINKS = [
-  { to: '/docs/lp-info', text: 'Important info about LP 💡' },
-  { to: '/docs/intro', text: 'How to install & patch an app 📖' },
-  { to: '/docs/favourites', text: 'Community Favourites ⭐' },
+  { to: '/lp-compat/docs/lp-info', text: 'Important info about LP 💡' },
+  { to: '/lp-compat/docs/intro', text: 'How to install & patch an app 📖' },
+  { to: '/lp-compat/docs/favourites', text: 'Community Favourites ⭐' },
   { to: '#apps', text: 'To the list 🚀' },
 ]
 
