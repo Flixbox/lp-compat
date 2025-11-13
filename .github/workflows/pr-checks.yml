@@ -14,10 +14,3 @@ jobs:
   call-preview:
     name: Build preview
     uses: ./.github/workflows/preview.yml
-
-  call-preview-app-list-service:
-    name: Deploy preview for app list service
-    uses: ./.github/workflows/preview-app-list-service.yml
-    secrets:
-      CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-      CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
