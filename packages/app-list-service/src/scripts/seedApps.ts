@@ -9,7 +9,8 @@ async function createApp(app: App) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Origin": "http://localhost:3000"
+      Origin: "http://localhost:3000",
+      no_webhook: "true",
     },
     body: JSON.stringify(app),
   });
@@ -26,7 +27,31 @@ async function createApp(app: App) {
 }
 
 async function main() {
+  // Fetch existing apps once
+  const res = await fetch(`${APPS_WORKER_BASE_URL}/read`, {
+    method: "GET",
+    headers: {
+      Origin: "http://localhost:3000",
+    },
+  });
+
+  if (!res.ok) {
+    console.error(
+      `❌ Failed to fetch existing apps: ${res.status} ${await res.text()}`,
+    );
+    return;
+  }
+
+  const existingApps = (await res.json()) as App[];
+  const existingIds = new Set(existingApps.map((a) => a.appId));
+
+  // Iterate through local apps
   for (const app of apps) {
+    if (existingIds.has(app.appId)) {
+      console.log(`⚠️ Skipping ${app.appId}, already exists`);
+      continue;
+    }
+
     await createApp(app);
     // small delay to avoid hammering the Worker
     await new Promise((resolve) => setTimeout(resolve, 1000));
