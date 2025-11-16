@@ -23,7 +23,8 @@
   },
   "scripts": {
     "prestart": "bunx kill-port 8787",
-    "start": "bunx wrangler@latest dev --remote --env=local --show-interactive-dev-session=false"
+    "start": "bunx wrangler@latest dev --remote --env=local --show-interactive-dev-session=false",
+    "seed:apps": "bun run src/scripts/seedApps.ts"
   },
   "dependencies": {
     "@lp-compat/shared": "workspace:*"

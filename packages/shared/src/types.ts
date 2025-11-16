@@ -1,5 +1,4 @@
 interface App {
-  _id: string;
   appId: string;
   features: string[];
   dateModified: number;

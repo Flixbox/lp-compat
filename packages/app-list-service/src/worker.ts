@@ -66,16 +66,13 @@ export default {
     try {
       const url = new URL(req.url);
 
-      // READ all apps
+      // READ all apps from single apps.json
       if (url.pathname === "/read" && req.method === "GET") {
-        const list = await env.APPS_BUCKET.list({ prefix: "apps/" });
-        const apps: App[] = [];
-        for (const obj of list.objects) {
-          const file = await env.APPS_BUCKET.get(obj.key);
-          if (file) {
-            apps.push(JSON.parse(await file.text()) as App);
-          }
+        const file = await env.APPS_BUCKET.get("apps.json");
+        if (!file) {
+          return Response.json([], commonHeaders);
         }
+        const apps = JSON.parse(await file.text()) as App[];
         return Response.json(apps, commonHeaders);
       }
 
@@ -83,42 +80,62 @@ export default {
       if (url.pathname === "/create" && req.method === "POST") {
         const body = (await req.json()) as App;
         const anyBody = body as any;
-        if (!anyBody.id) anyBody.id = Date.now().toString();
+
+        if (!anyBody.appId) {
+          return new Response("Missing appId", { ...commonHeaders, status: 400 });
+        }
+
+        const file = await env.APPS_BUCKET.get("apps.json");
+        const apps: App[] = file ? JSON.parse(await file.text()) : [];
+
+        if (apps.find(a => (a as any).appId === anyBody.appId)) {
+          return new Response("Duplicate appId", { ...commonHeaders, status: 409 });
+        }
 
         await enrichWithPlayData(anyBody);
 
-        await env.APPS_BUCKET.put(`apps/${anyBody.id}.json`, JSON.stringify(anyBody, null, 2), {
+        apps.push(anyBody);
+
+        await env.APPS_BUCKET.put("apps.json", JSON.stringify(apps, null, 2), {
           httpMetadata: { contentType: "application/json" },
         });
 
         await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
 
-        return Response.json({ status: "created", id: anyBody.id }, commonHeaders);
+        return Response.json({ status: "created", appId: anyBody.appId }, commonHeaders);
       }
 
       // UPDATE existing app
       if (url.pathname === "/update" && req.method === "PUT") {
         const body = (await req.json()) as App;
         const anyBody = body as any;
-        if (!anyBody.id)
-          return new Response("Missing id", { ...commonHeaders, status: 400 });
 
-        const obj = await env.APPS_BUCKET.get(`apps/${anyBody.id}.json`);
-        if (!obj)
+        if (!anyBody.appId) {
+          return new Response("Missing appId", { ...commonHeaders, status: 400 });
+        }
+
+        const file = await env.APPS_BUCKET.get("apps.json");
+        if (!file) {
           return new Response("Not found", { ...commonHeaders, status: 404 });
+        }
 
-        const existing = JSON.parse(await obj.text()) as any;
-        const merged = { ...existing, ...anyBody };
+        const apps: any[] = JSON.parse(await file.text());
+        const idx = apps.findIndex(a => a.appId === anyBody.appId);
+        if (idx === -1) {
+          return new Response("Not found", { ...commonHeaders, status: 404 });
+        }
 
-        await enrichWithPlayData(merged, existing?.appId);
+        const merged = { ...apps[idx], ...anyBody };
+        await enrichWithPlayData(merged, apps[idx]?.appId);
+        apps[idx] = merged;
 
-        await env.APPS_BUCKET.put(`apps/${anyBody.id}.json`, JSON.stringify(merged, null, 2), {
+        await env.APPS_BUCKET.put("apps.json", JSON.stringify(apps, null, 2), {
           httpMetadata: { contentType: "application/json" },
         });
 
         await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
 
-        return Response.json({ status: "updated" }, commonHeaders);
+        return Response.json({ status: "updated", appId: anyBody.appId }, commonHeaders);
       }
 
       return new Response("Not found", { ...commonHeaders, status: 404 });

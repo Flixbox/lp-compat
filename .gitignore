@@ -26,3 +26,4 @@ yarn-error.log*
 swagger-output.json
 debug.log
 .wrangler/
+**/apps.json

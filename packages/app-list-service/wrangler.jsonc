@@ -2,31 +2,27 @@
   // Cloudflare Wrangler v3 JSONC config
   // Schema reference: https://developers.cloudflare.com/workers/wrangler/configuration/#json-schema
   "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
-
   "name": "lp-compat-backend",
   "main": "src/worker.ts",
   "compatibility_date": "2024-09-23",
   "compatibility_flags": [
     "nodejs_compat"
   ],
-
   // Optional project/account details
   "account_id": "c2c4512ac73019c4af8f471455fc58a1",
   "workers_dev": true,
-
   "vars": {
     // Non-sensitive defaults can go here
     "GITHUB_REPO": "Flixbox/lp-compat"
   },
-
   // R2 bucket bindings
   "r2_buckets": [
     {
       "binding": "APPS_BUCKET",
-      "bucket_name": "lp-compat-apps"
+      "bucket_name": "lp-compat-apps",
+      "preview_bucket_name": "lp-compat-apps-preview"
     }
   ],
-
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
