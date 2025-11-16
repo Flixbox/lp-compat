@@ -12,7 +12,7 @@ function corsHeaders(origin: string) {
   return {
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, no_webhook",
   };
 }
 
@@ -52,6 +52,7 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const origin = req.headers.get("Origin") || "";
+    const noWebhook = req.headers.get("no_webhook") === "true";
     const commonHeaders = { headers: corsHeaders(origin) };
 
     if (req.method === "OPTIONS") {
@@ -100,7 +101,9 @@ export default {
           httpMetadata: { contentType: "application/json" },
         });
 
-        await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
+        if (!noWebhook) {
+          await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
+        }
 
         return Response.json({ status: "created", appId: anyBody.appId }, commonHeaders);
       }
@@ -133,7 +136,9 @@ export default {
           httpMetadata: { contentType: "application/json" },
         });
 
-        await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
+        if (!noWebhook) {
+          await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
+        }
 
         return Response.json({ status: "updated", appId: anyBody.appId }, commonHeaders);
       }
