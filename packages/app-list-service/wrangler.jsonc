@@ -19,6 +19,14 @@
     "GITHUB_REPO": "Flixbox/lp-compat"
   },
 
+  // R2 bucket bindings
+  "r2_buckets": [
+    {
+      "binding": "APPS_BUCKET",
+      "bucket_name": "lp-compat-apps"
+    }
+  ],
+
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,

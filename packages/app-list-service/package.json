@@ -27,5 +27,8 @@
   },
   "dependencies": {
     "@lp-compat/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251115.0"
   }
 }

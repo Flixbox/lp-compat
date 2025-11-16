@@ -1,14 +1,12 @@
+import type { R2Bucket } from "@cloudflare/workers-types";
 import type { App } from "@lp-compat/shared";
 import { getPlaystoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
 
 export interface Env {
-  GITHUB_REPO: string;
-  GITHUB_TOKEN: string;
   DISCORD_WEBHOOK?: string;
+  APPS_BUCKET: R2Bucket;
 }
-
-const filePath = "/packages/shared/static/lucky-patcher-app-compatibility.json";
 
 function corsHeaders(origin: string) {
   return {
@@ -20,99 +18,9 @@ function corsHeaders(origin: string) {
 
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return false;
-  // Allow localhost (any port)
-  if (
-    origin.startsWith("http://localhost") ||
-    origin.startsWith("http://127.0.0.1")
-  ) {
-    return true;
-  }
-  // Allow GitHub Pages domains (*.github.io)
-  if (/^https:\/\/[a-zA-Z0-9-]+\.github\.io/.test(origin)) {
-    return true;
-  }
+  if (origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1")) return true;
+  if (/^https:\/\/[a-zA-Z0-9-]+\.github\.io/.test(origin)) return true;
   return false;
-}
-
-function encodeBase64(input: string): string {
-  return Buffer.from(input, "utf8").toString("base64");
-}
-
-// Build standard headers for GitHub REST API requests
-function githubHeaders(env: Env, contentType?: string) {
-  const headers: Record<string, string> = {
-    Authorization: `token ${env.GITHUB_TOKEN}`,
-    Accept: "application/vnd.github.v3+json",
-    "User-Agent": "lp-compat-worker/1.0",
-  };
-  if (contentType) headers["Content-Type"] = contentType;
-  return headers;
-}
-
-async function fetchFile(env: Env): Promise<{ content: App[]; sha: string }> {
-  // Download raw JSON directly from raw.githubusercontent (hardcoded branch 'main')
-  const rawUrl = `https://raw.githubusercontent.com/${env.GITHUB_REPO}/main/${filePath}`;
-  const apiUrl = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
-
-  // Fetch raw file contents
-  const rawRes = await fetch(rawUrl);
-  if (!rawRes.ok && rawRes.status !== 404) {
-    const text = await rawRes.text();
-    throw new Error(
-      `Failed to fetch raw file from GitHub: ${rawRes.status} ${text}`,
-    );
-  }
-  const raw = rawRes.ok ? await rawRes.text() : "";
-
-  // Fetch metadata to obtain the latest sha required for updates
-  const metaRes = await fetch(apiUrl, { headers: githubHeaders(env) });
-  if (!metaRes.ok) {
-    const text = await metaRes.text();
-    throw new Error(
-      `Failed to fetch file metadata from GitHub: ${metaRes.status} ${text}`,
-    );
-  }
-  const metaJson = await metaRes.json();
-  const sha = metaJson.sha;
-
-  // If the file is empty or missing, return an empty array
-  if (!raw || !raw.trim()) {
-    return { content: [], sha };
-  }
-
-  try {
-    const content = JSON.parse(raw) as App[];
-    return { content, sha };
-  } catch (e) {
-    const preview = String(raw).slice(0, 200);
-    throw new Error(
-      `Failed to parse JSON from GitHub raw content: ${(e as Error).message}. Raw preview: ${preview}`,
-    );
-  }
-}
-
-async function updateFile(
-  env: Env,
-  newContent: App[],
-  sha: string,
-  message: string,
-) {
-  const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${filePath}`;
-  const body = {
-    message,
-    content: encodeBase64(JSON.stringify(newContent, null, 2)),
-    sha,
-  };
-  const res = await fetch(url, {
-    method: "PUT",
-    headers: githubHeaders(env, "application/json"),
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Failed to update file on GitHub: ${res.status} ${text}`);
-  }
-  return res.json();
 }
 
 async function enrichWithPlayData(body: any, fallbackAppId?: string) {
@@ -123,37 +31,14 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
     if (!play) return body;
 
     const keys = [
-      "title",
-      "summary",
-      "installs",
-      "minInstalls",
-      "price",
-      "free",
-      "score",
-      "scoreText",
-      "priceText",
-      "androidVersion",
-      "androidVersionText",
-      "developer",
-      "developerId",
-      "genre",
-      "genreId",
-      "icon",
-      "headerImage",
-      "screenshots",
-      "adSupported",
-      "updated",
-      "version",
-      "recentChanges",
-      "url",
-      "offersIAP",
-      "IAPRange",
-      "appId",
+      "title","summary","installs","minInstalls","price","free","score","scoreText","priceText",
+      "androidVersion","androidVersionText","developer","developerId","genre","genreId","icon",
+      "headerImage","screenshots","adSupported","updated","version","recentChanges","url",
+      "offersIAP","IAPRange","appId",
     ];
 
     for (const key of keys) {
-      const hasValue =
-        body[key] !== undefined && body[key] !== null && body[key] !== "";
+      const hasValue = body[key] !== undefined && body[key] !== null && body[key] !== "";
       if (!hasValue && play[key] !== undefined) {
         body[key] = play[key];
       }
@@ -167,14 +52,10 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const origin = req.headers.get("Origin") || "";
-
     const commonHeaders = { headers: corsHeaders(origin) };
 
-    // Handle preflight requests
     if (req.method === "OPTIONS") {
-      if (isAllowedOrigin(origin)) {
-        return new Response(null, commonHeaders);
-      }
+      if (isAllowedOrigin(origin)) return new Response(null, commonHeaders);
       return new Response("Forbidden", { status: 403 });
     }
 
@@ -184,55 +65,56 @@ export default {
 
     try {
       const url = new URL(req.url);
-      const { content, sha } = await fetchFile(env);
 
-      // Read all entries
+      // READ all apps
       if (url.pathname === "/read" && req.method === "GET") {
-        return Response.json(content, commonHeaders);
+        const list = await env.APPS_BUCKET.list({ prefix: "apps/" });
+        const apps: App[] = [];
+        for (const obj of list.objects) {
+          const file = await env.APPS_BUCKET.get(obj.key);
+          if (file) {
+            apps.push(JSON.parse(await file.text()) as App);
+          }
+        }
+        return Response.json(apps, commonHeaders);
       }
 
-      // Create a new entry
+      // CREATE new app
       if (url.pathname === "/create" && req.method === "POST") {
         const body = (await req.json()) as App;
-        // Ensure an id exists. If not, generate one.
         const anyBody = body as any;
-        if (!anyBody.id) {
-          anyBody.id = Date.now().toString();
-        }
+        if (!anyBody.id) anyBody.id = Date.now().toString();
 
-        // Enrich missing fields from Play Store if possible
         await enrichWithPlayData(anyBody);
 
-        const newContent = [...content, anyBody];
-        await updateFile(env, newContent, sha, "Add new entry");
+        await env.APPS_BUCKET.put(`apps/${anyBody.id}.json`, JSON.stringify(anyBody, null, 2), {
+          httpMetadata: { contentType: "application/json" },
+        });
 
         await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
 
-        return Response.json(
-          { status: "created", id: anyBody.id },
-          commonHeaders,
-        );
+        return Response.json({ status: "created", id: anyBody.id }, commonHeaders);
       }
 
-      // Update existing entry
+      // UPDATE existing app
       if (url.pathname === "/update" && req.method === "PUT") {
         const body = (await req.json()) as App;
         const anyBody = body as any;
         if (!anyBody.id)
           return new Response("Missing id", { ...commonHeaders, status: 400 });
-        const index = content.findIndex((x) => (x as any).id === anyBody.id);
-        if (index === -1)
+
+        const obj = await env.APPS_BUCKET.get(`apps/${anyBody.id}.json`);
+        if (!obj)
           return new Response("Not found", { ...commonHeaders, status: 404 });
 
-        // Merge with existing entry so we don't lose fields not present in the update payload
-        const existing = content[index] as any;
+        const existing = JSON.parse(await obj.text()) as any;
         const merged = { ...existing, ...anyBody };
 
-        // Enrich missing fields from Play Store using either provided appId or existing appId
         await enrichWithPlayData(merged, existing?.appId);
 
-        content[index] = merged;
-        await updateFile(env, content, sha, "Update entry");
+        await env.APPS_BUCKET.put(`apps/${anyBody.id}.json`, JSON.stringify(merged, null, 2), {
+          httpMetadata: { contentType: "application/json" },
+        });
 
         await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
 
