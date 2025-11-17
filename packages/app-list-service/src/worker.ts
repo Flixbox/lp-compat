@@ -1,6 +1,6 @@
 import type { R2Bucket } from "@cloudflare/workers-types";
 import type { App } from "@lp-compat/shared";
-import { getPlaystoreData } from "@/getPlaystoreData";
+import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
 
 export interface Env {
@@ -30,7 +30,7 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
     const play = await getPlaystoreData(appId);
     if (!play) return body;
 
-    const keys = [
+    const keys: (keyof PlayStoreData)[] = [
       "title","summary","installs","minInstalls","price","free","score","scoreText","priceText",
       "androidVersion","androidVersionText","developer","developerId","genre","genreId","icon",
       "headerImage","screenshots","adSupported","updated","version","recentChanges","url",
@@ -38,7 +38,7 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
     ];
 
     for (const key of keys) {
-      const hasValue = body[key] !== undefined && body[key] !== null && body[key] !== "";
+      const hasValue = body[key] != null && body[key] !== "";
       if (!hasValue && play[key] !== undefined) {
         body[key] = play[key];
       }
