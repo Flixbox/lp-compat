@@ -1,29 +1,35 @@
 import { APPS_WORKER_BASE_URL, type App } from "@lp-compat/shared";
-import appsJson from "./apps.json";
+import appsJson from "./apps.json"; // add this file manually when seeding
 
 const apps: App[] = appsJson;
 
-async function createApp(app: App) {
+async function createApp(app: App): Promise<boolean> {
   delete (app as any)._id; // old Mongo ID
-  const res = await fetch(`${APPS_WORKER_BASE_URL}/create`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Origin: "http://localhost:3000",
-      no_webhook: "true",
-    },
-    body: JSON.stringify(app),
-  });
+  try {
+    const res = await fetch(`${APPS_WORKER_BASE_URL}/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Origin: "http://localhost:3000",
+        no_webhook: "true",
+      },
+      body: JSON.stringify(app),
+    });
 
-  if (!res.ok) {
-    console.error(
-      `❌ Failed to create app ${app.appId}: ${res.status} ${await res.text()}`,
-    );
-    return;
+    if (!res.ok) {
+      console.error(
+        `❌ Failed to create app ${app.appId}: ${res.status} ${await res.text()}`,
+      );
+      return false;
+    }
+
+    const data = await res.json();
+    console.log(`✅ Created app ${app.appId} → appId: ${data.appId}`);
+    return true;
+  } catch (err) {
+    console.error(`❌ Network/Fetch error for ${app.appId}:`, err);
+    return false;
   }
-
-  const data = await res.json();
-  console.log(`✅ Created app ${app.appId} → appId: ${data.appId}`);
 }
 
 async function main() {
@@ -45,16 +51,26 @@ async function main() {
   const existingApps = (await res.json()) as App[];
   const existingIds = new Set(existingApps.map((a) => a.appId));
 
-  // Iterate through local apps
+  const delay = 1000; // normal delay between requests
+  let backoff = 30_000; // start backoff at 30s
+
   for (const app of apps) {
-    if (existingIds.has(app.appId)) {
+    if (existingIds.has(app.appId) || !app.appId) {
       console.log(`⚠️ Skipping ${app.appId}, already exists`);
       continue;
     }
 
-    await createApp(app);
-    // small delay to avoid hammering the Worker
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const success = await createApp(app);
+    if (success) {
+      // reset backoff after success
+      backoff = 30_000;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    } else {
+      // exponential backoff on error
+      console.log(`⏳ Backing off for ${backoff / 1000}s before retrying...`);
+      await new Promise((resolve) => setTimeout(resolve, backoff));
+      backoff *= 2; // double backoff for next error
+    }
   }
 }
 
