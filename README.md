@@ -19,25 +19,33 @@ If you have any questions or want to discuss the project with others, you can us
 - Uses Cloudflare to host the main backend
 - Uses Vercel to host the play store scraper, since Cloudflare doesn't like Node.js
 
+
+
+## Setting up the project
+
+To get started with this project, you will need to install the following pieces of software on your computer: 
+
+- _fnm_ (including terminal setup)
+- _bun_
+- _pnpm_
+
+Open a terminal or command prompt window and navigate to the root directory of this project.
+
+Run the following command to install the necessary dependencies for the project:
+
+`bun i`
+
+Run the following command to start the development server:
+
+`bun start`
+
+That's it! The project should now be set up and running on your local development environment.
+
 Worker setup (If you wanna run the cloudflare worker locally):
 
 `cd .\packages\app-list-service\`
 
 `bunx wrangler secret put GITHUB_TOKEN`
-
-## Setting up the project
-
-To get started with this project, you will need to install two pieces of software on your computer: _Node.js_ and _pnpm_.
-
-1. Visit the [Node.js](https://nodejs.org/) website and click on the "Download" button. Follow the prompts to install _Node.js_ on your computer.
-2. Once _Node.js_ is installed, install _pnpm_ on your computer.
-3. Open a terminal or command prompt window and navigate to the root directory of this project.
-4. Run the following command to install the necessary dependencies for the project:
-   1. `pnpm i`
-5. Run the following command to start the development server:
-   1. `npm run start`
-
-That's it! The project should now be set up and running on your local development environment.
 
 ## Adding a new app to the list
 
