@@ -27,7 +27,7 @@ import {
   useAppSelector,
 } from '@/redux'
 
-const DialogProvider = () => {
+const Dialogs = () => {
   const { dialogs } = useAppSelector((state) => state.system)
   return (
     <>{dialogs?.EDIT_APP.open && <EditAppDialog {...dialogs?.EDIT_APP} />}</>
@@ -307,4 +307,4 @@ const EditAppDialog = ({ open, appId = '' }) => {
   )
 }
 
-export { DialogProvider }
+export { Dialogs }

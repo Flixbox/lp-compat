@@ -1,3 +1,3 @@
 export * from './CompatOverview'
-export * from './DialogProvider'
+export * from './Dialogs'
 export * from './Home'

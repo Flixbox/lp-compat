@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import { Provider } from 'react-redux'
-import { DialogProvider } from '@/components/DialogProvider'
+import { Dialogs } from '@/components/Dialogs'
 import { useColorMode } from '@/hooks'
 import { store } from '@/redux/store'
 
@@ -35,7 +35,7 @@ const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
             },
           })}
         >
-          <DialogProvider />
+          <Dialogs />
           {children}
         </ThemeProvider>
       </Provider>
