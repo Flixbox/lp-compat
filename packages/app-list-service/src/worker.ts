@@ -7,9 +7,14 @@ import type { App } from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
 
-export interface Env {
+interface Env {
   DISCORD_WEBHOOK?: string;
   APPS_BUCKET: R2Bucket;
+}
+
+interface EnqueueResponse {
+  status: "queued";
+  appId: string;
 }
 
 function corsHeaders(origin: string) {
@@ -197,3 +202,5 @@ export default {
     console.log(`Rebuilt apps.json with ${mergedApps.length} entries`);
   },
 };
+
+export type { EnqueueResponse, Env };

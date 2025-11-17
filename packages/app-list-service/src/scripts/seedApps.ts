@@ -1,4 +1,5 @@
 import { APPS_WORKER_BASE_URL, type App } from "@lp-compat/shared";
+import type { EnqueueResponse } from "@/worker";
 import appsJson from "./apps.json"; // add this file manually when seeding
 
 const apps: App[] = appsJson;
@@ -23,7 +24,7 @@ async function createApp(app: App): Promise<boolean> {
       return false;
     }
 
-    const data = await res.json();
+    const data = (await res.json()) as EnqueueResponse;
     console.log(`✅ Created app ${app.appId} → appId: ${data.appId}`);
     return true;
   } catch (err) {
