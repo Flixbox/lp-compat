@@ -1,4 +1,8 @@
-import type { R2Bucket } from "@cloudflare/workers-types";
+import type {
+  ExecutionContext,
+  R2Bucket,
+  ScheduledEvent,
+} from "@cloudflare/workers-types";
 import type { App } from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
@@ -76,6 +80,9 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
 }
 
 export default {
+  /**
+   * Main worker that handles requests - 10ms execution limit
+   */
   async fetch(req: Request, env: Env): Promise<Response> {
     const origin = req.headers.get("Origin") || "";
     const noWebhook = req.headers.get("no_webhook") === "true";
@@ -99,7 +106,6 @@ export default {
         if (!file) {
           return Response.json([], commonHeaders);
         }
-        // Stream directly to minimize CPU load
         return new Response(file.body, {
           headers: {
             "Content-Type": "application/json",
@@ -108,8 +114,8 @@ export default {
         });
       }
 
-      // CREATE new app
-      if (url.pathname === "/create" && req.method === "POST") {
+      // ENQUEUE new or updated app
+      if (url.pathname === "/enqueue" && req.method === "POST") {
         const body = (await req.json()) as App;
         const anyBody = body as any;
 
@@ -117,74 +123,26 @@ export default {
           return new Response("Missing appId", {
             ...commonHeaders,
             status: 400,
-          });
-        }
-
-        const file = await env.APPS_BUCKET.get("apps.json");
-        const apps: App[] = file ? JSON.parse(await file.text()) : [];
-
-        if (apps.find((a) => (a as any).appId === anyBody.appId)) {
-          return new Response("Duplicate appId", {
-            ...commonHeaders,
-            status: 409,
           });
         }
 
         await enrichWithPlayData(anyBody);
 
-        apps.push(anyBody);
-
-        await env.APPS_BUCKET.put("apps.json", JSON.stringify(apps, null, 2), {
-          httpMetadata: { contentType: "application/json" },
-        });
-
-        if (!noWebhook) {
-          await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
-        }
-
-        return Response.json(
-          { status: "created", appId: anyBody.appId },
-          commonHeaders,
+        // Always enqueue into apps_queue/
+        await env.APPS_BUCKET.put(
+          `apps_queue/${anyBody.appId}.json`,
+          JSON.stringify(anyBody, null, 2),
+          {
+            httpMetadata: { contentType: "application/json" },
+          },
         );
-      }
-
-      // UPDATE existing app
-      if (url.pathname === "/update" && req.method === "PUT") {
-        const body = (await req.json()) as App;
-        const anyBody = body as any;
-
-        if (!anyBody.appId) {
-          return new Response("Missing appId", {
-            ...commonHeaders,
-            status: 400,
-          });
-        }
-
-        const file = await env.APPS_BUCKET.get("apps.json");
-        if (!file) {
-          return new Response("Not found", { ...commonHeaders, status: 404 });
-        }
-
-        const apps: any[] = JSON.parse(await file.text());
-        const idx = apps.findIndex((a) => a.appId === anyBody.appId);
-        if (idx === -1) {
-          return new Response("Not found", { ...commonHeaders, status: 404 });
-        }
-
-        const merged = { ...apps[idx], ...anyBody };
-        await enrichWithPlayData(merged, apps[idx]?.appId);
-        apps[idx] = merged;
-
-        await env.APPS_BUCKET.put("apps.json", JSON.stringify(apps, null, 2), {
-          httpMetadata: { contentType: "application/json" },
-        });
 
         if (!noWebhook) {
-          await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
+          await sendDiscordUpdate(body, "queued", env.DISCORD_WEBHOOK);
         }
 
         return Response.json(
-          { status: "updated", appId: anyBody.appId },
+          { status: "queued", appId: anyBody.appId },
           commonHeaders,
         );
       }
@@ -196,5 +154,46 @@ export default {
         status: 500,
       });
     }
+  },
+  /**
+   * Cronjob that processes the queue - Higher execution timeframe
+   */
+  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
+    const file = await env.APPS_BUCKET.get("apps.json");
+    const apps: App[] = file ? JSON.parse(await file.text()) : [];
+
+    const appMap = new Map<string, App>();
+    for (const app of apps) {
+      if (app.appId) appMap.set(app.appId, app);
+    }
+
+    const list = await env.APPS_BUCKET.list({ prefix: "apps_queue/" });
+
+    for (const obj of list.objects) {
+      const file = await env.APPS_BUCKET.get(obj.key);
+      if (!file) continue;
+
+      try {
+        const app = JSON.parse(await file.text());
+        if (!app.appId) continue;
+
+        appMap.set(app.appId, app);
+        await env.APPS_BUCKET.delete(obj.key);
+        console.log(`Processed and removed ${obj.key}`);
+      } catch (e) {
+        console.error("Bad JSON in", obj.key, e);
+      }
+    }
+
+    const mergedApps = Array.from(appMap.values());
+    await env.APPS_BUCKET.put(
+      "apps.json",
+      JSON.stringify(mergedApps, null, 2),
+      {
+        httpMetadata: { contentType: "application/json" },
+      },
+    );
+
+    console.log(`Rebuilt apps.json with ${mergedApps.length} entries`);
   },
 };
