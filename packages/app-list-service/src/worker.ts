@@ -18,7 +18,11 @@ function corsHeaders(origin: string) {
 
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return false;
-  if (origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1")) return true;
+  if (
+    origin.startsWith("http://localhost") ||
+    origin.startsWith("http://127.0.0.1")
+  )
+    return true;
   if (/^https:\/\/[a-zA-Z0-9-]+\.github\.io/.test(origin)) return true;
   return false;
 }
@@ -31,10 +35,32 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
     if (!play) return body;
 
     const keys: (keyof PlayStoreData)[] = [
-      "title","summary","installs","minInstalls","price","free","score","scoreText","priceText",
-      "androidVersion","androidVersionText","developer","developerId","genre","genreId","icon",
-      "headerImage","screenshots","adSupported","updated","version","recentChanges","url",
-      "offersIAP","IAPRange","appId",
+      "title",
+      "summary",
+      "installs",
+      "minInstalls",
+      "price",
+      "free",
+      "score",
+      "scoreText",
+      "priceText",
+      "androidVersion",
+      "androidVersionText",
+      "developer",
+      "developerId",
+      "genre",
+      "genreId",
+      "icon",
+      "headerImage",
+      "screenshots",
+      "adSupported",
+      "updated",
+      "version",
+      "recentChanges",
+      "url",
+      "offersIAP",
+      "IAPRange",
+      "appId",
     ];
 
     for (const key of keys) {
@@ -73,8 +99,13 @@ export default {
         if (!file) {
           return Response.json([], commonHeaders);
         }
-        const apps = JSON.parse(await file.text()) as App[];
-        return Response.json(apps, commonHeaders);
+        // Stream directly to minimize CPU load
+        return new Response(file.body, {
+          headers: {
+            "Content-Type": "application/json",
+            ...corsHeaders(origin),
+          },
+        });
       }
 
       // CREATE new app
@@ -83,14 +114,20 @@ export default {
         const anyBody = body as any;
 
         if (!anyBody.appId) {
-          return new Response("Missing appId", { ...commonHeaders, status: 400 });
+          return new Response("Missing appId", {
+            ...commonHeaders,
+            status: 400,
+          });
         }
 
         const file = await env.APPS_BUCKET.get("apps.json");
         const apps: App[] = file ? JSON.parse(await file.text()) : [];
 
-        if (apps.find(a => (a as any).appId === anyBody.appId)) {
-          return new Response("Duplicate appId", { ...commonHeaders, status: 409 });
+        if (apps.find((a) => (a as any).appId === anyBody.appId)) {
+          return new Response("Duplicate appId", {
+            ...commonHeaders,
+            status: 409,
+          });
         }
 
         await enrichWithPlayData(anyBody);
@@ -105,7 +142,10 @@ export default {
           await sendDiscordUpdate(body, "added", env.DISCORD_WEBHOOK);
         }
 
-        return Response.json({ status: "created", appId: anyBody.appId }, commonHeaders);
+        return Response.json(
+          { status: "created", appId: anyBody.appId },
+          commonHeaders,
+        );
       }
 
       // UPDATE existing app
@@ -114,7 +154,10 @@ export default {
         const anyBody = body as any;
 
         if (!anyBody.appId) {
-          return new Response("Missing appId", { ...commonHeaders, status: 400 });
+          return new Response("Missing appId", {
+            ...commonHeaders,
+            status: 400,
+          });
         }
 
         const file = await env.APPS_BUCKET.get("apps.json");
@@ -123,7 +166,7 @@ export default {
         }
 
         const apps: any[] = JSON.parse(await file.text());
-        const idx = apps.findIndex(a => a.appId === anyBody.appId);
+        const idx = apps.findIndex((a) => a.appId === anyBody.appId);
         if (idx === -1) {
           return new Response("Not found", { ...commonHeaders, status: 404 });
         }
@@ -140,7 +183,10 @@ export default {
           await sendDiscordUpdate(body, "modified", env.DISCORD_WEBHOOK);
         }
 
-        return Response.json({ status: "updated", appId: anyBody.appId }, commonHeaders);
+        return Response.json(
+          { status: "updated", appId: anyBody.appId },
+          commonHeaders,
+        );
       }
 
       return new Response("Not found", { ...commonHeaders, status: 404 });
