@@ -24,7 +24,6 @@ import {
   CardContent,
   Chip,
   CircularProgress,
-  createTheme,
   Grid,
   IconButton,
   Link,
@@ -34,30 +33,24 @@ import {
   Select,
   styled,
   TextField,
-  ThemeProvider,
   Typography,
   useTheme,
 } from '@mui/material'
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import MarkdownPreview, {
   type MarkdownPreviewProps,
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
 import _ from 'lodash'
-import React, { useEffect, useState, useEffectEvent } from 'react'
-import { Provider } from 'react-redux'
+import React, { useEffect, useEffectEvent, useState } from 'react'
+
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
-import { DialogProvider } from '@/components/DialogProvider'
-import { getDiscordLoginUrl, useColorMode, useDiscord } from '@/hooks'
+import { Providers } from '@/components/Providers'
+import { getDiscordLoginUrl, useDiscord } from '@/hooks'
 import {
   axiosInstance,
   fetchApps,
-  store,
   useAppDispatch,
   useAppSelector,
 } from '@/redux'
@@ -67,8 +60,6 @@ import styles from './styles.module.css'
 // TODO Move that login button to main component so it works on mobile or update it every second
 
 const BACKEND_ENABLED = true
-
-const queryClient = new QueryClient()
 
 const StyledMarkdown = styled(MarkdownPreview)<
   MarkdownPreviewProps & { backgroundColor: string }
@@ -94,36 +85,10 @@ const StyledMarkdown = styled(MarkdownPreview)<
 )
 
 const CompatOverview = () => {
-  const colorMode = useColorMode()
   return (
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <ThemeProvider
-          theme={createTheme({
-            palette: {
-              mode: colorMode,
-            },
-            components: {
-              MuiChip: {
-                styleOverrides: {
-                  labelSmall: {
-                    paddingTop: '3px',
-                  },
-                },
-              },
-              MuiTextField: {
-                defaultProps: {
-                  variant: 'outlined',
-                },
-              },
-            },
-          })}
-        >
-          <CompatComponent />
-          <DialogProvider />
-        </ThemeProvider>
-      </Provider>
-    </QueryClientProvider>
+    <Providers>
+      <CompatComponent />
+    </Providers>
   )
 }
 

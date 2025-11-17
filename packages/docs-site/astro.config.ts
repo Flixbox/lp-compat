@@ -76,6 +76,9 @@ export default defineConfig({
           autogenerate: { directory: 'docs', collapsed: false },
         },
       ],
+      components: {
+        Header: './src/components/overrides/CustomHeader.astro',
+      },
     }),
     mdx(),
   ],

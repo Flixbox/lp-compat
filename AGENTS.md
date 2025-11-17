@@ -15,10 +15,11 @@
 - Single quotes, no semicolons
 - Prefer `const func = () => {}` over `function func() {}`
 - You must document functions & anything exported (constants etc) with JSDoc if you discover them (Use advanced features like @link)
-- Default exports are banned, inline exports are banned
+- Default exports are banned, inline exports are banned => `export { HeaderWrapper }` ✅
 - You may only use full alias imports, like `import {stuff} from "@/redux"`
 
 ## Agent instructions
+- When working inside packages/docs-site, always check astro.config.ts first
 - Document new functions with JSDoc
 - Prefer async/await over callbacks
 - After editing any file, check it for issues

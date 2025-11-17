@@ -82,7 +82,7 @@ const useDiscord = () => {
 
   const isLoggedIn = Boolean(discordUser?.username && discordUser?.id)
 
-  return { discordUser, isLoggedIn }
+  return { discordUser, isLoggedIn, resetTokens }
 }
 
 export { useDiscord, getDiscordLoginUrl, type DiscordUser }
