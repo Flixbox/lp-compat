@@ -6,7 +6,7 @@ const apps: App[] = appsJson;
 async function createApp(app: App): Promise<boolean> {
   delete (app as any)._id; // old Mongo ID
   try {
-    const res = await fetch(`${APPS_WORKER_BASE_URL}/create`, {
+    const res = await fetch(`${APPS_WORKER_BASE_URL}/enqueue`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
