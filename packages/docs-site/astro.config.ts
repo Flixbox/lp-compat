@@ -77,7 +77,7 @@ export default defineConfig({
         },
       ],
       components: {
-        Header: './src/components/overrides/CustomHeader.astro',
+        SocialIcons: './src/components/overrides/CustomSocialIcons.astro',
       },
     }),
     mdx(),

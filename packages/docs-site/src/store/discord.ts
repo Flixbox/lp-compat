@@ -14,7 +14,7 @@ type DiscordUserQueryResult = {
   message?: string
 }
 
-type DiscordUser = DiscordUserQueryResult & { isLoggedIn: boolean }
+type DiscordUser = { isLoggedIn: boolean, user: DiscordUserQueryResult }
 
 const UNAUTHORIZED_MESSAGE = '401: Unauthorized'
 
@@ -81,7 +81,7 @@ const discordUserQueryStore = createFetcherStore<DiscordUser>(
         })
       ).json()
       if (result?.message === UNAUTHORIZED_MESSAGE) resetTokens()
-      return { result, isLoggedIn: Boolean(result?.username && result?.id) }
+      return { user: result, isLoggedIn: Boolean(result?.username && result?.id) }
     },
   },
 )

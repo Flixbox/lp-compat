@@ -4,8 +4,8 @@ import {
   SCRAPER_BASE_URL,
 } from '@lp-compat/shared'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import type { DiscordUser } from '@/hooks'
 import { clearState, setAppsListPage } from '@/redux/systemSlice'
+import type { DiscordUser } from '@/store'
 
 const pageSize = 5000
 
@@ -52,7 +52,7 @@ const addApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
     const res = await fetch(`${APPS_WORKER_BASE_URL}/enqueue`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ app, discordUser }),
+      body: JSON.stringify({ app, discordUser: discordUser.user }),
     })
     if (!res.ok) {
       const text = await res.text()
@@ -69,7 +69,7 @@ const editApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
     const res = await fetch(`${APPS_WORKER_BASE_URL}/enqueue`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ app, discordUser }),
+      body: JSON.stringify({ app, discordUser: discordUser.user }),
     })
     if (!res.ok) {
       const text = await res.text()

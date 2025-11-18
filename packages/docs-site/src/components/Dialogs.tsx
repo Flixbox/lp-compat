@@ -127,7 +127,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
 
   const handleSave = async () => {
     // If the user wasn't logged in, the dialog would close.
-    const user = data as DiscordUser
+    const user = data
     let result = await dispatch(addApp({ app: editState, discordUser: user }))
     if (result.meta.requestStatus === 'fulfilled') {
       console.log('addApp fulfilled')
