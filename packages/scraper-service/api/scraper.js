@@ -1,16 +1,37 @@
-import express from 'express';
-import gplay from 'google-play-scraper';
+import cors from "cors";
+import express from "express";
+import gplay from "google-play-scraper";
 
 const app = express();
+
+// ✅ Configure CORS
+const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // allow requests with no origin (like mobile apps, curl, or Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+  }),
+);
+
 app.use(express.json());
 
-app.post('/:method', async (req, res) => {
+app.post("/:method", async (req, res) => {
   try {
     const method = req.params.method;
     const params = req.body;
 
     if (!gplay[method]) {
-      return res.status(400).json({ error: `Method '${method}' not supported` });
+      return res
+        .status(400)
+        .json({ error: `Method '${method}' not supported` });
     }
 
     const result = await gplay[method](params);
@@ -20,10 +41,10 @@ app.post('/:method', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.json({
-    message: 'Google Play Scraper',
-    documentation: 'https://github.com/facundoolano/google-play-scraper'
+    message: "Google Play Scraper",
+    documentation: "https://github.com/facundoolano/google-play-scraper",
   });
 });
 

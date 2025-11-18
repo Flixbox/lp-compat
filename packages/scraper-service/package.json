@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "@lp-compat/shared": "workspace:*",
-    "google-play-scraper": "10.1.2",
-    "express": "5.0.0-beta.1"
+    "cors": "2.8.5",
+    "express": "5.1.0",
+    "google-play-scraper": "10.1.2"
   }
 }
