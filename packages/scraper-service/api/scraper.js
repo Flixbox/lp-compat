@@ -7,6 +7,9 @@ const app = express();
 // ✅ Configure CORS
 const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
 
+// Explicit preflight handling
+app.options("*", cors());
+
 app.use(
   cors({
     origin: (origin, callback) => {

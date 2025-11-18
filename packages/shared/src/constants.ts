@@ -3,16 +3,24 @@ const isDevelopment = process.env.NODE_ENV === "development";
 /**
  * Scraper base URL (hosted service). Method endpoints are e.g. /app, /search
  */
-const SCRAPER_BASE_URL = "https://lp-compat.vercel.app";
+
+const PROD_SCRAPER_BASE_URL = "https://lp-compat.vercel.app";
+const DEV_SCRAPER_BASE_URL =
+  "https://lp-compat-git-bun-rework-flixboxs-projects.vercel.app";
+
+const SCRAPER_BASE_URL = isDevelopment
+  ? DEV_SCRAPER_BASE_URL
+  : PROD_SCRAPER_BASE_URL;
+
+/**
+ * All apps-related requests should go via the worker URL below.
+ */
 
 const PROD_APPS_WORKER_BASE_URL =
   "https://lp-compat-backend.alone-king-poking.workers.dev";
 const DEV_APPS_WORKER_BASE_URL =
   "https://bun-rework-lp-compat-backend.alone-king-poking.workers.dev";
 
-/**
- * All apps-related requests should go via the worker URL below.
- */
 const APPS_WORKER_BASE_URL = isDevelopment
   ? DEV_APPS_WORKER_BASE_URL
   : PROD_APPS_WORKER_BASE_URL;
