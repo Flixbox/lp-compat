@@ -1,4 +1,4 @@
-import cors from "cors";
+import cors, { type CorsOptions } from "cors";
 import express from "express";
 import gplay from "google-play-scraper";
 
@@ -6,7 +6,7 @@ const app = express();
 
 const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
 
-const corsOptions = {
+const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     // allow requests with no origin (like mobile apps, curl, or Postman)
     if (!origin) return callback(null, true);

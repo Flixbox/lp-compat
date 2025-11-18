@@ -5,6 +5,6 @@
   "buildCommand": "",
   "outputDirectory": null,
   "rewrites": [
-    { "source": "/(.*)", "destination": "api/scraper.js" }
+    { "source": "/(.*)", "destination": "api/scraper.ts" }
   ]
 }
