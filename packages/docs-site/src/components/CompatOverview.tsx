@@ -434,12 +434,9 @@ const CompatComponent = () => {
 
         {loadingApps && <CircularProgress />}
 
-        <p>
-          Notice: List frozen as of 2025-10-27 due to hosting costs.
-          Modifications can still be created by editing the list on GitHub via
-          PR. If you're interested in hosting the list (which would re-enable
-          editing) feel free to notify us on Discord (linked in the toolbar)!
-        </p>
+        {isLoggedIn && (
+          <p>Modifications to the list are applied every 15 minutes.</p>
+        )}
 
         <Virtuoso
           style={{ height: '600px' }}
