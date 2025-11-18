@@ -8,17 +8,15 @@ const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
 
 const corsOptions = {
   origin: (origin, callback) => {
-    console.log("Request Origin:", origin);
     // allow requests with no origin (like mobile apps, curl, or Postman)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
-    } else {
-      return callback(new Error("Not allowed by CORS"));
     }
+    return callback(new Error("Not allowed by CORS"));
   },
-  methods: ["GET", "POST", "OPTIONS"], // explicitly allow
-  allowedHeaders: ["Content-Type"], // allow JSON headers
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
 };
 
 // ✅ Apply same CORS config everywhere
@@ -52,4 +50,5 @@ app.get("/", (req, res) => {
   });
 });
 
-export default app;
+// Export as handler for Vercel
+export default (req, res) => app(req, res);
