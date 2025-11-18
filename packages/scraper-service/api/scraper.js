@@ -10,6 +10,7 @@ const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log("Request Origin:", origin);
       // allow requests with no origin (like mobile apps, curl, or Postman)
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) {
