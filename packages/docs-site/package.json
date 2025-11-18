@@ -39,7 +39,6 @@
     "@nanostores/query": "0.3.4",
     "@nanostores/react": "^1.0.0",
     "@reduxjs/toolkit": "2.10.1",
-    "@tanstack/react-query": "4.42.0",
     "@uiw/react-markdown-preview": "4.1.15",
     "astro": "5.15.4",
     "axios": "0.27.2",

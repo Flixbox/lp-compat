@@ -42,7 +42,6 @@ import {
   useTheme,
 } from '@mui/material'
 import { useStore } from '@nanostores/react'
-import { useQuery } from '@tanstack/react-query'
 import MarkdownPreview, {
   type MarkdownPreviewProps,
 } from '@uiw/react-markdown-preview'
@@ -54,7 +53,6 @@ import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
 import { Providers } from '@/components/Providers'
 import {
-  axiosInstance,
   fetchApps,
   useAppDispatch,
   useAppSelector,
@@ -204,17 +202,6 @@ function Feature({ icon, description }: FeatureItem) {
       <div className="text--center padding-horiz--md">{description}</div>
     </div>
   )
-}
-
-const useStaff = () => {
-  const { data: staff } = useQuery('staff', async () => {
-    const response = await axiosInstance.get('/staff/all')
-    return response.data
-  })
-
-  const isStaff = (id: string) => staff?.some((member) => member.id === id)
-
-  return { staff, isStaff }
 }
 
 const CompatComponent = () => {
@@ -476,7 +463,6 @@ const AppTile = ({ app }: { app: App }) => {
   const { data } = useStore(discordUserQueryStore)
   const isLoggedIn = data?.isLoggedIn
   const dispatch = useAppDispatch()
-  const { isStaff } = useStaff()
 
   if (!app?.appId) return null
 
@@ -545,7 +531,7 @@ const AppTile = ({ app }: { app: App }) => {
             {editedBy && (
               <Typography variant="subtitle2" whiteSpace="nowrap">
                 Modified by:{' '}
-                {isStaff(editedBy.userId) && (
+                {false && ( // Staff check emporarily removed for migration
                   <Chip
                     size="small"
                     avatar={
