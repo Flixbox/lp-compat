@@ -15,7 +15,12 @@ import {
   faTrophy,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { type App, getFeature } from '@lp-compat/shared'
+import {
+  type App,
+  DISCORD_CLIENT_ID,
+  DISCORD_OAUTH_REDIRECT_URI,
+  getFeature,
+} from '@lp-compat/shared'
 import {
   Avatar,
   Box,
@@ -36,6 +41,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
+import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'
 import MarkdownPreview, {
   type MarkdownPreviewProps,
@@ -47,7 +53,6 @@ import React, { useEffect, useEffectEvent, useState } from 'react'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
 import { Providers } from '@/components/Providers'
-import { getDiscordLoginUrl, useDiscord } from '@/hooks'
 import {
   axiosInstance,
   fetchApps,
@@ -55,6 +60,7 @@ import {
   useAppSelector,
 } from '@/redux'
 import { clearState, openDialog } from '@/redux/systemSlice'
+import { discordUserQueryStore, getDiscordLoginUrl } from '@/store'
 import styles from './styles.module.css'
 
 // TODO Move that login button to main component so it works on mobile or update it every second
@@ -218,26 +224,15 @@ const CompatComponent = () => {
     '',
   )
   const [sorting, setSorting] = useLocalStorage('apps-sorting', 'installs-asc')
-  const [loading, setLoading] = useState(true)
+  const [loadingApps, setLoadingApps] = useState(true)
   const apps = useAppSelector<App[]>((state) => state.apps)
   const { appsListUpdated } = useAppSelector((state) => state.system)
-  const { discordUser, isLoggedIn } = useDiscord()
-
-  useEffect(() => {
-    const loginButton = document.getElementById('discord-login')
-
-    if (isLoggedIn && discordUser) {
-      if (loginButton) {
-        loginButton.textContent = discordUser.username
-      }
-    }
-
-    if (!BACKEND_ENABLED) loginButton.textContent = ''
-  }, [isLoggedIn, discordUser])
+  const { data } = useStore(discordUserQueryStore)
+  const isLoggedIn = data?.isLoggedIn
 
   const loadApps = useEffectEvent(() => {
-    setLoading(true)
-    dispatch(fetchApps()).finally(() => setLoading(false))
+    setLoadingApps(true)
+    dispatch(fetchApps()).finally(() => setLoadingApps(false))
   })
 
   useEffect(() => {
@@ -293,8 +288,8 @@ const CompatComponent = () => {
   const refreshApps = () => {
     localStorage.clear()
     dispatch(clearState())
-    setLoading(true)
-    dispatch(fetchApps()).finally(() => setLoading(false))
+    setLoadingApps(true)
+    dispatch(fetchApps()).finally(() => setLoadingApps(false))
   }
 
   const sortedApps = sortOptions[sorting].getSortedApps()
@@ -355,8 +350,8 @@ const CompatComponent = () => {
                   variant="outlined"
                   style={{ marginRight: 4, height: '50px', minWidth: '120px' }}
                   href={getDiscordLoginUrl(
-                    '1021002998069067777',
-                    'https://flixbox.github.io/lp-compat/',
+                    DISCORD_CLIENT_ID,
+                    DISCORD_OAUTH_REDIRECT_URI,
                   )}
                   disabled={!BACKEND_ENABLED}
                 >
@@ -449,7 +444,7 @@ const CompatComponent = () => {
         <div id="apps"></div>
         <Typography>
           {`Loaded ${apps.length} apps!`}
-          {loading && ` Loading...`}
+          {loadingApps && ` Loading...`}
           <br />
           <IconButton onClick={() => refreshApps()}>
             <FontAwesomeIcon icon={faRefresh} />
@@ -457,7 +452,7 @@ const CompatComponent = () => {
           {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
-        {loading && <CircularProgress />}
+        {loadingApps && <CircularProgress />}
 
         <p>
           Notice: List frozen as of 2025-10-27 due to hosting costs.
@@ -478,7 +473,8 @@ const CompatComponent = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme()
-  const { isLoggedIn } = useDiscord()
+  const { data } = useStore(discordUserQueryStore)
+  const isLoggedIn = data?.isLoggedIn
   const dispatch = useAppDispatch()
   const { isStaff } = useStaff()
 

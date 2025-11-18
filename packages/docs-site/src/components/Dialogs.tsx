@@ -1,12 +1,13 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { type App } from '@lp-compat/shared'
+import { type App, featureMap } from '@lp-compat/shared'
 import {
   Alert,
   AppBar,
   Autocomplete,
   Button,
   Chip,
+  CircularProgress,
   Dialog,
   IconButton,
   TextField,
@@ -15,8 +16,8 @@ import {
   useTheme,
 } from '@mui/material'
 import { Box } from '@mui/system'
+import { useStore } from '@nanostores/react'
 import React, { useEffect, useState } from 'react'
-import { type DiscordUser, useDiscord } from '@/hooks'
 import {
   addApp,
   closeDialog,
@@ -26,6 +27,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/redux'
+import { type DiscordUser, discordUserQueryStore } from '@/store'
 
 const Dialogs = () => {
   const { dialogs } = useAppSelector((state) => state.system)
@@ -85,7 +87,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
   >([] as App[])
   const theme = useTheme()
   const features = featureMap(theme)
-  const { discordUser, isLoggedIn } = useDiscord()
+  const { data, loading } = useStore(discordUserQueryStore)
 
   console.log('editState', editState)
 
@@ -121,9 +123,11 @@ const EditAppDialog = ({ open, appId = '' }) => {
     )
   }, [editState.appId, editState.title])
 
+  if (loading || !data) return <CircularProgress />
+
   const handleSave = async () => {
     // If the user wasn't logged in, the dialog would close.
-    const user = discordUser as DiscordUser
+    const user = data as DiscordUser
     let result = await dispatch(addApp({ app: editState, discordUser: user }))
     if (result.meta.requestStatus === 'fulfilled') {
       console.log('addApp fulfilled')
@@ -139,7 +143,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
     }
   }
 
-  if (open && !isLoggedIn) {
+  if (open && !data.isLoggedIn) {
     alert("You're not logged in!")
     closeDialog()
   }
