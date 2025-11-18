@@ -4,26 +4,26 @@ import gplay from "google-play-scraper";
 
 const app = express();
 
-// ✅ Configure CORS
 const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
 
-// Explicit preflight handling
-app.options("*", cors());
+const corsOptions = {
+  origin: (origin, callback) => {
+    console.log("Request Origin:", origin);
+    // allow requests with no origin (like mobile apps, curl, or Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "OPTIONS"], // explicitly allow
+  allowedHeaders: ["Content-Type"], // allow JSON headers
+};
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      console.log("Request Origin:", origin);
-      // allow requests with no origin (like mobile apps, curl, or Postman)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-  }),
-);
+// ✅ Apply same CORS config everywhere
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Preflight
 
 app.use(express.json());
 
