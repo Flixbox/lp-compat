@@ -60,14 +60,14 @@ export default defineConfig({
       title: 'LP-Tools',
       social: [
         {
-          icon: 'github',
-          label: 'GitHub',
-          href: 'https://github.com/Flixbox/lp-compat',
-        },
-        {
           icon: 'discord',
           label: 'Discord',
           href: 'https://discord.gg/RS5ddYf7mw',
+        },
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/Flixbox/lp-compat',
         },
       ],
       sidebar: [

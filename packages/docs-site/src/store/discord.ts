@@ -1,3 +1,7 @@
+import {
+  DISCORD_CLIENT_ID,
+  DISCORD_OAUTH_REDIRECT_URI,
+} from '@lp-compat/shared'
 import { persistentAtom } from '@nanostores/persistent'
 import { createFetcherStore } from '@/store/_fetcher'
 
@@ -14,7 +18,7 @@ type DiscordUserQueryResult = {
   message?: string
 }
 
-type DiscordUser = { isLoggedIn: boolean, user: DiscordUserQueryResult }
+type DiscordUser = { isLoggedIn: boolean; user: DiscordUserQueryResult }
 
 const UNAUTHORIZED_MESSAGE = '401: Unauthorized'
 
@@ -22,6 +26,11 @@ const getDiscordLoginUrl = (client_id: string, redirect_uri: string) =>
   `https://discord.com/api/oauth2/authorize?client_id=${client_id}&redirect_uri=${encodeURI(
     redirect_uri,
   )}&response_type=token&scope=identify%20guilds%20guilds.members.read`
+
+const DEFAULT_DISCORD_LOGIN_URL = getDiscordLoginUrl(
+  DISCORD_CLIENT_ID,
+  DISCORD_OAUTH_REDIRECT_URI,
+)
 
 const persistedDiscordUserAccessToken = persistentAtom<string>(
   'persistedDiscordUserAccessToken',
@@ -81,9 +90,17 @@ const discordUserQueryStore = createFetcherStore<DiscordUser>(
         })
       ).json()
       if (result?.message === UNAUTHORIZED_MESSAGE) resetTokens()
-      return { user: result, isLoggedIn: Boolean(result?.username && result?.id) }
+      return {
+        user: result,
+        isLoggedIn: Boolean(result?.username && result?.id),
+      }
     },
   },
 )
 
-export { discordUserQueryStore, getDiscordLoginUrl, type DiscordUser }
+export {
+  discordUserQueryStore,
+  getDiscordLoginUrl,
+  type DiscordUser,
+  DEFAULT_DISCORD_LOGIN_URL,
+}

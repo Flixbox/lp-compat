@@ -52,13 +52,9 @@ import React, { useEffect, useEffectEvent, useState } from 'react'
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
 import { Providers } from '@/components/Providers'
-import {
-  fetchApps,
-  useAppDispatch,
-  useAppSelector,
-} from '@/redux'
+import { fetchApps, useAppDispatch, useAppSelector } from '@/redux'
 import { clearState, openDialog } from '@/redux/systemSlice'
-import { discordUserQueryStore, getDiscordLoginUrl } from '@/store'
+import { DEFAULT_DISCORD_LOGIN_URL, discordUserQueryStore } from '@/store'
 import styles from './styles.module.css'
 
 // TODO Move that login button to main component so it works on mobile or update it every second
@@ -336,10 +332,7 @@ const CompatComponent = () => {
                 <Button
                   variant="outlined"
                   style={{ marginRight: 4, height: '50px', minWidth: '120px' }}
-                  href={getDiscordLoginUrl(
-                    DISCORD_CLIENT_ID,
-                    DISCORD_OAUTH_REDIRECT_URI,
-                  )}
+                  href={DEFAULT_DISCORD_LOGIN_URL}
                   disabled={!BACKEND_ENABLED}
                 >
                   <FontAwesomeIcon
