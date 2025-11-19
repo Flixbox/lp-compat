@@ -149,8 +149,5 @@ export {
   getPlayStoreData,
   editApp,
   fetchApps,
-  fetchApp,
   addApp,
-  fetchAppCount,
-  fetchAppsByPage,
 }

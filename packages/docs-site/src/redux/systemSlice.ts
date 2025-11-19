@@ -56,6 +56,6 @@ const systemSlice = createSlice({
   },
 })
 
-export const { setAppsListUpdated, setAppsListPage, openDialog, closeDialog } =
+export const { setAppsListPage, openDialog, closeDialog } =
   systemSlice.actions
 export { systemSlice, clearState }

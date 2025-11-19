@@ -87,4 +87,4 @@ const discordUserQueryStore = createFetcherStore<DiscordUser>(
   },
 )
 
-export { discordUserQueryStore, getDiscordLoginUrl, DEFAULT_DISCORD_LOGIN_URL }
+export { discordUserQueryStore, DEFAULT_DISCORD_LOGIN_URL }
