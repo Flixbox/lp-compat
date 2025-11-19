@@ -25,7 +25,6 @@
     "lint:typecheck": "bunx tsc --noEmit"
   },
   "dependencies": {
-    "@lp-compat/shared": "workspace:*",
     "google-play-scraper": "10.1.2",
     "hono": "4.10.6"
   }
