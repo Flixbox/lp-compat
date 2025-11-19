@@ -3,7 +3,11 @@ import type {
   R2Bucket,
   ScheduledEvent,
 } from "@cloudflare/workers-types";
-import type { App, DiscordUser } from "@lp-compat/shared";
+import type {
+  App,
+  DiscordUser,
+  DiscordUserQueryResult,
+} from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
 
@@ -126,7 +130,7 @@ export default {
       ) {
         const body = (await req.json()) as {
           app: App;
-          discordUser: DiscordUser;
+          discordUser: DiscordUserQueryResult;
         };
 
         if (!body.app.appId) {
@@ -141,8 +145,8 @@ export default {
         const entry: App = {
           ...body.app,
           editedBy: {
-            userName: body.discordUser.user.username || "",
-            userId: body.discordUser.user.id || "",
+            userName: body.discordUser.username || "",
+            userId: body.discordUser.id || "",
           },
         };
 
