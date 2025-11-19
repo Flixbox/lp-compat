@@ -1,6 +1,11 @@
 import { createTheme } from "@mui/material";
 
-const featureMap = (theme = createTheme()) => ({
+type Feature = {
+  label: string;
+  color: string;
+}
+
+const featureMap = (theme = createTheme()): Record<string, Feature> => ({
   iap: {
     label: "Patch for in-app purchases works!",
     color: theme.palette.success.main,
@@ -231,11 +236,11 @@ const featureMap = (theme = createTheme()) => ({
 });
 
 const getFeature = (featureString: string, theme = createTheme()) => {
-  const feature = featureMap(theme)[featureString.toLowerCase()] || {};
+  const feature: Feature = featureMap(theme)[featureString.toLowerCase()] || {} as Feature
   if (featureString.indexOf("::") > -1) {
     const parts = featureString.split("::");
     feature.color = theme.palette[parts[0]]?.main || theme.palette.info.main;
-    feature.label = parts[1];
+    feature.label = parts[1] || "";
   }
   return feature;
 };
