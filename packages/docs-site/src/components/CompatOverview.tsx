@@ -231,7 +231,7 @@ const CompatComponent = () => {
     'appsTitleFilter',
     '',
   )
-  const [sorting, setSorting] = useLocalStorage('apps-sorting', 'installs-asc')
+  const [sorting, setSorting] = useLocalStorage<keyof typeof sortOptions>('apps-sorting', 'installs-asc')
   const [loadingApps, setLoadingApps] = useState(true)
   const apps = useAppSelector<App[]>((state) => state.apps)
   const { appsListUpdated } = useAppSelector((state) => state.system)
