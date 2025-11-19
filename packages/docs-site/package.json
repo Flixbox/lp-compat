@@ -20,7 +20,7 @@
   "scripts": {
     "prestart": "bunx kill-port 3001",
     "start": "astro dev --port 3001",
-    "lint:typecheck": "bunx tsc --noEmit",
+    "lint:typecheck": "astro sync && bunx tsc --noEmit",
     "build": "astro build"
   },
   "dependencies": {

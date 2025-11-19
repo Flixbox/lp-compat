@@ -263,7 +263,10 @@ const EditAppDialog = ({
           </Typography>
           <Box m={1} />
           <Box m={1}>
-            <img {...Custom_features_Example} alt="Custom features example" />
+            <img
+              src={Custom_features_Example.src}
+              alt="Custom features example"
+            />
           </Box>
           <Box m={1} />
           If this page isn't showing you any results when you search for app
