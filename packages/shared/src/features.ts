@@ -239,7 +239,9 @@ const getFeature = (featureString: string, theme = createTheme()) => {
   const feature: Feature = featureMap(theme)[featureString.toLowerCase()] || {} as Feature
   if (featureString.indexOf("::") > -1) {
     const parts = featureString.split("::");
-    feature.color = theme.palette[parts[0]]?.main || theme.palette.info.main;
+    const colorKey = parts[0] as string;
+    const paletteColor = (theme.palette as unknown as Record<string, { main: string } | undefined>)[colorKey];
+    feature.color = paletteColor?.main || theme.palette.info.main;
     feature.label = parts[1] || "";
   }
   return feature;
