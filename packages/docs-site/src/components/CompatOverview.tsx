@@ -15,7 +15,11 @@ import {
   faTrophy,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { type App, getFeature } from '@lp-compat/shared'
+import {
+  type App,
+  getFeature,
+  type Theme as SharedTheme,
+} from '@lp-compat/shared'
 import {
   Avatar,
   Box,
@@ -321,7 +325,7 @@ const CompatComponent = () => {
       if (
         visibilitySettings
           .find((setting) => setting.id === category)
-          .onlyRenderIf(app)
+          ?.onlyRenderIf(app)
       )
         shouldRenderApp = true
     })
@@ -419,7 +423,9 @@ const CompatComponent = () => {
                   variant="outlined"
                   displayEmpty
                   value={sorting}
-                  onChange={(e) => setSorting(e.target.value)}
+                  onChange={(e) =>
+                    setSorting(e.target.value as keyof typeof sortOptions)
+                  }
                   style={{ height: '50px' }}
                 >
                   {Object.entries(sortOptions).map((element) => (
@@ -591,7 +597,10 @@ const AppTile = ({ app }: { app: App }) => {
                 elevation={0}
                 padding={0.5}
                 sx={{
-                  backgroundColor: getFeature(feature, theme).color,
+                  backgroundColor: getFeature(
+                    feature,
+                    theme as unknown as SharedTheme,
+                  ).color,
                 }}
                 key={feature}
                 mt={0.5}
@@ -599,11 +608,15 @@ const AppTile = ({ app }: { app: App }) => {
                 <Typography>
                   <StyledMarkdown
                     skipHtml
-                    backgroundColor={getFeature(feature, theme).color}
+                    backgroundColor={
+                      getFeature(feature, theme as unknown as SharedTheme).color
+                    }
                     wrapperElement={{
                       'data-color-mode': 'light',
                     }}
-                    source={getFeature(feature, theme).label}
+                    source={
+                      getFeature(feature, theme as unknown as SharedTheme).label
+                    }
                   />
                 </Typography>
               </Paper>

@@ -1,6 +1,10 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { type App, featureMap } from '@lp-compat/shared'
+import {
+  type App,
+  featureMap,
+  type Theme as SharedTheme,
+} from '@lp-compat/shared'
 import {
   Alert,
   AppBar,
@@ -41,7 +45,11 @@ const AppTextField = ({
   editState,
   field,
   handleChange,
-}: { editState: any; field: string; handleChange: (field: string, value: any) => void }) => {
+}: {
+  editState: Partial<App>
+  field: keyof App
+  handleChange: (field: keyof App, value: App[keyof App]) => void
+}) => {
   return (
     <TextField
       label={field}
@@ -56,7 +64,10 @@ const AppTextField = ({
 const SearchResult = ({
   result,
   handleChange,
-}: { result: App; handleChange: (field: string, value: any) => void }) => {
+}: {
+  result: App
+  handleChange: (field: keyof App, value: App[keyof App]) => void
+}) => {
   return (
     <>
       <Box display="flex">
@@ -79,7 +90,13 @@ const SearchResult = ({
   )
 }
 
-const EditAppDialog = ({ open, appId = '' }: { open: boolean; appId?: string }) => {
+const EditAppDialog = ({
+  open,
+  appId = '',
+}: {
+  open: boolean
+  appId?: string
+}) => {
   const dispatch = useAppDispatch()
   const initialAppData = useAppSelector((state) =>
     state.apps.find((app) => app.appId === appId),
@@ -94,12 +111,12 @@ const EditAppDialog = ({ open, appId = '' }: { open: boolean; appId?: string }) 
     App[]
   >([] as App[])
   const theme = useTheme()
-  const features = featureMap(theme)
+  const features = featureMap(theme as unknown as SharedTheme)
   const { data, loading } = useStore(discordUserQueryStore)
 
   console.log('editState', editState)
 
-  const handleChange = (part: string, value: any) => {
+  const handleChange = (part: keyof App, value: App[keyof App]) => {
     // The internal mongodb ID is not necessary for anything we're doing, neither the editing nor the adding
     setEditState((prevEditState) => ({
       ...prevEditState,
@@ -268,13 +285,17 @@ const EditAppDialog = ({ open, appId = '' }: { open: boolean; appId?: string }) 
               handleChange('features', newValue)
             }}
             renderTags={(value: readonly string[], getTagProps) =>
-              value.map((option: string, index: number) => (
-                <Chip
-                  variant="outlined"
-                  label={option}
-                  {...getTagProps({ index })}
-                />
-              ))
+              value.map((option: string, index: number) => {
+                const { key, ...tagProps } = getTagProps({ index })
+                return (
+                  <Chip
+                    key={key}
+                    variant="outlined"
+                    label={option}
+                    {...tagProps}
+                  />
+                )
+              })
             }
             renderInput={(params) => (
               <TextField
@@ -297,7 +318,11 @@ const EditAppDialog = ({ open, appId = '' }: { open: boolean; appId?: string }) 
               <Typography>Search results by title:</Typography>
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResultByTitle.map((result) => (
-                  <SearchResult key={result.appId} result={result} handleChange={handleChange} />
+                  <SearchResult
+                    key={result.appId}
+                    result={result}
+                    handleChange={handleChange}
+                  />
                 ))}
               </Box>
             </>
@@ -308,7 +333,11 @@ const EditAppDialog = ({ open, appId = '' }: { open: boolean; appId?: string }) 
               <Typography>Search results by ID:</Typography>
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResultById.map((result) => (
-                  <SearchResult key={result.appId} result={result} handleChange={handleChange} />
+                  <SearchResult
+                    key={result.appId}
+                    result={result}
+                    handleChange={handleChange}
+                  />
                 ))}
               </Box>
             </>
