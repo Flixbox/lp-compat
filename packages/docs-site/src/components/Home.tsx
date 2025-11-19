@@ -2,7 +2,7 @@ import { faFaceSmileWink } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Link } from '@mui/material'
 import clsx from 'clsx'
-import React from 'react'
+import { Fragment } from 'react'
 import styles from './Home.module.scss'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -24,7 +24,7 @@ function HomepageHeader() {
         <FontAwesomeIcon icon={faFaceSmileWink} size="4x" aria-hidden="true" />
         <Box className={styles.buttons} flex="1" flexDirection="column">
           {LINKS.map((link, index) => (
-            <React.Fragment key={link.to}>
+            <Fragment key={link.to}>
               <Link
                 className="button button--secondary button--lg"
                 component="a"
@@ -33,7 +33,7 @@ function HomepageHeader() {
                 {link.text}
               </Link>
               {index < LINKS.length - 1 && <Box m={1} />}
-            </React.Fragment>
+            </Fragment>
           ))}
         </Box>
       </div>

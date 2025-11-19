@@ -309,12 +309,12 @@ const CompatComponent = () => {
   const sortedApps = sortOptions[sorting].getSortedApps()
 
   const renderedApps = sortedApps.filter((app) => {
-    if (!app || !app.appId) return
+    if (!app || !app.appId) return false
     if (
       app.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
       app.appId.toLowerCase().indexOf(appTitleFilter) === -1
     )
-      return
+      return false
 
     let shouldRenderApp = false
     onlyShowTheseCategories.forEach((category) => {
@@ -325,17 +325,17 @@ const CompatComponent = () => {
       )
         shouldRenderApp = true
     })
-    if (!shouldRenderApp) return
+    if (!shouldRenderApp) return false
 
-    return app
+    return true
   })
 
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row fa-3x">
-          {FeatureList.map((props, idx) => (
-            <Fragment key={idx}>
+          {FeatureList.map((props) => (
+            <Fragment key={props.description.toString()}>
               <Feature {...props} /> <Box mt={10} />
             </Fragment>
           ))}

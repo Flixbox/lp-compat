@@ -24,4 +24,5 @@
 - Document new functions with JSDoc
 - Prefer async/await over callbacks
 - After editing any file, check it for issues
+- When fixing issues, operate iteratively. Run the lint command and once you see the first batch of issues, fix them. Then continue running the command and fix. No need to get the whole list at once.
 
