@@ -162,6 +162,19 @@ export default {
         );
       }
 
+      // PURGE the queue
+      if (url.pathname === "/purge" && req.method === "DELETE") {
+        const list = await env.APPS_BUCKET.list({ prefix: "apps_queue/" });
+        for (const obj of list.objects) {
+          await env.APPS_BUCKET.delete(obj.key);
+        }
+
+        return Response.json(
+          { status: "purged", count: list.objects.length },
+          commonHeaders,
+        );
+      }
+
       return new Response("Not found", { ...commonHeaders, status: 404 });
     } catch (err) {
       return new Response(JSON.stringify(err), {
