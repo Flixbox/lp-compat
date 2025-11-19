@@ -18,6 +18,7 @@ import {
 import { Box } from '@mui/system'
 import { useStore } from '@nanostores/react'
 import React, { useEffect, useState } from 'react'
+import Custom_features_Example from '@/assets/img/Custom_features_Example.png'
 import {
   addApp,
   closeDialog,
@@ -238,7 +239,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
           </Typography>
           <Box m={1} />
           <Box m={1}>
-            <img src="/lp-compat/img/Custom_features_Example.png" />
+            <img {...Custom_features_Example} />
           </Box>
           <Box m={1} />
           If this page isn't showing you any results when you search for app
