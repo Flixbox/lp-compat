@@ -29,11 +29,19 @@ app.post("/:gPlayMethod", async (c) => {
       return c.json({ error: `Method '${gPlayMethod}' not supported` });
     }
 
-    const result = await gplay[gPlayMethod](params);
-    c.json(result);
+    const target = gplay[gPlayMethod];
+
+    if (typeof target === "function") {
+      // Safe to call
+      const result = await target(params);
+      return c.json(result);
+    } else {
+      // Not callable: return its value stringified
+      return c.json({ value: JSON.stringify(target) });
+    }
   } catch (error) {
     c.status(500);
-    return c.json({ error: error.message });
+    return c.json({ error: (error as Error).message });
   }
 });
 
