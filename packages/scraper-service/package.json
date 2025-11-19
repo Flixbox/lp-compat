@@ -23,12 +23,7 @@
   },
   "dependencies": {
     "@lp-compat/shared": "workspace:*",
-    "cors": "2.8.5",
-    "express": "5.1.0",
-    "google-play-scraper": "10.1.2"
-  },
-  "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.5"
+    "google-play-scraper": "10.1.2",
+    "hono": "4.10.6"
   }
 }

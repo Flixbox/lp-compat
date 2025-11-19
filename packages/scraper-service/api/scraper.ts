@@ -1,54 +1,47 @@
-import cors, { type CorsOptions } from "cors";
-import express from "express";
 import gplay from "google-play-scraper";
+import { Hono } from "hono";
+import { cors } from "hono/cors";
 
-const app = express();
+const isGPlayMethod = (method: string): method is keyof typeof gplay =>
+  method in gplay;
+
+const app = new Hono();
 
 const allowedOrigins = ["http://localhost:3001", "https://flixbox.github.io"];
 
-const corsOptions: CorsOptions = {
-  origin: (origin, callback) => {
-    // allow requests with no origin (like mobile apps, curl, or Postman)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    return callback(new Error("Not allowed by CORS"));
-  },
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-};
+app.use(
+  "*",
+  cors({
+    origin: allowedOrigins,
+    allowHeaders: ["Content-Type"],
+    allowMethods: ["POST", "GET", "OPTIONS"],
+    maxAge: 600,
+  }),
+);
 
-// ✅ Apply same CORS config everywhere
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Preflight
-
-app.use(express.json());
-
-app.post("/:method", async (req, res) => {
+app.post("/:gPlayMethod", async (c) => {
   try {
-    const method = req.params.method;
-    const params = req.body;
+    const gPlayMethod = c.req.param("gPlayMethod");
+    const params = await c.req.json();
 
-    if (!gplay[method]) {
-      return res
-        .status(400)
-        .json({ error: `Method '${method}' not supported` });
+    if (!isGPlayMethod(gPlayMethod)) {
+      c.status(400);
+      return c.json({ error: `Method '${gPlayMethod}' not supported` });
     }
 
-    const result = await gplay[method](params);
-    res.json(result);
+    const result = await gplay[gPlayMethod](params);
+    c.json(result);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    c.status(500);
+    return c.json({ error: error.message });
   }
 });
 
-app.get("/", (req, res) => {
-  res.json({
+app.get("/", (c) => {
+  return c.json({
     message: "Google Play Scraper",
     documentation: "https://github.com/facundoolano/google-play-scraper",
   });
 });
 
-// Export as handler for Vercel
-export default (req, res) => app(req, res);
+export default app;
