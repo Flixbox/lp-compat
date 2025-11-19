@@ -82,7 +82,9 @@ const StyledMarkdown = styled(MarkdownPreview)<
 const CompatOverview = () => {
   return (
     <Providers>
-      <CompatComponent />
+      <div className="not-content">
+        <CompatComponent />
+      </div>
     </Providers>
   )
 }
@@ -327,88 +329,101 @@ const CompatComponent = () => {
       <div className="container">
         <div className="row fa-3x">
           {FeatureList.map((props, idx) => (
-            <Fragment key={idx} >
+            <Fragment key={idx}>
               <Feature {...props} /> <Box mt={10} />
             </Fragment>
           ))}
         </div>
         <Box m={8} />
         <Box className="row" display="flex" flexDirection="column">
-          <Grid container>
-            <Typography variant="h3">Filter apps</Typography>
-            <Box flexGrow={1} />
-            <Box
-              display="flex"
-              maxWidth="100%"
-              style={{ flexFlow: 'row wrap' }}
-            >
-              {BACKEND_ENABLED && isLoggedIn ? (
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="space-between"
+            spacing={2}
+          >
+            <Grid item xs={12} md="auto">
+              <Typography variant="h3">Filter apps</Typography>
+            </Grid>
+
+            <Grid item xs={12} md="auto">
+              <Box
+                display="flex"
+                flexWrap="wrap"
+                alignItems="center"
+                sx={{ gap: 1 }}
+              >
+                {BACKEND_ENABLED && isLoggedIn ? (
+                  <Button
+                    variant="outlined"
+                    style={{ height: '50px', minWidth: '120px' }}
+                    onClick={() => {
+                      dispatch(openDialog({ dialog: 'EDIT_APP', data: {} }))
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faAdd} style={{ marginRight: 8 }} />
+                    New app
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outlined"
+                    style={{ height: '50px', minWidth: '120px' }}
+                    href={DEFAULT_DISCORD_LOGIN_URL}
+                    disabled={!BACKEND_ENABLED}
+                  >
+                    <FontAwesomeIcon
+                      icon={faDiscord}
+                      style={{ marginRight: 5 }}
+                    />
+                    Login
+                  </Button>
+                )}
+
                 <Button
                   variant="outlined"
-                  style={{ marginRight: 4, height: '50px', minWidth: '120px' }}
-                  onClick={() => {
-                    dispatch(openDialog({ dialog: 'EDIT_APP', data: {} }))
+                  onClick={async () => {
+                    const response = await fetch(
+                      '/lp-compat/lucky-patcher-app-compatibility.json',
+                    )
+                    const json = await response.json()
+                    const formattedJson = JSON.stringify(json, null, 2)
+                    const blob = new Blob([formattedJson], {
+                      type: 'application/json',
+                    })
+                    const href = URL.createObjectURL(blob)
+                    const link = document.createElement('a')
+                    link.href = href
+                    link.download = 'lucky-patcher-app-compatibility.json'
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
                   }}
-                >
-                  <FontAwesomeIcon icon={faAdd} style={{ marginRight: 8 }} />
-                  New app
-                </Button>
-              ) : (
-                <Button
-                  variant="outlined"
-                  style={{ marginRight: 4, height: '50px', minWidth: '120px' }}
-                  href={DEFAULT_DISCORD_LOGIN_URL}
-                  disabled={!BACKEND_ENABLED}
+                  style={{ height: '50px', minWidth: '120px' }}
                 >
                   <FontAwesomeIcon
-                    icon={faDiscord}
-                    style={{ marginRight: 5 }}
+                    icon={faDownload}
+                    size="lg"
+                    opacity={0.9}
+                    style={{ marginRight: 8 }}
                   />
-                  Login
+                  JSON
                 </Button>
-              )}
-              <Button
-                variant="outlined"
-                onClick={async () => {
-                  const response = await fetch(
-                    '/lp-compat/lucky-patcher-app-compatibility.json',
-                  )
-                  const json = await response.json()
-                  const formattedJson = JSON.stringify(json, null, 2)
-                  const blob = new Blob([formattedJson], {
-                    type: 'application/json',
-                  })
-                  const href = URL.createObjectURL(blob)
-                  const link = document.createElement('a')
-                  link.href = href
-                  link.download = 'lucky-patcher-app-compatibility.json'
-                  document.body.appendChild(link)
-                  link.click()
-                  document.body.removeChild(link)
-                }}
-                style={{ marginRight: 4, height: '50px', minWidth: '120px' }}
-              >
-                <FontAwesomeIcon
-                  icon={faDownload}
-                  size="lg"
-                  opacity={0.9}
-                  style={{ marginRight: 8 }}
-                />
-                JSON
-              </Button>
 
-              <Select
-                value={sorting}
-                onChange={(e) => setSorting(e.target.value)}
-                style={{ height: '50px' }}
-              >
-                {Object.entries(sortOptions).map((element) => (
-                  <MenuItem value={element[0]} key={element[0]}>
-                    {element[1].title}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Box>
+                <Select
+                  variant="outlined"
+                  displayEmpty
+                  value={sorting}
+                  onChange={(e) => setSorting(e.target.value)}
+                  style={{ height: '50px' }}
+                >
+                  {Object.entries(sortOptions).map((element) => (
+                    <MenuItem value={element[0]} key={element[0]}>
+                      {element[1].title}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Box>
+            </Grid>
           </Grid>
 
           <Box m={0.4} />
