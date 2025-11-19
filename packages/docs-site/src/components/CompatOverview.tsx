@@ -15,12 +15,7 @@ import {
   faTrophy,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  type App,
-  DISCORD_CLIENT_ID,
-  DISCORD_OAUTH_REDIRECT_URI,
-  getFeature,
-} from '@lp-compat/shared'
+import { type App, getFeature } from '@lp-compat/shared'
 import {
   Avatar,
   Box,
@@ -101,21 +96,40 @@ const FeatureList: FeatureItem[] = [
   {
     icon: (
       <Box flex="1">
-        <Box className="fa-layers fa-fw">
+        {/* 1. Container: defined as relative so we can pin the icon inside it */}
+        <Box sx={{ position: 'relative', display: 'inline-block' }}>
+          {/* 2. The Text: We set lineHeight to 1 to remove extra vertical padding */}
           <Typography
-            className="fa-layers-text fa-inverse"
             color="#607d8b"
             fontWeight={900}
             fontSize={30}
+            component="span"
+            sx={{
+              whiteSpace: 'nowrap',
+              lineHeight: 1,
+              display: 'block', // Ensures the box height matches the text exactly
+            }}
           >
             ROOT
           </Typography>
-          <FontAwesomeIcon
-            icon={faBan}
-            color="#e51c23"
-            size="lg"
-            opacity={0.9}
-          />
+
+          {/* 3. The Icon: Absolute positioned and transformed to be perfectly centered */}
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)', // Moves the icon's own center to the box's center
+              pointerEvents: 'none', // Optional: allows you to select the text through the icon
+            }}
+          >
+            <FontAwesomeIcon
+              icon={faBan}
+              color="#e51c23"
+              size="lg"
+              opacity={0.9}
+            />
+          </Box>
         </Box>
       </Box>
     ),
