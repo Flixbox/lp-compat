@@ -95,10 +95,8 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     icon: (
-      <Box flex="1">
-        {/* 1. Container: defined as relative so we can pin the icon inside it */}
+      <Box display="flex" justifyContent="center" width="100%">
         <Box sx={{ position: 'relative', display: 'inline-block' }}>
-          {/* 2. The Text: We set lineHeight to 1 to remove extra vertical padding */}
           <Typography
             color="#607d8b"
             fontWeight={900}
@@ -107,20 +105,19 @@ const FeatureList: FeatureItem[] = [
             sx={{
               whiteSpace: 'nowrap',
               lineHeight: 1,
-              display: 'block', // Ensures the box height matches the text exactly
+              display: 'block',
             }}
           >
             ROOT
           </Typography>
 
-          {/* 3. The Icon: Absolute positioned and transformed to be perfectly centered */}
           <Box
             sx={{
               position: 'absolute',
               top: '50%',
               left: '50%',
-              transform: 'translate(-50%, -50%)', // Moves the icon's own center to the box's center
-              pointerEvents: 'none', // Optional: allows you to select the text through the icon
+              transform: 'translate(-50%, -50%)',
+              pointerEvents: 'none',
             }}
           >
             <FontAwesomeIcon
@@ -134,7 +131,7 @@ const FeatureList: FeatureItem[] = [
       </Box>
     ),
     description: (
-      <Typography>
+      <Typography align="center">
         No root access is required for these patches, except for apps in the
         "Root" category.
       </Typography>
@@ -142,8 +139,8 @@ const FeatureList: FeatureItem[] = [
   },
   {
     icon: (
-      <Box flex="1">
-        <Box className="fa-layers fa-fw" mr={4}>
+      <Box display="flex" justifyContent="center" width="100%" gap={4}>
+        <Box className="fa-layers fa-fw">
           <FontAwesomeIcon icon={faRectangleAd} color="#607d8b" />
           <FontAwesomeIcon
             icon={faBan}
@@ -152,7 +149,7 @@ const FeatureList: FeatureItem[] = [
             opacity={0.9}
           />
         </Box>
-        <Box className="fa-layers fa-fw" ml={4}>
+        <Box className="fa-layers fa-fw" mt={0}>
           <FontAwesomeIcon icon={faStore} color="#607d8b" />
           <FontAwesomeIcon
             icon={faCommentsDollar}
@@ -165,16 +162,20 @@ const FeatureList: FeatureItem[] = [
       </Box>
     ),
     description: (
-      <Typography>
+      <Typography align="center">
         Apps are patched using{' '}
         <Link href="/docs/intro">the default IAP and Adblock patches</Link>.
       </Typography>
     ),
   },
   {
-    icon: <FontAwesomeIcon icon={faListCheck} color="#607d8b" />,
+    icon: (
+      <Box display="flex" justifyContent="center" width="100%">
+        <FontAwesomeIcon icon={faListCheck} color="#607d8b" />
+      </Box>
+    ),
     description: (
-      <Typography>
+      <Typography align="center">
         Apps not on the list can work with LP, and many might work with specific
         patches. The list's entries can also be inaccurate.
         <br />
@@ -183,9 +184,13 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    icon: <FontAwesomeIcon icon={faDiscord} color="#607d8b" />,
+    icon: (
+      <Box display="flex" justifyContent="center" width="100%">
+        <FontAwesomeIcon icon={faDiscord} color="#607d8b" />
+      </Box>
+    ),
     description: (
-      <Typography>
+      <Typography align="center">
         Found something? Create an{' '}
         <Link href="https://github.com/Flixbox/lp-compat/issues">issue</Link> or
         post on the <Link href="https://discord.gg/RS5ddYf7mw">Discord</Link>!
@@ -193,9 +198,13 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    icon: <FontAwesomeIcon icon={faTrophy} color="#607d8b" />,
+    icon: (
+      <Box display="flex" justifyContent="center" width="100%">
+        <FontAwesomeIcon icon={faTrophy} color="#607d8b" />
+      </Box>
+    ),
     description: (
-      <Typography>
+      <Typography align="center">
         Check out the{' '}
         <Link href="/docs/honorable-mentions">honorable mentions</Link> too!
       </Typography>
