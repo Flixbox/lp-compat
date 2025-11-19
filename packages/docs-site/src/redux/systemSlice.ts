@@ -36,19 +36,30 @@ const systemSlice = createSlice({
     setAppsListPage(state, action: PayloadAction<number>) {
       state.appsListPage = action.payload
     },
+    /**
+     * Opens a dialog with the provided data.
+     */
     openDialog(
       state,
-      action: PayloadAction<{ dialog: keyof Dialogs; data: unknown }>,
+      action: PayloadAction<
+        {
+          [K in keyof Dialogs]: {
+            dialog: K
+            data: Omit<Dialogs[K], 'open'>
+          }
+        }[keyof Dialogs]
+      >,
     ) {
-      state.dialogs[action.payload.dialog] = {
+      const { dialog, data } = action.payload
+      state.dialogs[dialog] = {
         open: true,
-        ...action.payload.data,
-      }
+        ...data,
+      } as Dialogs[keyof Dialogs]
     },
     closeDialog(state, action: PayloadAction<{ dialog: keyof Dialogs }>) {
       state.dialogs[action.payload.dialog] = {
         open: false,
-      }
+      } as Dialogs[keyof Dialogs]
     },
   },
   extraReducers: (builder) => {
@@ -56,6 +67,5 @@ const systemSlice = createSlice({
   },
 })
 
-export const { setAppsListPage, openDialog, closeDialog } =
-  systemSlice.actions
+export const { setAppsListPage, openDialog, closeDialog } = systemSlice.actions
 export { systemSlice, clearState }
