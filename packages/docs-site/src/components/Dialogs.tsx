@@ -53,7 +53,7 @@ const SearchResult = ({ result, handleChange }) => {
   return (
     <>
       <Box display="flex">
-        <img src={result.icon} width="100" height="100" />
+        <img src={result.icon} width="100" height="100" alt={result.title} />
         <Button
           onClick={() => {
             handleChange('appId', result.appId)
@@ -239,7 +239,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
           </Typography>
           <Box m={1} />
           <Box m={1}>
-            <img {...Custom_features_Example} />
+            <img {...Custom_features_Example} alt="Custom features example" />
           </Box>
           <Box m={1} />
           If this page isn't showing you any results when you search for app

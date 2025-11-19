@@ -17,6 +17,7 @@
 - You must document functions & anything exported (constants etc) with JSDoc if you discover them (Use advanced features like @link)
 - Default exports are banned, inline exports are banned => `export { HeaderWrapper }` ✅
 - You may only use full alias imports, like `import {stuff} from "@/redux"`
+- As for Knip: Sometimes it doesn't detect Astro imports, so you may need to add them manually to knip.json. You may not, however, add any other exports to knip.json. You must delete redundant code.
 
 ## Agent instructions
 - When working inside packages/docs-site, always check astro.config.ts first

@@ -62,7 +62,7 @@ const getPlaystoreData = async (
         const searchRes = (await postTo("search", {
           term: appId,
           num: 1,
-        })) as any[];
+        })) as PlayStoreData[];
         found =
           Array.isArray(searchRes) && searchRes.length > 0
             ? (searchRes[0] as PlayStoreData)

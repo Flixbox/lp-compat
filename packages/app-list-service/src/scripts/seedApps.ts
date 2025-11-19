@@ -5,7 +5,7 @@ import appsJson from "./apps.json"; // add this file manually when seeding
 const apps: App[] = appsJson;
 
 async function createApp(app: App): Promise<boolean> {
-  delete (app as any)._id; // old Mongo ID
+  delete (app as { _id?: string })._id; // old Mongo ID
   try {
     const res = await fetch(`${APPS_WORKER_BASE_URL}/enqueue`, {
       method: "POST",

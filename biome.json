@@ -1,6 +1,8 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.4/schema.json",
-  "extends": ["@arthurrios/biome-config/node"],
+  "extends": [
+    "@arthurrios/biome-config/node"
+  ],
   "files": {
     "includes": [
       "**/*",
@@ -9,7 +11,8 @@
       "!build",
       "!coverage",
       "!**/*.min.js",
-      "!**/.astro"
+      "!**/.astro",
+      "!**/.wrangler"
     ]
   },
   "formatter": {
