@@ -24,6 +24,9 @@
     "rules": {
       "style": {
         "noDefaultExport": "error"
+      },
+      "complexity": {
+        "useLiteralKeys": "off"
       }
     }
   },
