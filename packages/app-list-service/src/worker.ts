@@ -3,10 +3,7 @@ import type {
   R2Bucket,
   ScheduledEvent,
 } from "@cloudflare/workers-types";
-import type {
-  App,
-  EnqueueAppRequest,
-} from "@lp-compat/shared";
+import type { App, EnqueueAppRequest } from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
 
@@ -42,9 +39,13 @@ function isAllowedOrigin(origin: string | null): boolean {
 async function enrichWithPlayData(app: App, fallbackAppId?: string) {
   const appId = app?.appId || fallbackAppId;
   if (!appId) return app;
+
+  // We're mapping PlayStoreData to app.
+  // As a result, we have to cast it into a Record<string, unknown>, since the types don't 100% overlap.
+  const appAsRecord = app as unknown as Record<string, unknown>;
   try {
     const play = await getPlaystoreData(appId);
-    if (!play) return app;
+    if (!play) return appAsRecord;
 
     const keys: (keyof PlayStoreData)[] = [
       "title",
@@ -76,15 +77,15 @@ async function enrichWithPlayData(app: App, fallbackAppId?: string) {
     ];
 
     for (const key of keys) {
-      const hasValue = app[key] != null && app[key] !== "";
+      const hasValue = appAsRecord[key] != null && appAsRecord[key] !== "";
       if (!hasValue && play[key] !== undefined) {
-        app[key] = play[key];
+        appAsRecord[key] = play[key];
       }
     }
   } catch (e) {
     console.error("Error fetching playstore data for", appId, e);
   }
-  return app;
+  return appAsRecord;
 }
 
 export default {
