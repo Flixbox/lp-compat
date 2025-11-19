@@ -42,7 +42,7 @@ import MarkdownPreview, {
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
 import _ from 'lodash'
-import React, { useEffect, useEffectEvent, useState } from 'react'
+import React, { Fragment, useEffect, useEffectEvent, useState } from 'react'
 
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
@@ -327,7 +327,9 @@ const CompatComponent = () => {
       <div className="container">
         <div className="row fa-3x">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Fragment key={idx} >
+              <Feature {...props} /> <Box mt={10} />
+            </Fragment>
           ))}
         </div>
         <Box m={8} />
