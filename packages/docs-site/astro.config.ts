@@ -72,6 +72,10 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: 'App List',
+          link: '',
+        },
+        {
           label: 'Docs',
           autogenerate: { directory: 'docs', collapsed: false },
         },
