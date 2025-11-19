@@ -166,7 +166,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <Typography align="center">
         Apps are patched using{' '}
-        <Link href="/docs/intro">the default IAP and Adblock patches</Link>.
+        <Link href="/lp-compat/docs/intro">the default IAP and Adblock patches</Link>.
       </Typography>
     ),
   },
