@@ -19,6 +19,11 @@ app.use(
   }),
 );
 
+app.options("/:gPlayMethod", (c) => {
+  c.status(204);
+  return c.text("");
+});
+
 app.post("/:gPlayMethod", async (c) => {
   try {
     const gPlayMethod = c.req.param("gPlayMethod");
