@@ -21,6 +21,9 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "lint:typecheck": "bunx tsc --noEmit"
+  },
   "dependencies": {
     "@mui/material": "5.10.2"
   }

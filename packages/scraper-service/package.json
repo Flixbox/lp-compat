@@ -21,6 +21,9 @@
   "exports": {
     ".": "./api/scraper.ts"
   },
+  "scripts": {
+    "lint:typecheck": "bunx tsc --noEmit"
+  },
   "dependencies": {
     "google-play-scraper": "10.1.2",
     "hono": "4.10.6"

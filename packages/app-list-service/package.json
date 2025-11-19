@@ -24,6 +24,7 @@
   "scripts": {
     "prestart": "bunx kill-port 8787",
     "start": "bunx wrangler@latest dev --remote --show-interactive-dev-session=false",
+    "lint:typecheck": "bunx tsc --noEmit",
     "seed:apps": "bun run src/scripts/seedApps.ts"
   },
   "dependencies": {

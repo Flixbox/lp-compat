@@ -25,6 +25,7 @@
     "format": "biome format --write .",
     "lint": "bunx npm-run-all --continue-on-error \"lint:*\"",
     "lint:common": "biome lint .",
+    "lint:typecheck": "bun run --filter './packages/*' lint:typecheck",
     "lint:pkgjson": "bunx npm-package-json-lint .",
     "lint:knip": "knip",
     "check": "biome check --write .",

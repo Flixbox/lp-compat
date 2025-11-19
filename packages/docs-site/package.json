@@ -20,6 +20,7 @@
   "scripts": {
     "prestart": "bunx kill-port 3001",
     "start": "astro dev --port 3001",
+    "lint:typecheck": "bunx tsc --noEmit",
     "build": "astro build"
   },
   "dependencies": {
@@ -41,7 +42,6 @@
     "@reduxjs/toolkit": "2.10.1",
     "@uiw/react-markdown-preview": "4.1.15",
     "astro": "5.15.4",
-    "axios": "0.27.2",
     "clsx": "1.2.1",
     "esbuild-plugin-babel": "0.2.3",
     "lodash": "4.17.21",
