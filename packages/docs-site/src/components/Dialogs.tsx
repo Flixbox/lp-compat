@@ -256,7 +256,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
             options={Object.keys(features).map((key) => key)}
             freeSolo
             value={editState.features}
-            onChange={(_event: any, newValue) => {
+            onChange={(_event: React.SyntheticEvent, newValue) => {
               console.log('onChange', newValue)
               handleChange('features', newValue)
             }}

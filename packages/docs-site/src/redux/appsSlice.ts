@@ -15,7 +15,7 @@ const fetchApps = createAsyncThunk('apps/all', async () => {
   return (await response.json()) as App[]
 })
 
-const fetchApp = createAsyncThunk<any, { appId: string }>(
+const fetchApp = createAsyncThunk<App | undefined, { appId: string }>(
   'apps/get',
   async ({ appId }) => {
     const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
@@ -25,7 +25,7 @@ const fetchApp = createAsyncThunk<any, { appId: string }>(
   },
 )
 
-const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
+const fetchAppsByPage = createAsyncThunk<App[], { page: number }>(
   'apps/page',
   async ({ page }, thunkAPI) => {
     const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
@@ -38,14 +38,14 @@ const fetchAppsByPage = createAsyncThunk<any, { page: number }>(
   },
 )
 
-const fetchAppCount = createAsyncThunk('apps/count', async () => {
+const _fetchAppCount = createAsyncThunk('apps/count', async () => {
   const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
   if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`)
   const data = (await response.json()) as App[]
   return data.length
 })
 
-const addApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
+const addApp = createAsyncThunk<unknown, { app: App; discordUser: DiscordUser }>(
   'apps/add',
   async ({ app, discordUser }) => {
     // The worker expects the App object and discordUser in the request body at /enqueue.
@@ -62,7 +62,7 @@ const addApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
   },
 )
 
-const editApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
+const editApp = createAsyncThunk<unknown, { app: App; discordUser: DiscordUser }>(
   'apps/edit',
   async ({ app, discordUser }) => {
     // The worker expects the App object and discordUser in the request body at /enqueue.
@@ -79,7 +79,7 @@ const editApp = createAsyncThunk<any, { app: App; discordUser: DiscordUser }>(
   },
 )
 
-const getPlayStoreData = createAsyncThunk<any, { appId: string }>(
+const getPlayStoreData = createAsyncThunk<unknown, { appId: string }>(
   'playstore/get',
   async ({ appId }) => {
     const res = await fetch(`${SCRAPER_BASE_URL}/app`, {
@@ -100,7 +100,7 @@ const getPlayStoreData = createAsyncThunk<any, { appId: string }>(
   },
 )
 
-const searchPlayStoreData = createAsyncThunk<any, { query: string }>(
+const searchPlayStoreData = createAsyncThunk<unknown, { query: string }>(
   'playstore/search',
   async ({ query }) => {
     const res = await fetch(`${SCRAPER_BASE_URL}/search`, {
@@ -130,12 +130,14 @@ const appsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(clearState, (state, action) => initialState)
-    builder.addCase(fetchApps.fulfilled, (state, action) => action.payload)
+    builder.addCase(clearState, (_state, _action) => initialState)
+    builder.addCase(fetchApps.fulfilled, (_state, action) => action.payload)
     builder.addCase(fetchApp.fulfilled, (state, action) => {
-      const index = state.findIndex((app) => action.payload.appId === app.appId)
-      if (index < 0) state.push(action.payload)
-      state[index] = action.payload
+      const payload = action.payload
+      if (!payload) return
+      const index = state.findIndex((app) => payload.appId === app.appId)
+      if (index < 0) state.push(payload)
+      else state[index] = payload
     })
     builder.addCase(fetchAppsByPage.fulfilled, (state, action) => {
       return [...state, ...action.payload]

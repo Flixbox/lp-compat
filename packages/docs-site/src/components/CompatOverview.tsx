@@ -42,7 +42,7 @@ import MarkdownPreview, {
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
 import _ from 'lodash'
-import React, { Fragment, useEffect, useEffectEvent, useState } from 'react'
+import { Fragment, useEffect, useEffectEvent, useState } from 'react'
 
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
