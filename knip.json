@@ -5,9 +5,7 @@
     "type": true
   },
   "ignoreDependencies": ["sass-embedded"],
-  "tags": [
-    "-lintignore"
-  ],
+  "tags": ["-lintignore"],
   "workspaces": {
     ".": {}
   }

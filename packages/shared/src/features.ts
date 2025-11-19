@@ -54,10 +54,11 @@ const featureMap = (theme = createTheme()) => ({
     label: "Account login works!",
     color: theme.palette.info.main,
   },
-    "3rd-party-login-broken": {
-    label: "3rd-Party-Login systems (Meta, X, E-Mail) dysfunctional after patch",
+  "3rd-party-login-broken": {
+    label:
+      "3rd-Party-Login systems (Meta, X, E-Mail) dysfunctional after patch",
     color: theme.palette.warning.main,
-   },  
+  },
   "facebook-login": {
     label: "Facebook login works!",
     color: theme.palette.info.main,
@@ -98,7 +99,7 @@ const featureMap = (theme = createTheme()) => ({
     label: "Multiplayer in-app purchases broken",
     color: theme.palette.warning.main,
   },
-      "app-broken": {
+  "app-broken": {
     label: "App becomes dysfunctional after patch",
     color: theme.palette.error.main,
   },
@@ -217,7 +218,7 @@ const featureMap = (theme = createTheme()) => ({
     label: "Modded version on Happymod works",
     color: theme.palette.info.main,
   },
-  "fmhy": {
+  fmhy: {
     label:
       "The content in this app is likely available via [freemediaheckyeah](https://fmhy.pages.dev/)",
     color: theme.palette.success.main,

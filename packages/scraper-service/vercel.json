@@ -4,7 +4,5 @@
   "bunVersion": "1.x",
   "buildCommand": "",
   "outputDirectory": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "api/scraper.ts" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "api/scraper.ts" }]
 }

@@ -26,7 +26,11 @@
   },
   "overrides": [
     {
-      "includes": ["**/*config.{js,ts}", "**/*worker.{js,ts}", "**/*scraper.{js,ts}"],
+      "includes": [
+        "**/*config.{js,ts}",
+        "**/*worker.{js,ts}",
+        "**/*scraper.{js,ts}"
+      ],
       "linter": {
         "rules": {
           "style": {

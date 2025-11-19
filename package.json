@@ -27,7 +27,7 @@
     "lint:common": "biome lint .",
     "lint:pkgjson": "bunx npm-package-json-lint .",
     "lint:knip": "knip",
-    "check": "biome check --apply .",
+    "check": "biome check --write .",
     "build": "bun run --filter './packages/*' build",
     "postinstall": "touch tsconfig.json"
   },

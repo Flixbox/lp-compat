@@ -46,5 +46,4 @@ type DiscordUserQueryResult = {
 
 type DiscordUser = { isLoggedIn: boolean; user: DiscordUserQueryResult };
 
-
 export type { App, DiscordUserQueryResult, DiscordUser };
