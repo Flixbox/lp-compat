@@ -56,6 +56,24 @@
           }
         }
       }
+    },
+    {
+      "includes": [
+        "**/*.d.ts"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off"
+          }
+        }
+      }
     }
   ]
 }
