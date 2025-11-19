@@ -70,7 +70,6 @@
       "name": "@lp-compat/scraper-service",
       "version": "0.0.1",
       "dependencies": {
-        "@lp-compat/shared": "workspace:*",
         "google-play-scraper": "10.1.2",
         "hono": "4.10.6",
       },
