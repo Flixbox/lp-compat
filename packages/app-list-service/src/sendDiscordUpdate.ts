@@ -12,7 +12,7 @@ const sendDiscordUpdate = async (
   const hookUrl =
     webhookUrl ||
     (typeof process !== "undefined"
-      ? (process.env as unknown as { DISCORD_WEBHOOK: string })?.DISCORD_WEBHOOK
+      ? (process.env as Record<string, string | undefined>)?.["DISCORD_WEBHOOK"]
       : undefined) ||
     "";
   if (!hookUrl) return;

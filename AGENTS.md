@@ -17,7 +17,7 @@
 - Single quotes, no semicolons
 - Prefer `const func = () => {}` over `function func() {}`
 - You must document functions & anything exported (constants etc) with JSDoc if you discover them (Use advanced features like @link)
-- Default exports are banned, inline exports are banned => `export { HeaderWrapper }` ✅
+- Default exports are banned, inline exports are banned => `export { HeaderWrapper }` ✅  | [Exception: Certain workers and services as well as some configs require default exports]
 - You may only use full alias imports, like `import {stuff} from "@/redux"`
 - As for Knip: Sometimes it doesn't detect Astro imports, so you may need to add them manually to knip.json. You may not, however, add any other exports to knip.json. You must delete redundant code.
 

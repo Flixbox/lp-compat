@@ -38,7 +38,8 @@ app.post("/:gPlayMethod", async (c) => {
 
     if (typeof target === "function") {
       // Safe to call
-      const result = await target(params);
+      const fn = target as (params: unknown) => Promise<unknown>;
+      const result = await fn(params);
       return c.json(result);
     } else {
       // Not callable: return its value stringified
