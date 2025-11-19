@@ -37,7 +37,11 @@ const Dialogs = () => {
   )
 }
 
-const AppTextField = ({ editState, field, handleChange }) => {
+const AppTextField = ({
+  editState,
+  field,
+  handleChange,
+}: { editState: any; field: string; handleChange: (field: string, value: any) => void }) => {
   return (
     <TextField
       label={field}
@@ -49,7 +53,10 @@ const AppTextField = ({ editState, field, handleChange }) => {
   )
 }
 
-const SearchResult = ({ result, handleChange }) => {
+const SearchResult = ({
+  result,
+  handleChange,
+}: { result: App; handleChange: (field: string, value: any) => void }) => {
   return (
     <>
       <Box display="flex">
@@ -72,7 +79,7 @@ const SearchResult = ({ result, handleChange }) => {
   )
 }
 
-const EditAppDialog = ({ open, appId = '' }) => {
+const EditAppDialog = ({ open, appId = '' }: { open: boolean; appId?: string }) => {
   const dispatch = useAppDispatch()
   const initialAppData = useAppSelector((state) =>
     state.apps.find((app) => app.appId === appId),
@@ -92,7 +99,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
 
   console.log('editState', editState)
 
-  const handleChange = (part, value) => {
+  const handleChange = (part: string, value: any) => {
     // The internal mongodb ID is not necessary for anything we're doing, neither the editing nor the adding
     setEditState((prevEditState) => ({
       ...prevEditState,
@@ -114,13 +121,13 @@ const EditAppDialog = ({ open, appId = '' }) => {
   useEffect(() => {
     if (!editState.appId && !editState.title) return // Don't search if there's nothing to search for
     dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
-      setGetPlayStoreResult(res.payload),
+      setGetPlayStoreResult(res.payload as App),
     )
     dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
-      setSearchPlayStoreResultByTitle(res.payload),
+      setSearchPlayStoreResultByTitle(res.payload as App[]),
     )
     dispatch(searchPlayStoreData({ query: editState.appId })).then((res) =>
-      setSearchPlayStoreResultById(res.payload),
+      setSearchPlayStoreResultById(res.payload as App[]),
     )
   }, [editState.appId, editState.title])
 
@@ -146,7 +153,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
 
   if (open && !data.isLoggedIn) {
     alert("You're not logged in!")
-    closeDialog()
+    handleClose()
   }
 
   return (
@@ -263,7 +270,6 @@ const EditAppDialog = ({ open, appId = '' }) => {
             renderTags={(value: readonly string[], getTagProps) =>
               value.map((option: string, index: number) => (
                 <Chip
-                  key={option}
                   variant="outlined"
                   label={option}
                   {...getTagProps({ index })}
