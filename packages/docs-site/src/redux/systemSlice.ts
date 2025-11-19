@@ -1,18 +1,6 @@
-import type { App } from '@lp-compat/shared'
+import type { App, DiscordUserQueryResult } from '@lp-compat/shared'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createAction, createSlice } from '@reduxjs/toolkit'
-
-interface DiscordUser {
-  MFAEnabled: boolean
-  avatar: string
-  discriminator: string
-  email: null
-  flags: number
-  id: string
-  locale: string
-  tag: string
-  username: string
-}
 
 interface Dialogs {
   EDIT_APP: { open: boolean; appId?: App['appId'] }
@@ -21,7 +9,7 @@ interface Dialogs {
 interface SystemState {
   appsListUpdated: number
   appsListPage: number
-  discordUser?: DiscordUser
+  discordUser?: DiscordUserQueryResult
   discordGuilds?: []
   dialogs: Dialogs
 }

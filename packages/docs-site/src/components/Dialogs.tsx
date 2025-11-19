@@ -28,7 +28,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/redux'
-import { type DiscordUser, discordUserQueryStore } from '@/store'
+import { discordUserQueryStore } from '@/store'
 
 const Dialogs = () => {
   const { dialogs } = useAppSelector((state) => state.system)

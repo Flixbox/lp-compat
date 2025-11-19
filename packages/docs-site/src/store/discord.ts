@@ -1,24 +1,13 @@
 import {
   DISCORD_CLIENT_ID,
   DISCORD_OAUTH_REDIRECT_URI,
+  type DiscordUser,
+  type DiscordUserQueryResult,
 } from '@lp-compat/shared'
 import { persistentAtom } from '@nanostores/persistent'
 import { createFetcherStore } from '@/store/_fetcher'
 
 const DISCORD_USER_QUERY_URL = 'https://discord.com/api/v9/users/@me'
-
-type DiscordUserQueryResult = {
-  /** Only available if request succeeds (i. e. user is authorized) */
-  username?: string
-  /** Only available if request succeeds (i. e. user is authorized) */
-  id?: string
-  /** Only available if request fails (i. e. user is unauthorized) */
-  code?: number
-  /** Only available if request fails (i. e. user is unauthorized) */
-  message?: string
-}
-
-type DiscordUser = { isLoggedIn: boolean; user: DiscordUserQueryResult }
 
 const UNAUTHORIZED_MESSAGE = '401: Unauthorized'
 
@@ -98,9 +87,4 @@ const discordUserQueryStore = createFetcherStore<DiscordUser>(
   },
 )
 
-export {
-  discordUserQueryStore,
-  getDiscordLoginUrl,
-  type DiscordUser,
-  DEFAULT_DISCORD_LOGIN_URL,
-}
+export { discordUserQueryStore, getDiscordLoginUrl, DEFAULT_DISCORD_LOGIN_URL }

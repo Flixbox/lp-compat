@@ -33,4 +33,18 @@ interface App {
   };
 }
 
-export type { App };
+type DiscordUserQueryResult = {
+  /** Only available if request succeeds (i. e. user is authorized) */
+  username?: string;
+  /** Only available if request succeeds (i. e. user is authorized) */
+  id?: string;
+  /** Only available if request fails (i. e. user is unauthorized) */
+  code?: number;
+  /** Only available if request fails (i. e. user is unauthorized) */
+  message?: string;
+};
+
+type DiscordUser = { isLoggedIn: boolean; user: DiscordUserQueryResult };
+
+
+export type { App, DiscordUserQueryResult, DiscordUser };

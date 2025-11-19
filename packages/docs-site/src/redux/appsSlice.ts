@@ -1,11 +1,11 @@
 import {
   APPS_WORKER_BASE_URL,
   type App,
+  type DiscordUser,
   SCRAPER_BASE_URL,
 } from '@lp-compat/shared'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { clearState, setAppsListPage } from '@/redux/systemSlice'
-import type { DiscordUser } from '@/store'
 
 const pageSize = 5000
 

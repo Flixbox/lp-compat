@@ -3,7 +3,7 @@ import type {
   R2Bucket,
   ScheduledEvent,
 } from "@cloudflare/workers-types";
-import type { App } from "@lp-compat/shared";
+import type { App, DiscordUser } from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
 
@@ -121,40 +121,50 @@ export default {
 
       // ENQUEUE new or updated app
       if (url.pathname === "/enqueue" && req.method === "POST") {
-        const body = (await req.json()) as App;
-        const anyBody = body as any;
+        const body = (await req.json()) as {
+          app: App;
+          discordUser: DiscordUser;
+        };
 
-        if (!anyBody.appId) {
+        if (!body.app.appId) {
           return new Response("Missing appId", {
             ...commonHeaders,
             status: 400,
           });
         }
 
-        await enrichWithPlayData(anyBody);
+        await enrichWithPlayData(body.app);
+
+        const entry: App = {
+          ...body.app,
+          editedBy: {
+            userName: body.discordUser.user.username || "",
+            userId: body.discordUser.user.id || "",
+          },
+        };
 
         // Always enqueue into apps_queue/
         await env.APPS_BUCKET.put(
-          `apps_queue/${anyBody.appId}.json`,
-          JSON.stringify(anyBody, null, 2),
+          `apps_queue/${body.app.appId}.json`,
+          JSON.stringify(entry, null, 2),
           {
             httpMetadata: { contentType: "application/json" },
           },
         );
 
         if (!noWebhook) {
-          await sendDiscordUpdate(body, "queued", env.DISCORD_WEBHOOK);
+          await sendDiscordUpdate(entry, "queued", env.DISCORD_WEBHOOK);
         }
 
         return Response.json(
-          { status: "queued", appId: anyBody.appId },
+          { status: "queued", appId: body.app.appId },
           commonHeaders,
         );
       }
 
       return new Response("Not found", { ...commonHeaders, status: 404 });
-    } catch (err: any) {
-      return new Response(err?.message ?? String(err), {
+    } catch (err) {
+      return new Response(JSON.stringify(err), {
         ...commonHeaders,
         status: 500,
       });
