@@ -5,7 +5,7 @@ import type {
 } from "@cloudflare/workers-types";
 import type {
   App,
-  DiscordUserQueryResult,
+  EnqueueAppRequest,
 } from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
 import { sendDiscordUpdate } from "@/sendDiscordUpdate";
@@ -39,12 +39,12 @@ function isAllowedOrigin(origin: string | null): boolean {
   return false;
 }
 
-async function enrichWithPlayData(body: any, fallbackAppId?: string) {
-  const appId = body?.appId || fallbackAppId;
-  if (!appId) return body;
+async function enrichWithPlayData(app: App, fallbackAppId?: string) {
+  const appId = app?.appId || fallbackAppId;
+  if (!appId) return app;
   try {
     const play = await getPlaystoreData(appId);
-    if (!play) return body;
+    if (!play) return app;
 
     const keys: (keyof PlayStoreData)[] = [
       "title",
@@ -76,15 +76,15 @@ async function enrichWithPlayData(body: any, fallbackAppId?: string) {
     ];
 
     for (const key of keys) {
-      const hasValue = body[key] != null && body[key] !== "";
+      const hasValue = app[key] != null && app[key] !== "";
       if (!hasValue && play[key] !== undefined) {
-        body[key] = play[key];
+        app[key] = play[key];
       }
     }
   } catch (e) {
     console.error("Error fetching playstore data for", appId, e);
   }
-  return body;
+  return app;
 }
 
 export default {
@@ -127,10 +127,7 @@ export default {
         url.pathname === "/enqueue" &&
         (req.method === "POST" || req.method === "PUT")
       ) {
-        const body = (await req.json()) as {
-          app: App;
-          discordUser: DiscordUserQueryResult;
-        };
+        const body = (await req.json()) as EnqueueAppRequest;
 
         if (!body.app.appId) {
           return new Response("Missing appId", {

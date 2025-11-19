@@ -2,6 +2,7 @@ import {
   APPS_WORKER_BASE_URL,
   type App,
   type DiscordUser,
+  type EnqueueAppRequest,
   SCRAPER_BASE_URL,
 } from '@lp-compat/shared'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
@@ -49,10 +50,14 @@ const addApp = createAsyncThunk<unknown, { app: App; discordUser: DiscordUser }>
   'apps/add',
   async ({ app, discordUser }) => {
     // The worker expects the App object and discordUser in the request body at /enqueue.
+    const requestBody: EnqueueAppRequest = {
+      app,
+      discordUser: discordUser.user,
+    }
     const res = await fetch(`${APPS_WORKER_BASE_URL}/enqueue`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ app, discordUser: discordUser.user }),
+      body: JSON.stringify(requestBody),
     })
     if (!res.ok) {
       const text = await res.text()
@@ -66,10 +71,14 @@ const editApp = createAsyncThunk<unknown, { app: App; discordUser: DiscordUser }
   'apps/edit',
   async ({ app, discordUser }) => {
     // The worker expects the App object and discordUser in the request body at /enqueue.
+    const requestBody: EnqueueAppRequest = {
+      app,
+      discordUser: discordUser.user,
+    }
     const res = await fetch(`${APPS_WORKER_BASE_URL}/enqueue`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ app, discordUser: discordUser.user }),
+      body: JSON.stringify(requestBody),
     })
     if (!res.ok) {
       const text = await res.text()
