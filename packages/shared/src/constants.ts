@@ -18,8 +18,7 @@ const SCRAPER_BASE_URL = isDevelopment
 
 const PROD_APPS_WORKER_BASE_URL =
   "https://lp-compat-backend.alone-king-poking.workers.dev";
-const DEV_APPS_WORKER_BASE_URL =
-  "https://bun-rework-lp-compat-backend.alone-king-poking.workers.dev";
+const DEV_APPS_WORKER_BASE_URL = "http://127.0.0.1:8787";
 
 const APPS_WORKER_BASE_URL = isDevelopment
   ? DEV_APPS_WORKER_BASE_URL

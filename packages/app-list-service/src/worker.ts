@@ -120,7 +120,10 @@ export default {
       }
 
       // ENQUEUE new or updated app
-      if (url.pathname === "/enqueue" && req.method === "POST") {
+      if (
+        url.pathname === "/enqueue" &&
+        (req.method === "POST" || req.method === "PUT")
+      ) {
         const body = (await req.json()) as {
           app: App;
           discordUser: DiscordUser;
@@ -177,9 +180,20 @@ export default {
 
       return new Response("Not found", { ...commonHeaders, status: 404 });
     } catch (err) {
-      return new Response(JSON.stringify(err), {
-        ...commonHeaders,
+      const error =
+        err instanceof Error
+          ? { message: err.message, stack: err.stack, name: err.name }
+          : { error: String(err) };
+
+      console.error("Error during fetch", {
+        url: req.url,
+        method: req.method,
+        error,
+      });
+
+      return Response.json(error, {
         status: 500,
+        headers: corsHeaders(origin),
       });
     }
   },
