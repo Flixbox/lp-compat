@@ -38,7 +38,7 @@ const systemSlice = createSlice({
     },
     openDialog(
       state,
-      action: PayloadAction<{ dialog: keyof Dialogs; data: any }>,
+      action: PayloadAction<{ dialog: keyof Dialogs; data: unknown }>,
     ) {
       state.dialogs[action.payload.dialog] = {
         open: true,
@@ -52,7 +52,7 @@ const systemSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(clearState, (state, action) => initialState)
+    builder.addCase(clearState, () => initialState)
   },
 })
 

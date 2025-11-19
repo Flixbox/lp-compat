@@ -12,15 +12,15 @@ const sendDiscordUpdate = async (
   const hookUrl =
     webhookUrl ||
     (typeof process !== "undefined"
-      ? (process.env as any)?.DISCORD_WEBHOOK
+      ? (process.env as unknown as { DISCORD_WEBHOOK: string })?.DISCORD_WEBHOOK
       : undefined) ||
     "";
   if (!hookUrl) return;
 
   let featuresString = "\nCompatibility:";
-  features.forEach(
-    (feature) => (featuresString += `\n${getFeature(feature.trim()).label}`),
-  );
+  features.forEach((feature) => {
+    featuresString += `\n${getFeature(feature.trim()).label}`;
+  });
 
   let color = 0x0099ff;
   if (features.indexOf("iap") > -1) color = 0x388e3c;

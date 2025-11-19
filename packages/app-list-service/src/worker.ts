@@ -5,7 +5,6 @@ import type {
 } from "@cloudflare/workers-types";
 import type {
   App,
-  DiscordUser,
   DiscordUserQueryResult,
 } from "@lp-compat/shared";
 import { getPlaystoreData, type PlayStoreData } from "@/getPlaystoreData";
@@ -204,7 +203,7 @@ export default {
   /**
    * Cronjob that processes the queue - Higher execution timeframe
    */
-  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
+  async scheduled(_event: ScheduledEvent, env: Env, _ctx: ExecutionContext) {
     const file = await env.APPS_BUCKET.get("apps.json");
     const apps: App[] = file ? JSON.parse(await file.text()) : [];
 

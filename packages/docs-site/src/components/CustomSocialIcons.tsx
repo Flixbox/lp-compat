@@ -8,7 +8,7 @@ const ExtraNavbarItems = () => {
   return (
     <div>
       {data?.isLoggedIn ? (
-        <>{data.user.username}</>
+        data.user.username
       ) : (
         <a href={DEFAULT_DISCORD_LOGIN_URL}>Login</a>
       )}

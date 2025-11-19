@@ -1,6 +1,6 @@
 import { nanoquery } from '@nanostores/query'
 
-const [createFetcherStore, createMutatorStore] = nanoquery({
+const [createFetcherStore, _createMutatorStore] = nanoquery({
   fetcher: (...keys) => fetch(keys.join('')).then((r) => r.json()),
 })
 

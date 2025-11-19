@@ -56,7 +56,7 @@ const getPlaystoreData = async (
     let found: PlayStoreData | null = null;
     try {
       found = (await postTo("app", { appId })) as PlayStoreData;
-    } catch (e) {
+    } catch (_e) {
       // If /app fails, try /search with term=appId and num=1
       try {
         const searchRes = (await postTo("search", {

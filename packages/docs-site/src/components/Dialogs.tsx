@@ -256,13 +256,14 @@ const EditAppDialog = ({ open, appId = '' }) => {
             options={Object.keys(features).map((key) => key)}
             freeSolo
             value={editState.features}
-            onChange={(event: any, newValue) => {
+            onChange={(_event: any, newValue) => {
               console.log('onChange', newValue)
               handleChange('features', newValue)
             }}
             renderTags={(value: readonly string[], getTagProps) =>
               value.map((option: string, index: number) => (
                 <Chip
+                  key={option}
                   variant="outlined"
                   label={option}
                   {...getTagProps({ index })}
@@ -290,7 +291,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
               <Typography>Search results by title:</Typography>
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResultByTitle.map((result) => (
-                  <SearchResult result={result} handleChange={handleChange} />
+                  <SearchResult key={result.appId} result={result} handleChange={handleChange} />
                 ))}
               </Box>
             </>
@@ -301,7 +302,7 @@ const EditAppDialog = ({ open, appId = '' }) => {
               <Typography>Search results by ID:</Typography>
               <Box display="flex" flexDirection="column">
                 {searchPlayStoreResultById.map((result) => (
-                  <SearchResult result={result} handleChange={handleChange} />
+                  <SearchResult key={result.appId} result={result} handleChange={handleChange} />
                 ))}
               </Box>
             </>
