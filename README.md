@@ -3,10 +3,7 @@
 [![deploy](https://github.com/Flixbox/lp-compat/actions/workflows/deploy.yml/badge.svg)](https://github.com/Flixbox/lp-compat/actions/workflows/deploy.yml)
 [![uptime](https://img.shields.io/uptimerobot/ratio/m792717344-6d627ad71592aa371175f9d6?style=flat&logo=github)](https://stats.uptimerobot.com/kPYMYIk88k)
 
-[![maintainability](https://img.shields.io/codeclimate/maintainability/Flixbox/lp-compat?style=flat&logo=code%20climate)
-![issues](https://img.shields.io/codeclimate/issues/Flixbox/lp-compat?style=flat&logo=code%20climate)
-![tech-debt](https://img.shields.io/codeclimate/tech-debt/Flixbox/lp-compat?style=flat&logo=code%20climate)
-](https://codeclimate.com/github/Flixbox/lp-compat)
+[![Maintainability](https://qlty.sh/gh/Flixbox/projects/lp-compat/maintainability.svg)](https://qlty.sh/gh/Flixbox/projects/lp-compat)
 
 This repository contains a website and Discord bot that help users determine which apps can be patched with Lucky Patcher. The website, which can be accessed at https://flixbox.github.io/lp-compat/, displays a list of compatible apps. The list can be added to on the Discord server below using a bot or on edited on the website (requires logging on with Discord).
 
