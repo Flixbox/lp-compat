@@ -22,17 +22,18 @@ import {
 import { Box } from '@mui/system'
 import { useStore } from '@nanostores/react'
 import React, { useEffect, useState } from 'react'
+import { useDebounceValue } from 'usehooks-ts'
 import Custom_features_Example from '@/assets/img/Custom_features_Example.png'
+import { useAppDispatch, useAppSelector } from '@/redux'
+import { closeDialog } from '@/redux/systemSlice'
 import {
   addApp,
-  closeDialog,
+  appsStore,
+  discordUserQueryStore,
   editApp,
   getPlayStoreData,
   searchPlayStoreData,
-  useAppDispatch,
-  useAppSelector,
-} from '@/redux'
-import { discordUserQueryStore } from '@/store'
+} from '@/store'
 
 const Dialogs = () => {
   const { dialogs } = useAppSelector((state) => state.system)
@@ -98,9 +99,9 @@ const EditAppDialog = ({
   appId?: string
 }) => {
   const dispatch = useAppDispatch()
-  const initialAppData = useAppSelector((state) =>
-    state.apps.find((app) => app.appId === appId),
-  ) || { appId }
+  const { data: apps } = useStore(appsStore)
+  const initialAppData =
+    apps?.find((app) => app.appId === appId) || ({ appId } as App)
   console.log('initialAppData', initialAppData)
   const [editState, setEditState] = useState<App>({ ...initialAppData } as App)
   const [error, setError] = useState(false)
@@ -116,6 +117,9 @@ const EditAppDialog = ({
 
   console.log('editState', editState)
 
+  const [debouncedAppId] = useDebounceValue(editState.appId, 500)
+  const [debouncedTitle] = useDebounceValue(editState.title, 500)
+
   const handleChange = (part: keyof App, value: App[keyof App]) => {
     // The internal mongodb ID is not necessary for anything we're doing, neither the editing nor the adding
     setEditState((prevEditState) => ({
@@ -130,39 +134,37 @@ const EditAppDialog = ({
     dispatch(closeDialog({ dialog: 'EDIT_APP' }))
   }
 
-  // Populate edit fields when the dialog opens
   useEffect(() => {
-    if (open) setEditState({ ...initialAppData } as App)
-  }, [open])
+    if (!debouncedAppId) return
+    getPlayStoreData
+      .mutate(debouncedAppId)
+      .then((res) => setGetPlayStoreResult(res as App))
+    searchPlayStoreData
+      .mutate(debouncedAppId)
+      .then((res) => setSearchPlayStoreResultById(res as App[]))
+  }, [debouncedAppId])
 
   useEffect(() => {
-    if (!editState.appId && !editState.title) return // Don't search if there's nothing to search for
-    dispatch(getPlayStoreData({ appId: editState.appId })).then((res) =>
-      setGetPlayStoreResult(res.payload as App),
-    )
-    dispatch(searchPlayStoreData({ query: editState.title })).then((res) =>
-      setSearchPlayStoreResultByTitle(res.payload as App[]),
-    )
-    dispatch(searchPlayStoreData({ query: editState.appId })).then((res) =>
-      setSearchPlayStoreResultById(res.payload as App[]),
-    )
-  }, [editState.appId, editState.title])
+    if (!debouncedTitle) return
+    searchPlayStoreData
+      .mutate(debouncedTitle)
+      .then((res) => setSearchPlayStoreResultByTitle(res as App[]))
+  }, [debouncedTitle])
 
   if (loading || !data) return <CircularProgress />
 
   const handleSave = async () => {
-    // If the user wasn't logged in, the dialog would close.
     const user = data
-    let result = await dispatch(addApp({ app: editState, discordUser: user }))
-    if (result.meta.requestStatus === 'fulfilled') {
+    try {
+      await addApp.mutate({ app: editState, discordUser: user })
       console.log('addApp fulfilled')
       handleClose()
-    } else {
-      result = await dispatch(editApp({ app: editState, discordUser: user }))
-      if (result.meta.requestStatus === 'fulfilled') {
+    } catch {
+      try {
+        await editApp.mutate({ app: editState, discordUser: user })
         console.log('editApp fulfilled')
         handleClose()
-      } else {
+      } catch {
         setError(true)
       }
     }

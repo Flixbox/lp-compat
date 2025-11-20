@@ -8,7 +8,7 @@ interface Dialogs {
 
 interface SystemState {
   appsListUpdated: number
-  appsListPage: number
+
   discordUser?: DiscordUserQueryResult
   discordGuilds?: []
   dialogs: Dialogs
@@ -16,7 +16,7 @@ interface SystemState {
 
 const initialState = {
   appsListUpdated: Date.now(),
-  appsListPage: 0,
+
   discordUser: undefined,
   discordGuilds: [],
   dialogs: {
@@ -30,12 +30,6 @@ const systemSlice = createSlice({
   name: 'system',
   initialState,
   reducers: {
-    setAppsListUpdated(state, action: PayloadAction<number>) {
-      state.appsListUpdated = action.payload
-    },
-    setAppsListPage(state, action: PayloadAction<number>) {
-      state.appsListPage = action.payload
-    },
     /**
      * Opens a dialog with the provided data.
      */
@@ -67,5 +61,5 @@ const systemSlice = createSlice({
   },
 })
 
-export const { setAppsListPage, openDialog, closeDialog } = systemSlice.actions
+export const { openDialog, closeDialog } = systemSlice.actions
 export { systemSlice, clearState }

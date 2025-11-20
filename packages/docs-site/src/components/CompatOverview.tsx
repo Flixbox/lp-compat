@@ -46,14 +46,18 @@ import MarkdownPreview, {
 } from '@uiw/react-markdown-preview'
 import clsx from 'clsx'
 import _ from 'lodash'
-import { Fragment, useEffect, useEffectEvent, useState } from 'react'
+import { Fragment } from 'react'
 
 import { Virtuoso } from 'react-virtuoso'
 import { useLocalStorage } from 'usehooks-ts'
 import { Providers } from '@/components/Providers'
-import { fetchApps, useAppDispatch, useAppSelector } from '@/redux'
+import { useAppDispatch, useAppSelector } from '@/redux'
 import { clearState, openDialog } from '@/redux/systemSlice'
-import { DEFAULT_DISCORD_LOGIN_URL, discordUserQueryStore } from '@/store'
+import {
+  appsStore,
+  DEFAULT_DISCORD_LOGIN_URL,
+  discordUserQueryStore,
+} from '@/store'
 import styles from './styles.module.css'
 
 // TODO Move that login button to main component so it works on mobile or update it every second
@@ -242,20 +246,11 @@ const CompatComponent = () => {
     'apps-sorting',
     'installs-asc',
   )
-  const [loadingApps, setLoadingApps] = useState(true)
-  const apps = useAppSelector<App[]>((state) => state.apps)
+  const { data: appsData, loading: appsLoading } = useStore(appsStore)
+  const apps = appsData || []
   const { appsListUpdated } = useAppSelector((state) => state.system)
   const { data } = useStore(discordUserQueryStore)
   const isLoggedIn = data?.isLoggedIn
-
-  const loadApps = useEffectEvent(() => {
-    setLoadingApps(true)
-    dispatch(fetchApps()).finally(() => setLoadingApps(false))
-  })
-
-  useEffect(() => {
-    loadApps()
-  }, [])
 
   const visibilitySettings = [
     {
@@ -306,8 +301,7 @@ const CompatComponent = () => {
   const refreshApps = () => {
     localStorage.clear()
     dispatch(clearState())
-    setLoadingApps(true)
-    dispatch(fetchApps()).finally(() => setLoadingApps(false))
+    appsStore.revalidate()
   }
 
   const sortedApps = sortOptions[sorting].getSortedApps()
@@ -476,7 +470,7 @@ const CompatComponent = () => {
         <div id="apps"></div>
         <Typography>
           {`Loaded ${apps.length} apps!`}
-          {loadingApps && ` Loading...`}
+          {appsLoading && ` Loading...`}
           <br />
           <IconButton onClick={() => refreshApps()}>
             <FontAwesomeIcon icon={faRefresh} />
@@ -484,7 +478,7 @@ const CompatComponent = () => {
           {`Last refreshed: ${new Date(appsListUpdated).toLocaleString()}`}
         </Typography>
 
-        {loadingApps && <CircularProgress />}
+        {appsLoading && <CircularProgress />}
 
         {isLoggedIn && (
           <p>Modifications to the list are applied every 15 minutes.</p>

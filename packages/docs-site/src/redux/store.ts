@@ -1,10 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { appsSlice } from '@/redux/appsSlice'
+
 import { systemSlice } from '@/redux/systemSlice'
 
 export const store = configureStore({
   reducer: combineReducers({
-    apps: appsSlice.reducer,
     system: systemSlice.reducer,
   }),
 })
