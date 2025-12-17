@@ -23,6 +23,7 @@
 - We use nanostores, not redux or react-query. Check the @/stores folder when you navigate packages/docs-site. One store per file, split things if you hit this limit. All requests, mutations, and other shared data handling must use nanostores.
 
 ## Agent instructions
+- When you're done, use the full `bun run lint` command in the root of the monorepo to check for issues
 - When working inside packages/docs-site, always check astro.config.ts first
 - Document new functions with JSDoc
 - Prefer async/await over callbacks
