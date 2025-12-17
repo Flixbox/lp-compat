@@ -5,6 +5,7 @@ import {
   type DiscordUserQueryResult,
 } from '@lp-compat/shared'
 import { persistentAtom } from '@nanostores/persistent'
+import { atom } from 'nanostores'
 import { createFetcherStore } from '@/store/_fetcher'
 
 const DISCORD_USER_QUERY_URL = 'https://discord.com/api/v9/users/@me'
@@ -20,6 +21,9 @@ const DEFAULT_DISCORD_LOGIN_URL = getDiscordLoginUrl(
   DISCORD_CLIENT_ID,
   DISCORD_OAUTH_REDIRECT_URI,
 )
+
+const $discordUser = atom<DiscordUserQueryResult | undefined>(undefined)
+const $discordGuilds = atom<[] | undefined>([])
 
 const $persistedDiscordUserAccessToken = persistentAtom<string>(
   'persistedDiscordUserAccessToken',
@@ -87,4 +91,9 @@ const $discordUserQuery = createFetcherStore<DiscordUser>(
   },
 )
 
-export { $discordUserQuery, DEFAULT_DISCORD_LOGIN_URL }
+export {
+  $discordUserQuery,
+  DEFAULT_DISCORD_LOGIN_URL,
+  $discordUser,
+  $discordGuilds,
+}

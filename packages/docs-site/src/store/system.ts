@@ -1,5 +1,6 @@
-import type { App, DiscordUserQueryResult } from '@lp-compat/shared'
+import type { App } from '@lp-compat/shared'
 import { atom, map } from 'nanostores'
+import { $discordGuilds, $discordUser } from './discord'
 
 export interface Dialogs {
   EDIT_APP: { open: boolean; appId?: App['appId'] }
@@ -10,9 +11,6 @@ export type DialogKey = keyof Dialogs
 export const $dialogs = map<Dialogs>({
   EDIT_APP: { open: false },
 })
-
-export const $discordUser = atom<DiscordUserQueryResult | undefined>(undefined)
-export const $discordGuilds = atom<[] | undefined>([])
 
 export const $appsListUpdated = atom<number>(Date.now())
 
