@@ -1,1 +1,0 @@
-import{j as s,P as e,u as o,D as t,d as a}from"./Providers.DcQOOVZ8.js";import"./index.Du05A6m1.js";const i=()=>{const{data:r}=o(a);return s.jsx("div",{children:r?.isLoggedIn?r.user.username:s.jsx("a",{href:t,children:"Login"})})},c=()=>s.jsx(e,{children:s.jsx(i,{})});export{c as CustomSocialIcons};
