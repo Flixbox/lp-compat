@@ -21,11 +21,11 @@ const DEFAULT_DISCORD_LOGIN_URL = getDiscordLoginUrl(
   DISCORD_OAUTH_REDIRECT_URI,
 )
 
-const persistedDiscordUserAccessToken = persistentAtom<string>(
+const $persistedDiscordUserAccessToken = persistentAtom<string>(
   'persistedDiscordUserAccessToken',
   '',
 )
-const persistedDiscordUserTokenType = persistentAtom<string>(
+const $persistedDiscordUserTokenType = persistentAtom<string>(
   'persistedDiscordUserTokenType',
   '',
 )
@@ -47,12 +47,12 @@ if (typeof window !== 'undefined') {
   ]
 
   if (accessToken && tokenType) {
-    persistedDiscordUserAccessToken.set(accessToken)
-    persistedDiscordUserTokenType.set(tokenType)
+    $persistedDiscordUserAccessToken.set(accessToken)
+    $persistedDiscordUserTokenType.set(tokenType)
 
     if (
-      persistedDiscordUserAccessToken.get() &&
-      persistedDiscordUserTokenType.get()
+      $persistedDiscordUserAccessToken.get() &&
+      $persistedDiscordUserTokenType.get()
     ) {
       // Clear sensitive token from address bar
       const newUrl = window.location.href.split('#')[0]
@@ -62,11 +62,11 @@ if (typeof window !== 'undefined') {
 }
 
 const resetTokens = () => {
-  persistedDiscordUserAccessToken.set('')
-  persistedDiscordUserTokenType.set('')
+  $persistedDiscordUserAccessToken.set('')
+  $persistedDiscordUserTokenType.set('')
 }
 
-const discordUserQueryStore = createFetcherStore<DiscordUser>(
+const $discordUserQuery = createFetcherStore<DiscordUser>(
   [DISCORD_USER_QUERY_URL],
   {
     fetcher: async () => {
@@ -74,7 +74,7 @@ const discordUserQueryStore = createFetcherStore<DiscordUser>(
         await fetch(DISCORD_USER_QUERY_URL, {
           method: 'GET',
           headers: {
-            authorization: `${persistedDiscordUserTokenType.get()} ${persistedDiscordUserAccessToken.get()}`,
+            authorization: `${$persistedDiscordUserTokenType.get()} ${$persistedDiscordUserAccessToken.get()}`,
           },
         })
       ).json()
@@ -87,4 +87,4 @@ const discordUserQueryStore = createFetcherStore<DiscordUser>(
   },
 )
 
-export { discordUserQueryStore, DEFAULT_DISCORD_LOGIN_URL }
+export { $discordUserQuery, DEFAULT_DISCORD_LOGIN_URL }

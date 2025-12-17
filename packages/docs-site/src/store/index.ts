@@ -1,3 +1,5 @@
 export * from './apps'
 export * from './discord'
 export * from './playstore'
+export * from './settings'
+export * from './system'

@@ -1,9 +1,9 @@
 import { useStore } from '@nanostores/react'
 import { Providers } from '@/components/Providers'
-import { DEFAULT_DISCORD_LOGIN_URL, discordUserQueryStore } from '@/store'
+import { $discordUserQuery, DEFAULT_DISCORD_LOGIN_URL } from '@/store'
 
 const ExtraNavbarItems = () => {
-  const { data } = useStore(discordUserQueryStore)
+  const { data } = useStore($discordUserQuery)
 
   return (
     <div>

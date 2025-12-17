@@ -49,14 +49,18 @@ import _ from 'lodash'
 import { Fragment } from 'react'
 
 import { Virtuoso } from 'react-virtuoso'
-import { useLocalStorage } from 'usehooks-ts'
 import { Providers } from '@/components/Providers'
-import { useAppDispatch, useAppSelector } from '@/redux'
-import { clearState, openDialog } from '@/redux/systemSlice'
 import {
-  appsStore,
+  $apps,
+  $appsListUpdated,
+  $discordUserQuery,
+  $persistedAppsSorting,
+  $persistedAppsTitleFilter,
+  $persistedAppsVisibilitySettings,
+  type AppsSorting,
+  clearState,
   DEFAULT_DISCORD_LOGIN_URL,
-  discordUserQueryStore,
+  openDialog,
 } from '@/store'
 import styles from './styles.module.css'
 
@@ -237,19 +241,13 @@ function Feature({ icon, description }: FeatureItem) {
 }
 
 const CompatComponent = () => {
-  const dispatch = useAppDispatch()
-  const [appTitleFilter, setAppTitleFilter] = useLocalStorage(
-    'appsTitleFilter',
-    '',
-  )
-  const [sorting, setSorting] = useLocalStorage<keyof typeof sortOptions>(
-    'apps-sorting',
-    'installs-asc',
-  )
-  const { data: appsData, loading: appsLoading } = useStore(appsStore)
+  const appTitleFilter = useStore($persistedAppsTitleFilter)
+  const sorting = useStore($persistedAppsSorting)
+
+  const { data: appsData, loading: appsLoading } = useStore($apps)
   const apps = appsData || []
-  const { appsListUpdated } = useAppSelector((state) => state.system)
-  const { data } = useStore(discordUserQueryStore)
+  const appsListUpdated = useStore($appsListUpdated)
+  const { data } = useStore($discordUserQuery)
   const isLoggedIn = data?.isLoggedIn
 
   const visibilitySettings = [
@@ -273,14 +271,12 @@ const CompatComponent = () => {
     },
   ]
 
-  const [onlyShowTheseCategories, setOnlyShowTheseCategories] = useLocalStorage(
-    'onlyShowTheseVisibilitySettings',
-    visibilitySettings.map((category) => category.id),
-  )
+  const onlyShowTheseCategories = useStore($persistedAppsVisibilitySettings)
 
-  if (!sorting) setSorting('installs-asc')
-
-  const sortOptions = {
+  const sortOptions: Record<
+    AppsSorting,
+    { title: string; getSortedApps: () => App[] }
+  > = {
     'name-asc': {
       title: 'Sort by name',
       getSortedApps: () =>
@@ -300,8 +296,8 @@ const CompatComponent = () => {
 
   const refreshApps = () => {
     localStorage.clear()
-    dispatch(clearState())
-    appsStore.revalidate()
+    clearState()
+    $apps.revalidate()
   }
 
   const sortedApps = sortOptions[sorting].getSortedApps()
@@ -362,7 +358,7 @@ const CompatComponent = () => {
                     variant="outlined"
                     style={{ height: '50px', minWidth: '120px' }}
                     onClick={() => {
-                      dispatch(openDialog({ dialog: 'EDIT_APP', data: {} }))
+                      openDialog('EDIT_APP', {})
                     }}
                   >
                     <FontAwesomeIcon icon={faAdd} style={{ marginRight: 8 }} />
@@ -418,7 +414,9 @@ const CompatComponent = () => {
                   displayEmpty
                   value={sorting}
                   onChange={(e) =>
-                    setSorting(e.target.value as keyof typeof sortOptions)
+                    $persistedAppsSorting.set(
+                      e.target.value as keyof typeof sortOptions,
+                    )
                   }
                   style={{ height: '50px' }}
                 >
@@ -438,7 +436,7 @@ const CompatComponent = () => {
             placeholder="Filter app title or ID"
             value={appTitleFilter}
             onChange={(e) =>
-              setAppTitleFilter(e.currentTarget.value.toLowerCase())
+              $persistedAppsTitleFilter.set(e.currentTarget.value.toLowerCase())
             }
           />
 
@@ -447,7 +445,7 @@ const CompatComponent = () => {
               <Chip
                 label={title}
                 onClick={() =>
-                  setOnlyShowTheseCategories(
+                  $persistedAppsVisibilitySettings.set(
                     _.xor(onlyShowTheseCategories, [id]),
                   )
                 }
@@ -496,9 +494,8 @@ const CompatComponent = () => {
 
 const AppTile = ({ app }: { app: App }) => {
   const theme = useTheme()
-  const { data } = useStore(discordUserQueryStore)
+  const { data } = useStore($discordUserQuery)
   const isLoggedIn = data?.isLoggedIn
-  const dispatch = useAppDispatch()
 
   if (!app?.appId) return null
 
@@ -619,7 +616,7 @@ const AppTile = ({ app }: { app: App }) => {
         {isLoggedIn && (
           <IconButton
             onClick={() => {
-              dispatch(openDialog({ dialog: 'EDIT_APP', data: { appId } }))
+              openDialog('EDIT_APP', { appId })
             }}
           >
             <FontAwesomeIcon icon={faPen} />

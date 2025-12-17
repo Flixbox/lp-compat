@@ -1,7 +1,7 @@
 import { type App, SCRAPER_BASE_URL } from '@lp-compat/shared'
 import { createMutatorStore } from '@/store/_fetcher'
 
-export const getPlayStoreData = createMutatorStore<string>(
+export const $getPlayStoreData = createMutatorStore<string>(
   async ({ data: appId }) => {
     const res = await fetch(`${SCRAPER_BASE_URL}/app`, {
       method: 'POST',
@@ -22,7 +22,7 @@ export const getPlayStoreData = createMutatorStore<string>(
   { throttleCalls: false },
 )
 
-export const searchPlayStoreData = createMutatorStore<string>(
+export const $searchPlayStoreData = createMutatorStore<string>(
   async ({ data: query }) => {
     const res = await fetch(`${SCRAPER_BASE_URL}/search`, {
       method: 'POST',

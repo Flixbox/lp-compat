@@ -6,7 +6,7 @@ import {
 } from '@lp-compat/shared'
 import { createFetcherStore, createMutatorStore } from '@/store/_fetcher'
 
-export const appsStore = createFetcherStore<App[]>(['/apps/read'], {
+export const $apps = createFetcherStore<App[]>(['/apps/read'], {
   fetcher: async () => {
     const response = await fetch(`${APPS_WORKER_BASE_URL}/read`)
     if (!response.ok) throw new Error(`Failed to load apps: ${response.status}`)
@@ -14,7 +14,7 @@ export const appsStore = createFetcherStore<App[]>(['/apps/read'], {
   },
 })
 
-export const addApp = createMutatorStore<{
+export const $addApp = createMutatorStore<{
   app: App
   discordUser: DiscordUser
 }>(async ({ data: { app, discordUser } }) => {
@@ -32,11 +32,11 @@ export const addApp = createMutatorStore<{
     throw new Error(`Failed to add app via worker: ${res.status} ${text}`)
   }
   const data = await res.json()
-  appsStore.revalidate()
+  $apps.revalidate()
   return data
 })
 
-export const editApp = createMutatorStore<{
+export const $editApp = createMutatorStore<{
   app: App
   discordUser: DiscordUser
 }>(async ({ data: { app, discordUser } }) => {
@@ -54,6 +54,6 @@ export const editApp = createMutatorStore<{
     throw new Error(`Failed to edit app via worker: ${res.status} ${text}`)
   }
   const data = await res.json()
-  appsStore.revalidate()
+  $apps.revalidate()
   return data
 })

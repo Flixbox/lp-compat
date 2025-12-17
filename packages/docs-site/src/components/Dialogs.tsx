@@ -24,19 +24,19 @@ import { useStore } from '@nanostores/react'
 import React, { useEffect, useState } from 'react'
 import { useDebounceValue } from 'usehooks-ts'
 import Custom_features_Example from '@/assets/img/Custom_features_Example.png'
-import { useAppDispatch, useAppSelector } from '@/redux'
-import { closeDialog } from '@/redux/systemSlice'
 import {
-  addApp,
-  appsStore,
-  discordUserQueryStore,
-  editApp,
-  getPlayStoreData,
-  searchPlayStoreData,
+  $addApp,
+  $apps,
+  $dialogs,
+  $discordUserQuery,
+  $editApp,
+  $getPlayStoreData,
+  $searchPlayStoreData,
+  closeDialog,
 } from '@/store'
 
 const Dialogs = () => {
-  const { dialogs } = useAppSelector((state) => state.system)
+  const dialogs = useStore($dialogs)
   return (
     <>{dialogs?.EDIT_APP.open && <EditAppDialog {...dialogs?.EDIT_APP} />}</>
   )
@@ -98,8 +98,7 @@ const EditAppDialog = ({
   open: boolean
   appId?: string
 }) => {
-  const dispatch = useAppDispatch()
-  const { data: apps } = useStore(appsStore)
+  const { data: apps } = useStore($apps)
   const initialAppData =
     apps?.find((app) => app.appId === appId) || ({ appId } as App)
   console.log('initialAppData', initialAppData)
@@ -113,7 +112,7 @@ const EditAppDialog = ({
   >([] as App[])
   const theme = useTheme()
   const features = featureMap(theme as unknown as SharedTheme)
-  const { data, loading } = useStore(discordUserQueryStore)
+  const { data, loading } = useStore($discordUserQuery)
 
   console.log('editState', editState)
 
@@ -131,22 +130,22 @@ const EditAppDialog = ({
 
   const handleClose = () => {
     setEditState({} as App)
-    dispatch(closeDialog({ dialog: 'EDIT_APP' }))
+    closeDialog('EDIT_APP')
   }
 
   useEffect(() => {
     if (!debouncedAppId) return
-    getPlayStoreData
+    $getPlayStoreData
       .mutate(debouncedAppId)
       .then((res) => setGetPlayStoreResult(res as App))
-    searchPlayStoreData
+    $searchPlayStoreData
       .mutate(debouncedAppId)
       .then((res) => setSearchPlayStoreResultById(res as App[]))
   }, [debouncedAppId])
 
   useEffect(() => {
     if (!debouncedTitle) return
-    searchPlayStoreData
+    $searchPlayStoreData
       .mutate(debouncedTitle)
       .then((res) => setSearchPlayStoreResultByTitle(res as App[]))
   }, [debouncedTitle])
@@ -156,12 +155,12 @@ const EditAppDialog = ({
   const handleSave = async () => {
     const user = data
     try {
-      await addApp.mutate({ app: editState, discordUser: user })
+      await $addApp.mutate({ app: editState, discordUser: user })
       console.log('addApp fulfilled')
       handleClose()
     } catch {
       try {
-        await editApp.mutate({ app: editState, discordUser: user })
+        await $editApp.mutate({ app: editState, discordUser: user })
         console.log('editApp fulfilled')
         handleClose()
       } catch {
