@@ -5,7 +5,7 @@ export const $persistedAppsTitleFilter = persistentAtom<string>(
   '',
 )
 
-export const APPS_SORTING_OPTIONS = [
+const APPS_SORTING_OPTIONS = [
   'name-asc',
   'installs-asc',
   'date-modified',
