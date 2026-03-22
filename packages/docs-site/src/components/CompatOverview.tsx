@@ -305,8 +305,8 @@ const CompatComponent = () => {
   const renderedApps = sortedApps.filter((app) => {
     if (!app || !app.appId) return false
     if (
-      app?.title.toLowerCase().indexOf(appTitleFilter) === -1 &&
-      app?.appId.toLowerCase().indexOf(appTitleFilter) === -1
+      app?.title?.toLowerCase().indexOf(appTitleFilter) === -1 &&
+      app?.appId?.toLowerCase().indexOf(appTitleFilter) === -1
     )
       return false
 
