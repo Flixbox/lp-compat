@@ -141,6 +141,7 @@ export default {
 
         const entry: App = {
           ...body.app,
+          dateModified: Date.now(),
           editedBy: {
             userName: body.discordUser.username || "",
             userId: body.discordUser.id || "",
