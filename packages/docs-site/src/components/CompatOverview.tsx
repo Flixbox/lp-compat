@@ -381,11 +381,8 @@ const CompatComponent = () => {
 
                 <Button
                   variant="outlined"
-                  onClick={async () => {
-                    const response = await fetch(
-                      '/lp-compat/lucky-patcher-app-compatibility.json',
-                    )
-                    const json = await response.json()
+                  onClick={() => {
+                    const json = apps
                     const formattedJson = JSON.stringify(json, null, 2)
                     const blob = new Blob([formattedJson], {
                       type: 'application/json',
@@ -397,6 +394,7 @@ const CompatComponent = () => {
                     document.body.appendChild(link)
                     link.click()
                     document.body.removeChild(link)
+                    URL.revokeObjectURL(href)
                   }}
                   style={{ height: '50px', minWidth: '120px' }}
                 >
