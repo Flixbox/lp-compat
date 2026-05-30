@@ -31,6 +31,7 @@
 - Prefer async/await over callbacks
 - After editing any file, check it for issues
 - When fixing issues, operate iteratively. Run the lint command and once you see the first batch of issues, fix them. Then continue running the command and fix. No need to get the whole list at once.
+- Always suffix commits with (closes #<issue-number>) if the commit closes an issue. Ask if you don't have one.
 
 ## Lessons Learned
 - **Git Symlinks on Windows**: Standard symlinks (`mklink`) often require admin privileges. For GitHub compatibility, use `git update-index --add --cacheinfo 120000,<SHA>,<path>` to create Git-native symlinks.
