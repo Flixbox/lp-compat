@@ -23,7 +23,7 @@
   "scripts": {
     "start": "bun run --filter './packages/*' start",
     "format": "biome format --write .",
-    "lint": "bunx npm-run-all --continue-on-error \"lint:*\"",
+    "lint": "bunx npm-run-all --continue-on-error --npm-path bun \"lint:*\"",
     "lint:common": "biome lint .",
     "lint:typecheck": "bun run --filter './packages/*' lint:typecheck",
     "lint:pkgjson": "bunx npm-package-json-lint .",
