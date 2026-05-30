@@ -21,7 +21,7 @@ import {
 } from '@mui/material'
 import { Box } from '@mui/system'
 import { useStore } from '@nanostores/react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDebounceValue } from 'usehooks-ts'
 import Custom_features_Example from '@/assets/img/Custom_features_Example.png'
 import {
@@ -38,7 +38,14 @@ import {
 const Dialogs = () => {
   const dialogs = useStore($dialogs)
   return (
-    <>{dialogs?.EDIT_APP.open && <EditAppDialog {...dialogs?.EDIT_APP} />}</>
+    <>
+      {dialogs?.EDIT_APP.open && (
+        <EditAppDialog
+          key={dialogs?.EDIT_APP.appId || (dialogs?.EDIT_APP.open ? 'open' : 'closed')}
+          {...dialogs?.EDIT_APP}
+        />
+      )}
+    </>
   )
 }
 
@@ -99,10 +106,14 @@ const EditAppDialog = ({
   appId?: string
 }) => {
   const { data: apps } = useStore($apps)
-  const initialAppData =
-    apps?.find((app) => app.appId === appId) || ({ appId } as App)
-  console.log('initialAppData', initialAppData)
-  const [editState, setEditState] = useState<App>({ ...initialAppData } as App)
+  const [editState, setEditState] = useState<App>({ appId: appId || '', features: [] } as unknown as App)
+
+  useEffect(() => {
+    if (open) {
+      const initialAppData = apps?.find((app) => app.appId === appId) || ({ appId: appId || '', features: [] } as unknown as App)
+      setEditState(initialAppData)
+    }
+  }, [open, apps, appId])
   const [error, setError] = useState(false)
   const [getPlayStoreResult, setGetPlayStoreResult] = useState<App>({} as App)
   const [searchPlayStoreResultByTitle, setSearchPlayStoreResultByTitle] =
@@ -129,7 +140,6 @@ const EditAppDialog = ({
   }
 
   const handleClose = () => {
-    setEditState({} as App)
     closeDialog('EDIT_APP')
   }
 
@@ -176,7 +186,7 @@ const EditAppDialog = ({
 
   return (
     <Dialog fullScreen open={open} onClose={handleClose}>
-      {open && Object.keys(editState).length !== 0 && (
+      {open && (
         <>
           <AppBar sx={{ position: 'relative' }}>
             <Toolbar>
