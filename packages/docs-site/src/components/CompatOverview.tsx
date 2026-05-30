@@ -300,15 +300,23 @@ const CompatComponent = () => {
     $apps.revalidate()
   }
 
+  const matchedGenre = Array.from(new Set(apps.map((app) => app.genre))).find(
+    (genre) => genre?.toLowerCase() === appTitleFilter,
+  )
+
   const sortedApps = sortOptions[sorting].getSortedApps()
 
   const renderedApps = sortedApps.filter((app) => {
     if (!app || !app.appId) return false
-    if (
-      app?.title?.toLowerCase().indexOf(appTitleFilter) === -1 &&
-      app?.appId?.toLowerCase().indexOf(appTitleFilter) === -1
-    )
+
+    if (matchedGenre) {
+      if (app.genre !== matchedGenre) return false
+    } else if (
+      app.title?.toLowerCase().indexOf(appTitleFilter) === -1 &&
+      app.appId?.toLowerCase().indexOf(appTitleFilter) === -1
+    ) {
       return false
+    }
 
     let shouldRenderApp = false
     onlyShowTheseCategories.forEach((category) => {
@@ -437,6 +445,12 @@ const CompatComponent = () => {
               $persistedAppsTitleFilter.set(e.currentTarget.value.toLowerCase())
             }
           />
+
+          {appTitleFilter && matchedGenre && (
+            <Typography variant="caption" sx={{ color: 'grey', ml: 1 }}>
+              Filtered for category: "{matchedGenre}"
+            </Typography>
+          )}
 
           {visibilitySettings.map(({ id, title }) => (
             <ListItem key={id}>
