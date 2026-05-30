@@ -513,6 +513,7 @@ const AppTile = ({ app }: { app: App }) => {
     adSupported,
     offersIAP,
     IAPRange,
+    version,
   } = app
 
   return (
@@ -552,6 +553,9 @@ const AppTile = ({ app }: { app: App }) => {
               <Typography variant="subtitle2">🎥🚫 No ads</Typography>
             )}
           </Box>
+          {version && (
+            <Typography variant="subtitle2">📦 v{version}</Typography>
+          )}
           <Box display="flex" justifyContent="space-between" flexWrap="wrap">
             <Typography variant="subtitle2">{genre}</Typography>
             {dateModified && (
