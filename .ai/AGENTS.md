@@ -12,7 +12,9 @@
 
 ## Code style
 - TypeScript strict mode
-- The following types/pieces of code are banned: "any", "object", "as unknown as".
+- The following types/pieces of code are banned: "any", "object", "as unknown as", "useCallback", "useMemo".
+- We use the React Compiler, so `useCallback` and `useMemo` are strictly banned.
+- Recreating objects, arrays, and functions on every render is encouraged and preferred over memoization.
 - Type everything properly.
 - Single quotes, no semicolons
 - Prefer `const func = () => {}` over `function func() {}`
@@ -23,7 +25,7 @@
 - We use nanostores, not redux or react-query. Check the @/stores folder when you navigate packages/docs-site. One store per file, split things if you hit this limit. All requests, mutations, and other shared data handling must use nanostores.
 
 ## Agent instructions
-- When you're done, use the full `bun run lint` command in the root of the monorepo to check for issues
+- When you're done, you MUST ALWAYS use the full `bun lint` command in the root of the monorepo to check for issues. Partial lints are not allowed for final verification.
 - When working inside packages/docs-site, always check astro.config.ts first
 - Document new functions with JSDoc
 - Prefer async/await over callbacks
