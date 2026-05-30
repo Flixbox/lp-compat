@@ -1,7 +1,8 @@
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+﻿import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   type App,
+  EMPTY_APP,
   featureMap,
   type Theme as SharedTheme,
 } from '@lp-compat/shared'
@@ -21,6 +22,7 @@ import {
 } from '@mui/material'
 import { Box } from '@mui/system'
 import { useStore } from '@nanostores/react'
+import type { ImageMetadata } from 'astro'
 import { useEffect, useState } from 'react'
 import { useDebounceValue } from 'usehooks-ts'
 import Custom_features_Example from '@/assets/img/Custom_features_Example.png'
@@ -98,6 +100,8 @@ const SearchResult = ({
   )
 }
 
+
+
 const EditAppDialog = ({
   open,
   appId = '',
@@ -106,11 +110,12 @@ const EditAppDialog = ({
   appId?: string
 }) => {
   const { data: apps } = useStore($apps)
-  const [editState, setEditState] = useState<App>({ appId: appId || '', features: [] } as unknown as App)
+  const [editState, setEditState] = useState<App>({ ...EMPTY_APP, appId: appId || '' })
 
   useEffect(() => {
     if (open) {
-      const initialAppData = apps?.find((app) => app.appId === appId) || ({ appId: appId || '', features: [] } as unknown as App)
+      const initialAppData = apps?.find((app) => app.appId === appId) ||
+        ({ ...EMPTY_APP, appId: appId || '', updated: Date.now(), dateModified: Date.now() })
       setEditState(initialAppData)
     }
   }, [open, apps, appId])
@@ -275,7 +280,7 @@ const EditAppDialog = ({
           <Box m={1} />
           <Box m={1}>
             <img
-              src={Custom_features_Example.src}
+              src={(Custom_features_Example as unknown as ImageMetadata).src || (Custom_features_Example as string)}
               alt="Custom features example"
             />
           </Box>
