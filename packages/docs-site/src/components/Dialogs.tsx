@@ -280,7 +280,7 @@ const EditAppDialog = ({
           <Box m={1} />
           <Box m={1}>
             <img
-              src={(Custom_features_Example as unknown as ImageMetadata).src || (Custom_features_Example as string)}
+              src={(Custom_features_Example as unknown as ImageMetadata).src || (Custom_features_Example as unknown as string)}
               alt="Custom features example"
             />
           </Box>
