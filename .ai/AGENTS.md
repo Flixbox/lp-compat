@@ -32,3 +32,7 @@
 - After editing any file, check it for issues
 - When fixing issues, operate iteratively. Run the lint command and once you see the first batch of issues, fix them. Then continue running the command and fix. No need to get the whole list at once.
 
+## Lessons Learned
+- **Git Symlinks on Windows**: Standard symlinks (`mklink`) often require admin privileges. For GitHub compatibility, use `git update-index --add --cacheinfo 120000,<SHA>,<path>` to create Git-native symlinks.
+- **React Compiler**: Manual memoization (`useMemo`, `useCallback`) should be avoided as the compiler handles optimizations automatically.
+- **NanoStores State**: When using `useState` initialized from props/stores, ensure you use `useEffect` to reset the local state when the source data changes, especially if components might be reused.
