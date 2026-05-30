@@ -18,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   type App,
   getFeature,
+  isSame,
+  contains,
   type Theme as SharedTheme,
 } from '@lp-compat/shared'
 import {
@@ -301,7 +303,7 @@ const CompatComponent = () => {
   }
 
   const matchedGenre = Array.from(new Set(apps.map((app) => app.genre))).find(
-    (genre) => genre?.toLowerCase() === appTitleFilter,
+    (genre) => isSame(genre, appTitleFilter),
   )
 
   const sortedApps = sortOptions[sorting].getSortedApps()
@@ -310,10 +312,10 @@ const CompatComponent = () => {
     if (!app || !app.appId) return false
 
     if (matchedGenre) {
-      if (app.genre !== matchedGenre) return false
+      if (!isSame(app.genre, matchedGenre)) return false
     } else if (
-      app.title?.toLowerCase().indexOf(appTitleFilter) === -1 &&
-      app.appId?.toLowerCase().indexOf(appTitleFilter) === -1
+      !contains(app.title, appTitleFilter) &&
+      !contains(app.appId, appTitleFilter)
     ) {
       return false
     }
@@ -447,7 +449,10 @@ const CompatComponent = () => {
           />
 
           {appTitleFilter && matchedGenre && (
-            <Typography variant="caption" sx={{ color: 'grey', ml: 1 }}>
+            <Typography
+              variant="caption"
+              sx={{ color: 'grey', ml: 1, display: 'block' }}
+            >
               Filtered for category: "{matchedGenre}"
             </Typography>
           )}
