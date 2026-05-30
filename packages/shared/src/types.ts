@@ -51,4 +51,38 @@ interface EnqueueAppRequest {
   discordUser: DiscordUserQueryResult;
 }
 
+const EMPTY_APP: App = {
+  appId: '',
+  features: [],
+  title: '',
+  summary: '',
+  installs: '0',
+  minInstalls: 0,
+  price: 0,
+  free: true,
+  score: 0,
+  scoreText: '0',
+  priceText: 'Free',
+  androidVersion: 'Any',
+  androidVersionText: 'Any',
+  developer: '',
+  developerId: '',
+  genre: '',
+  genreId: '',
+  icon: '',
+  headerImage: '',
+  screenshots: [],
+  adSupported: false,
+  updated: 0,
+  version: '1.0.0',
+  recentChanges: '',
+  url: '',
+  dateModified: 0,
+  editedBy: {
+    userName: '',
+    userId: '',
+  },
+};
+
 export type { App, DiscordUserQueryResult, DiscordUser, EnqueueAppRequest };
+export { EMPTY_APP };
