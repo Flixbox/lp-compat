@@ -311,13 +311,15 @@ const CompatComponent = () => {
   const renderedApps = sortedApps.filter((app) => {
     if (!app || !app.appId) return false
 
-    if (matchedGenre) {
-      if (!isSame(app.genre, matchedGenre)) return false
-    } else if (
-      !contains(app.title, appTitleFilter) &&
-      !contains(app.appId, appTitleFilter)
-    ) {
-      return false
+    if (appTitleFilter) {
+      if (matchedGenre) {
+        if (!isSame(app.genre, matchedGenre)) return false
+      } else if (
+        !contains(app.title, appTitleFilter) &&
+        !contains(app.appId, appTitleFilter)
+      ) {
+        return false
+      }
     }
 
     let shouldRenderApp = false
