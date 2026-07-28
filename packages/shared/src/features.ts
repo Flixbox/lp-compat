@@ -55,6 +55,7 @@ const featureMap = (theme = createTheme()): Record<string, Feature> => ({
     label: "Some in-app purchases need to be redeemed after every restart",
     color: theme.palette.warning.main,
   },
+  
   "account-login": {
     label: "Account login works!",
     color: theme.palette.info.main,
@@ -157,7 +158,7 @@ const featureMap = (theme = createTheme()): Record<string, Feature> => ({
   },
   "special-patch-integrity-signature": {
     label:
-      "Select patch option: Removes integrity check and signature verification",
+      "Select patch option: Remove integrity check and signature verification",
     color: theme.palette.info.main,
   },
   "special-patch-fake-modified-apk": {
@@ -173,9 +174,9 @@ const featureMap = (theme = createTheme()): Record<string, Feature> => ({
       "Select patch option: Support patch for Inapp emulation (Reassembly Dex)",
     color: theme.palette.info.main,
   },
-  "special-patch-revanced": {
+  "special-patch-morphe": {
     label:
-      "You can use [ReVanced Manager](https://revanced.app/download) to patch this app",
+      "You can use [Morphe](https://morphe.software/) to patch this app",
     color: theme.palette.info.main,
   },
   "may-require-root": {
@@ -220,7 +221,7 @@ const featureMap = (theme = createTheme()): Record<string, Feature> => ({
     color: theme.palette.success.main,
   },
   "appstore-happymod": {
-    label: "Modded version on Happymod works",
+    label: "Patched APK download available on Happymod",
     color: theme.palette.info.main,
   },
   fmhy: {
